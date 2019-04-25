@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * BatchPayments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class BatchPayments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'batch_payments' => '\OpenAPI\Client\Model\BatchPayment[]'
+        'batch_payments' => '\SidneyAllen\XeroPHP\Model\BatchPayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BatchPayments implements ModelInterface, ArrayAccess
     /**
      * Gets batch_payments
      *
-     * @return \OpenAPI\Client\Model\BatchPayment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\BatchPayment[]|null
      */
     public function getBatchPayments()
     {
@@ -217,7 +217,7 @@ class BatchPayments implements ModelInterface, ArrayAccess
     /**
      * Sets batch_payments
      *
-     * @param \OpenAPI\Client\Model\BatchPayment[]|null $batch_payments batch_payments
+     * @param \SidneyAllen\XeroPHP\Model\BatchPayment[]|null $batch_payments batch_payments
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * BrandingThemes Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branding_themes' => '\OpenAPI\Client\Model\BrandingTheme[]'
+        'branding_themes' => '\SidneyAllen\XeroPHP\Model\BrandingTheme[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
     /**
      * Gets branding_themes
      *
-     * @return \OpenAPI\Client\Model\BrandingTheme[]|null
+     * @return \SidneyAllen\XeroPHP\Model\BrandingTheme[]|null
      */
     public function getBrandingThemes()
     {
@@ -217,7 +217,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
     /**
      * Sets branding_themes
      *
-     * @param \OpenAPI\Client\Model\BrandingTheme[]|null $branding_themes branding_themes
+     * @param \SidneyAllen\XeroPHP\Model\BrandingTheme[]|null $branding_themes branding_themes
      *
      * @return $this
      */

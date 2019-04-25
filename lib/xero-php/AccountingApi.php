@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace SidneyAllen\XeroPHP\xero-php;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use SidneyAllen\XeroPHP\ApiException;
+use SidneyAllen\XeroPHP\Configuration;
+use SidneyAllen\XeroPHP\HeaderSelector;
+use SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * AccountingApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -92,11 +92,11 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
-     * @param  \OpenAPI\Client\Model\Account $account Request of type Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createAccount($account)
     {
@@ -109,11 +109,11 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
-     * @param  \OpenAPI\Client\Model\Account $account Request of type Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createAccountWithHttpInfo($account)
     {
@@ -150,32 +150,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Accounts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Accounts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Accounts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Accounts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -194,7 +194,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Accounts',
+                        '\SidneyAllen\XeroPHP\Model\Accounts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -217,7 +217,7 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
-     * @param  \OpenAPI\Client\Model\Account $account Request of type Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -237,14 +237,14 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
-     * @param  \OpenAPI\Client\Model\Account $account Request of type Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createAccountAsyncWithHttpInfo($account)
     {
-        $returnType = '\OpenAPI\Client\Model\Accounts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
         $request = $this->createAccountRequest($account);
 
         return $this->client
@@ -284,7 +284,7 @@ class AccountingApi
     /**
      * Create request for operation 'createAccount'
      *
-     * @param  \OpenAPI\Client\Model\Account $account Request of type Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -387,9 +387,9 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createAccountAttachmentByFileName($account_id, $file_name, $body)
     {
@@ -406,9 +406,9 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createAccountAttachmentByFileNameWithHttpInfo($account_id, $file_name, $body)
     {
@@ -445,32 +445,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -489,7 +489,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -497,7 +497,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -543,7 +543,7 @@ class AccountingApi
      */
     public function createAccountAttachmentByFileNameAsyncWithHttpInfo($account_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createAccountAttachmentByFileNameRequest($account_id, $file_name, $body);
 
         return $this->client
@@ -712,12 +712,12 @@ class AccountingApi
      *
      * Allows you to create a spend or receive money transaction
      *
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions bank_transactions (required)
      * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransactions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\BankTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransaction($bank_transactions, $summarize_errors = null)
     {
@@ -730,12 +730,12 @@ class AccountingApi
      *
      * Allows you to create a spend or receive money transaction
      *
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransactions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransactionWithHttpInfo($bank_transactions, $summarize_errors = null)
     {
@@ -772,32 +772,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -816,7 +816,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransactions',
+                        '\SidneyAllen\XeroPHP\Model\BankTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -824,7 +824,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -839,7 +839,7 @@ class AccountingApi
      *
      * Allows you to create a spend or receive money transaction
      *
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional)
      *
      * @throws \InvalidArgumentException
@@ -860,7 +860,7 @@ class AccountingApi
      *
      * Allows you to create a spend or receive money transaction
      *
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional)
      *
      * @throws \InvalidArgumentException
@@ -868,7 +868,7 @@ class AccountingApi
      */
     public function createBankTransactionAsyncWithHttpInfo($bank_transactions, $summarize_errors = null)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
         $request = $this->createBankTransactionRequest($bank_transactions, $summarize_errors);
 
         return $this->client
@@ -908,7 +908,7 @@ class AccountingApi
     /**
      * Create request for operation 'createBankTransaction'
      *
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional)
      *
      * @throws \InvalidArgumentException
@@ -1016,9 +1016,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransactionAttachmentByFileName($bank_transaction_id, $file_name, $body)
     {
@@ -1035,9 +1035,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransactionAttachmentByFileNameWithHttpInfo($bank_transaction_id, $file_name, $body)
     {
@@ -1074,32 +1074,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1118,7 +1118,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1126,7 +1126,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1172,7 +1172,7 @@ class AccountingApi
      */
     public function createBankTransactionAttachmentByFileNameAsyncWithHttpInfo($bank_transaction_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createBankTransactionAttachmentByFileNameRequest($bank_transaction_id, $file_name, $body);
 
         return $this->client
@@ -1342,11 +1342,11 @@ class AccountingApi
      * Allows you to create history record for a bank transactions
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransactionHistoryRecord($bank_transaction_id, $history_records)
     {
@@ -1360,11 +1360,11 @@ class AccountingApi
      * Allows you to create history record for a bank transactions
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransactionHistoryRecordWithHttpInfo($bank_transaction_id, $history_records)
     {
@@ -1401,32 +1401,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1445,7 +1445,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1453,7 +1453,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1469,7 +1469,7 @@ class AccountingApi
      * Allows you to create history record for a bank transactions
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1490,14 +1490,14 @@ class AccountingApi
      * Allows you to create history record for a bank transactions
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBankTransactionHistoryRecordAsyncWithHttpInfo($bank_transaction_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createBankTransactionHistoryRecordRequest($bank_transaction_id, $history_records);
 
         return $this->client
@@ -1538,7 +1538,7 @@ class AccountingApi
      * Create request for operation 'createBankTransactionHistoryRecord'
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1651,11 +1651,11 @@ class AccountingApi
      *
      * Allows you to create a bank transfers
      *
-     * @param  \OpenAPI\Client\Model\BankTransfers $bank_transfers bank_transfers (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransfers $bank_transfers bank_transfers (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransfers|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\BankTransfers|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransfer($bank_transfers)
     {
@@ -1668,11 +1668,11 @@ class AccountingApi
      *
      * Allows you to create a bank transfers
      *
-     * @param  \OpenAPI\Client\Model\BankTransfers $bank_transfers (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransfers $bank_transfers (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransfers|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransfers|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransferWithHttpInfo($bank_transfers)
     {
@@ -1709,32 +1709,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransfers' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransfers' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransfers', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransfers';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1753,7 +1753,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransfers',
+                        '\SidneyAllen\XeroPHP\Model\BankTransfers',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1761,7 +1761,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1776,7 +1776,7 @@ class AccountingApi
      *
      * Allows you to create a bank transfers
      *
-     * @param  \OpenAPI\Client\Model\BankTransfers $bank_transfers (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransfers $bank_transfers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1796,14 +1796,14 @@ class AccountingApi
      *
      * Allows you to create a bank transfers
      *
-     * @param  \OpenAPI\Client\Model\BankTransfers $bank_transfers (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransfers $bank_transfers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBankTransferAsyncWithHttpInfo($bank_transfers)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransfers';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
         $request = $this->createBankTransferRequest($bank_transfers);
 
         return $this->client
@@ -1843,7 +1843,7 @@ class AccountingApi
     /**
      * Create request for operation 'createBankTransfer'
      *
-     * @param  \OpenAPI\Client\Model\BankTransfers $bank_transfers (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransfers $bank_transfers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1944,9 +1944,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransferAttachmentByFileName($bank_transfer_id, $file_name, $body)
     {
@@ -1961,9 +1961,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransferAttachmentByFileNameWithHttpInfo($bank_transfer_id, $file_name, $body)
     {
@@ -2000,32 +2000,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2044,7 +2044,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2052,7 +2052,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2098,7 +2098,7 @@ class AccountingApi
      */
     public function createBankTransferAttachmentByFileNameAsyncWithHttpInfo($bank_transfer_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createBankTransferAttachmentByFileNameRequest($bank_transfer_id, $file_name, $body);
 
         return $this->client
@@ -2266,11 +2266,11 @@ class AccountingApi
      * Operation createBankTransferHistoryRecord
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBankTransferHistoryRecord($bank_transfer_id, $history_records)
     {
@@ -2282,11 +2282,11 @@ class AccountingApi
      * Operation createBankTransferHistoryRecordWithHttpInfo
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBankTransferHistoryRecordWithHttpInfo($bank_transfer_id, $history_records)
     {
@@ -2323,32 +2323,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2367,7 +2367,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2375,7 +2375,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2391,7 +2391,7 @@ class AccountingApi
      * 
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2412,14 +2412,14 @@ class AccountingApi
      * 
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBankTransferHistoryRecordAsyncWithHttpInfo($bank_transfer_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createBankTransferHistoryRecordRequest($bank_transfer_id, $history_records);
 
         return $this->client
@@ -2460,7 +2460,7 @@ class AccountingApi
      * Create request for operation 'createBankTransferHistoryRecord'
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2573,11 +2573,11 @@ class AccountingApi
      *
      * Create one or many BatchPayments for invoices
      *
-     * @param  \OpenAPI\Client\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchPayments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\BatchPayments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBatchPayment($batch_payments)
     {
@@ -2590,11 +2590,11 @@ class AccountingApi
      *
      * Create one or many BatchPayments for invoices
      *
-     * @param  \OpenAPI\Client\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchPayments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BatchPayments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBatchPaymentWithHttpInfo($batch_payments)
     {
@@ -2631,32 +2631,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchPayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BatchPayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchPayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BatchPayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchPayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BatchPayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2675,7 +2675,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchPayments',
+                        '\SidneyAllen\XeroPHP\Model\BatchPayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2683,7 +2683,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2698,7 +2698,7 @@ class AccountingApi
      *
      * Create one or many BatchPayments for invoices
      *
-     * @param  \OpenAPI\Client\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2718,14 +2718,14 @@ class AccountingApi
      *
      * Create one or many BatchPayments for invoices
      *
-     * @param  \OpenAPI\Client\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBatchPaymentAsyncWithHttpInfo($batch_payments)
     {
-        $returnType = '\OpenAPI\Client\Model\BatchPayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BatchPayments';
         $request = $this->createBatchPaymentRequest($batch_payments);
 
         return $this->client
@@ -2765,7 +2765,7 @@ class AccountingApi
     /**
      * Create request for operation 'createBatchPayment'
      *
-     * @param  \OpenAPI\Client\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2865,11 +2865,11 @@ class AccountingApi
      * Allows you to create a history record for a Batch Payment
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBatchPaymentHistoryRecord($batch_payment_id, $history_records)
     {
@@ -2883,11 +2883,11 @@ class AccountingApi
      * Allows you to create a history record for a Batch Payment
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBatchPaymentHistoryRecordWithHttpInfo($batch_payment_id, $history_records)
     {
@@ -2924,32 +2924,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2968,7 +2968,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2976,7 +2976,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2992,7 +2992,7 @@ class AccountingApi
      * Allows you to create a history record for a Batch Payment
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3013,14 +3013,14 @@ class AccountingApi
      * Allows you to create a history record for a Batch Payment
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBatchPaymentHistoryRecordAsyncWithHttpInfo($batch_payment_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createBatchPaymentHistoryRecordRequest($batch_payment_id, $history_records);
 
         return $this->client
@@ -3061,7 +3061,7 @@ class AccountingApi
      * Create request for operation 'createBatchPaymentHistoryRecord'
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3175,11 +3175,11 @@ class AccountingApi
      * Allow for the creation of new custom payment service for specified Branding Theme
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \OpenAPI\Client\Model\PaymentService $payment_service payment_service (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentService $payment_service payment_service (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaymentServices|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createBrandingThemePaymentServices($branding_theme_id, $payment_service)
     {
@@ -3193,11 +3193,11 @@ class AccountingApi
      * Allow for the creation of new custom payment service for specified Branding Theme
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \OpenAPI\Client\Model\PaymentService $payment_service (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentService $payment_service (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaymentServices|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBrandingThemePaymentServicesWithHttpInfo($branding_theme_id, $payment_service)
     {
@@ -3234,32 +3234,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaymentServices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PaymentServices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaymentServices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaymentServices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3278,7 +3278,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaymentServices',
+                        '\SidneyAllen\XeroPHP\Model\PaymentServices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3286,7 +3286,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3302,7 +3302,7 @@ class AccountingApi
      * Allow for the creation of new custom payment service for specified Branding Theme
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \OpenAPI\Client\Model\PaymentService $payment_service (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentService $payment_service (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3323,14 +3323,14 @@ class AccountingApi
      * Allow for the creation of new custom payment service for specified Branding Theme
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \OpenAPI\Client\Model\PaymentService $payment_service (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentService $payment_service (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBrandingThemePaymentServicesAsyncWithHttpInfo($branding_theme_id, $payment_service)
     {
-        $returnType = '\OpenAPI\Client\Model\PaymentServices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
         $request = $this->createBrandingThemePaymentServicesRequest($branding_theme_id, $payment_service);
 
         return $this->client
@@ -3371,7 +3371,7 @@ class AccountingApi
      * Create request for operation 'createBrandingThemePaymentServices'
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \OpenAPI\Client\Model\PaymentService $payment_service (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentService $payment_service (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3482,11 +3482,11 @@ class AccountingApi
     /**
      * Operation createContact
      *
-     * @param  \OpenAPI\Client\Model\Contact $contact contact (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Contact $contact contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createContact($contact)
     {
@@ -3497,11 +3497,11 @@ class AccountingApi
     /**
      * Operation createContactWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\Contact $contact (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactWithHttpInfo($contact)
     {
@@ -3538,32 +3538,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Contacts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Contacts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Contacts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Contacts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3582,7 +3582,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Contacts',
+                        '\SidneyAllen\XeroPHP\Model\Contacts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3590,7 +3590,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3605,7 +3605,7 @@ class AccountingApi
      *
      * 
      *
-     * @param  \OpenAPI\Client\Model\Contact $contact (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3625,14 +3625,14 @@ class AccountingApi
      *
      * 
      *
-     * @param  \OpenAPI\Client\Model\Contact $contact (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createContactAsyncWithHttpInfo($contact)
     {
-        $returnType = '\OpenAPI\Client\Model\Contacts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
         $request = $this->createContactRequest($contact);
 
         return $this->client
@@ -3672,7 +3672,7 @@ class AccountingApi
     /**
      * Create request for operation 'createContact'
      *
-     * @param  \OpenAPI\Client\Model\Contact $contact (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3773,9 +3773,9 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createContactAttachmentByFileName($contact_id, $file_name, $body)
     {
@@ -3790,9 +3790,9 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactAttachmentByFileNameWithHttpInfo($contact_id, $file_name, $body)
     {
@@ -3829,32 +3829,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3873,7 +3873,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3881,7 +3881,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3927,7 +3927,7 @@ class AccountingApi
      */
     public function createContactAttachmentByFileNameAsyncWithHttpInfo($contact_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createContactAttachmentByFileNameRequest($contact_id, $file_name, $body);
 
         return $this->client
@@ -4096,11 +4096,11 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups contact_groups (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ContactGroups|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createContactGroup($contact_groups = null)
     {
@@ -4113,11 +4113,11 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ContactGroups|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactGroupWithHttpInfo($contact_groups = null)
     {
@@ -4154,32 +4154,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ContactGroups' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ContactGroups' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactGroups', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ContactGroups';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4198,7 +4198,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ContactGroups',
+                        '\SidneyAllen\XeroPHP\Model\ContactGroups',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4206,7 +4206,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4221,7 +4221,7 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4241,14 +4241,14 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createContactGroupAsyncWithHttpInfo($contact_groups = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ContactGroups';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
         $request = $this->createContactGroupRequest($contact_groups);
 
         return $this->client
@@ -4288,7 +4288,7 @@ class AccountingApi
     /**
      * Create request for operation 'createContactGroup'
      *
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4382,11 +4382,11 @@ class AccountingApi
      * Allows you to add Contacts to a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts contacts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createContactGroupContacts($contact_group_id, $contacts = null)
     {
@@ -4400,11 +4400,11 @@ class AccountingApi
      * Allows you to add Contacts to a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactGroupContactsWithHttpInfo($contact_group_id, $contacts = null)
     {
@@ -4441,32 +4441,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Contacts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Contacts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Contacts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Contacts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4485,7 +4485,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Contacts',
+                        '\SidneyAllen\XeroPHP\Model\Contacts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4493,7 +4493,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4509,7 +4509,7 @@ class AccountingApi
      * Allows you to add Contacts to a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4530,14 +4530,14 @@ class AccountingApi
      * Allows you to add Contacts to a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createContactGroupContactsAsyncWithHttpInfo($contact_group_id, $contacts = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Contacts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
         $request = $this->createContactGroupContactsRequest($contact_group_id, $contacts);
 
         return $this->client
@@ -4578,7 +4578,7 @@ class AccountingApi
      * Create request for operation 'createContactGroupContacts'
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4686,11 +4686,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an Contact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createContactHistory($contact_id, $history_records)
     {
@@ -4704,11 +4704,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an Contact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createContactHistoryWithHttpInfo($contact_id, $history_records)
     {
@@ -4745,32 +4745,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4789,7 +4789,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4797,7 +4797,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4813,7 +4813,7 @@ class AccountingApi
      * Allows you to retrieve a history records of an Contact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4834,14 +4834,14 @@ class AccountingApi
      * Allows you to retrieve a history records of an Contact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createContactHistoryAsyncWithHttpInfo($contact_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createContactHistoryRequest($contact_id, $history_records);
 
         return $this->client
@@ -4882,7 +4882,7 @@ class AccountingApi
      * Create request for operation 'createContactHistory'
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4996,11 +4996,11 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes credit_notes (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNotes|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createCreditNote($summarize_errors = null, $credit_notes = null)
     {
@@ -5014,11 +5014,11 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNotes|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCreditNoteWithHttpInfo($summarize_errors = null, $credit_notes = null)
     {
@@ -5055,32 +5055,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNotes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CreditNotes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNotes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNotes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5099,7 +5099,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNotes',
+                        '\SidneyAllen\XeroPHP\Model\CreditNotes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5107,7 +5107,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5123,7 +5123,7 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5144,14 +5144,14 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCreditNoteAsyncWithHttpInfo($summarize_errors = null, $credit_notes = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNotes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
         $request = $this->createCreditNoteRequest($summarize_errors, $credit_notes);
 
         return $this->client
@@ -5192,7 +5192,7 @@ class AccountingApi
      * Create request for operation 'createCreditNote'
      *
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5290,11 +5290,11 @@ class AccountingApi
      * Allows you to create Allocation on CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations allocations (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createCreditNoteAllocation($credit_note_id, $allocations = null)
     {
@@ -5308,11 +5308,11 @@ class AccountingApi
      * Allows you to create Allocation on CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCreditNoteAllocationWithHttpInfo($credit_note_id, $allocations = null)
     {
@@ -5349,32 +5349,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Allocations' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Allocations' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Allocations', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Allocations';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5393,7 +5393,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Allocations',
+                        '\SidneyAllen\XeroPHP\Model\Allocations',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5401,7 +5401,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5417,7 +5417,7 @@ class AccountingApi
      * Allows you to create Allocation on CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5438,14 +5438,14 @@ class AccountingApi
      * Allows you to create Allocation on CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCreditNoteAllocationAsyncWithHttpInfo($credit_note_id, $allocations = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Allocations';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
         $request = $this->createCreditNoteAllocationRequest($credit_note_id, $allocations);
 
         return $this->client
@@ -5486,7 +5486,7 @@ class AccountingApi
      * Create request for operation 'createCreditNoteAllocation'
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5597,9 +5597,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createCreditNoteAttachmentByFileName($credit_note_id, $file_name, $body)
     {
@@ -5616,9 +5616,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body)
     {
@@ -5655,32 +5655,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5699,7 +5699,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5707,7 +5707,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5753,7 +5753,7 @@ class AccountingApi
      */
     public function createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
 
         return $this->client
@@ -5923,11 +5923,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createCreditNoteHistory($credit_note_id, $history_records)
     {
@@ -5941,11 +5941,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCreditNoteHistoryWithHttpInfo($credit_note_id, $history_records)
     {
@@ -5982,32 +5982,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6026,7 +6026,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6034,7 +6034,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6050,7 +6050,7 @@ class AccountingApi
      * Allows you to retrieve a history records of an CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6071,14 +6071,14 @@ class AccountingApi
      * Allows you to retrieve a history records of an CreditNote
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCreditNoteHistoryAsyncWithHttpInfo($credit_note_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createCreditNoteHistoryRequest($credit_note_id, $history_records);
 
         return $this->client
@@ -6119,7 +6119,7 @@ class AccountingApi
      * Create request for operation 'createCreditNoteHistory'
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6230,11 +6230,11 @@ class AccountingApi
     /**
      * Operation createCurrency
      *
-     * @param  \OpenAPI\Client\Model\Currencies $currencies currencies (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies currencies (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Currencies
+     * @return \SidneyAllen\XeroPHP\Model\Currencies
      */
     public function createCurrency($currencies)
     {
@@ -6245,11 +6245,11 @@ class AccountingApi
     /**
      * Operation createCurrencyWithHttpInfo
      *
-     * @param  \OpenAPI\Client\Model\Currencies $currencies (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCurrencyWithHttpInfo($currencies)
     {
@@ -6286,20 +6286,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Currencies' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Currencies' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Currencies', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Currencies', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Currencies';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6318,7 +6318,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Currencies',
+                        '\SidneyAllen\XeroPHP\Model\Currencies',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6333,7 +6333,7 @@ class AccountingApi
      *
      * 
      *
-     * @param  \OpenAPI\Client\Model\Currencies $currencies (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6353,14 +6353,14 @@ class AccountingApi
      *
      * 
      *
-     * @param  \OpenAPI\Client\Model\Currencies $currencies (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createCurrencyAsyncWithHttpInfo($currencies)
     {
-        $returnType = '\OpenAPI\Client\Model\Currencies';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
         $request = $this->createCurrencyRequest($currencies);
 
         return $this->client
@@ -6400,7 +6400,7 @@ class AccountingApi
     /**
      * Create request for operation 'createCurrency'
      *
-     * @param  \OpenAPI\Client\Model\Currencies $currencies (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6499,11 +6499,11 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
-     * @param  \OpenAPI\Client\Model\Employees $employees employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees employees (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employees|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createEmployee($employees)
     {
@@ -6516,11 +6516,11 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employees|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createEmployeeWithHttpInfo($employees)
     {
@@ -6557,32 +6557,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employees', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6601,7 +6601,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employees',
+                        '\SidneyAllen\XeroPHP\Model\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6609,7 +6609,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6624,7 +6624,7 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6644,14 +6644,14 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createEmployeeAsyncWithHttpInfo($employees)
     {
-        $returnType = '\OpenAPI\Client\Model\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
         $request = $this->createEmployeeRequest($employees);
 
         return $this->client
@@ -6691,7 +6691,7 @@ class AccountingApi
     /**
      * Create request for operation 'createEmployee'
      *
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6790,12 +6790,12 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseClaims|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createExpenseClaim($expense_claims, $summarize_errors = null)
     {
@@ -6808,12 +6808,12 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseClaims|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createExpenseClaimWithHttpInfo($expense_claims, $summarize_errors = null)
     {
@@ -6850,32 +6850,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseClaims' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ExpenseClaims' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseClaims', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6894,7 +6894,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseClaims',
+                        '\SidneyAllen\XeroPHP\Model\ExpenseClaims',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6902,7 +6902,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6917,7 +6917,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
@@ -6938,7 +6938,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
@@ -6946,7 +6946,7 @@ class AccountingApi
      */
     public function createExpenseClaimAsyncWithHttpInfo($expense_claims, $summarize_errors = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
         $request = $this->createExpenseClaimRequest($expense_claims, $summarize_errors);
 
         return $this->client
@@ -6986,7 +6986,7 @@ class AccountingApi
     /**
      * Create request for operation 'createExpenseClaim'
      *
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
@@ -7091,11 +7091,11 @@ class AccountingApi
      * Allows you to create a history records of an ExpenseClaim
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function createExpenseClaimHistory($expense_claim_id, $history_records)
     {
@@ -7109,11 +7109,11 @@ class AccountingApi
      * Allows you to create a history records of an ExpenseClaim
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function createExpenseClaimHistoryWithHttpInfo($expense_claim_id, $history_records)
     {
@@ -7150,20 +7150,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7182,7 +7182,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7198,7 +7198,7 @@ class AccountingApi
      * Allows you to create a history records of an ExpenseClaim
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7219,14 +7219,14 @@ class AccountingApi
      * Allows you to create a history records of an ExpenseClaim
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createExpenseClaimHistoryRequest($expense_claim_id, $history_records);
 
         return $this->client
@@ -7267,7 +7267,7 @@ class AccountingApi
      * Create request for operation 'createExpenseClaimHistory'
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7380,12 +7380,12 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
-     * @param  \OpenAPI\Client\Model\Invoices $invoices invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Invoices|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createInvoice($invoices, $summarize_errors = null)
     {
@@ -7398,12 +7398,12 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Invoices|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createInvoiceWithHttpInfo($invoices, $summarize_errors = null)
     {
@@ -7440,32 +7440,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Invoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Invoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Invoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Invoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7484,7 +7484,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Invoices',
+                        '\SidneyAllen\XeroPHP\Model\Invoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7492,7 +7492,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7507,7 +7507,7 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -7528,7 +7528,7 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -7536,7 +7536,7 @@ class AccountingApi
      */
     public function createInvoiceAsyncWithHttpInfo($invoices, $summarize_errors = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Invoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
         $request = $this->createInvoiceRequest($invoices, $summarize_errors);
 
         return $this->client
@@ -7576,7 +7576,7 @@ class AccountingApi
     /**
      * Create request for operation 'createInvoice'
      *
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -7684,9 +7684,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createInvoiceAttachmentByFileName($invoice_id, $file_name, $body)
     {
@@ -7703,9 +7703,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body)
     {
@@ -7742,32 +7742,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7786,7 +7786,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7794,7 +7794,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7840,7 +7840,7 @@ class AccountingApi
      */
     public function createInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
 
         return $this->client
@@ -8010,11 +8010,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an invoice
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createInvoiceHistory($invoice_id, $history_records)
     {
@@ -8028,11 +8028,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an invoice
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createInvoiceHistoryWithHttpInfo($invoice_id, $history_records)
     {
@@ -8069,32 +8069,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8113,7 +8113,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8121,7 +8121,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8137,7 +8137,7 @@ class AccountingApi
      * Allows you to retrieve a history records of an invoice
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8158,14 +8158,14 @@ class AccountingApi
      * Allows you to retrieve a history records of an invoice
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createInvoiceHistoryAsyncWithHttpInfo($invoice_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createInvoiceHistoryRequest($invoice_id, $history_records);
 
         return $this->client
@@ -8206,7 +8206,7 @@ class AccountingApi
      * Create request for operation 'createInvoiceHistory'
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8319,11 +8319,11 @@ class AccountingApi
      *
      * Allows you to create an item
      *
-     * @param  \OpenAPI\Client\Model\Items $items items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items items (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Items|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createItem($items)
     {
@@ -8336,11 +8336,11 @@ class AccountingApi
      *
      * Allows you to create an item
      *
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Items|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createItemWithHttpInfo($items)
     {
@@ -8377,32 +8377,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Items' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Items' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Items', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Items';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Items';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8421,7 +8421,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Items',
+                        '\SidneyAllen\XeroPHP\Model\Items',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8429,7 +8429,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8444,7 +8444,7 @@ class AccountingApi
      *
      * Allows you to create an item
      *
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8464,14 +8464,14 @@ class AccountingApi
      *
      * Allows you to create an item
      *
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createItemAsyncWithHttpInfo($items)
     {
-        $returnType = '\OpenAPI\Client\Model\Items';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Items';
         $request = $this->createItemRequest($items);
 
         return $this->client
@@ -8511,7 +8511,7 @@ class AccountingApi
     /**
      * Create request for operation 'createItem'
      *
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8611,11 +8611,11 @@ class AccountingApi
      * Allows you to create a history record for items
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function createItemHistory($item_id, $history_records)
     {
@@ -8629,11 +8629,11 @@ class AccountingApi
      * Allows you to create a history record for items
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function createItemHistoryWithHttpInfo($item_id, $history_records)
     {
@@ -8670,20 +8670,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8702,7 +8702,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8718,7 +8718,7 @@ class AccountingApi
      * Allows you to create a history record for items
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8739,14 +8739,14 @@ class AccountingApi
      * Allows you to create a history record for items
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createItemHistoryAsyncWithHttpInfo($item_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createItemHistoryRequest($item_id, $history_records);
 
         return $this->client
@@ -8787,7 +8787,7 @@ class AccountingApi
      * Create request for operation 'createItemHistory'
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8900,11 +8900,11 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions linked_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\LinkedTransactions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createLinkedTransaction($linked_transactions)
     {
@@ -8917,11 +8917,11 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\LinkedTransactions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createLinkedTransactionWithHttpInfo($linked_transactions)
     {
@@ -8958,32 +8958,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\LinkedTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\LinkedTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LinkedTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9002,7 +9002,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LinkedTransactions',
+                        '\SidneyAllen\XeroPHP\Model\LinkedTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9010,7 +9010,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9025,7 +9025,7 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9045,14 +9045,14 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createLinkedTransactionAsyncWithHttpInfo($linked_transactions)
     {
-        $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
         $request = $this->createLinkedTransactionRequest($linked_transactions);
 
         return $this->client
@@ -9092,7 +9092,7 @@ class AccountingApi
     /**
      * Create request for operation 'createLinkedTransaction'
      *
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9191,11 +9191,11 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals manual_journals (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ManualJournals|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createManualJournal($manual_journals)
     {
@@ -9208,11 +9208,11 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ManualJournals|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createManualJournalWithHttpInfo($manual_journals)
     {
@@ -9249,32 +9249,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ManualJournals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ManualJournals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ManualJournals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ManualJournals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9293,7 +9293,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ManualJournals',
+                        '\SidneyAllen\XeroPHP\Model\ManualJournals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9301,7 +9301,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9316,7 +9316,7 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9336,14 +9336,14 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createManualJournalAsyncWithHttpInfo($manual_journals)
     {
-        $returnType = '\OpenAPI\Client\Model\ManualJournals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
         $request = $this->createManualJournalRequest($manual_journals);
 
         return $this->client
@@ -9383,7 +9383,7 @@ class AccountingApi
     /**
      * Create request for operation 'createManualJournal'
      *
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9486,9 +9486,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createManualJournalAttachmentByFileName($manual_journal_id, $file_name, $body)
     {
@@ -9505,9 +9505,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body)
     {
@@ -9544,32 +9544,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9588,7 +9588,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9596,7 +9596,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9642,7 +9642,7 @@ class AccountingApi
      */
     public function createManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
 
         return $this->client
@@ -9812,11 +9812,11 @@ class AccountingApi
      * Allows you to retrieve Allocations for overpayments
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createOverpaymentAllocation($overpayment_id, $allocations)
     {
@@ -9830,11 +9830,11 @@ class AccountingApi
      * Allows you to retrieve Allocations for overpayments
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOverpaymentAllocationWithHttpInfo($overpayment_id, $allocations)
     {
@@ -9871,32 +9871,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Allocations' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Allocations' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Allocations', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Allocations';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -9915,7 +9915,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Allocations',
+                        '\SidneyAllen\XeroPHP\Model\Allocations',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9923,7 +9923,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9939,7 +9939,7 @@ class AccountingApi
      * Allows you to retrieve Allocations for overpayments
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9960,14 +9960,14 @@ class AccountingApi
      * Allows you to retrieve Allocations for overpayments
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createOverpaymentAllocationAsyncWithHttpInfo($overpayment_id, $allocations)
     {
-        $returnType = '\OpenAPI\Client\Model\Allocations';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
         $request = $this->createOverpaymentAllocationRequest($overpayment_id, $allocations);
 
         return $this->client
@@ -10008,7 +10008,7 @@ class AccountingApi
      * Create request for operation 'createOverpaymentAllocation'
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10122,11 +10122,11 @@ class AccountingApi
      * Allows you to create history records of an Overpayment
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createOverpaymentHistory($overpayment_id, $history_records)
     {
@@ -10140,11 +10140,11 @@ class AccountingApi
      * Allows you to create history records of an Overpayment
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createOverpaymentHistoryWithHttpInfo($overpayment_id, $history_records)
     {
@@ -10181,32 +10181,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -10225,7 +10225,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10233,7 +10233,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10249,7 +10249,7 @@ class AccountingApi
      * Allows you to create history records of an Overpayment
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10270,14 +10270,14 @@ class AccountingApi
      * Allows you to create history records of an Overpayment
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createOverpaymentHistoryAsyncWithHttpInfo($overpayment_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createOverpaymentHistoryRequest($overpayment_id, $history_records);
 
         return $this->client
@@ -10318,7 +10318,7 @@ class AccountingApi
      * Create request for operation 'createOverpaymentHistory'
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10431,11 +10431,11 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
-     * @param  \OpenAPI\Client\Model\Payments $payments payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments payments (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Payments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPayment($payments)
     {
@@ -10448,11 +10448,11 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Payments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPaymentWithHttpInfo($payments)
     {
@@ -10489,32 +10489,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Payments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Payments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Payments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Payments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -10533,7 +10533,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Payments',
+                        '\SidneyAllen\XeroPHP\Model\Payments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10541,7 +10541,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10556,7 +10556,7 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10576,14 +10576,14 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPaymentAsyncWithHttpInfo($payments)
     {
-        $returnType = '\OpenAPI\Client\Model\Payments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
         $request = $this->createPaymentRequest($payments);
 
         return $this->client
@@ -10623,7 +10623,7 @@ class AccountingApi
     /**
      * Create request for operation 'createPayment'
      *
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10723,11 +10723,11 @@ class AccountingApi
      * Allows you to create a history record for a payment
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPaymentHistory($payment_id, $history_records)
     {
@@ -10741,11 +10741,11 @@ class AccountingApi
      * Allows you to create a history record for a payment
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPaymentHistoryWithHttpInfo($payment_id, $history_records)
     {
@@ -10782,32 +10782,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -10826,7 +10826,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10834,7 +10834,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10850,7 +10850,7 @@ class AccountingApi
      * Allows you to create a history record for a payment
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10871,14 +10871,14 @@ class AccountingApi
      * Allows you to create a history record for a payment
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPaymentHistoryAsyncWithHttpInfo($payment_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createPaymentHistoryRequest($payment_id, $history_records);
 
         return $this->client
@@ -10919,7 +10919,7 @@ class AccountingApi
      * Create request for operation 'createPaymentHistory'
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11032,11 +11032,11 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
-     * @param  \OpenAPI\Client\Model\PaymentServices $payment_services payment_services (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services payment_services (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaymentServices|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPaymentService($payment_services)
     {
@@ -11049,11 +11049,11 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
-     * @param  \OpenAPI\Client\Model\PaymentServices $payment_services (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaymentServices|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPaymentServiceWithHttpInfo($payment_services)
     {
@@ -11090,32 +11090,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaymentServices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PaymentServices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaymentServices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaymentServices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -11134,7 +11134,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaymentServices',
+                        '\SidneyAllen\XeroPHP\Model\PaymentServices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11142,7 +11142,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11157,7 +11157,7 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
-     * @param  \OpenAPI\Client\Model\PaymentServices $payment_services (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11177,14 +11177,14 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
-     * @param  \OpenAPI\Client\Model\PaymentServices $payment_services (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPaymentServiceAsyncWithHttpInfo($payment_services)
     {
-        $returnType = '\OpenAPI\Client\Model\PaymentServices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
         $request = $this->createPaymentServiceRequest($payment_services);
 
         return $this->client
@@ -11224,7 +11224,7 @@ class AccountingApi
     /**
      * Create request for operation 'createPaymentService'
      *
-     * @param  \OpenAPI\Client\Model\PaymentServices $payment_services (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11324,11 +11324,11 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $prepayment_id prepayment_id (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPrepaymentAllocation($prepayment_id, $allocations)
     {
@@ -11342,11 +11342,11 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $prepayment_id (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Allocations|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPrepaymentAllocationWithHttpInfo($prepayment_id, $allocations)
     {
@@ -11383,32 +11383,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Allocations' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Allocations' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Allocations', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Allocations';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -11427,7 +11427,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Allocations',
+                        '\SidneyAllen\XeroPHP\Model\Allocations',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11435,7 +11435,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11451,7 +11451,7 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $prepayment_id (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11472,14 +11472,14 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $prepayment_id (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPrepaymentAllocationAsyncWithHttpInfo($prepayment_id, $allocations)
     {
-        $returnType = '\OpenAPI\Client\Model\Allocations';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
         $request = $this->createPrepaymentAllocationRequest($prepayment_id, $allocations);
 
         return $this->client
@@ -11520,7 +11520,7 @@ class AccountingApi
      * Create request for operation 'createPrepaymentAllocation'
      *
      * @param  string $prepayment_id (required)
-     * @param  \OpenAPI\Client\Model\Allocations $allocations (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11634,11 +11634,11 @@ class AccountingApi
      * Allows you to create a history record for an Prepayment
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPrepaymentHistory($prepayment_id, $history_records)
     {
@@ -11652,11 +11652,11 @@ class AccountingApi
      * Allows you to create a history record for an Prepayment
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPrepaymentHistoryWithHttpInfo($prepayment_id, $history_records)
     {
@@ -11693,32 +11693,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -11737,7 +11737,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11745,7 +11745,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11761,7 +11761,7 @@ class AccountingApi
      * Allows you to create a history record for an Prepayment
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11782,14 +11782,14 @@ class AccountingApi
      * Allows you to create a history record for an Prepayment
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPrepaymentHistoryAsyncWithHttpInfo($prepayment_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createPrepaymentHistoryRequest($prepayment_id, $history_records);
 
         return $this->client
@@ -11830,7 +11830,7 @@ class AccountingApi
      * Create request for operation 'createPrepaymentHistory'
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11943,12 +11943,12 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PurchaseOrders|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPurchaseOrder($purchase_orders, $summarize_errors = null)
     {
@@ -11961,12 +11961,12 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PurchaseOrders|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPurchaseOrderWithHttpInfo($purchase_orders, $summarize_errors = null)
     {
@@ -12003,32 +12003,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PurchaseOrders' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PurchaseOrders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PurchaseOrders', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12047,7 +12047,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PurchaseOrders',
+                        '\SidneyAllen\XeroPHP\Model\PurchaseOrders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12055,7 +12055,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12070,7 +12070,7 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
@@ -12091,7 +12091,7 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
@@ -12099,7 +12099,7 @@ class AccountingApi
      */
     public function createPurchaseOrderAsyncWithHttpInfo($purchase_orders, $summarize_errors = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
         $request = $this->createPurchaseOrderRequest($purchase_orders, $summarize_errors);
 
         return $this->client
@@ -12139,7 +12139,7 @@ class AccountingApi
     /**
      * Create request for operation 'createPurchaseOrder'
      *
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
@@ -12244,11 +12244,11 @@ class AccountingApi
      * Allows you to create HistoryRecord for purchase orders
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createPurchaseOrderHistory($purchase_order_id, $history_records)
     {
@@ -12262,11 +12262,11 @@ class AccountingApi
      * Allows you to create HistoryRecord for purchase orders
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPurchaseOrderHistoryWithHttpInfo($purchase_order_id, $history_records)
     {
@@ -12303,32 +12303,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12347,7 +12347,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12355,7 +12355,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12371,7 +12371,7 @@ class AccountingApi
      * Allows you to create HistoryRecord for purchase orders
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12392,14 +12392,14 @@ class AccountingApi
      * Allows you to create HistoryRecord for purchase orders
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createPurchaseOrderHistoryRequest($purchase_order_id, $history_records);
 
         return $this->client
@@ -12440,7 +12440,7 @@ class AccountingApi
      * Create request for operation 'createPurchaseOrderHistory'
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12553,11 +12553,11 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
-     * @param  \OpenAPI\Client\Model\Receipts $receipts receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts receipts (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Receipts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createReceipt($receipts)
     {
@@ -12570,11 +12570,11 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Receipts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReceiptWithHttpInfo($receipts)
     {
@@ -12611,32 +12611,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Receipts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Receipts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Receipts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Receipts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12655,7 +12655,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Receipts',
+                        '\SidneyAllen\XeroPHP\Model\Receipts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12663,7 +12663,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12678,7 +12678,7 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12698,14 +12698,14 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createReceiptAsyncWithHttpInfo($receipts)
     {
-        $returnType = '\OpenAPI\Client\Model\Receipts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
         $request = $this->createReceiptRequest($receipts);
 
         return $this->client
@@ -12745,7 +12745,7 @@ class AccountingApi
     /**
      * Create request for operation 'createReceipt'
      *
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12848,9 +12848,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createReceiptAttachmentByFileName($receipt_id, $file_name, $body)
     {
@@ -12867,9 +12867,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body)
     {
@@ -12906,32 +12906,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -12950,7 +12950,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12958,7 +12958,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13004,7 +13004,7 @@ class AccountingApi
      */
     public function createReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
 
         return $this->client
@@ -13174,11 +13174,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an Receipt
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createReceiptHistory($receipt_id, $history_records)
     {
@@ -13192,11 +13192,11 @@ class AccountingApi
      * Allows you to retrieve a history records of an Receipt
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReceiptHistoryWithHttpInfo($receipt_id, $history_records)
     {
@@ -13233,32 +13233,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13277,7 +13277,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13285,7 +13285,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13301,7 +13301,7 @@ class AccountingApi
      * Allows you to retrieve a history records of an Receipt
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13322,14 +13322,14 @@ class AccountingApi
      * Allows you to retrieve a history records of an Receipt
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createReceiptHistoryAsyncWithHttpInfo($receipt_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createReceiptHistoryRequest($receipt_id, $history_records);
 
         return $this->client
@@ -13370,7 +13370,7 @@ class AccountingApi
      * Create request for operation 'createReceiptHistory'
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -13487,9 +13487,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createRepeatingInvoiceAttachmentByFileName($repeating_invoice_id, $file_name, $body)
     {
@@ -13506,9 +13506,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body)
     {
@@ -13545,32 +13545,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13589,7 +13589,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13597,7 +13597,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13643,7 +13643,7 @@ class AccountingApi
      */
     public function createRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->createRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
 
         return $this->client
@@ -13813,11 +13813,11 @@ class AccountingApi
      * Allows you to create history for a repeating invoice
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createRepeatingInvoiceHistory($repeating_invoice_id, $history_records)
     {
@@ -13831,11 +13831,11 @@ class AccountingApi
      * Allows you to create history for a repeating invoice
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id, $history_records)
     {
@@ -13872,32 +13872,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -13916,7 +13916,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13924,7 +13924,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13940,7 +13940,7 @@ class AccountingApi
      * Allows you to create history for a repeating invoice
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13961,14 +13961,14 @@ class AccountingApi
      * Allows you to create history for a repeating invoice
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id, $history_records)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->createRepeatingInvoiceHistoryRequest($repeating_invoice_id, $history_records);
 
         return $this->client
@@ -14009,7 +14009,7 @@ class AccountingApi
      * Create request for operation 'createRepeatingInvoiceHistory'
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \OpenAPI\Client\Model\HistoryRecords $history_records (required)
+     * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14122,11 +14122,11 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates tax_rates (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRates|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createTaxRate($tax_rates)
     {
@@ -14139,11 +14139,11 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRates|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTaxRateWithHttpInfo($tax_rates)
     {
@@ -14180,32 +14180,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRates' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TaxRates' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRates', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRates';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -14224,7 +14224,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRates',
+                        '\SidneyAllen\XeroPHP\Model\TaxRates',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14232,7 +14232,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14247,7 +14247,7 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14267,14 +14267,14 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTaxRateAsyncWithHttpInfo($tax_rates)
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRates';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
         $request = $this->createTaxRateRequest($tax_rates);
 
         return $this->client
@@ -14314,7 +14314,7 @@ class AccountingApi
     /**
      * Create request for operation 'createTaxRate'
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14413,11 +14413,11 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category tracking_category (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createTrackingCategory($tracking_category)
     {
@@ -14430,11 +14430,11 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTrackingCategoryWithHttpInfo($tracking_category)
     {
@@ -14471,32 +14471,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingCategories' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingCategories' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingCategories', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -14515,7 +14515,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingCategories',
+                        '\SidneyAllen\XeroPHP\Model\TrackingCategories',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14523,7 +14523,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14538,7 +14538,7 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14558,14 +14558,14 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTrackingCategoryAsyncWithHttpInfo($tracking_category)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
         $request = $this->createTrackingCategoryRequest($tracking_category);
 
         return $this->client
@@ -14605,7 +14605,7 @@ class AccountingApi
     /**
      * Create request for operation 'createTrackingCategory'
      *
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14705,11 +14705,11 @@ class AccountingApi
      * Allows you to create options for a specified tracking category
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingOption $tracking_option tracking_option (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option tracking_option (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingOptions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function createTrackingOptions($tracking_category_id, $tracking_option)
     {
@@ -14723,11 +14723,11 @@ class AccountingApi
      * Allows you to create options for a specified tracking category
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingOption $tracking_option (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingOptions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option)
     {
@@ -14764,32 +14764,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingOptions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingOptions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingOptions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingOptions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingOptions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -14808,7 +14808,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingOptions',
+                        '\SidneyAllen\XeroPHP\Model\TrackingOptions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14816,7 +14816,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14832,7 +14832,7 @@ class AccountingApi
      * Allows you to create options for a specified tracking category
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingOption $tracking_option (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14853,14 +14853,14 @@ class AccountingApi
      * Allows you to create options for a specified tracking category
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingOption $tracking_option (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingOptions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
         $request = $this->createTrackingOptionsRequest($tracking_category_id, $tracking_option);
 
         return $this->client
@@ -14901,7 +14901,7 @@ class AccountingApi
      * Create request for operation 'createTrackingOptions'
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingOption $tracking_option (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -15016,9 +15016,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function deleteAccount($account_id)
     {
@@ -15033,9 +15033,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteAccountWithHttpInfo($account_id)
     {
@@ -15072,32 +15072,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Accounts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Accounts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Accounts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Accounts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -15116,7 +15116,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Accounts',
+                        '\SidneyAllen\XeroPHP\Model\Accounts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15124,7 +15124,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15166,7 +15166,7 @@ class AccountingApi
      */
     public function deleteAccountAsyncWithHttpInfo($account_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Accounts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
         $request = $this->deleteAccountRequest($account_id);
 
         return $this->client
@@ -15313,7 +15313,7 @@ class AccountingApi
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -15330,7 +15330,7 @@ class AccountingApi
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -15373,7 +15373,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15567,7 +15567,7 @@ class AccountingApi
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -15583,7 +15583,7 @@ class AccountingApi
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -15795,7 +15795,7 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -15811,7 +15811,7 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -15854,7 +15854,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16031,7 +16031,7 @@ class AccountingApi
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -16047,7 +16047,7 @@ class AccountingApi
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -16090,7 +16090,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16266,11 +16266,11 @@ class AccountingApi
      * Allows you to update a specified payment for invoices and credit notes
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\Payments $payments payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments payments (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Payments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function deletePayment($payment_id, $payments)
     {
@@ -16284,11 +16284,11 @@ class AccountingApi
      * Allows you to update a specified payment for invoices and credit notes
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Payments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deletePaymentWithHttpInfo($payment_id, $payments)
     {
@@ -16325,32 +16325,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Payments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Payments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Payments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Payments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -16369,7 +16369,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Payments',
+                        '\SidneyAllen\XeroPHP\Model\Payments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16377,7 +16377,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16393,7 +16393,7 @@ class AccountingApi
      * Allows you to update a specified payment for invoices and credit notes
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16414,14 +16414,14 @@ class AccountingApi
      * Allows you to update a specified payment for invoices and credit notes
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deletePaymentAsyncWithHttpInfo($payment_id, $payments)
     {
-        $returnType = '\OpenAPI\Client\Model\Payments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
         $request = $this->deletePaymentRequest($payment_id, $payments);
 
         return $this->client
@@ -16462,7 +16462,7 @@ class AccountingApi
      * Create request for operation 'deletePayment'
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \OpenAPI\Client\Model\Payments $payments (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16577,9 +16577,9 @@ class AccountingApi
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
     public function deleteTrackingCategory($tracking_category_id)
     {
@@ -16594,9 +16594,9 @@ class AccountingApi
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteTrackingCategoryWithHttpInfo($tracking_category_id)
     {
@@ -16633,32 +16633,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingCategories' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingCategories' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingCategories', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -16677,7 +16677,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingCategories',
+                        '\SidneyAllen\XeroPHP\Model\TrackingCategories',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16685,7 +16685,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16727,7 +16727,7 @@ class AccountingApi
      */
     public function deleteTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
         $request = $this->deleteTrackingCategoryRequest($tracking_category_id);
 
         return $this->client
@@ -16874,9 +16874,9 @@ class AccountingApi
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingOptions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function deleteTrackingOptions($tracking_category_id, $tracking_option_id)
     {
@@ -16892,9 +16892,9 @@ class AccountingApi
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingOptions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option_id)
     {
@@ -16931,32 +16931,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingOptions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingOptions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingOptions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingOptions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingOptions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -16975,7 +16975,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingOptions',
+                        '\SidneyAllen\XeroPHP\Model\TrackingOptions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16983,7 +16983,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17027,7 +17027,7 @@ class AccountingApi
      */
     public function deleteTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option_id)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingOptions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
         $request = $this->deleteTrackingOptionsRequest($tracking_category_id, $tracking_option_id);
 
         return $this->client
@@ -17187,9 +17187,9 @@ class AccountingApi
      * Allows you to email a copy of invoice to related Contact
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\RequestEmpty $request_empty request_empty (required)
+     * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty request_empty (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -17204,9 +17204,9 @@ class AccountingApi
      * Allows you to email a copy of invoice to related Contact
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\RequestEmpty $request_empty (required)
+     * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -17249,7 +17249,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17265,7 +17265,7 @@ class AccountingApi
      * Allows you to email a copy of invoice to related Contact
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\RequestEmpty $request_empty (required)
+     * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -17286,7 +17286,7 @@ class AccountingApi
      * Allows you to email a copy of invoice to related Contact
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\RequestEmpty $request_empty (required)
+     * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -17323,7 +17323,7 @@ class AccountingApi
      * Create request for operation 'emailInvoice'
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\RequestEmpty $request_empty (required)
+     * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -17438,9 +17438,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Accounts
+     * @return \SidneyAllen\XeroPHP\Model\Accounts
      */
     public function getAccount($account_id)
     {
@@ -17455,9 +17455,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Accounts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Accounts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountWithHttpInfo($account_id)
     {
@@ -17494,20 +17494,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Accounts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Accounts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Accounts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Accounts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -17526,7 +17526,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Accounts',
+                        '\SidneyAllen\XeroPHP\Model\Accounts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17568,7 +17568,7 @@ class AccountingApi
      */
     public function getAccountAsyncWithHttpInfo($account_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Accounts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
         $request = $this->getAccountRequest($account_id);
 
         return $this->client
@@ -17716,7 +17716,7 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -17735,7 +17735,7 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -18026,7 +18026,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for Attachment object (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -18045,7 +18045,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for Attachment object (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -18334,9 +18334,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for Account object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getAccountAttachments($account_id)
     {
@@ -18351,9 +18351,9 @@ class AccountingApi
      *
      * @param  string $account_id Unique identifier for Account object (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountAttachmentsWithHttpInfo($account_id)
     {
@@ -18390,20 +18390,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -18422,7 +18422,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18464,7 +18464,7 @@ class AccountingApi
      */
     public function getAccountAttachmentsAsyncWithHttpInfo($account_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getAccountAttachmentsRequest($account_id);
 
         return $this->client
@@ -18612,9 +18612,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Accounts
+     * @return \SidneyAllen\XeroPHP\Model\Accounts
      */
     public function getAccounts($if_modified_since = null, $where = null, $order = null)
     {
@@ -18631,9 +18631,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Accounts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Accounts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -18670,20 +18670,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Accounts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Accounts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Accounts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Accounts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -18702,7 +18702,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Accounts',
+                        '\SidneyAllen\XeroPHP\Model\Accounts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18748,7 +18748,7 @@ class AccountingApi
      */
     public function getAccountsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Accounts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
         $request = $this->getAccountsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -18894,9 +18894,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransactions
+     * @return \SidneyAllen\XeroPHP\Model\BankTransactions
      */
     public function getBankTransaction($bank_transaction_id)
     {
@@ -18911,9 +18911,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransactions, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransactions, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransactionWithHttpInfo($bank_transaction_id)
     {
@@ -18950,20 +18950,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -18982,7 +18982,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransactions',
+                        '\SidneyAllen\XeroPHP\Model\BankTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19024,7 +19024,7 @@ class AccountingApi
      */
     public function getBankTransactionAsyncWithHttpInfo($bank_transaction_id)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
         $request = $this->getBankTransactionRequest($bank_transaction_id);
 
         return $this->client
@@ -19172,7 +19172,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -19191,7 +19191,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -19482,7 +19482,7 @@ class AccountingApi
      * @param  string $attachment_id Xero generated unique identifier for an attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -19501,7 +19501,7 @@ class AccountingApi
      * @param  string $attachment_id Xero generated unique identifier for an attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -19790,9 +19790,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getBankTransactionAttachments($bank_transaction_id)
     {
@@ -19807,9 +19807,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransactionAttachmentsWithHttpInfo($bank_transaction_id)
     {
@@ -19846,20 +19846,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -19878,7 +19878,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19920,7 +19920,7 @@ class AccountingApi
      */
     public function getBankTransactionAttachmentsAsyncWithHttpInfo($bank_transaction_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getBankTransactionAttachmentsRequest($bank_transaction_id);
 
         return $this->client
@@ -20069,9 +20069,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransactions
+     * @return \SidneyAllen\XeroPHP\Model\BankTransactions
      */
     public function getBankTransactions($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -20089,9 +20089,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransactions, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransactions, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransactionsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -20128,20 +20128,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20160,7 +20160,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransactions',
+                        '\SidneyAllen\XeroPHP\Model\BankTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20208,7 +20208,7 @@ class AccountingApi
      */
     public function getBankTransactionsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
         $request = $this->getBankTransactionsRequest($if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -20359,9 +20359,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getBankTransactionsHistory($bank_transaction_id)
     {
@@ -20376,9 +20376,9 @@ class AccountingApi
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransactionsHistoryWithHttpInfo($bank_transaction_id)
     {
@@ -20415,20 +20415,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20447,7 +20447,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20489,7 +20489,7 @@ class AccountingApi
      */
     public function getBankTransactionsHistoryAsyncWithHttpInfo($bank_transaction_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getBankTransactionsHistoryRequest($bank_transaction_id);
 
         return $this->client
@@ -20635,9 +20635,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransfers
+     * @return \SidneyAllen\XeroPHP\Model\BankTransfers
      */
     public function getBankTransfer($bank_transfer_id)
     {
@@ -20652,9 +20652,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransfers, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransfers, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransferWithHttpInfo($bank_transfer_id)
     {
@@ -20691,20 +20691,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransfers' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransfers' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransfers', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransfers';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -20723,7 +20723,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransfers',
+                        '\SidneyAllen\XeroPHP\Model\BankTransfers',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20765,7 +20765,7 @@ class AccountingApi
      */
     public function getBankTransferAsyncWithHttpInfo($bank_transfer_id)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransfers';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
         $request = $this->getBankTransferRequest($bank_transfer_id);
 
         return $this->client
@@ -20913,7 +20913,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -20932,7 +20932,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -21223,7 +21223,7 @@ class AccountingApi
      * @param  string $attachment_id Xero generated unique identifier for an Attachment to a bank transfer (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -21242,7 +21242,7 @@ class AccountingApi
      * @param  string $attachment_id Xero generated unique identifier for an Attachment to a bank transfer (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -21531,9 +21531,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getBankTransferAttachments($bank_transfer_id)
     {
@@ -21548,9 +21548,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransferAttachmentsWithHttpInfo($bank_transfer_id)
     {
@@ -21587,20 +21587,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -21619,7 +21619,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21661,7 +21661,7 @@ class AccountingApi
      */
     public function getBankTransferAttachmentsAsyncWithHttpInfo($bank_transfer_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getBankTransferAttachmentsRequest($bank_transfer_id);
 
         return $this->client
@@ -21807,9 +21807,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getBankTransferHistory($bank_transfer_id)
     {
@@ -21824,9 +21824,9 @@ class AccountingApi
      *
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransferHistoryWithHttpInfo($bank_transfer_id)
     {
@@ -21863,20 +21863,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -21895,7 +21895,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21937,7 +21937,7 @@ class AccountingApi
      */
     public function getBankTransferHistoryAsyncWithHttpInfo($bank_transfer_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getBankTransferHistoryRequest($bank_transfer_id);
 
         return $this->client
@@ -22085,9 +22085,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransfers
+     * @return \SidneyAllen\XeroPHP\Model\BankTransfers
      */
     public function getBankTransfers($if_modified_since = null, $where = null, $order = null)
     {
@@ -22104,9 +22104,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransfers, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransfers, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBankTransfersWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -22143,20 +22143,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransfers' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransfers' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransfers', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransfers';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22175,7 +22175,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransfers',
+                        '\SidneyAllen\XeroPHP\Model\BankTransfers',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22221,7 +22221,7 @@ class AccountingApi
      */
     public function getBankTransfersAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransfers';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransfers';
         $request = $this->getBankTransfersRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -22367,9 +22367,9 @@ class AccountingApi
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getBatchPaymentHistory($batch_payment_id)
     {
@@ -22384,9 +22384,9 @@ class AccountingApi
      *
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBatchPaymentHistoryWithHttpInfo($batch_payment_id)
     {
@@ -22423,20 +22423,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22455,7 +22455,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22497,7 +22497,7 @@ class AccountingApi
      */
     public function getBatchPaymentHistoryAsyncWithHttpInfo($batch_payment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getBatchPaymentHistoryRequest($batch_payment_id);
 
         return $this->client
@@ -22645,9 +22645,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchPayments
+     * @return \SidneyAllen\XeroPHP\Model\BatchPayments
      */
     public function getBatchPayments($if_modified_since = null, $where = null, $order = null)
     {
@@ -22664,9 +22664,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchPayments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BatchPayments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBatchPaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -22703,20 +22703,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchPayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BatchPayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchPayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BatchPayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchPayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BatchPayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -22735,7 +22735,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchPayments',
+                        '\SidneyAllen\XeroPHP\Model\BatchPayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22781,7 +22781,7 @@ class AccountingApi
      */
     public function getBatchPaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\BatchPayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BatchPayments';
         $request = $this->getBatchPaymentsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -22927,9 +22927,9 @@ class AccountingApi
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BrandingThemes
+     * @return \SidneyAllen\XeroPHP\Model\BrandingThemes
      */
     public function getBrandingTheme($branding_theme_id)
     {
@@ -22944,9 +22944,9 @@ class AccountingApi
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BrandingThemes, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BrandingThemes, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBrandingThemeWithHttpInfo($branding_theme_id)
     {
@@ -22983,20 +22983,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BrandingThemes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BrandingThemes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BrandingThemes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BrandingThemes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BrandingThemes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BrandingThemes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23015,7 +23015,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BrandingThemes',
+                        '\SidneyAllen\XeroPHP\Model\BrandingThemes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23057,7 +23057,7 @@ class AccountingApi
      */
     public function getBrandingThemeAsyncWithHttpInfo($branding_theme_id)
     {
-        $returnType = '\OpenAPI\Client\Model\BrandingThemes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BrandingThemes';
         $request = $this->getBrandingThemeRequest($branding_theme_id);
 
         return $this->client
@@ -23203,9 +23203,9 @@ class AccountingApi
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaymentServices
+     * @return \SidneyAllen\XeroPHP\Model\PaymentServices
      */
     public function getBrandingThemePaymentServices($branding_theme_id)
     {
@@ -23220,9 +23220,9 @@ class AccountingApi
      *
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaymentServices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBrandingThemePaymentServicesWithHttpInfo($branding_theme_id)
     {
@@ -23259,20 +23259,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaymentServices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PaymentServices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaymentServices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaymentServices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23291,7 +23291,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaymentServices',
+                        '\SidneyAllen\XeroPHP\Model\PaymentServices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23333,7 +23333,7 @@ class AccountingApi
      */
     public function getBrandingThemePaymentServicesAsyncWithHttpInfo($branding_theme_id)
     {
-        $returnType = '\OpenAPI\Client\Model\PaymentServices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
         $request = $this->getBrandingThemePaymentServicesRequest($branding_theme_id);
 
         return $this->client
@@ -23478,9 +23478,9 @@ class AccountingApi
      * Allows you to retrieve all the BrandingThemes
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BrandingThemes
+     * @return \SidneyAllen\XeroPHP\Model\BrandingThemes
      */
     public function getBrandingThemes()
     {
@@ -23494,9 +23494,9 @@ class AccountingApi
      * Allows you to retrieve all the BrandingThemes
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BrandingThemes, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BrandingThemes, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBrandingThemesWithHttpInfo()
     {
@@ -23533,20 +23533,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BrandingThemes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BrandingThemes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BrandingThemes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BrandingThemes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BrandingThemes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BrandingThemes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23565,7 +23565,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BrandingThemes',
+                        '\SidneyAllen\XeroPHP\Model\BrandingThemes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23605,7 +23605,7 @@ class AccountingApi
      */
     public function getBrandingThemesAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\BrandingThemes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BrandingThemes';
         $request = $this->getBrandingThemesRequest();
 
         return $this->client
@@ -23736,9 +23736,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Contacts
+     * @return \SidneyAllen\XeroPHP\Model\Contacts
      */
     public function getContact($contact_id)
     {
@@ -23753,9 +23753,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Contacts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Contacts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactWithHttpInfo($contact_id)
     {
@@ -23792,20 +23792,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Contacts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Contacts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Contacts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Contacts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -23824,7 +23824,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Contacts',
+                        '\SidneyAllen\XeroPHP\Model\Contacts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23866,7 +23866,7 @@ class AccountingApi
      */
     public function getContactAsyncWithHttpInfo($contact_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Contacts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
         $request = $this->getContactRequest($contact_id);
 
         return $this->client
@@ -24014,7 +24014,7 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -24033,7 +24033,7 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -24324,7 +24324,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -24343,7 +24343,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -24632,9 +24632,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getContactAttachments($contact_id)
     {
@@ -24649,9 +24649,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactAttachmentsWithHttpInfo($contact_id)
     {
@@ -24688,20 +24688,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -24720,7 +24720,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24762,7 +24762,7 @@ class AccountingApi
      */
     public function getContactAttachmentsAsyncWithHttpInfo($contact_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getContactAttachmentsRequest($contact_id);
 
         return $this->client
@@ -24908,9 +24908,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CISSettings
+     * @return \SidneyAllen\XeroPHP\Model\CISSettings
      */
     public function getContactCISSettings($contact_id)
     {
@@ -24925,9 +24925,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CISSettings, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CISSettings, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactCISSettingsWithHttpInfo($contact_id)
     {
@@ -24964,20 +24964,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CISSettings' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CISSettings' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CISSettings', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CISSettings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CISSettings';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CISSettings';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -24996,7 +24996,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CISSettings',
+                        '\SidneyAllen\XeroPHP\Model\CISSettings',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25038,7 +25038,7 @@ class AccountingApi
      */
     public function getContactCISSettingsAsyncWithHttpInfo($contact_id)
     {
-        $returnType = '\OpenAPI\Client\Model\CISSettings';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CISSettings';
         $request = $this->getContactCISSettingsRequest($contact_id);
 
         return $this->client
@@ -25184,9 +25184,9 @@ class AccountingApi
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ContactGroups
+     * @return \SidneyAllen\XeroPHP\Model\ContactGroups
      */
     public function getContactGroup($contact_group_id)
     {
@@ -25201,9 +25201,9 @@ class AccountingApi
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactGroupWithHttpInfo($contact_group_id)
     {
@@ -25240,20 +25240,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ContactGroups' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ContactGroups' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactGroups', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ContactGroups';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -25272,7 +25272,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ContactGroups',
+                        '\SidneyAllen\XeroPHP\Model\ContactGroups',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25314,7 +25314,7 @@ class AccountingApi
      */
     public function getContactGroupAsyncWithHttpInfo($contact_group_id)
     {
-        $returnType = '\OpenAPI\Client\Model\ContactGroups';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
         $request = $this->getContactGroupRequest($contact_group_id);
 
         return $this->client
@@ -25461,9 +25461,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ContactGroups
+     * @return \SidneyAllen\XeroPHP\Model\ContactGroups
      */
     public function getContactGroups($where = null, $order = null)
     {
@@ -25479,9 +25479,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactGroupsWithHttpInfo($where = null, $order = null)
     {
@@ -25518,20 +25518,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ContactGroups' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ContactGroups' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactGroups', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ContactGroups';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -25550,7 +25550,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ContactGroups',
+                        '\SidneyAllen\XeroPHP\Model\ContactGroups',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25594,7 +25594,7 @@ class AccountingApi
      */
     public function getContactGroupsAsyncWithHttpInfo($where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ContactGroups';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
         $request = $this->getContactGroupsRequest($where, $order);
 
         return $this->client
@@ -25735,9 +25735,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getContactHistory($contact_id)
     {
@@ -25752,9 +25752,9 @@ class AccountingApi
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactHistoryWithHttpInfo($contact_id)
     {
@@ -25791,20 +25791,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -25823,7 +25823,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25865,7 +25865,7 @@ class AccountingApi
      */
     public function getContactHistoryAsyncWithHttpInfo($contact_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getContactHistoryRequest($contact_id);
 
         return $this->client
@@ -26016,9 +26016,9 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Contacts
+     * @return \SidneyAllen\XeroPHP\Model\Contacts
      */
     public function getContacts($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
@@ -26038,9 +26038,9 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Contacts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Contacts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getContactsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
@@ -26077,20 +26077,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Contacts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Contacts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Contacts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Contacts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -26109,7 +26109,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Contacts',
+                        '\SidneyAllen\XeroPHP\Model\Contacts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26161,7 +26161,7 @@ class AccountingApi
      */
     public function getContactsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Contacts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
         $request = $this->getContactsRequest($if_modified_since, $where, $order, $i_ds, $page, $include_archived);
 
         return $this->client
@@ -26322,9 +26322,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNotes
+     * @return \SidneyAllen\XeroPHP\Model\CreditNotes
      */
     public function getCreditNote($credit_note_id)
     {
@@ -26339,9 +26339,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditNoteWithHttpInfo($credit_note_id)
     {
@@ -26378,20 +26378,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNotes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CreditNotes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNotes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNotes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -26410,7 +26410,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNotes',
+                        '\SidneyAllen\XeroPHP\Model\CreditNotes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26452,7 +26452,7 @@ class AccountingApi
      */
     public function getCreditNoteAsyncWithHttpInfo($credit_note_id)
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNotes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
         $request = $this->getCreditNoteRequest($credit_note_id);
 
         return $this->client
@@ -26599,7 +26599,7 @@ class AccountingApi
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -26617,7 +26617,7 @@ class AccountingApi
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -26891,7 +26891,7 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -26910,7 +26910,7 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -27201,7 +27201,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -27220,7 +27220,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -27509,9 +27509,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getCreditNoteAttachments($credit_note_id)
     {
@@ -27526,9 +27526,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditNoteAttachmentsWithHttpInfo($credit_note_id)
     {
@@ -27565,20 +27565,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -27597,7 +27597,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27639,7 +27639,7 @@ class AccountingApi
      */
     public function getCreditNoteAttachmentsAsyncWithHttpInfo($credit_note_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getCreditNoteAttachmentsRequest($credit_note_id);
 
         return $this->client
@@ -27785,9 +27785,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getCreditNoteHistory($credit_note_id)
     {
@@ -27802,9 +27802,9 @@ class AccountingApi
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditNoteHistoryWithHttpInfo($credit_note_id)
     {
@@ -27841,20 +27841,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -27873,7 +27873,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27915,7 +27915,7 @@ class AccountingApi
      */
     public function getCreditNoteHistoryAsyncWithHttpInfo($credit_note_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getCreditNoteHistoryRequest($credit_note_id);
 
         return $this->client
@@ -28064,9 +28064,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNotes
+     * @return \SidneyAllen\XeroPHP\Model\CreditNotes
      */
     public function getCreditNotes($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -28084,9 +28084,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditNotesWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -28123,20 +28123,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNotes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CreditNotes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNotes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNotes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -28155,7 +28155,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNotes',
+                        '\SidneyAllen\XeroPHP\Model\CreditNotes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28203,7 +28203,7 @@ class AccountingApi
      */
     public function getCreditNotesAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNotes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
         $request = $this->getCreditNotesRequest($if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -28355,9 +28355,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Currencies
+     * @return \SidneyAllen\XeroPHP\Model\Currencies
      */
     public function getCurrencies($where = null, $order = null)
     {
@@ -28373,9 +28373,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCurrenciesWithHttpInfo($where = null, $order = null)
     {
@@ -28412,20 +28412,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Currencies' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Currencies' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Currencies', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Currencies', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Currencies';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -28444,7 +28444,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Currencies',
+                        '\SidneyAllen\XeroPHP\Model\Currencies',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28488,7 +28488,7 @@ class AccountingApi
      */
     public function getCurrenciesAsyncWithHttpInfo($where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Currencies';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
         $request = $this->getCurrenciesRequest($where, $order);
 
         return $this->client
@@ -28629,9 +28629,9 @@ class AccountingApi
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employees
+     * @return \SidneyAllen\XeroPHP\Model\Employees
      */
     public function getEmployee($employee_id)
     {
@@ -28646,9 +28646,9 @@ class AccountingApi
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employees, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Employees, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmployeeWithHttpInfo($employee_id)
     {
@@ -28685,20 +28685,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employees', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -28717,7 +28717,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employees',
+                        '\SidneyAllen\XeroPHP\Model\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28759,7 +28759,7 @@ class AccountingApi
      */
     public function getEmployeeAsyncWithHttpInfo($employee_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
         $request = $this->getEmployeeRequest($employee_id);
 
         return $this->client
@@ -28907,9 +28907,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employees
+     * @return \SidneyAllen\XeroPHP\Model\Employees
      */
     public function getEmployees($if_modified_since = null, $where = null, $order = null)
     {
@@ -28926,9 +28926,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employees, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Employees, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmployeesWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -28965,20 +28965,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employees', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -28997,7 +28997,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employees',
+                        '\SidneyAllen\XeroPHP\Model\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29043,7 +29043,7 @@ class AccountingApi
      */
     public function getEmployeesAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
         $request = $this->getEmployeesRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -29189,9 +29189,9 @@ class AccountingApi
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseClaims
+     * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims
      */
     public function getExpenseClaim($expense_claim_id)
     {
@@ -29206,9 +29206,9 @@ class AccountingApi
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExpenseClaimWithHttpInfo($expense_claim_id)
     {
@@ -29245,20 +29245,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseClaims' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ExpenseClaims' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseClaims', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -29277,7 +29277,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseClaims',
+                        '\SidneyAllen\XeroPHP\Model\ExpenseClaims',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29319,7 +29319,7 @@ class AccountingApi
      */
     public function getExpenseClaimAsyncWithHttpInfo($expense_claim_id)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
         $request = $this->getExpenseClaimRequest($expense_claim_id);
 
         return $this->client
@@ -29465,9 +29465,9 @@ class AccountingApi
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getExpenseClaimHistory($expense_claim_id)
     {
@@ -29482,9 +29482,9 @@ class AccountingApi
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExpenseClaimHistoryWithHttpInfo($expense_claim_id)
     {
@@ -29521,20 +29521,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -29553,7 +29553,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29595,7 +29595,7 @@ class AccountingApi
      */
     public function getExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getExpenseClaimHistoryRequest($expense_claim_id);
 
         return $this->client
@@ -29743,9 +29743,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseClaims
+     * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims
      */
     public function getExpenseClaims($if_modified_since = null, $where = null, $order = null)
     {
@@ -29762,9 +29762,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExpenseClaimsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -29801,20 +29801,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseClaims' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ExpenseClaims' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseClaims', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -29833,7 +29833,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseClaims',
+                        '\SidneyAllen\XeroPHP\Model\ExpenseClaims',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29879,7 +29879,7 @@ class AccountingApi
      */
     public function getExpenseClaimsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
         $request = $this->getExpenseClaimsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -30025,9 +30025,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Invoices
+     * @return \SidneyAllen\XeroPHP\Model\Invoices
      */
     public function getInvoice($invoice_id)
     {
@@ -30042,9 +30042,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoiceWithHttpInfo($invoice_id)
     {
@@ -30081,20 +30081,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Invoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Invoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Invoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Invoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -30113,7 +30113,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Invoices',
+                        '\SidneyAllen\XeroPHP\Model\Invoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30155,7 +30155,7 @@ class AccountingApi
      */
     public function getInvoiceAsyncWithHttpInfo($invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Invoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
         $request = $this->getInvoiceRequest($invoice_id);
 
         return $this->client
@@ -30302,7 +30302,7 @@ class AccountingApi
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -30320,7 +30320,7 @@ class AccountingApi
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -30594,7 +30594,7 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -30613,7 +30613,7 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -30904,7 +30904,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -30923,7 +30923,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -31212,9 +31212,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getInvoiceAttachments($invoice_id)
     {
@@ -31229,9 +31229,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoiceAttachmentsWithHttpInfo($invoice_id)
     {
@@ -31268,20 +31268,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -31300,7 +31300,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31342,7 +31342,7 @@ class AccountingApi
      */
     public function getInvoiceAttachmentsAsyncWithHttpInfo($invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getInvoiceAttachmentsRequest($invoice_id);
 
         return $this->client
@@ -31488,9 +31488,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getInvoiceHistory($invoice_id)
     {
@@ -31505,9 +31505,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoiceHistoryWithHttpInfo($invoice_id)
     {
@@ -31544,20 +31544,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -31576,7 +31576,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31618,7 +31618,7 @@ class AccountingApi
      */
     public function getInvoiceHistoryAsyncWithHttpInfo($invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getInvoiceHistoryRequest($invoice_id);
 
         return $this->client
@@ -31763,9 +31763,9 @@ class AccountingApi
      * Allows you to retrieve invoice reminder settings
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceReminders
+     * @return \SidneyAllen\XeroPHP\Model\InvoiceReminders
      */
     public function getInvoiceReminders()
     {
@@ -31779,9 +31779,9 @@ class AccountingApi
      * Allows you to retrieve invoice reminder settings
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceReminders, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\InvoiceReminders, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoiceRemindersWithHttpInfo()
     {
@@ -31818,20 +31818,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceReminders' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\InvoiceReminders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceReminders', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\InvoiceReminders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceReminders';
+            $returnType = '\SidneyAllen\XeroPHP\Model\InvoiceReminders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -31850,7 +31850,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceReminders',
+                        '\SidneyAllen\XeroPHP\Model\InvoiceReminders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31890,7 +31890,7 @@ class AccountingApi
      */
     public function getInvoiceRemindersAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceReminders';
+        $returnType = '\SidneyAllen\XeroPHP\Model\InvoiceReminders';
         $request = $this->getInvoiceRemindersRequest();
 
         return $this->client
@@ -32031,9 +32031,9 @@ class AccountingApi
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Invoices
+     * @return \SidneyAllen\XeroPHP\Model\Invoices
      */
     public function getInvoices($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
     {
@@ -32058,9 +32058,9 @@ class AccountingApi
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoicesWithHttpInfo($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
     {
@@ -32097,20 +32097,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Invoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Invoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Invoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Invoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -32129,7 +32129,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Invoices',
+                        '\SidneyAllen\XeroPHP\Model\Invoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32191,7 +32191,7 @@ class AccountingApi
      */
     public function getInvoicesAsyncWithHttpInfo($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Invoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
         $request = $this->getInvoicesRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app);
 
         return $this->client
@@ -32377,9 +32377,9 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Items
+     * @return \SidneyAllen\XeroPHP\Model\Items
      */
     public function getItem($item_id)
     {
@@ -32394,9 +32394,9 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Items, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Items, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemWithHttpInfo($item_id)
     {
@@ -32433,20 +32433,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Items' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Items' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Items', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Items';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Items';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -32465,7 +32465,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Items',
+                        '\SidneyAllen\XeroPHP\Model\Items',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32507,7 +32507,7 @@ class AccountingApi
      */
     public function getItemAsyncWithHttpInfo($item_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Items';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Items';
         $request = $this->getItemRequest($item_id);
 
         return $this->client
@@ -32653,9 +32653,9 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getItemHistory($item_id)
     {
@@ -32670,9 +32670,9 @@ class AccountingApi
      *
      * @param  string $item_id Unique identifier for an Item (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemHistoryWithHttpInfo($item_id)
     {
@@ -32709,20 +32709,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -32741,7 +32741,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32783,7 +32783,7 @@ class AccountingApi
      */
     public function getItemHistoryAsyncWithHttpInfo($item_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getItemHistoryRequest($item_id);
 
         return $this->client
@@ -32931,9 +32931,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Items
+     * @return \SidneyAllen\XeroPHP\Model\Items
      */
     public function getItems($if_modified_since = null, $where = null, $order = null)
     {
@@ -32950,9 +32950,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Items, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Items, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -32989,20 +32989,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Items' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Items' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Items', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Items';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Items';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -33021,7 +33021,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Items',
+                        '\SidneyAllen\XeroPHP\Model\Items',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33067,7 +33067,7 @@ class AccountingApi
      */
     public function getItemsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Items';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Items';
         $request = $this->getItemsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -33213,9 +33213,9 @@ class AccountingApi
      *
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Journals
+     * @return \SidneyAllen\XeroPHP\Model\Journals
      */
     public function getJournal($journal_id)
     {
@@ -33230,9 +33230,9 @@ class AccountingApi
      *
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Journals, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Journals, HTTP status code, HTTP response headers (array of strings)
      */
     public function getJournalWithHttpInfo($journal_id)
     {
@@ -33269,20 +33269,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Journals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Journals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Journals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Journals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Journals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -33301,7 +33301,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Journals',
+                        '\SidneyAllen\XeroPHP\Model\Journals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33343,7 +33343,7 @@ class AccountingApi
      */
     public function getJournalAsyncWithHttpInfo($journal_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Journals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
         $request = $this->getJournalRequest($journal_id);
 
         return $this->client
@@ -33491,9 +33491,9 @@ class AccountingApi
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Journals
+     * @return \SidneyAllen\XeroPHP\Model\Journals
      */
     public function getJournals($if_modified_since = null, $offset = null, $payments_only = null)
     {
@@ -33510,9 +33510,9 @@ class AccountingApi
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Journals, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Journals, HTTP status code, HTTP response headers (array of strings)
      */
     public function getJournalsWithHttpInfo($if_modified_since = null, $offset = null, $payments_only = null)
     {
@@ -33549,20 +33549,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Journals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Journals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Journals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Journals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Journals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -33581,7 +33581,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Journals',
+                        '\SidneyAllen\XeroPHP\Model\Journals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33627,7 +33627,7 @@ class AccountingApi
      */
     public function getJournalsAsyncWithHttpInfo($if_modified_since = null, $offset = null, $payments_only = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Journals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
         $request = $this->getJournalsRequest($if_modified_since, $offset, $payments_only);
 
         return $this->client
@@ -33773,9 +33773,9 @@ class AccountingApi
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\LinkedTransactions
+     * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions
      */
     public function getLinkedTransaction($linked_transaction_id)
     {
@@ -33790,9 +33790,9 @@ class AccountingApi
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLinkedTransactionWithHttpInfo($linked_transaction_id)
     {
@@ -33829,20 +33829,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\LinkedTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\LinkedTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LinkedTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -33861,7 +33861,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LinkedTransactions',
+                        '\SidneyAllen\XeroPHP\Model\LinkedTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33903,7 +33903,7 @@ class AccountingApi
      */
     public function getLinkedTransactionAsyncWithHttpInfo($linked_transaction_id)
     {
-        $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
         $request = $this->getLinkedTransactionRequest($linked_transaction_id);
 
         return $this->client
@@ -34054,9 +34054,9 @@ class AccountingApi
      * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\LinkedTransactions
+     * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions
      */
     public function getLinkedTransactions($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
@@ -34076,9 +34076,9 @@ class AccountingApi
      * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLinkedTransactionsWithHttpInfo($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
@@ -34115,20 +34115,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\LinkedTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\LinkedTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LinkedTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -34147,7 +34147,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LinkedTransactions',
+                        '\SidneyAllen\XeroPHP\Model\LinkedTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34199,7 +34199,7 @@ class AccountingApi
      */
     public function getLinkedTransactionsAsyncWithHttpInfo($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
         $request = $this->getLinkedTransactionsRequest($page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
 
         return $this->client
@@ -34360,9 +34360,9 @@ class AccountingApi
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ManualJournals
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournals
      */
     public function getManualJournal($manual_journal_id)
     {
@@ -34377,9 +34377,9 @@ class AccountingApi
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
      */
     public function getManualJournalWithHttpInfo($manual_journal_id)
     {
@@ -34416,20 +34416,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ManualJournals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ManualJournals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ManualJournals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ManualJournals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -34448,7 +34448,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ManualJournals',
+                        '\SidneyAllen\XeroPHP\Model\ManualJournals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34490,7 +34490,7 @@ class AccountingApi
      */
     public function getManualJournalAsyncWithHttpInfo($manual_journal_id)
     {
-        $returnType = '\OpenAPI\Client\Model\ManualJournals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
         $request = $this->getManualJournalRequest($manual_journal_id);
 
         return $this->client
@@ -34638,7 +34638,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -34657,7 +34657,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -34948,7 +34948,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -34967,7 +34967,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -35256,9 +35256,9 @@ class AccountingApi
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getManualJournalAttachments($manual_journal_id)
     {
@@ -35273,9 +35273,9 @@ class AccountingApi
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getManualJournalAttachmentsWithHttpInfo($manual_journal_id)
     {
@@ -35312,20 +35312,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -35344,7 +35344,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35386,7 +35386,7 @@ class AccountingApi
      */
     public function getManualJournalAttachmentsAsyncWithHttpInfo($manual_journal_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getManualJournalAttachmentsRequest($manual_journal_id);
 
         return $this->client
@@ -35535,9 +35535,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ManualJournals
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournals
      */
     public function getManualJournals($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -35555,9 +35555,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
      */
     public function getManualJournalsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -35594,20 +35594,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ManualJournals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ManualJournals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ManualJournals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ManualJournals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -35626,7 +35626,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ManualJournals',
+                        '\SidneyAllen\XeroPHP\Model\ManualJournals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35674,7 +35674,7 @@ class AccountingApi
      */
     public function getManualJournalsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ManualJournals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
         $request = $this->getManualJournalsRequest($if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -35825,9 +35825,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OnlineInvoices
+     * @return \SidneyAllen\XeroPHP\Model\OnlineInvoices
      */
     public function getOnlineInvoice($invoice_id)
     {
@@ -35842,9 +35842,9 @@ class AccountingApi
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OnlineInvoices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\OnlineInvoices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOnlineInvoiceWithHttpInfo($invoice_id)
     {
@@ -35881,20 +35881,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\OnlineInvoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\OnlineInvoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\OnlineInvoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\OnlineInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\OnlineInvoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\OnlineInvoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -35913,7 +35913,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\OnlineInvoices',
+                        '\SidneyAllen\XeroPHP\Model\OnlineInvoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35955,7 +35955,7 @@ class AccountingApi
      */
     public function getOnlineInvoiceAsyncWithHttpInfo($invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\OnlineInvoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\OnlineInvoices';
         $request = $this->getOnlineInvoiceRequest($invoice_id);
 
         return $this->client
@@ -36101,9 +36101,9 @@ class AccountingApi
      *
      * @param  string $organisation_id organisation_id (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CISOrgSetting
+     * @return \SidneyAllen\XeroPHP\Model\CISOrgSetting
      */
     public function getOrganisationCISSettings($organisation_id)
     {
@@ -36118,9 +36118,9 @@ class AccountingApi
      *
      * @param  string $organisation_id (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CISOrgSetting, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CISOrgSetting, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrganisationCISSettingsWithHttpInfo($organisation_id)
     {
@@ -36157,20 +36157,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CISOrgSetting' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CISOrgSetting' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CISOrgSetting', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CISOrgSetting', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CISOrgSetting';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CISOrgSetting';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36189,7 +36189,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CISOrgSetting',
+                        '\SidneyAllen\XeroPHP\Model\CISOrgSetting',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36231,7 +36231,7 @@ class AccountingApi
      */
     public function getOrganisationCISSettingsAsyncWithHttpInfo($organisation_id)
     {
-        $returnType = '\OpenAPI\Client\Model\CISOrgSetting';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CISOrgSetting';
         $request = $this->getOrganisationCISSettingsRequest($organisation_id);
 
         return $this->client
@@ -36376,9 +36376,9 @@ class AccountingApi
      * Allows you to retrieve Organisation details
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Organisations
+     * @return \SidneyAllen\XeroPHP\Model\Organisations
      */
     public function getOrganisations()
     {
@@ -36392,9 +36392,9 @@ class AccountingApi
      * Allows you to retrieve Organisation details
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Organisations, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Organisations, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrganisationsWithHttpInfo()
     {
@@ -36431,20 +36431,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Organisations' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Organisations' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Organisations', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Organisations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Organisations';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Organisations';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36463,7 +36463,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Organisations',
+                        '\SidneyAllen\XeroPHP\Model\Organisations',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36503,7 +36503,7 @@ class AccountingApi
      */
     public function getOrganisationsAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\Organisations';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Organisations';
         $request = $this->getOrganisationsRequest();
 
         return $this->client
@@ -36634,9 +36634,9 @@ class AccountingApi
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Overpayments
+     * @return \SidneyAllen\XeroPHP\Model\Overpayments
      */
     public function getOverpayment($overpayment_id)
     {
@@ -36651,9 +36651,9 @@ class AccountingApi
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOverpaymentWithHttpInfo($overpayment_id)
     {
@@ -36690,20 +36690,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Overpayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Overpayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Overpayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Overpayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Overpayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36722,7 +36722,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Overpayments',
+                        '\SidneyAllen\XeroPHP\Model\Overpayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36764,7 +36764,7 @@ class AccountingApi
      */
     public function getOverpaymentAsyncWithHttpInfo($overpayment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Overpayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
         $request = $this->getOverpaymentRequest($overpayment_id);
 
         return $this->client
@@ -36910,9 +36910,9 @@ class AccountingApi
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getOverpaymentHistory($overpayment_id)
     {
@@ -36927,9 +36927,9 @@ class AccountingApi
      *
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOverpaymentHistoryWithHttpInfo($overpayment_id)
     {
@@ -36966,20 +36966,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -36998,7 +36998,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37040,7 +37040,7 @@ class AccountingApi
      */
     public function getOverpaymentHistoryAsyncWithHttpInfo($overpayment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getOverpaymentHistoryRequest($overpayment_id);
 
         return $this->client
@@ -37189,9 +37189,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Overpayments
+     * @return \SidneyAllen\XeroPHP\Model\Overpayments
      */
     public function getOverpayments($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -37209,9 +37209,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOverpaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -37248,20 +37248,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Overpayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Overpayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Overpayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Overpayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Overpayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -37280,7 +37280,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Overpayments',
+                        '\SidneyAllen\XeroPHP\Model\Overpayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37328,7 +37328,7 @@ class AccountingApi
      */
     public function getOverpaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Overpayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
         $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -37479,9 +37479,9 @@ class AccountingApi
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Payments
+     * @return \SidneyAllen\XeroPHP\Model\Payments
      */
     public function getPayment($payment_id)
     {
@@ -37496,9 +37496,9 @@ class AccountingApi
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Payments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Payments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentWithHttpInfo($payment_id)
     {
@@ -37535,20 +37535,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Payments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Payments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Payments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Payments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -37567,7 +37567,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Payments',
+                        '\SidneyAllen\XeroPHP\Model\Payments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37609,7 +37609,7 @@ class AccountingApi
      */
     public function getPaymentAsyncWithHttpInfo($payment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Payments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
         $request = $this->getPaymentRequest($payment_id);
 
         return $this->client
@@ -37755,9 +37755,9 @@ class AccountingApi
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getPaymentHistory($payment_id)
     {
@@ -37772,9 +37772,9 @@ class AccountingApi
      *
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentHistoryWithHttpInfo($payment_id)
     {
@@ -37811,20 +37811,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -37843,7 +37843,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37885,7 +37885,7 @@ class AccountingApi
      */
     public function getPaymentHistoryAsyncWithHttpInfo($payment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getPaymentHistoryRequest($payment_id);
 
         return $this->client
@@ -38030,9 +38030,9 @@ class AccountingApi
      * Allows you to retrieve payment services
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PaymentServices
+     * @return \SidneyAllen\XeroPHP\Model\PaymentServices
      */
     public function getPaymentServices()
     {
@@ -38046,9 +38046,9 @@ class AccountingApi
      * Allows you to retrieve payment services
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PaymentServices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentServicesWithHttpInfo()
     {
@@ -38085,20 +38085,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PaymentServices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PaymentServices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PaymentServices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PaymentServices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -38117,7 +38117,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PaymentServices',
+                        '\SidneyAllen\XeroPHP\Model\PaymentServices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38157,7 +38157,7 @@ class AccountingApi
      */
     public function getPaymentServicesAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\PaymentServices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
         $request = $this->getPaymentServicesRequest();
 
         return $this->client
@@ -38290,9 +38290,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Payments
+     * @return \SidneyAllen\XeroPHP\Model\Payments
      */
     public function getPayments($if_modified_since = null, $where = null, $order = null)
     {
@@ -38309,9 +38309,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Payments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Payments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -38348,20 +38348,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Payments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Payments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Payments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Payments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -38380,7 +38380,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Payments',
+                        '\SidneyAllen\XeroPHP\Model\Payments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38426,7 +38426,7 @@ class AccountingApi
      */
     public function getPaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Payments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
         $request = $this->getPaymentsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -38572,9 +38572,9 @@ class AccountingApi
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Prepayments
+     * @return \SidneyAllen\XeroPHP\Model\Prepayments
      */
     public function getPrepayment($prepayment_id)
     {
@@ -38589,9 +38589,9 @@ class AccountingApi
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPrepaymentWithHttpInfo($prepayment_id)
     {
@@ -38628,20 +38628,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Prepayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Prepayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Prepayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Prepayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Prepayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -38660,7 +38660,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Prepayments',
+                        '\SidneyAllen\XeroPHP\Model\Prepayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38702,7 +38702,7 @@ class AccountingApi
      */
     public function getPrepaymentAsyncWithHttpInfo($prepayment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Prepayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
         $request = $this->getPrepaymentRequest($prepayment_id);
 
         return $this->client
@@ -38848,9 +38848,9 @@ class AccountingApi
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getPrepaymentHistory($prepayment_id)
     {
@@ -38865,9 +38865,9 @@ class AccountingApi
      *
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPrepaymentHistoryWithHttpInfo($prepayment_id)
     {
@@ -38904,20 +38904,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -38936,7 +38936,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -38978,7 +38978,7 @@ class AccountingApi
      */
     public function getPrepaymentHistoryAsyncWithHttpInfo($prepayment_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getPrepaymentHistoryRequest($prepayment_id);
 
         return $this->client
@@ -39127,9 +39127,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Prepayments
+     * @return \SidneyAllen\XeroPHP\Model\Prepayments
      */
     public function getPrepayments($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -39147,9 +39147,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPrepaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -39186,20 +39186,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Prepayments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Prepayments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Prepayments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Prepayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Prepayments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -39218,7 +39218,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Prepayments',
+                        '\SidneyAllen\XeroPHP\Model\Prepayments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39266,7 +39266,7 @@ class AccountingApi
      */
     public function getPrepaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Prepayments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
         $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -39417,9 +39417,9 @@ class AccountingApi
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PurchaseOrders
+     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders
      */
     public function getPurchaseOrder($purchase_order_id)
     {
@@ -39434,9 +39434,9 @@ class AccountingApi
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPurchaseOrderWithHttpInfo($purchase_order_id)
     {
@@ -39473,20 +39473,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PurchaseOrders' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PurchaseOrders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PurchaseOrders', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -39505,7 +39505,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PurchaseOrders',
+                        '\SidneyAllen\XeroPHP\Model\PurchaseOrders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39547,7 +39547,7 @@ class AccountingApi
      */
     public function getPurchaseOrderAsyncWithHttpInfo($purchase_order_id)
     {
-        $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
         $request = $this->getPurchaseOrderRequest($purchase_order_id);
 
         return $this->client
@@ -39693,9 +39693,9 @@ class AccountingApi
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getPurchaseOrderHistory($purchase_order_id)
     {
@@ -39710,9 +39710,9 @@ class AccountingApi
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPurchaseOrderHistoryWithHttpInfo($purchase_order_id)
     {
@@ -39749,20 +39749,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -39781,7 +39781,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -39823,7 +39823,7 @@ class AccountingApi
      */
     public function getPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getPurchaseOrderHistoryRequest($purchase_order_id);
 
         return $this->client
@@ -39974,9 +39974,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PurchaseOrders
+     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders
      */
     public function getPurchaseOrders($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
@@ -39996,9 +39996,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page To specify a page, append the page parameter to the URL e.g. ?page&#x3D;1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page&#x3D;2 and continuing this process until no more results are returned. (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPurchaseOrdersWithHttpInfo($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
@@ -40035,20 +40035,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PurchaseOrders' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PurchaseOrders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PurchaseOrders', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -40067,7 +40067,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PurchaseOrders',
+                        '\SidneyAllen\XeroPHP\Model\PurchaseOrders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -40119,7 +40119,7 @@ class AccountingApi
      */
     public function getPurchaseOrdersAsyncWithHttpInfo($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
-        $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
         $request = $this->getPurchaseOrdersRequest($if_modified_since, $status, $date_from, $date_to, $order, $page);
 
         return $this->client
@@ -40280,9 +40280,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Receipts
+     * @return \SidneyAllen\XeroPHP\Model\Receipts
      */
     public function getReceipt($receipt_id)
     {
@@ -40297,9 +40297,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReceiptWithHttpInfo($receipt_id)
     {
@@ -40336,20 +40336,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Receipts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Receipts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Receipts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Receipts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -40368,7 +40368,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Receipts',
+                        '\SidneyAllen\XeroPHP\Model\Receipts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -40410,7 +40410,7 @@ class AccountingApi
      */
     public function getReceiptAsyncWithHttpInfo($receipt_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Receipts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
         $request = $this->getReceiptRequest($receipt_id);
 
         return $this->client
@@ -40558,7 +40558,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -40577,7 +40577,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -40868,7 +40868,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -40887,7 +40887,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -41176,9 +41176,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getReceiptAttachments($receipt_id)
     {
@@ -41193,9 +41193,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReceiptAttachmentsWithHttpInfo($receipt_id)
     {
@@ -41232,20 +41232,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -41264,7 +41264,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -41306,7 +41306,7 @@ class AccountingApi
      */
     public function getReceiptAttachmentsAsyncWithHttpInfo($receipt_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getReceiptAttachmentsRequest($receipt_id);
 
         return $this->client
@@ -41452,9 +41452,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getReceiptHistory($receipt_id)
     {
@@ -41469,9 +41469,9 @@ class AccountingApi
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReceiptHistoryWithHttpInfo($receipt_id)
     {
@@ -41508,20 +41508,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -41540,7 +41540,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -41582,7 +41582,7 @@ class AccountingApi
      */
     public function getReceiptHistoryAsyncWithHttpInfo($receipt_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getReceiptHistoryRequest($receipt_id);
 
         return $this->client
@@ -41730,9 +41730,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Receipts
+     * @return \SidneyAllen\XeroPHP\Model\Receipts
      */
     public function getReceipts($if_modified_since = null, $where = null, $order = null)
     {
@@ -41749,9 +41749,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReceiptsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -41788,20 +41788,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Receipts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Receipts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Receipts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Receipts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -41820,7 +41820,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Receipts',
+                        '\SidneyAllen\XeroPHP\Model\Receipts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -41866,7 +41866,7 @@ class AccountingApi
      */
     public function getReceiptsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Receipts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
         $request = $this->getReceiptsRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -42012,9 +42012,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RepeatingInvoices
+     * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoices
      */
     public function getRepeatingInvoice($repeating_invoice_id)
     {
@@ -42029,9 +42029,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRepeatingInvoiceWithHttpInfo($repeating_invoice_id)
     {
@@ -42068,20 +42068,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RepeatingInvoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\RepeatingInvoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RepeatingInvoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\RepeatingInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RepeatingInvoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42100,7 +42100,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RepeatingInvoices',
+                        '\SidneyAllen\XeroPHP\Model\RepeatingInvoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -42142,7 +42142,7 @@ class AccountingApi
      */
     public function getRepeatingInvoiceAsyncWithHttpInfo($repeating_invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\RepeatingInvoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
         $request = $this->getRepeatingInvoiceRequest($repeating_invoice_id);
 
         return $this->client
@@ -42290,7 +42290,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -42309,7 +42309,7 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -42600,7 +42600,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -42619,7 +42619,7 @@ class AccountingApi
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -42908,9 +42908,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments
+     * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
     public function getRepeatingInvoiceAttachments($repeating_invoice_id)
     {
@@ -42925,9 +42925,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRepeatingInvoiceAttachmentsWithHttpInfo($repeating_invoice_id)
     {
@@ -42964,20 +42964,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -42996,7 +42996,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -43038,7 +43038,7 @@ class AccountingApi
      */
     public function getRepeatingInvoiceAttachmentsAsyncWithHttpInfo($repeating_invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->getRepeatingInvoiceAttachmentsRequest($repeating_invoice_id);
 
         return $this->client
@@ -43184,9 +43184,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HistoryRecords
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
     public function getRepeatingInvoiceHistory($repeating_invoice_id)
     {
@@ -43201,9 +43201,9 @@ class AccountingApi
      *
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id)
     {
@@ -43240,20 +43240,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HistoryRecords' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\HistoryRecords' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HistoryRecords', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+            $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -43272,7 +43272,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HistoryRecords',
+                        '\SidneyAllen\XeroPHP\Model\HistoryRecords',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -43314,7 +43314,7 @@ class AccountingApi
      */
     public function getRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id)
     {
-        $returnType = '\OpenAPI\Client\Model\HistoryRecords';
+        $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
         $request = $this->getRepeatingInvoiceHistoryRequest($repeating_invoice_id);
 
         return $this->client
@@ -43461,9 +43461,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RepeatingInvoices
+     * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoices
      */
     public function getRepeatingInvoices($where = null, $order = null)
     {
@@ -43479,9 +43479,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRepeatingInvoicesWithHttpInfo($where = null, $order = null)
     {
@@ -43518,20 +43518,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RepeatingInvoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\RepeatingInvoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RepeatingInvoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\RepeatingInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RepeatingInvoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -43550,7 +43550,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RepeatingInvoices',
+                        '\SidneyAllen\XeroPHP\Model\RepeatingInvoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -43594,7 +43594,7 @@ class AccountingApi
      */
     public function getRepeatingInvoicesAsyncWithHttpInfo($where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\RepeatingInvoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
         $request = $this->getRepeatingInvoicesRequest($where, $order);
 
         return $this->client
@@ -43738,9 +43738,9 @@ class AccountingApi
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $to_date The to date of the Aged Payables By Contact report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportAgedPayablesByContact($contact_id, $date = null, $from_date = null, $to_date = null)
     {
@@ -43758,9 +43758,9 @@ class AccountingApi
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $to_date The to date of the Aged Payables By Contact report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportAgedPayablesByContactWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
     {
@@ -43797,20 +43797,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -43829,7 +43829,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -43877,7 +43877,7 @@ class AccountingApi
      */
     public function getReportAgedPayablesByContactAsyncWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportAgedPayablesByContactRequest($contact_id, $date, $from_date, $to_date);
 
         return $this->client
@@ -44037,9 +44037,9 @@ class AccountingApi
      * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
      * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportAgedReceivablesByContact($contact_id, $date = null, $from_date = null, $to_date = null)
     {
@@ -44057,9 +44057,9 @@ class AccountingApi
      * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
      * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportAgedReceivablesByContactWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
     {
@@ -44096,20 +44096,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -44128,7 +44128,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -44176,7 +44176,7 @@ class AccountingApi
      */
     public function getReportAgedReceivablesByContactAsyncWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportAgedReceivablesByContactRequest($contact_id, $date, $from_date, $to_date);
 
         return $this->client
@@ -44333,9 +44333,9 @@ class AccountingApi
      *
      * @param  string $report_id Unique identifier for a Report (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportBASorGST($report_id)
     {
@@ -44350,9 +44350,9 @@ class AccountingApi
      *
      * @param  string $report_id Unique identifier for a Report (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportBASorGSTWithHttpInfo($report_id)
     {
@@ -44389,20 +44389,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -44421,7 +44421,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -44463,7 +44463,7 @@ class AccountingApi
      */
     public function getReportBASorGSTAsyncWithHttpInfo($report_id)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportBASorGSTRequest($report_id);
 
         return $this->client
@@ -44608,9 +44608,9 @@ class AccountingApi
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportBASorGSTList()
     {
@@ -44624,9 +44624,9 @@ class AccountingApi
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportBASorGSTListWithHttpInfo()
     {
@@ -44663,20 +44663,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -44695,7 +44695,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -44735,7 +44735,7 @@ class AccountingApi
      */
     public function getReportBASorGSTListAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportBASorGSTListRequest();
 
         return $this->client
@@ -44872,9 +44872,9 @@ class AccountingApi
      * @param  bool $standard_layout The standard layout boolean for the Balance Sheet report (optional)
      * @param  bool $payments_only return a cash basis for the Balance Sheet report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportBalanceSheet($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
@@ -44895,9 +44895,9 @@ class AccountingApi
      * @param  bool $standard_layout The standard layout boolean for the Balance Sheet report (optional)
      * @param  bool $payments_only return a cash basis for the Balance Sheet report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportBalanceSheetWithHttpInfo($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
@@ -44934,20 +44934,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -44966,7 +44966,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -45020,7 +45020,7 @@ class AccountingApi
      */
     public function getReportBalanceSheetAsyncWithHttpInfo($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportBalanceSheetRequest($date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
 
         return $this->client
@@ -45188,9 +45188,9 @@ class AccountingApi
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportBankSummary($date = null, $period = null, $timeframe = null)
     {
@@ -45207,9 +45207,9 @@ class AccountingApi
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportBankSummaryWithHttpInfo($date = null, $period = null, $timeframe = null)
     {
@@ -45246,20 +45246,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -45278,7 +45278,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -45324,7 +45324,7 @@ class AccountingApi
      */
     public function getReportBankSummaryAsyncWithHttpInfo($date = null, $period = null, $timeframe = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportBankSummaryRequest($date, $period, $timeframe);
 
         return $this->client
@@ -45472,9 +45472,9 @@ class AccountingApi
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportBudgetSummary($date = null, $period = null, $timeframe = null)
     {
@@ -45491,9 +45491,9 @@ class AccountingApi
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportBudgetSummaryWithHttpInfo($date = null, $period = null, $timeframe = null)
     {
@@ -45530,20 +45530,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -45562,7 +45562,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -45608,7 +45608,7 @@ class AccountingApi
      */
     public function getReportBudgetSummaryAsyncWithHttpInfo($date = null, $period = null, $timeframe = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportBudgetSummaryRequest($date, $period, $timeframe);
 
         return $this->client
@@ -45754,9 +45754,9 @@ class AccountingApi
      *
      * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportExecutiveSummary($date = null)
     {
@@ -45771,9 +45771,9 @@ class AccountingApi
      *
      * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportExecutiveSummaryWithHttpInfo($date = null)
     {
@@ -45810,20 +45810,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -45842,7 +45842,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -45884,7 +45884,7 @@ class AccountingApi
      */
     public function getReportExecutiveSummaryAsyncWithHttpInfo($date = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportExecutiveSummaryRequest($date);
 
         return $this->client
@@ -46029,9 +46029,9 @@ class AccountingApi
      * @param  bool $standard_layout Return the standard layout for the ProfitAndLoss report (optional)
      * @param  bool $payments_only Return cash only basis for the ProfitAndLoss report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportProfitAndLoss($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
@@ -46055,9 +46055,9 @@ class AccountingApi
      * @param  bool $standard_layout Return the standard layout for the ProfitAndLoss report (optional)
      * @param  bool $payments_only Return cash only basis for the ProfitAndLoss report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportProfitAndLossWithHttpInfo($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
@@ -46094,20 +46094,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -46126,7 +46126,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -46186,7 +46186,7 @@ class AccountingApi
      */
     public function getReportProfitAndLossAsyncWithHttpInfo($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportProfitAndLossRequest($from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
 
         return $this->client
@@ -46367,9 +46367,9 @@ class AccountingApi
      *
      * @param  string $report_year The year of the 1099 report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Reports
+     * @return \SidneyAllen\XeroPHP\Model\Reports
      */
     public function getReportTenNinetyNine($report_year = null)
     {
@@ -46384,9 +46384,9 @@ class AccountingApi
      *
      * @param  string $report_year The year of the 1099 report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Reports, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Reports, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportTenNinetyNineWithHttpInfo($report_year = null)
     {
@@ -46423,20 +46423,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Reports' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Reports' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Reports', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Reports', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Reports';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Reports';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -46455,7 +46455,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Reports',
+                        '\SidneyAllen\XeroPHP\Model\Reports',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -46497,7 +46497,7 @@ class AccountingApi
      */
     public function getReportTenNinetyNineAsyncWithHttpInfo($report_year = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Reports';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Reports';
         $request = $this->getReportTenNinetyNineRequest($report_year);
 
         return $this->client
@@ -46634,9 +46634,9 @@ class AccountingApi
      * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReportWithRows
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
     public function getReportTrialBalance($date = null, $payments_only = null)
     {
@@ -46652,9 +46652,9 @@ class AccountingApi
      * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportTrialBalanceWithHttpInfo($date = null, $payments_only = null)
     {
@@ -46691,20 +46691,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReportWithRows' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ReportWithRows' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReportWithRows', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -46723,7 +46723,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReportWithRows',
+                        '\SidneyAllen\XeroPHP\Model\ReportWithRows',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -46767,7 +46767,7 @@ class AccountingApi
      */
     public function getReportTrialBalanceAsyncWithHttpInfo($date = null, $payments_only = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ReportWithRows';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
         $request = $this->getReportTrialBalanceRequest($date, $payments_only);
 
         return $this->client
@@ -46910,9 +46910,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRates
+     * @return \SidneyAllen\XeroPHP\Model\TaxRates
      */
     public function getTaxRates($where = null, $order = null, $tax_type = null)
     {
@@ -46929,9 +46929,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRates, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TaxRates, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxRatesWithHttpInfo($where = null, $order = null, $tax_type = null)
     {
@@ -46968,20 +46968,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRates' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TaxRates' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRates', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRates';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -47000,7 +47000,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRates',
+                        '\SidneyAllen\XeroPHP\Model\TaxRates',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -47046,7 +47046,7 @@ class AccountingApi
      */
     public function getTaxRatesAsyncWithHttpInfo($where = null, $order = null, $tax_type = null)
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRates';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
         $request = $this->getTaxRatesRequest($where, $order, $tax_type);
 
         return $this->client
@@ -47194,9 +47194,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingCategories
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategories
      */
     public function getTrackingCategories($where = null, $order = null, $include_archived = null)
     {
@@ -47213,9 +47213,9 @@ class AccountingApi
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTrackingCategoriesWithHttpInfo($where = null, $order = null, $include_archived = null)
     {
@@ -47252,20 +47252,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingCategories' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingCategories' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingCategories', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -47284,7 +47284,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingCategories',
+                        '\SidneyAllen\XeroPHP\Model\TrackingCategories',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -47330,7 +47330,7 @@ class AccountingApi
      */
     public function getTrackingCategoriesAsyncWithHttpInfo($where = null, $order = null, $include_archived = null)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
         $request = $this->getTrackingCategoriesRequest($where, $order, $include_archived);
 
         return $this->client
@@ -47476,9 +47476,9 @@ class AccountingApi
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingCategories
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategories
      */
     public function getTrackingCategory($tracking_category_id)
     {
@@ -47493,9 +47493,9 @@ class AccountingApi
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTrackingCategoryWithHttpInfo($tracking_category_id)
     {
@@ -47532,20 +47532,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingCategories' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingCategories' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingCategories', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -47564,7 +47564,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingCategories',
+                        '\SidneyAllen\XeroPHP\Model\TrackingCategories',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -47606,7 +47606,7 @@ class AccountingApi
      */
     public function getTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
         $request = $this->getTrackingCategoryRequest($tracking_category_id);
 
         return $this->client
@@ -47752,9 +47752,9 @@ class AccountingApi
      *
      * @param  string $user_id Unique identifier for a User (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Users
+     * @return \SidneyAllen\XeroPHP\Model\Users
      */
     public function getUser($user_id)
     {
@@ -47769,9 +47769,9 @@ class AccountingApi
      *
      * @param  string $user_id Unique identifier for a User (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Users, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Users, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserWithHttpInfo($user_id)
     {
@@ -47808,20 +47808,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Users' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Users' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Users', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Users', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Users';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Users';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -47840,7 +47840,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Users',
+                        '\SidneyAllen\XeroPHP\Model\Users',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -47882,7 +47882,7 @@ class AccountingApi
      */
     public function getUserAsyncWithHttpInfo($user_id)
     {
-        $returnType = '\OpenAPI\Client\Model\Users';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Users';
         $request = $this->getUserRequest($user_id);
 
         return $this->client
@@ -48030,9 +48030,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Users
+     * @return \SidneyAllen\XeroPHP\Model\Users
      */
     public function getUsers($if_modified_since = null, $where = null, $order = null)
     {
@@ -48049,9 +48049,9 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Users, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Users, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsersWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
@@ -48088,20 +48088,20 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Users' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Users' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Users', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Users', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Users';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Users';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -48120,7 +48120,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Users',
+                        '\SidneyAllen\XeroPHP\Model\Users',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48166,7 +48166,7 @@ class AccountingApi
      */
     public function getUsersAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Users';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Users';
         $request = $this->getUsersRequest($if_modified_since, $where, $order);
 
         return $this->client
@@ -48311,11 +48311,11 @@ class AccountingApi
      * Allows you to update a chart of accounts
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
-     * @param  \OpenAPI\Client\Model\Accounts $accounts Request of type Accounts array with one Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Accounts $accounts Request of type Accounts array with one Account (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateAccount($account_id, $accounts)
     {
@@ -48329,11 +48329,11 @@ class AccountingApi
      * Allows you to update a chart of accounts
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
-     * @param  \OpenAPI\Client\Model\Accounts $accounts Request of type Accounts array with one Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Accounts $accounts Request of type Accounts array with one Account (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Accounts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAccountWithHttpInfo($account_id, $accounts)
     {
@@ -48370,32 +48370,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Accounts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Accounts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Accounts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Accounts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -48414,7 +48414,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Accounts',
+                        '\SidneyAllen\XeroPHP\Model\Accounts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48422,7 +48422,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48438,7 +48438,7 @@ class AccountingApi
      * Allows you to update a chart of accounts
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
-     * @param  \OpenAPI\Client\Model\Accounts $accounts Request of type Accounts array with one Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Accounts $accounts Request of type Accounts array with one Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -48459,14 +48459,14 @@ class AccountingApi
      * Allows you to update a chart of accounts
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
-     * @param  \OpenAPI\Client\Model\Accounts $accounts Request of type Accounts array with one Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Accounts $accounts Request of type Accounts array with one Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateAccountAsyncWithHttpInfo($account_id, $accounts)
     {
-        $returnType = '\OpenAPI\Client\Model\Accounts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
         $request = $this->updateAccountRequest($account_id, $accounts);
 
         return $this->client
@@ -48507,7 +48507,7 @@ class AccountingApi
      * Create request for operation 'updateAccount'
      *
      * @param  string $account_id Unique identifier for retrieving single object (required)
-     * @param  \OpenAPI\Client\Model\Accounts $accounts Request of type Accounts array with one Account (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Accounts $accounts Request of type Accounts array with one Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -48624,9 +48624,9 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateAccountAttachmentByFileName($account_id, $file_name, $body)
     {
@@ -48643,9 +48643,9 @@ class AccountingApi
      * @param  string $file_name Name of the attachment (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAccountAttachmentByFileNameWithHttpInfo($account_id, $file_name, $body)
     {
@@ -48682,32 +48682,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -48726,7 +48726,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48734,7 +48734,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48780,7 +48780,7 @@ class AccountingApi
      */
     public function updateAccountAttachmentByFileNameAsyncWithHttpInfo($account_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateAccountAttachmentByFileNameRequest($account_id, $file_name, $body);
 
         return $this->client
@@ -48950,11 +48950,11 @@ class AccountingApi
      * Allows you to update a single spend or receive money transaction
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions bank_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BankTransactions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\BankTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateBankTransaction($bank_transaction_id, $bank_transactions)
     {
@@ -48968,11 +48968,11 @@ class AccountingApi
      * Allows you to update a single spend or receive money transaction
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BankTransactions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\BankTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBankTransactionWithHttpInfo($bank_transaction_id, $bank_transactions)
     {
@@ -49009,32 +49009,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BankTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\BankTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BankTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BankTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -49053,7 +49053,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BankTransactions',
+                        '\SidneyAllen\XeroPHP\Model\BankTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49061,7 +49061,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49077,7 +49077,7 @@ class AccountingApi
      * Allows you to update a single spend or receive money transaction
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -49098,14 +49098,14 @@ class AccountingApi
      * Allows you to update a single spend or receive money transaction
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateBankTransactionAsyncWithHttpInfo($bank_transaction_id, $bank_transactions)
     {
-        $returnType = '\OpenAPI\Client\Model\BankTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
         $request = $this->updateBankTransactionRequest($bank_transaction_id, $bank_transactions);
 
         return $this->client
@@ -49146,7 +49146,7 @@ class AccountingApi
      * Create request for operation 'updateBankTransaction'
      *
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \OpenAPI\Client\Model\BankTransactions $bank_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\BankTransactions $bank_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -49263,9 +49263,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateBankTransactionAttachmentByFileName($bank_transaction_id, $file_name, $body)
     {
@@ -49282,9 +49282,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBankTransactionAttachmentByFileNameWithHttpInfo($bank_transaction_id, $file_name, $body)
     {
@@ -49321,32 +49321,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -49365,7 +49365,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49373,7 +49373,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49419,7 +49419,7 @@ class AccountingApi
      */
     public function updateBankTransactionAttachmentByFileNameAsyncWithHttpInfo($bank_transaction_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateBankTransactionAttachmentByFileNameRequest($bank_transaction_id, $file_name, $body);
 
         return $this->client
@@ -49590,9 +49590,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateBankTransferAttachmentByFileName($bank_transfer_id, $file_name, $body)
     {
@@ -49607,9 +49607,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Bank Transfer (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBankTransferAttachmentByFileNameWithHttpInfo($bank_transfer_id, $file_name, $body)
     {
@@ -49646,32 +49646,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -49690,7 +49690,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49698,7 +49698,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -49744,7 +49744,7 @@ class AccountingApi
      */
     public function updateBankTransferAttachmentByFileNameAsyncWithHttpInfo($bank_transfer_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateBankTransferAttachmentByFileNameRequest($bank_transfer_id, $file_name, $body);
 
         return $this->client
@@ -49912,11 +49912,11 @@ class AccountingApi
      * Operation updateContact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts contacts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateContact($contact_id, $contacts = null)
     {
@@ -49928,11 +49928,11 @@ class AccountingApi
      * Operation updateContactWithHttpInfo
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Contacts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateContactWithHttpInfo($contact_id, $contacts = null)
     {
@@ -49969,32 +49969,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Contacts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Contacts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Contacts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Contacts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -50013,7 +50013,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Contacts',
+                        '\SidneyAllen\XeroPHP\Model\Contacts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50021,7 +50021,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50037,7 +50037,7 @@ class AccountingApi
      * 
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -50058,14 +50058,14 @@ class AccountingApi
      * 
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateContactAsyncWithHttpInfo($contact_id, $contacts = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Contacts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
         $request = $this->updateContactRequest($contact_id, $contacts);
 
         return $this->client
@@ -50106,7 +50106,7 @@ class AccountingApi
      * Create request for operation 'updateContact'
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \OpenAPI\Client\Model\Contacts $contacts (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -50215,9 +50215,9 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateContactAttachmentByFileName($contact_id, $file_name, $body)
     {
@@ -50232,9 +50232,9 @@ class AccountingApi
      * @param  string $file_name Name for the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateContactAttachmentByFileNameWithHttpInfo($contact_id, $file_name, $body)
     {
@@ -50271,32 +50271,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -50315,7 +50315,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50323,7 +50323,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50369,7 +50369,7 @@ class AccountingApi
      */
     public function updateContactAttachmentByFileNameAsyncWithHttpInfo($contact_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateContactAttachmentByFileNameRequest($contact_id, $file_name, $body);
 
         return $this->client
@@ -50539,11 +50539,11 @@ class AccountingApi
      * Allows you to update a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups contact_groups (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ContactGroups|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateContactGroup($contact_group_id, $contact_groups = null)
     {
@@ -50557,11 +50557,11 @@ class AccountingApi
      * Allows you to update a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ContactGroups|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateContactGroupWithHttpInfo($contact_group_id, $contact_groups = null)
     {
@@ -50598,32 +50598,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ContactGroups' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ContactGroups' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ContactGroups', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ContactGroups';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -50642,7 +50642,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ContactGroups',
+                        '\SidneyAllen\XeroPHP\Model\ContactGroups',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50650,7 +50650,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50666,7 +50666,7 @@ class AccountingApi
      * Allows you to update a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -50687,14 +50687,14 @@ class AccountingApi
      * Allows you to update a Contract Group
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateContactGroupAsyncWithHttpInfo($contact_group_id, $contact_groups = null)
     {
-        $returnType = '\OpenAPI\Client\Model\ContactGroups';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
         $request = $this->updateContactGroupRequest($contact_group_id, $contact_groups);
 
         return $this->client
@@ -50735,7 +50735,7 @@ class AccountingApi
      * Create request for operation 'updateContactGroup'
      *
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \OpenAPI\Client\Model\ContactGroups $contact_groups (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -50843,11 +50843,11 @@ class AccountingApi
      * Allows you to update a specific credit note
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes credit_notes (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNotes|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateCreditNote($credit_note_id, $credit_notes = null)
     {
@@ -50861,11 +50861,11 @@ class AccountingApi
      * Allows you to update a specific credit note
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNotes|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCreditNoteWithHttpInfo($credit_note_id, $credit_notes = null)
     {
@@ -50902,32 +50902,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNotes' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\CreditNotes' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNotes', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNotes';
+            $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -50946,7 +50946,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNotes',
+                        '\SidneyAllen\XeroPHP\Model\CreditNotes',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50954,7 +50954,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -50970,7 +50970,7 @@ class AccountingApi
      * Allows you to update a specific credit note
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -50991,14 +50991,14 @@ class AccountingApi
      * Allows you to update a specific credit note
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCreditNoteAsyncWithHttpInfo($credit_note_id, $credit_notes = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNotes';
+        $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
         $request = $this->updateCreditNoteRequest($credit_note_id, $credit_notes);
 
         return $this->client
@@ -51039,7 +51039,7 @@ class AccountingApi
      * Create request for operation 'updateCreditNote'
      *
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \OpenAPI\Client\Model\CreditNotes $credit_notes (optional)
+     * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -51150,9 +51150,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateCreditNoteAttachmentByFileName($credit_note_id, $file_name, $body)
     {
@@ -51169,9 +51169,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body)
     {
@@ -51208,32 +51208,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -51252,7 +51252,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51260,7 +51260,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51306,7 +51306,7 @@ class AccountingApi
      */
     public function updateCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
 
         return $this->client
@@ -51476,11 +51476,11 @@ class AccountingApi
      * Allows you to update a specific employee used in Xero payrun
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
-     * @param  \OpenAPI\Client\Model\Employees $employees employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees employees (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Employees|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateEmployee($employee_id, $employees)
     {
@@ -51494,11 +51494,11 @@ class AccountingApi
      * Allows you to update a specific employee used in Xero payrun
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Employees|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmployeeWithHttpInfo($employee_id, $employees)
     {
@@ -51535,32 +51535,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Employees', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -51579,7 +51579,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Employees',
+                        '\SidneyAllen\XeroPHP\Model\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51587,7 +51587,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51603,7 +51603,7 @@ class AccountingApi
      * Allows you to update a specific employee used in Xero payrun
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -51624,14 +51624,14 @@ class AccountingApi
      * Allows you to update a specific employee used in Xero payrun
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmployeeAsyncWithHttpInfo($employee_id, $employees)
     {
-        $returnType = '\OpenAPI\Client\Model\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
         $request = $this->updateEmployeeRequest($employee_id, $employees);
 
         return $this->client
@@ -51672,7 +51672,7 @@ class AccountingApi
      * Create request for operation 'updateEmployee'
      *
      * @param  string $employee_id Unique identifier for a Employee (required)
-     * @param  \OpenAPI\Client\Model\Employees $employees (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -51786,11 +51786,11 @@ class AccountingApi
      * Allows you to update specified expense claims
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims expense_claims (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExpenseClaims|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateExpenseClaim($expense_claim_id, $expense_claims)
     {
@@ -51804,11 +51804,11 @@ class AccountingApi
      * Allows you to update specified expense claims
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExpenseClaims|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateExpenseClaimWithHttpInfo($expense_claim_id, $expense_claims)
     {
@@ -51845,32 +51845,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ExpenseClaims' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ExpenseClaims' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExpenseClaims', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -51889,7 +51889,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ExpenseClaims',
+                        '\SidneyAllen\XeroPHP\Model\ExpenseClaims',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51897,7 +51897,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -51913,7 +51913,7 @@ class AccountingApi
      * Allows you to update specified expense claims
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -51934,14 +51934,14 @@ class AccountingApi
      * Allows you to update specified expense claims
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateExpenseClaimAsyncWithHttpInfo($expense_claim_id, $expense_claims)
     {
-        $returnType = '\OpenAPI\Client\Model\ExpenseClaims';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
         $request = $this->updateExpenseClaimRequest($expense_claim_id, $expense_claims);
 
         return $this->client
@@ -51982,7 +51982,7 @@ class AccountingApi
      * Create request for operation 'updateExpenseClaim'
      *
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \OpenAPI\Client\Model\ExpenseClaims $expense_claims (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -52096,11 +52096,11 @@ class AccountingApi
      * Allows you to update a specified sales invoices or purchase bills
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\Invoices $invoices invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices invoices (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Invoices|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateInvoice($invoice_id, $invoices)
     {
@@ -52114,11 +52114,11 @@ class AccountingApi
      * Allows you to update a specified sales invoices or purchase bills
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Invoices|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateInvoiceWithHttpInfo($invoice_id, $invoices)
     {
@@ -52155,32 +52155,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Invoices' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Invoices' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Invoices', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Invoices';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -52199,7 +52199,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Invoices',
+                        '\SidneyAllen\XeroPHP\Model\Invoices',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52207,7 +52207,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52223,7 +52223,7 @@ class AccountingApi
      * Allows you to update a specified sales invoices or purchase bills
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -52244,14 +52244,14 @@ class AccountingApi
      * Allows you to update a specified sales invoices or purchase bills
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateInvoiceAsyncWithHttpInfo($invoice_id, $invoices)
     {
-        $returnType = '\OpenAPI\Client\Model\Invoices';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
         $request = $this->updateInvoiceRequest($invoice_id, $invoices);
 
         return $this->client
@@ -52292,7 +52292,7 @@ class AccountingApi
      * Create request for operation 'updateInvoice'
      *
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \OpenAPI\Client\Model\Invoices $invoices (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -52409,9 +52409,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateInvoiceAttachmentByFileName($invoice_id, $file_name, $body)
     {
@@ -52428,9 +52428,9 @@ class AccountingApi
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body)
     {
@@ -52467,32 +52467,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -52511,7 +52511,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52519,7 +52519,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52565,7 +52565,7 @@ class AccountingApi
      */
     public function updateInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
 
         return $this->client
@@ -52735,11 +52735,11 @@ class AccountingApi
      * Allows you to udpate a specified item
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\Items $items items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items items (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Items|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateItem($item_id, $items)
     {
@@ -52753,11 +52753,11 @@ class AccountingApi
      * Allows you to udpate a specified item
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Items|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateItemWithHttpInfo($item_id, $items)
     {
@@ -52794,32 +52794,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Items' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Items' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Items', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Items';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Items';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -52838,7 +52838,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Items',
+                        '\SidneyAllen\XeroPHP\Model\Items',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52846,7 +52846,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -52862,7 +52862,7 @@ class AccountingApi
      * Allows you to udpate a specified item
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -52883,14 +52883,14 @@ class AccountingApi
      * Allows you to udpate a specified item
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateItemAsyncWithHttpInfo($item_id, $items)
     {
-        $returnType = '\OpenAPI\Client\Model\Items';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Items';
         $request = $this->updateItemRequest($item_id, $items);
 
         return $this->client
@@ -52931,7 +52931,7 @@ class AccountingApi
      * Create request for operation 'updateItem'
      *
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \OpenAPI\Client\Model\Items $items (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -53045,11 +53045,11 @@ class AccountingApi
      * Allows you to update a specified linked transactions (billable expenses)
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions linked_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\LinkedTransactions|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateLinkedTransaction($linked_transaction_id, $linked_transactions)
     {
@@ -53063,11 +53063,11 @@ class AccountingApi
      * Allows you to update a specified linked transactions (billable expenses)
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\LinkedTransactions|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLinkedTransactionWithHttpInfo($linked_transaction_id, $linked_transactions)
     {
@@ -53104,32 +53104,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\LinkedTransactions' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\LinkedTransactions' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\LinkedTransactions', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+            $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -53148,7 +53148,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\LinkedTransactions',
+                        '\SidneyAllen\XeroPHP\Model\LinkedTransactions',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53156,7 +53156,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53172,7 +53172,7 @@ class AccountingApi
      * Allows you to update a specified linked transactions (billable expenses)
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -53193,14 +53193,14 @@ class AccountingApi
      * Allows you to update a specified linked transactions (billable expenses)
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateLinkedTransactionAsyncWithHttpInfo($linked_transaction_id, $linked_transactions)
     {
-        $returnType = '\OpenAPI\Client\Model\LinkedTransactions';
+        $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
         $request = $this->updateLinkedTransactionRequest($linked_transaction_id, $linked_transactions);
 
         return $this->client
@@ -53241,7 +53241,7 @@ class AccountingApi
      * Create request for operation 'updateLinkedTransaction'
      *
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
-     * @param  \OpenAPI\Client\Model\LinkedTransactions $linked_transactions (required)
+     * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -53355,11 +53355,11 @@ class AccountingApi
      * Allows you to update a specified manual journal
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals manual_journals (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ManualJournals|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateManualJournal($manual_journal_id, $manual_journals)
     {
@@ -53373,11 +53373,11 @@ class AccountingApi
      * Allows you to update a specified manual journal
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ManualJournals|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateManualJournalWithHttpInfo($manual_journal_id, $manual_journals)
     {
@@ -53414,32 +53414,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ManualJournals' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\ManualJournals' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ManualJournals', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ManualJournals';
+            $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -53458,7 +53458,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ManualJournals',
+                        '\SidneyAllen\XeroPHP\Model\ManualJournals',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53466,7 +53466,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53482,7 +53482,7 @@ class AccountingApi
      * Allows you to update a specified manual journal
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -53503,14 +53503,14 @@ class AccountingApi
      * Allows you to update a specified manual journal
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateManualJournalAsyncWithHttpInfo($manual_journal_id, $manual_journals)
     {
-        $returnType = '\OpenAPI\Client\Model\ManualJournals';
+        $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
         $request = $this->updateManualJournalRequest($manual_journal_id, $manual_journals);
 
         return $this->client
@@ -53551,7 +53551,7 @@ class AccountingApi
      * Create request for operation 'updateManualJournal'
      *
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
-     * @param  \OpenAPI\Client\Model\ManualJournals $manual_journals (required)
+     * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -53668,9 +53668,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateManualJournalAttachmentByFileName($manual_journal_id, $file_name, $body)
     {
@@ -53687,9 +53687,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body)
     {
@@ -53726,32 +53726,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -53770,7 +53770,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53778,7 +53778,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -53824,7 +53824,7 @@ class AccountingApi
      */
     public function updateManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
 
         return $this->client
@@ -53994,11 +53994,11 @@ class AccountingApi
      * Allows you to update a specified purchase order
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders purchase_orders (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\PurchaseOrders|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updatePurchaseOrder($purchase_order_id, $purchase_orders)
     {
@@ -54012,11 +54012,11 @@ class AccountingApi
      * Allows you to update a specified purchase order
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\PurchaseOrders|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePurchaseOrderWithHttpInfo($purchase_order_id, $purchase_orders)
     {
@@ -54053,32 +54053,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\PurchaseOrders' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\PurchaseOrders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\PurchaseOrders', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+            $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -54097,7 +54097,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\PurchaseOrders',
+                        '\SidneyAllen\XeroPHP\Model\PurchaseOrders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54105,7 +54105,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54121,7 +54121,7 @@ class AccountingApi
      * Allows you to update a specified purchase order
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54142,14 +54142,14 @@ class AccountingApi
      * Allows you to update a specified purchase order
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updatePurchaseOrderAsyncWithHttpInfo($purchase_order_id, $purchase_orders)
     {
-        $returnType = '\OpenAPI\Client\Model\PurchaseOrders';
+        $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
         $request = $this->updatePurchaseOrderRequest($purchase_order_id, $purchase_orders);
 
         return $this->client
@@ -54190,7 +54190,7 @@ class AccountingApi
      * Create request for operation 'updatePurchaseOrder'
      *
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \OpenAPI\Client\Model\PurchaseOrders $purchase_orders (required)
+     * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -54304,11 +54304,11 @@ class AccountingApi
      * Allows you to retrieve a specified draft expense claim receipts
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\Receipts $receipts receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts receipts (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Receipts|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateReceipt($receipt_id, $receipts)
     {
@@ -54322,11 +54322,11 @@ class AccountingApi
      * Allows you to retrieve a specified draft expense claim receipts
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Receipts|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateReceiptWithHttpInfo($receipt_id, $receipts)
     {
@@ -54363,32 +54363,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Receipts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Receipts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Receipts', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Receipts';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -54407,7 +54407,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Receipts',
+                        '\SidneyAllen\XeroPHP\Model\Receipts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54415,7 +54415,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54431,7 +54431,7 @@ class AccountingApi
      * Allows you to retrieve a specified draft expense claim receipts
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54452,14 +54452,14 @@ class AccountingApi
      * Allows you to retrieve a specified draft expense claim receipts
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateReceiptAsyncWithHttpInfo($receipt_id, $receipts)
     {
-        $returnType = '\OpenAPI\Client\Model\Receipts';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
         $request = $this->updateReceiptRequest($receipt_id, $receipts);
 
         return $this->client
@@ -54500,7 +54500,7 @@ class AccountingApi
      * Create request for operation 'updateReceipt'
      *
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \OpenAPI\Client\Model\Receipts $receipts (required)
+     * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -54617,9 +54617,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateReceiptAttachmentByFileName($receipt_id, $file_name, $body)
     {
@@ -54636,9 +54636,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body)
     {
@@ -54675,32 +54675,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -54719,7 +54719,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54727,7 +54727,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -54773,7 +54773,7 @@ class AccountingApi
      */
     public function updateReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
 
         return $this->client
@@ -54946,9 +54946,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateRepeatingInvoiceAttachmentByFileName($repeating_invoice_id, $file_name, $body)
     {
@@ -54965,9 +54965,9 @@ class AccountingApi
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Attachments|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body)
     {
@@ -55004,32 +55004,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Attachments' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Attachments' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Attachments', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Attachments';
+            $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -55048,7 +55048,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Attachments',
+                        '\SidneyAllen\XeroPHP\Model\Attachments',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55056,7 +55056,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55102,7 +55102,7 @@ class AccountingApi
      */
     public function updateRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
     {
-        $returnType = '\OpenAPI\Client\Model\Attachments';
+        $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
         $request = $this->updateRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
 
         return $this->client
@@ -55271,11 +55271,11 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates tax_rates (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRates|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateTaxRate($tax_rates)
     {
@@ -55288,11 +55288,11 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRates|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxRateWithHttpInfo($tax_rates)
     {
@@ -55329,32 +55329,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRates' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TaxRates' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRates', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRates';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -55373,7 +55373,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRates',
+                        '\SidneyAllen\XeroPHP\Model\TaxRates',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55381,7 +55381,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55396,7 +55396,7 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -55416,14 +55416,14 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxRateAsyncWithHttpInfo($tax_rates)
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRates';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
         $request = $this->updateTaxRateRequest($tax_rates);
 
         return $this->client
@@ -55463,7 +55463,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateTaxRate'
      *
-     * @param  \OpenAPI\Client\Model\TaxRates $tax_rates (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -55563,11 +55563,11 @@ class AccountingApi
      * Allows you to update tracking categories
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category tracking_category (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
     public function updateTrackingCategory($tracking_category_id, $tracking_category)
     {
@@ -55581,11 +55581,11 @@ class AccountingApi
      * Allows you to update tracking categories
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TrackingCategories|\OpenAPI\Client\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTrackingCategoryWithHttpInfo($tracking_category_id, $tracking_category)
     {
@@ -55622,32 +55622,32 @@ class AccountingApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TrackingCategories' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\TrackingCategories' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TrackingCategories', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Model\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Error', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+            $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -55666,7 +55666,7 @@ class AccountingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TrackingCategories',
+                        '\SidneyAllen\XeroPHP\Model\TrackingCategories',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55674,7 +55674,7 @@ class AccountingApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Error',
+                        '\SidneyAllen\XeroPHP\Model\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -55690,7 +55690,7 @@ class AccountingApi
      * Allows you to update tracking categories
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -55711,14 +55711,14 @@ class AccountingApi
      * Allows you to update tracking categories
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTrackingCategoryAsyncWithHttpInfo($tracking_category_id, $tracking_category)
     {
-        $returnType = '\OpenAPI\Client\Model\TrackingCategories';
+        $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
         $request = $this->updateTrackingCategoryRequest($tracking_category_id, $tracking_category);
 
         return $this->client
@@ -55759,7 +55759,7 @@ class AccountingApi
      * Create request for operation 'updateTrackingCategory'
      *
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \OpenAPI\Client\Model\TrackingCategory $tracking_category (required)
+     * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

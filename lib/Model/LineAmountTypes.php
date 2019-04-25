@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
-use \OpenAPI\Client\ObjectSerializer;
+namespace SidneyAllen\XeroPHP\Model;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * LineAmountTypes Class Doc Comment
  *
  * @category Class
  * @description Line amounts are exclusive of tax by default if you don’t specify this element. See Line Amount Types
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

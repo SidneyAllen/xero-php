@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,14 +27,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client;
+namespace SidneyAllen\XeroPHP;
 
 /**
  * ManualJournalsTest Class Doc Comment
  *
  * @category    Class
  * @description ManualJournals
- * @package     OpenAPI\Client
+ * @package     SidneyAllen\XeroPHP
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

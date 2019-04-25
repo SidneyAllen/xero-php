@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Error Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class Error implements ModelInterface, ArrayAccess
         'error_number' => 'int',
         'type' => 'string',
         'message' => 'string',
-        'elements' => '\OpenAPI\Client\Model\Element[]'
+        'elements' => '\SidneyAllen\XeroPHP\Model\Element[]'
     ];
 
     /**
@@ -297,7 +297,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Gets elements
      *
-     * @return \OpenAPI\Client\Model\Element[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Element[]|null
      */
     public function getElements()
     {
@@ -307,7 +307,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \OpenAPI\Client\Model\Element[]|null $elements Array of Elements of validation Errors
+     * @param \SidneyAllen\XeroPHP\Model\Element[]|null $elements Array of Elements of validation Errors
      *
      * @return $this
      */

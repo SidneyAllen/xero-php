@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * RepeatingInvoices Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'repeating_invoices' => '\OpenAPI\Client\Model\RepeatingInvoice[]'
+        'repeating_invoices' => '\SidneyAllen\XeroPHP\Model\RepeatingInvoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
     /**
      * Gets repeating_invoices
      *
-     * @return \OpenAPI\Client\Model\RepeatingInvoice[]|null
+     * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoice[]|null
      */
     public function getRepeatingInvoices()
     {
@@ -217,7 +217,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
     /**
      * Sets repeating_invoices
      *
-     * @param \OpenAPI\Client\Model\RepeatingInvoice[]|null $repeating_invoices repeating_invoices
+     * @param \SidneyAllen\XeroPHP\Model\RepeatingInvoice[]|null $repeating_invoices repeating_invoices
      *
      * @return $this
      */

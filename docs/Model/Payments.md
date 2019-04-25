@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payments** | [**\OpenAPI\Client\Model\Payment[]**](Payment.md) |  | [optional] 
+**payments** | [**\SidneyAllen\XeroPHP\Model\Payment[]**](Payment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

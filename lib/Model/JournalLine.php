@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * JournalLine Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'journal_line_id' => 'string',
         'account_id' => 'string',
         'account_code' => 'string',
-        'account_type' => '\OpenAPI\Client\Model\AccountType',
+        'account_type' => '\SidneyAllen\XeroPHP\Model\AccountType',
         'account_name' => 'string',
         'description' => 'string',
         'net_amount' => 'double',
@@ -68,7 +68,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'tax_amount' => 'double',
         'tax_type' => 'string',
         'tax_name' => 'string',
-        'tracking_categories' => '\OpenAPI\Client\Model\TrackingCategory[]'
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]'
     ];
 
     /**
@@ -345,7 +345,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets account_type
      *
-     * @return \OpenAPI\Client\Model\AccountType|null
+     * @return \SidneyAllen\XeroPHP\Model\AccountType|null
      */
     public function getAccountType()
     {
@@ -355,7 +355,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets account_type
      *
-     * @param \OpenAPI\Client\Model\AccountType|null $account_type account_type
+     * @param \SidneyAllen\XeroPHP\Model\AccountType|null $account_type account_type
      *
      * @return $this
      */
@@ -537,7 +537,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \OpenAPI\Client\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
      */
     public function getTrackingCategories()
     {
@@ -547,7 +547,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \OpenAPI\Client\Model\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

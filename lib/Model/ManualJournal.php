@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ManualJournal Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,18 +58,18 @@ class ManualJournal implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'narration' => 'string',
-        'journal_lines' => '\OpenAPI\Client\Model\ManualJournalLine[]',
+        'journal_lines' => '\SidneyAllen\XeroPHP\Model\ManualJournalLine[]',
         'date' => '\DateTime',
-        'line_amount_types' => '\OpenAPI\Client\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
         'status' => 'string',
         'url' => 'string',
         'show_on_cash_basis_reports' => 'bool',
         'has_attachments' => 'bool',
         'updated_date_utc' => '\DateTime',
         'manual_journal_id' => 'string',
-        'warnings' => '\OpenAPI\Client\Model\ValidationError[]',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]',
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]'
+        'warnings' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
     ];
 
     /**
@@ -336,7 +336,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets journal_lines
      *
-     * @return \OpenAPI\Client\Model\ManualJournalLine[]
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournalLine[]
      */
     public function getJournalLines()
     {
@@ -346,7 +346,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets journal_lines
      *
-     * @param \OpenAPI\Client\Model\ManualJournalLine[] $journal_lines See JournalLines
+     * @param \SidneyAllen\XeroPHP\Model\ManualJournalLine[] $journal_lines See JournalLines
      *
      * @return $this
      */
@@ -384,7 +384,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \OpenAPI\Client\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -394,7 +394,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \OpenAPI\Client\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -561,7 +561,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets warnings
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getWarnings()
     {
@@ -571,7 +571,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $warnings Displays array of warning messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $warnings Displays array of warning messages from the API
      *
      * @return $this
      */
@@ -585,7 +585,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -595,7 +595,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */
@@ -609,7 +609,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -619,7 +619,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

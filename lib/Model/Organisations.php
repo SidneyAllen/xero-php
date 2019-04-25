@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Organisations Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Organisations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organisations' => '\OpenAPI\Client\Model\Organisation[]'
+        'organisations' => '\SidneyAllen\XeroPHP\Model\Organisation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Organisations implements ModelInterface, ArrayAccess
     /**
      * Gets organisations
      *
-     * @return \OpenAPI\Client\Model\Organisation[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Organisation[]|null
      */
     public function getOrganisations()
     {
@@ -217,7 +217,7 @@ class Organisations implements ModelInterface, ArrayAccess
     /**
      * Sets organisations
      *
-     * @param \OpenAPI\Client\Model\Organisation[]|null $organisations organisations
+     * @param \SidneyAllen\XeroPHP\Model\Organisation[]|null $organisations organisations
      *
      * @return $this
      */

@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice** | [**\OpenAPI\Client\Model\Invoice**](Invoice.md) |  | [optional] 
-**credit_note** | [**\OpenAPI\Client\Model\CreditNote**](CreditNote.md) |  | [optional] 
-**prepayment** | [**\OpenAPI\Client\Model\Prepayment**](Prepayment.md) |  | [optional] 
-**overpayment** | [**\OpenAPI\Client\Model\Overpayment**](Overpayment.md) |  | [optional] 
+**invoice** | [**\SidneyAllen\XeroPHP\Model\Invoice**](Invoice.md) |  | [optional] 
+**credit_note** | [**\SidneyAllen\XeroPHP\Model\CreditNote**](CreditNote.md) |  | [optional] 
+**prepayment** | [**\SidneyAllen\XeroPHP\Model\Prepayment**](Prepayment.md) |  | [optional] 
+**overpayment** | [**\SidneyAllen\XeroPHP\Model\Overpayment**](Overpayment.md) |  | [optional] 
 **invoice_number** | **string** | Number of invoice or credit note you are applying payment to e.g.INV-4003 | [optional] 
 **credit_note_number** | **string** | Number of invoice or credit note you are applying payment to e.g. INV-4003 | [optional] 
-**account** | [**\OpenAPI\Client\Model\Account**](Account.md) |  | [optional] 
+**account** | [**\SidneyAllen\XeroPHP\Model\Account**](Account.md) |  | [optional] 
 **code** | **string** | Code of account you are using to make the payment e.g. 001 (note- not all accounts have a code value) | [optional] 
 **date** | [**\DateTime**](\DateTime.md) | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **currency_rate** | **double** | Exchange rate when payment is received. Only used for non base currency invoices and credit notes e.g. 0.7500 | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **details** | **string** | The information to appear on the supplier&#39;s bank account | [optional] 
 **has_account** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] 
 **has_validation_errors** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] 
-**validation_errors** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

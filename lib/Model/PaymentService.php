@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * PaymentService Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -62,7 +62,7 @@ class PaymentService implements ModelInterface, ArrayAccess
         'payment_service_url' => 'string',
         'pay_now_text' => 'string',
         'payment_service_type' => 'string',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -357,7 +357,7 @@ class PaymentService implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -367,7 +367,7 @@ class PaymentService implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

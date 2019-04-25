@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * HistoryRecords Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'history_records' => '\OpenAPI\Client\Model\HistoryRecord[]'
+        'history_records' => '\SidneyAllen\XeroPHP\Model\HistoryRecord[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
     /**
      * Gets history_records
      *
-     * @return \OpenAPI\Client\Model\HistoryRecord[]|null
+     * @return \SidneyAllen\XeroPHP\Model\HistoryRecord[]|null
      */
     public function getHistoryRecords()
     {
@@ -217,7 +217,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
     /**
      * Sets history_records
      *
-     * @param \OpenAPI\Client\Model\HistoryRecord[]|null $history_records history_records
+     * @param \SidneyAllen\XeroPHP\Model\HistoryRecord[]|null $history_records history_records
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * InvoiceReminders Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice_reminders' => '\OpenAPI\Client\Model\InvoiceReminder[]'
+        'invoice_reminders' => '\SidneyAllen\XeroPHP\Model\InvoiceReminder[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess
     /**
      * Gets invoice_reminders
      *
-     * @return \OpenAPI\Client\Model\InvoiceReminder[]|null
+     * @return \SidneyAllen\XeroPHP\Model\InvoiceReminder[]|null
      */
     public function getInvoiceReminders()
     {
@@ -217,7 +217,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess
     /**
      * Sets invoice_reminders
      *
-     * @param \OpenAPI\Client\Model\InvoiceReminder[]|null $invoice_reminders invoice_reminders
+     * @param \SidneyAllen\XeroPHP\Model\InvoiceReminder[]|null $invoice_reminders invoice_reminders
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ManualJournalLine Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,7 +61,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
         'account_code' => 'string',
         'description' => 'string',
         'tax_type' => 'string',
-        'tracking' => '\OpenAPI\Client\Model\TrackingCategory[]',
+        'tracking' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]',
         'tax_amount' => 'double',
         'is_blank' => 'bool'
     ];
@@ -339,7 +339,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets tracking
      *
-     * @return \OpenAPI\Client\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
      */
     public function getTracking()
     {
@@ -349,7 +349,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets tracking
      *
-     * @param \OpenAPI\Client\Model\TrackingCategory[]|null $tracking Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $tracking Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

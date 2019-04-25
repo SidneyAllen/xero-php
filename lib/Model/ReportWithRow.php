@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ReportWithRow Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,8 +64,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_titles' => 'string[]',
         'report_date' => 'string',
         'updated_date_utc' => '\DateTime',
-        'rows' => '\OpenAPI\Client\Model\ReportRows[]',
-        'fields' => '\OpenAPI\Client\Model\ReportFields[]'
+        'rows' => '\SidneyAllen\XeroPHP\Model\ReportRows[]',
+        'fields' => '\SidneyAllen\XeroPHP\Model\ReportFields[]'
     ];
 
     /**
@@ -423,7 +423,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets rows
      *
-     * @return \OpenAPI\Client\Model\ReportRows[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ReportRows[]|null
      */
     public function getRows()
     {
@@ -433,7 +433,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets rows
      *
-     * @param \OpenAPI\Client\Model\ReportRows[]|null $rows rows
+     * @param \SidneyAllen\XeroPHP\Model\ReportRows[]|null $rows rows
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return \OpenAPI\Client\Model\ReportFields[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ReportFields[]|null
      */
     public function getFields()
     {
@@ -457,7 +457,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param \OpenAPI\Client\Model\ReportFields[]|null $fields fields
+     * @param \SidneyAllen\XeroPHP\Model\ReportFields[]|null $fields fields
      *
      * @return $this
      */

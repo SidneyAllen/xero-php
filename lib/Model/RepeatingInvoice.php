@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * RepeatingInvoice Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,13 +58,13 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\OpenAPI\Client\Model\Contact',
-        'schedule' => '\OpenAPI\Client\Model\Schedule',
-        'line_items' => '\OpenAPI\Client\Model\LineItem[]',
-        'line_amount_types' => '\OpenAPI\Client\Model\LineAmountTypes',
+        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
+        'schedule' => '\SidneyAllen\XeroPHP\Model\Schedule',
+        'line_items' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
         'reference' => 'string',
         'branding_theme_id' => 'string',
-        'currency_code' => '\OpenAPI\Client\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'status' => 'string',
         'sub_total' => 'double',
         'total_tax' => 'double',
@@ -72,7 +72,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'string',
         'id' => 'string',
         'has_attachments' => 'bool',
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]'
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
     ];
 
     /**
@@ -376,7 +376,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \OpenAPI\Client\Model\Contact|null
+     * @return \SidneyAllen\XeroPHP\Model\Contact|null
      */
     public function getContact()
     {
@@ -386,7 +386,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \OpenAPI\Client\Model\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Model\Contact|null $contact contact
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets schedule
      *
-     * @return \OpenAPI\Client\Model\Schedule|null
+     * @return \SidneyAllen\XeroPHP\Model\Schedule|null
      */
     public function getSchedule()
     {
@@ -410,7 +410,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets schedule
      *
-     * @param \OpenAPI\Client\Model\Schedule|null $schedule schedule
+     * @param \SidneyAllen\XeroPHP\Model\Schedule|null $schedule schedule
      *
      * @return $this
      */
@@ -424,7 +424,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Model\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -434,7 +434,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\LineItem[]|null $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Model\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */
@@ -448,7 +448,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \OpenAPI\Client\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -458,7 +458,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \OpenAPI\Client\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -520,7 +520,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -530,7 +530,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -721,7 +721,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -731,7 +731,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

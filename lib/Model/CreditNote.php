@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * CreditNote Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,16 +58,16 @@ class CreditNote implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\OpenAPI\Client\Model\Contact',
+        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
         'date' => '\DateTime',
         'status' => 'string',
-        'line_amount_types' => '\OpenAPI\Client\Model\LineAmountTypes',
-        'line_items' => '\OpenAPI\Client\Model\LineItem[]',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
+        'line_items' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
         'updated_date_utc' => '\DateTime',
-        'currency_code' => '\OpenAPI\Client\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'fully_paid_on_date' => '\DateTime',
         'credit_note_id' => 'string',
         'credit_note_number' => 'string',
@@ -75,11 +75,11 @@ class CreditNote implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'bool',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
-        'allocations' => '\OpenAPI\Client\Model\Allocation[]',
-        'payments' => '\OpenAPI\Client\Model\Payment[]',
+        'allocations' => '\SidneyAllen\XeroPHP\Model\Allocation[]',
+        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]',
         'branding_theme_id' => 'string',
         'has_attachments' => 'bool',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -426,7 +426,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \OpenAPI\Client\Model\Contact|null
+     * @return \SidneyAllen\XeroPHP\Model\Contact|null
      */
     public function getContact()
     {
@@ -436,7 +436,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \OpenAPI\Client\Model\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Model\Contact|null $contact contact
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \OpenAPI\Client\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -517,7 +517,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \OpenAPI\Client\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -531,7 +531,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Model\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -541,7 +541,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\LineItem[]|null $line_items See Invoice Line Items
+     * @param \SidneyAllen\XeroPHP\Model\LineItem[]|null $line_items See Invoice Line Items
      *
      * @return $this
      */
@@ -651,7 +651,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -661,7 +661,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -843,7 +843,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets allocations
      *
-     * @return \OpenAPI\Client\Model\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -853,7 +853,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets allocations
      *
-     * @param \OpenAPI\Client\Model\Allocation[]|null $allocations See Allocations
+     * @param \SidneyAllen\XeroPHP\Model\Allocation[]|null $allocations See Allocations
      *
      * @return $this
      */
@@ -867,7 +867,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
      */
     public function getPayments()
     {
@@ -877,7 +877,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -939,7 +939,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -949,7 +949,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,14 +27,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client;
+namespace SidneyAllen\XeroPHP;
 
 /**
  * BalancesTest Class Doc Comment
  *
  * @category    Class
  * @description The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts, not converted to base currency (read only)
- * @package     OpenAPI\Client
+ * @package     SidneyAllen\XeroPHP
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

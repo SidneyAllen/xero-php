@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * PurchaseOrders Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'purchase_orders' => '\OpenAPI\Client\Model\PurchaseOrder[]'
+        'purchase_orders' => '\SidneyAllen\XeroPHP\Model\PurchaseOrder[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_orders
      *
-     * @return \OpenAPI\Client\Model\PurchaseOrder[]|null
+     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrder[]|null
      */
     public function getPurchaseOrders()
     {
@@ -217,7 +217,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_orders
      *
-     * @param \OpenAPI\Client\Model\PurchaseOrder[]|null $purchase_orders purchase_orders
+     * @param \SidneyAllen\XeroPHP\Model\PurchaseOrder[]|null $purchase_orders purchase_orders
      *
      * @return $this
      */

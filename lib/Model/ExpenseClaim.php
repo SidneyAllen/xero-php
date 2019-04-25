@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ExpenseClaim Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,9 +59,9 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'expense_claim_id' => 'string',
         'status' => 'string',
-        'payments' => '\OpenAPI\Client\Model\Payment[]',
-        'user' => '\OpenAPI\Client\Model\User',
-        'receipts' => '\OpenAPI\Client\Model\Receipt[]',
+        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]',
+        'user' => '\SidneyAllen\XeroPHP\Model\User',
+        'receipts' => '\SidneyAllen\XeroPHP\Model\Receipt[]',
         'updated_date_utc' => '\DateTime',
         'total' => 'double',
         'amount_due' => 'double',
@@ -357,7 +357,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
      */
     public function getPayments()
     {
@@ -367,7 +367,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \OpenAPI\Client\Model\User|null
+     * @return \SidneyAllen\XeroPHP\Model\User|null
      */
     public function getUser()
     {
@@ -391,7 +391,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \OpenAPI\Client\Model\User|null $user user
+     * @param \SidneyAllen\XeroPHP\Model\User|null $user user
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets receipts
      *
-     * @return \OpenAPI\Client\Model\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -415,7 +415,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets receipts
      *
-     * @param \OpenAPI\Client\Model\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Model\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

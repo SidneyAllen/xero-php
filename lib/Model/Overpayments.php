@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Overpayments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Overpayments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'overpayments' => '\OpenAPI\Client\Model\Overpayment[]'
+        'overpayments' => '\SidneyAllen\XeroPHP\Model\Overpayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Overpayments implements ModelInterface, ArrayAccess
     /**
      * Gets overpayments
      *
-     * @return \OpenAPI\Client\Model\Overpayment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Overpayment[]|null
      */
     public function getOverpayments()
     {
@@ -217,7 +217,7 @@ class Overpayments implements ModelInterface, ArrayAccess
     /**
      * Sets overpayments
      *
-     * @param \OpenAPI\Client\Model\Overpayment[]|null $overpayments overpayments
+     * @param \SidneyAllen\XeroPHP\Model\Overpayment[]|null $overpayments overpayments
      *
      * @return $this
      */

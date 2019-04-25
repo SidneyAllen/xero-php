@@ -3,15 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact** | [**\OpenAPI\Client\Model\Contact**](Contact.md) |  | 
-**line_items** | [**\OpenAPI\Client\Model\LineItem[]**](LineItem.md) | See LineItems | 
+**contact** | [**\SidneyAllen\XeroPHP\Model\Contact**](Contact.md) |  | 
+**line_items** | [**\SidneyAllen\XeroPHP\Model\LineItem[]**](LineItem.md) | See LineItems | 
 **date** | [**\DateTime**](\DateTime.md) | Date purchase order was issued – YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
 **delivery_date** | [**\DateTime**](\DateTime.md) | Date the goods are to be delivered – YYYY-MM-DD | [optional] 
-**line_amount_types** | [**\OpenAPI\Client\Model\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
+**line_amount_types** | [**\SidneyAllen\XeroPHP\Model\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **purchase_order_number** | **string** | Unique alpha numeric code identifying purchase order (when missing will auto-generate from your Organisation Invoice Settings) | [optional] 
 **reference** | **string** | Additional reference number | [optional] 
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
-**currency_code** | [**\OpenAPI\Client\Model\CurrencyCode**](CurrencyCode.md) |  | [optional] 
+**currency_code** | [**\SidneyAllen\XeroPHP\Model\CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **status** | **string** | See Purchase Order Status Codes | [optional] 
 **sent_to_contact** | **bool** | Boolean to set whether the purchase order should be marked as “sent”. This can be set only on purchase orders that have been approved or billed | [optional] 
 **delivery_address** | **string** | The address the goods are to be delivered to | [optional] 
@@ -28,9 +28,9 @@ Name | Type | Description | Notes
 **has_attachments** | **bool** | boolean to indicate if a purchase order has an attachment | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
 **status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
-**validation_errors** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
-**warnings** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
-**attachments** | [**\OpenAPI\Client\Model\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
+**attachments** | [**\SidneyAllen\XeroPHP\Model\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

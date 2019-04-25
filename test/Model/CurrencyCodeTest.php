@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,14 +27,14 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client;
+namespace SidneyAllen\XeroPHP;
 
 /**
  * CurrencyCodeTest Class Doc Comment
  *
  * @category    Class
  * @description 3 letter alpha code for the currency – see list of currency codes
- * @package     OpenAPI\Client
+ * @package     SidneyAllen\XeroPHP
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

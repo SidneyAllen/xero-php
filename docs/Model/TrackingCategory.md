@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | The name of the tracking category e.g. Department, Region (max length &#x3D; 100) | [optional] 
 **option** | **string** | The option name of the tracking option e.g. East, West (max length &#x3D; 100) | [optional] 
 **status** | **string** | The status of a tracking category | [optional] 
-**options** | [**\OpenAPI\Client\Model\TrackingOption[]**](TrackingOption.md) | See Tracking Options | [optional] 
+**options** | [**\SidneyAllen\XeroPHP\Model\TrackingOption[]**](TrackingOption.md) | See Tracking Options | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

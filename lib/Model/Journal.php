@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Journal Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,7 +64,7 @@ class Journal implements ModelInterface, ArrayAccess
         'reference' => 'string',
         'source_id' => 'string',
         'source_type' => 'string',
-        'journal_lines' => '\OpenAPI\Client\Model\JournalLine[]'
+        'journal_lines' => '\SidneyAllen\XeroPHP\Model\JournalLine[]'
     ];
 
     /**
@@ -495,7 +495,7 @@ class Journal implements ModelInterface, ArrayAccess
     /**
      * Gets journal_lines
      *
-     * @return \OpenAPI\Client\Model\JournalLine[]|null
+     * @return \SidneyAllen\XeroPHP\Model\JournalLine[]|null
      */
     public function getJournalLines()
     {
@@ -505,7 +505,7 @@ class Journal implements ModelInterface, ArrayAccess
     /**
      * Sets journal_lines
      *
-     * @param \OpenAPI\Client\Model\JournalLine[]|null $journal_lines See JournalLines
+     * @param \SidneyAllen\XeroPHP\Model\JournalLine[]|null $journal_lines See JournalLines
      *
      * @return $this
      */

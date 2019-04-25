@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **expense_claim_id** | **string** | Xero generated unique identifier for an expense claim | [optional] 
 **status** | **string** | Current status of an expense claim – see status types | [optional] 
-**payments** | [**\OpenAPI\Client\Model\Payment[]**](Payment.md) | See Payments | [optional] 
-**user** | [**\OpenAPI\Client\Model\User**](User.md) |  | [optional] 
-**receipts** | [**\OpenAPI\Client\Model\Receipt[]**](Receipt.md) |  | [optional] 
+**payments** | [**\SidneyAllen\XeroPHP\Model\Payment[]**](Payment.md) | See Payments | [optional] 
+**user** | [**\SidneyAllen\XeroPHP\Model\User**](User.md) |  | [optional] 
+**receipts** | [**\SidneyAllen\XeroPHP\Model\Receipt[]**](Receipt.md) |  | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
 **total** | **double** | The total of an expense claim being paid | [optional] 
 **amount_due** | **double** | The amount due to be paid for an expense claim | [optional] 

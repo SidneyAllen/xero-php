@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * PurchaseOrder Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,15 +57,15 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact' => '\OpenAPI\Client\Model\Contact',
-        'line_items' => '\OpenAPI\Client\Model\LineItem[]',
+        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
+        'line_items' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
         'date' => '\DateTime',
         'delivery_date' => '\DateTime',
-        'line_amount_types' => '\OpenAPI\Client\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
         'purchase_order_number' => 'string',
         'reference' => 'string',
         'branding_theme_id' => 'string',
-        'currency_code' => '\OpenAPI\Client\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'status' => 'string',
         'sent_to_contact' => 'bool',
         'delivery_address' => 'string',
@@ -82,9 +82,9 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
         'has_attachments' => 'bool',
         'updated_date_utc' => '\DateTime',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]',
-        'warnings' => '\OpenAPI\Client\Model\ValidationError[]',
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
+        'warnings' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
     ];
 
     /**
@@ -404,7 +404,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \OpenAPI\Client\Model\Contact
+     * @return \SidneyAllen\XeroPHP\Model\Contact
      */
     public function getContact()
     {
@@ -414,7 +414,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \OpenAPI\Client\Model\Contact $contact contact
+     * @param \SidneyAllen\XeroPHP\Model\Contact $contact contact
      *
      * @return $this
      */
@@ -428,7 +428,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\LineItem[]
+     * @return \SidneyAllen\XeroPHP\Model\LineItem[]
      */
     public function getLineItems()
     {
@@ -438,7 +438,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\LineItem[] $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Model\LineItem[] $line_items See LineItems
      *
      * @return $this
      */
@@ -500,7 +500,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \OpenAPI\Client\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -510,7 +510,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \OpenAPI\Client\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -596,7 +596,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -606,7 +606,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -1013,7 +1013,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1023,7 +1023,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */
@@ -1037,7 +1037,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets warnings
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getWarnings()
     {
@@ -1047,7 +1047,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $warnings Displays array of warning messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $warnings Displays array of warning messages from the API
      *
      * @return $this
      */
@@ -1061,7 +1061,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -1071,7 +1071,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

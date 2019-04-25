@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Allocations Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Allocations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'allocations' => '\OpenAPI\Client\Model\Allocation[]'
+        'allocations' => '\SidneyAllen\XeroPHP\Model\Allocation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Allocations implements ModelInterface, ArrayAccess
     /**
      * Gets allocations
      *
-     * @return \OpenAPI\Client\Model\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -217,7 +217,7 @@ class Allocations implements ModelInterface, ArrayAccess
     /**
      * Sets allocations
      *
-     * @param \OpenAPI\Client\Model\Allocation[]|null $allocations allocations
+     * @param \SidneyAllen\XeroPHP\Model\Allocation[]|null $allocations allocations
      *
      * @return $this
      */

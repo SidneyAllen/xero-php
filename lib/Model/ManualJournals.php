@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ManualJournals Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class ManualJournals implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'manual_journals' => '\OpenAPI\Client\Model\ManualJournal[]'
+        'manual_journals' => '\SidneyAllen\XeroPHP\Model\ManualJournal[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ManualJournals implements ModelInterface, ArrayAccess
     /**
      * Gets manual_journals
      *
-     * @return \OpenAPI\Client\Model\ManualJournal[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ManualJournal[]|null
      */
     public function getManualJournals()
     {
@@ -217,7 +217,7 @@ class ManualJournals implements ModelInterface, ArrayAccess
     /**
      * Sets manual_journals
      *
-     * @param \OpenAPI\Client\Model\ManualJournal[]|null $manual_journals manual_journals
+     * @param \SidneyAllen\XeroPHP\Model\ManualJournal[]|null $manual_journals manual_journals
      *
      * @return $this
      */

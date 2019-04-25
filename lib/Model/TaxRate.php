@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * TaxRate Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'tax_type' => 'string',
-        'tax_components' => '\OpenAPI\Client\Model\TaxComponent[]',
+        'tax_components' => '\SidneyAllen\XeroPHP\Model\TaxComponent[]',
         'status' => 'string',
         'report_tax_type' => 'string',
         'can_apply_to_assets' => 'bool',
@@ -400,7 +400,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Gets tax_components
      *
-     * @return \OpenAPI\Client\Model\TaxComponent[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TaxComponent[]|null
      */
     public function getTaxComponents()
     {
@@ -410,7 +410,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Sets tax_components
      *
-     * @param \OpenAPI\Client\Model\TaxComponent[]|null $tax_components See TaxComponents
+     * @param \SidneyAllen\XeroPHP\Model\TaxComponent[]|null $tax_components See TaxComponents
      *
      * @return $this
      */

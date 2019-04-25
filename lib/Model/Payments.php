@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Payments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Payments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payments' => '\OpenAPI\Client\Model\Payment[]'
+        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Payments implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
      */
     public function getPayments()
     {
@@ -217,7 +217,7 @@ class Payments implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\Payment[]|null $payments payments
+     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments payments
      *
      * @return $this
      */

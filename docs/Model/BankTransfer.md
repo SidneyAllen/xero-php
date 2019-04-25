@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from_bank_account** | [**\OpenAPI\Client\Model\Account**](Account.md) |  | 
-**to_bank_account** | [**\OpenAPI\Client\Model\Account**](Account.md) |  | 
+**from_bank_account** | [**\SidneyAllen\XeroPHP\Model\Account**](Account.md) |  | 
+**to_bank_account** | [**\SidneyAllen\XeroPHP\Model\Account**](Account.md) |  | 
 **amount** | **string** | amount of the transaction | 
 **date** | [**\DateTime**](\DateTime.md) | The date of the Transfer YYYY-MM-DD | [optional] 
 **bank_transfer_id** | **string** | The identifier of the Bank Transfer | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **to_bank_transaction_id** | **string** | The Bank Transaction ID for the destination account | [optional] 
 **has_attachments** | **bool** | Boolean to indicate if a Bank Transfer has an attachment | [optional] 
 **created_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of creation date of bank transfer | [optional] 
-**validation_errors** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

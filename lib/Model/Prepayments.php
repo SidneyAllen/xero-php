@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Prepayments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Prepayments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'prepayments' => '\OpenAPI\Client\Model\Prepayment[]'
+        'prepayments' => '\SidneyAllen\XeroPHP\Model\Prepayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Prepayments implements ModelInterface, ArrayAccess
     /**
      * Gets prepayments
      *
-     * @return \OpenAPI\Client\Model\Prepayment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Prepayment[]|null
      */
     public function getPrepayments()
     {
@@ -217,7 +217,7 @@ class Prepayments implements ModelInterface, ArrayAccess
     /**
      * Sets prepayments
      *
-     * @param \OpenAPI\Client\Model\Prepayment[]|null $prepayments prepayments
+     * @param \SidneyAllen\XeroPHP\Model\Prepayment[]|null $prepayments prepayments
      *
      * @return $this
      */

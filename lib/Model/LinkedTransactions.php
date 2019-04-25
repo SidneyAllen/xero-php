@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * LinkedTransactions Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'linked_transactions' => '\OpenAPI\Client\Model\LinkedTransaction[]'
+        'linked_transactions' => '\SidneyAllen\XeroPHP\Model\LinkedTransaction[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
     /**
      * Gets linked_transactions
      *
-     * @return \OpenAPI\Client\Model\LinkedTransaction[]|null
+     * @return \SidneyAllen\XeroPHP\Model\LinkedTransaction[]|null
      */
     public function getLinkedTransactions()
     {
@@ -217,7 +217,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
     /**
      * Sets linked_transactions
      *
-     * @param \OpenAPI\Client\Model\LinkedTransaction[]|null $linked_transactions linked_transactions
+     * @param \SidneyAllen\XeroPHP\Model\LinkedTransaction[]|null $linked_transactions linked_transactions
      *
      * @return $this
      */

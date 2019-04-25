@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Attachments Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Attachments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]'
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Attachments implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -217,7 +217,7 @@ class Attachments implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments attachments
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments attachments
      *
      * @return $this
      */

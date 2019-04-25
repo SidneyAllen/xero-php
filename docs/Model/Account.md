@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 **code** | **string** | Customer defined alpha numeric account code e.g 200 or SALES (max length &#x3D; 10) | [optional] 
 **name** | **string** | Name of account (max length &#x3D; 150) | [optional] 
 **account_id** | **string** | The Xero identifier for an account – specified as a string following  the endpoint name   e.g. /297c2dc5-cc47-4afd-8ec8-74990b8761e9 | [optional] 
-**type** | [**\OpenAPI\Client\Model\AccountType**](AccountType.md) |  | [optional] 
+**type** | [**\SidneyAllen\XeroPHP\Model\AccountType**](AccountType.md) |  | [optional] 
 **bank_account_number** | **string** | For bank accounts only (Account Type BANK) | [optional] 
 **status** | **string** | Accounts with a status of ACTIVE can be updated to ARCHIVED. See Account Status Codes | [optional] 
 **description** | **string** | Description of the Account. Valid for all types of accounts except bank accounts (max length &#x3D; 4000) | [optional] 
 **bank_account_type** | **string** | For bank accounts only. See Bank Account types | [optional] 
-**currency_code** | [**\OpenAPI\Client\Model\CurrencyCode**](CurrencyCode.md) |  | [optional] 
+**currency_code** | [**\SidneyAllen\XeroPHP\Model\CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **tax_type** | **string** | The tax type from TaxRates | [optional] 
 **enable_payments_to_account** | **bool** | Boolean – describes whether account can have payments applied to it | [optional] 
 **show_in_expense_claims** | **bool** | Boolean – describes whether account code is available for use with expense claims | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **reporting_code_name** | **string** | Shown if set | [optional] 
 **has_attachments** | **bool** | boolean to indicate if an account has an attachment (read only) | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
-**validation_errors** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

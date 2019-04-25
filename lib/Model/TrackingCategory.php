@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * TrackingCategory Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -62,7 +62,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
         'name' => 'string',
         'option' => 'string',
         'status' => 'string',
-        'options' => '\OpenAPI\Client\Model\TrackingOption[]'
+        'options' => '\SidneyAllen\XeroPHP\Model\TrackingOption[]'
     ];
 
     /**
@@ -405,7 +405,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \OpenAPI\Client\Model\TrackingOption[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingOption[]|null
      */
     public function getOptions()
     {
@@ -415,7 +415,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \OpenAPI\Client\Model\TrackingOption[]|null $options See Tracking Options
+     * @param \SidneyAllen\XeroPHP\Model\TrackingOption[]|null $options See Tracking Options
      *
      * @return $this
      */

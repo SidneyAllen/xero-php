@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Invoice Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,16 +58,16 @@ class Invoice implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\OpenAPI\Client\Model\Contact',
-        'line_items' => '\OpenAPI\Client\Model\LineItem[]',
+        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
+        'line_items' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
         'date' => '\DateTime',
         'due_date' => '\DateTime',
-        'line_amount_types' => '\OpenAPI\Client\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
         'invoice_number' => 'string',
         'reference' => 'string',
         'branding_theme_id' => 'string',
         'url' => 'string',
-        'currency_code' => '\OpenAPI\Client\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'currency_rate' => 'double',
         'status' => 'string',
         'sent_to_contact' => 'bool',
@@ -80,19 +80,19 @@ class Invoice implements ModelInterface, ArrayAccess
         'invoice_id' => 'string',
         'has_attachments' => 'bool',
         'is_discounted' => 'bool',
-        'payments' => '\OpenAPI\Client\Model\Payment[]',
-        'prepayments' => '\OpenAPI\Client\Model\Prepayment[]',
-        'overpayments' => '\OpenAPI\Client\Model\Overpayment[]',
+        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]',
+        'prepayments' => '\SidneyAllen\XeroPHP\Model\Prepayment[]',
+        'overpayments' => '\SidneyAllen\XeroPHP\Model\Overpayment[]',
         'amount_due' => 'double',
         'amount_paid' => 'double',
         'fully_paid_on_date' => '\DateTime',
         'amount_credited' => 'double',
         'updated_date_utc' => '\DateTime',
-        'credit_notes' => '\OpenAPI\Client\Model\CreditNote[]',
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]',
+        'credit_notes' => '\SidneyAllen\XeroPHP\Model\CreditNote[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]',
         'has_errors' => 'bool',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -521,7 +521,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \OpenAPI\Client\Model\Contact
+     * @return \SidneyAllen\XeroPHP\Model\Contact
      */
     public function getContact()
     {
@@ -531,7 +531,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \OpenAPI\Client\Model\Contact $contact contact
+     * @param \SidneyAllen\XeroPHP\Model\Contact $contact contact
      *
      * @return $this
      */
@@ -545,7 +545,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\LineItem[]
+     * @return \SidneyAllen\XeroPHP\Model\LineItem[]
      */
     public function getLineItems()
     {
@@ -555,7 +555,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\LineItem[] $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Model\LineItem[] $line_items See LineItems
      *
      * @return $this
      */
@@ -617,7 +617,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \OpenAPI\Client\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -627,7 +627,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \OpenAPI\Client\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -745,7 +745,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -755,7 +755,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -1066,7 +1066,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \OpenAPI\Client\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
      */
     public function getPayments()
     {
@@ -1076,7 +1076,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \OpenAPI\Client\Model\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -1090,7 +1090,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets prepayments
      *
-     * @return \OpenAPI\Client\Model\Prepayment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Prepayment[]|null
      */
     public function getPrepayments()
     {
@@ -1100,7 +1100,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets prepayments
      *
-     * @param \OpenAPI\Client\Model\Prepayment[]|null $prepayments See Prepayments
+     * @param \SidneyAllen\XeroPHP\Model\Prepayment[]|null $prepayments See Prepayments
      *
      * @return $this
      */
@@ -1114,7 +1114,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets overpayments
      *
-     * @return \OpenAPI\Client\Model\Overpayment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Overpayment[]|null
      */
     public function getOverpayments()
     {
@@ -1124,7 +1124,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets overpayments
      *
-     * @param \OpenAPI\Client\Model\Overpayment[]|null $overpayments See Overpayments
+     * @param \SidneyAllen\XeroPHP\Model\Overpayment[]|null $overpayments See Overpayments
      *
      * @return $this
      */
@@ -1258,7 +1258,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets credit_notes
      *
-     * @return \OpenAPI\Client\Model\CreditNote[]|null
+     * @return \SidneyAllen\XeroPHP\Model\CreditNote[]|null
      */
     public function getCreditNotes()
     {
@@ -1268,7 +1268,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets credit_notes
      *
-     * @param \OpenAPI\Client\Model\CreditNote[]|null $credit_notes Details of credit notes that have been applied to an invoice
+     * @param \SidneyAllen\XeroPHP\Model\CreditNote[]|null $credit_notes Details of credit notes that have been applied to an invoice
      *
      * @return $this
      */
@@ -1282,7 +1282,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -1292,7 +1292,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */
@@ -1354,7 +1354,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1364,7 +1364,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * CreditNotes Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credit_notes' => '\OpenAPI\Client\Model\CreditNote[]'
+        'credit_notes' => '\SidneyAllen\XeroPHP\Model\CreditNote[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
     /**
      * Gets credit_notes
      *
-     * @return \OpenAPI\Client\Model\CreditNote[]|null
+     * @return \SidneyAllen\XeroPHP\Model\CreditNote[]|null
      */
     public function getCreditNotes()
     {
@@ -217,7 +217,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
     /**
      * Sets credit_notes
      *
-     * @param \OpenAPI\Client\Model\CreditNote[]|null $credit_notes credit_notes
+     * @param \SidneyAllen\XeroPHP\Model\CreditNote[]|null $credit_notes credit_notes
      *
      * @return $this
      */

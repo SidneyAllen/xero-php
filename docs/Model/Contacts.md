@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contacts** | [**\OpenAPI\Client\Model\Contact[]**](Contact.md) |  | [optional] 
+**contacts** | [**\SidneyAllen\XeroPHP\Model\Contact[]**](Contact.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

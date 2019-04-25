@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | [**\OpenAPI\Client\Model\Account**](Account.md) |  | [optional] 
+**account** | [**\SidneyAllen\XeroPHP\Model\Account**](Account.md) |  | [optional] 
 **reference** | **string** | (NZ Only) Optional references for the batch payment transaction. It will also show with the batch payment transaction in the bank reconciliation Find &amp; Match screen. Depending on your individual bank, the detail may also show on the bank statement you import into Xero. | [optional] 
 **particulars** | **string** | (NZ Only) Optional references for the batch payment transaction. It will also show with the batch payment transaction in the bank reconciliation Find &amp; Match screen. Depending on your individual bank, the detail may also show on the bank statement you import into Xero. | [optional] 
 **code** | **string** | (NZ Only) Optional references for the batch payment transaction. It will also show with the batch payment transaction in the bank reconciliation Find &amp; Match screen. Depending on your individual bank, the detail may also show on the bank statement you import into Xero. | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **date_string** | **string** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **date** | [**\DateTime**](\DateTime.md) | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **amount** | **double** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
-**payments** | [**\OpenAPI\Client\Model\Payment[]**](Payment.md) |  | [optional] 
+**payments** | [**\SidneyAllen\XeroPHP\Model\Payment[]**](Payment.md) |  | [optional] 
 **type** | **string** | PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only) | [optional] 
 **status** | **string** | AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API. | [optional] 
 **total_amount** | **string** | The total of the payments that make up the batch (read-only) | [optional] 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Accounts Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Accounts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts' => '\OpenAPI\Client\Model\Account[]'
+        'accounts' => '\SidneyAllen\XeroPHP\Model\Account[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Accounts implements ModelInterface, ArrayAccess
     /**
      * Gets accounts
      *
-     * @return \OpenAPI\Client\Model\Account[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Account[]|null
      */
     public function getAccounts()
     {
@@ -217,7 +217,7 @@ class Accounts implements ModelInterface, ArrayAccess
     /**
      * Sets accounts
      *
-     * @param \OpenAPI\Client\Model\Account[]|null $accounts accounts
+     * @param \SidneyAllen\XeroPHP\Model\Account[]|null $accounts accounts
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * BankTransfer Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,8 +57,8 @@ class BankTransfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'from_bank_account' => '\OpenAPI\Client\Model\Account',
-        'to_bank_account' => '\OpenAPI\Client\Model\Account',
+        'from_bank_account' => '\SidneyAllen\XeroPHP\Model\Account',
+        'to_bank_account' => '\SidneyAllen\XeroPHP\Model\Account',
         'amount' => 'string',
         'date' => '\DateTime',
         'bank_transfer_id' => 'string',
@@ -67,7 +67,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'to_bank_transaction_id' => 'string',
         'has_attachments' => 'bool',
         'created_date_utc' => '\DateTime',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -276,7 +276,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets from_bank_account
      *
-     * @return \OpenAPI\Client\Model\Account
+     * @return \SidneyAllen\XeroPHP\Model\Account
      */
     public function getFromBankAccount()
     {
@@ -286,7 +286,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets from_bank_account
      *
-     * @param \OpenAPI\Client\Model\Account $from_bank_account from_bank_account
+     * @param \SidneyAllen\XeroPHP\Model\Account $from_bank_account from_bank_account
      *
      * @return $this
      */
@@ -300,7 +300,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets to_bank_account
      *
-     * @return \OpenAPI\Client\Model\Account
+     * @return \SidneyAllen\XeroPHP\Model\Account
      */
     public function getToBankAccount()
     {
@@ -310,7 +310,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets to_bank_account
      *
-     * @param \OpenAPI\Client\Model\Account $to_bank_account to_bank_account
+     * @param \SidneyAllen\XeroPHP\Model\Account $to_bank_account to_bank_account
      *
      * @return $this
      */
@@ -516,7 +516,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -526,7 +526,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

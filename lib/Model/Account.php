@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Account Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,12 +60,12 @@ class Account implements ModelInterface, ArrayAccess
         'code' => 'string',
         'name' => 'string',
         'account_id' => 'string',
-        'type' => '\OpenAPI\Client\Model\AccountType',
+        'type' => '\SidneyAllen\XeroPHP\Model\AccountType',
         'bank_account_number' => 'string',
         'status' => 'string',
         'description' => 'string',
         'bank_account_type' => 'string',
-        'currency_code' => '\OpenAPI\Client\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'tax_type' => 'string',
         'enable_payments_to_account' => 'bool',
         'show_in_expense_claims' => 'bool',
@@ -75,7 +75,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'string',
         'has_attachments' => 'bool',
         'updated_date_utc' => '\DateTime',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -531,7 +531,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \OpenAPI\Client\Model\AccountType|null
+     * @return \SidneyAllen\XeroPHP\Model\AccountType|null
      */
     public function getType()
     {
@@ -541,7 +541,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \OpenAPI\Client\Model\AccountType|null $type type
+     * @param \SidneyAllen\XeroPHP\Model\AccountType|null $type type
      *
      * @return $this
      */
@@ -669,7 +669,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -679,7 +679,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -927,7 +927,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -937,7 +937,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

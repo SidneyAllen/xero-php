@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Employees Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Employees implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employees' => '\OpenAPI\Client\Model\Employee[]'
+        'employees' => '\SidneyAllen\XeroPHP\Model\Employee[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Gets employees
      *
-     * @return \OpenAPI\Client\Model\Employee[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Employee[]|null
      */
     public function getEmployees()
     {
@@ -217,7 +217,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Sets employees
      *
-     * @param \OpenAPI\Client\Model\Employee[]|null $employees employees
+     * @param \SidneyAllen\XeroPHP\Model\Employee[]|null $employees employees
      *
      * @return $this
      */

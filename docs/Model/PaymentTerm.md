@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bills** | [**\OpenAPI\Client\Model\Bill**](Bill.md) |  | [optional] 
-**sales** | [**\OpenAPI\Client\Model\Bill**](Bill.md) |  | [optional] 
+**bills** | [**\SidneyAllen\XeroPHP\Model\Bill**](Bill.md) |  | [optional] 
+**sales** | [**\SidneyAllen\XeroPHP\Model\Bill**](Bill.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

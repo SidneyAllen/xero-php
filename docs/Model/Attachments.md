@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attachments** | [**\OpenAPI\Client\Model\Attachment[]**](Attachment.md) |  | [optional] 
+**attachments** | [**\SidneyAllen\XeroPHP\Model\Attachment[]**](Attachment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

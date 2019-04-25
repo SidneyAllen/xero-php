@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **status** | **string** | Current status of an employee – see contact status types | [optional] 
 **first_name** | **string** | First name of an employee (max length &#x3D; 255) | [optional] 
 **last_name** | **string** | Last name of an employee (max length &#x3D; 255) | [optional] 
-**external_link** | [**\OpenAPI\Client\Model\ExternalLink**](ExternalLink.md) |  | [optional] 
+**external_link** | [**\SidneyAllen\XeroPHP\Model\ExternalLink**](ExternalLink.md) |  | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

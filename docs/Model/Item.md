@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **is_purchased** | **bool** | Boolean value, defaults to true. When IsPurchased is true the item is available for purchase transactions in the Xero UI. If IsPurchased is updated to false then PurchaseDescription and PurchaseDetails values will be nulled. | [optional] 
 **description** | **string** | The sales description of the item (max length &#x3D; 4000) | [optional] 
 **purchase_description** | **string** | The purchase description of the item (max length &#x3D; 4000) | [optional] 
-**purchase_details** | [**\OpenAPI\Client\Model\Purchase**](Purchase.md) |  | [optional] 
-**sales_details** | [**\OpenAPI\Client\Model\Purchase**](Purchase.md) |  | [optional] 
+**purchase_details** | [**\SidneyAllen\XeroPHP\Model\Purchase**](Purchase.md) |  | [optional] 
+**sales_details** | [**\SidneyAllen\XeroPHP\Model\Purchase**](Purchase.md) |  | [optional] 
 **is_tracked_as_inventory** | **bool** | True for items that are tracked as inventory. An item will be tracked as inventory if the InventoryAssetAccountCode and COGSAccountCode are set. | [optional] 
 **total_cost_pool** | **double** | The value of the item on hand. Calculated using average cost accounting. | [optional] 
 **quantity_on_hand** | **double** | The quantity of the item on hand | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date in UTC format | [optional] 
 **item_id** | **string** | The Xero identifier for an Item | [optional] 
-**validation_errors** | [**\OpenAPI\Client\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Model\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

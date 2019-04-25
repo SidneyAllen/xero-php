@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Balances Class Doc Comment
  *
  * @category Class
  * @description The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue amounts, not converted to base currency (read only)
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class Balances implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts_receivable' => '\OpenAPI\Client\Model\AccountsReceivable',
-        'accounts_payable' => '\OpenAPI\Client\Model\AccountsPayable'
+        'accounts_receivable' => '\SidneyAllen\XeroPHP\Model\AccountsReceivable',
+        'accounts_payable' => '\SidneyAllen\XeroPHP\Model\AccountsPayable'
     ];
 
     /**
@@ -214,7 +214,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_receivable
      *
-     * @return \OpenAPI\Client\Model\AccountsReceivable|null
+     * @return \SidneyAllen\XeroPHP\Model\AccountsReceivable|null
      */
     public function getAccountsReceivable()
     {
@@ -224,7 +224,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_receivable
      *
-     * @param \OpenAPI\Client\Model\AccountsReceivable|null $accounts_receivable accounts_receivable
+     * @param \SidneyAllen\XeroPHP\Model\AccountsReceivable|null $accounts_receivable accounts_receivable
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_payable
      *
-     * @return \OpenAPI\Client\Model\AccountsPayable|null
+     * @return \SidneyAllen\XeroPHP\Model\AccountsPayable|null
      */
     public function getAccountsPayable()
     {
@@ -248,7 +248,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_payable
      *
-     * @param \OpenAPI\Client\Model\AccountsPayable|null $accounts_payable accounts_payable
+     * @param \SidneyAllen\XeroPHP\Model\AccountsPayable|null $accounts_payable accounts_payable
      *
      * @return $this
      */

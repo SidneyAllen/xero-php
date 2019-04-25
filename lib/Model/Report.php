@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Report Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -63,7 +63,7 @@ class Report implements ModelInterface, ArrayAccess
         'report_title' => 'string',
         'report_date' => 'string',
         'updated_date_utc' => '\DateTime',
-        'contacts' => '\OpenAPI\Client\Model\TenNinteyNineContact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]'
     ];
 
     /**
@@ -417,7 +417,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \OpenAPI\Client\Model\TenNinteyNineContact[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]|null
      */
     public function getContacts()
     {
@@ -427,7 +427,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \OpenAPI\Client\Model\TenNinteyNineContact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]|null $contacts contacts
      *
      * @return $this
      */

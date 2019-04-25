@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ReportCell Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ReportCell implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'attributes' => '\OpenAPI\Client\Model\ReportAttribute[]'
+        'attributes' => '\SidneyAllen\XeroPHP\Model\ReportAttribute[]'
     ];
 
     /**
@@ -237,7 +237,7 @@ class ReportCell implements ModelInterface, ArrayAccess
     /**
      * Gets attributes
      *
-     * @return \OpenAPI\Client\Model\ReportAttribute[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ReportAttribute[]|null
      */
     public function getAttributes()
     {
@@ -247,7 +247,7 @@ class ReportCell implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param \OpenAPI\Client\Model\ReportAttribute[]|null $attributes attributes
+     * @param \SidneyAllen\XeroPHP\Model\ReportAttribute[]|null $attributes attributes
      *
      * @return $this
      */

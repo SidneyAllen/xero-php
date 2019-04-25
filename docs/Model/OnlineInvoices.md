@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**online_invoices** | [**\OpenAPI\Client\Model\OnlineInvoice[]**](OnlineInvoice.md) |  | [optional] 
+**online_invoices** | [**\SidneyAllen\XeroPHP\Model\OnlineInvoice[]**](OnlineInvoice.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

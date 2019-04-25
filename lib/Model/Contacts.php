@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Contacts Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Contacts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contacts' => '\OpenAPI\Client\Model\Contact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Model\Contact[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Contacts implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \OpenAPI\Client\Model\Contact[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Contact[]|null
      */
     public function getContacts()
     {
@@ -217,7 +217,7 @@ class Contacts implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \OpenAPI\Client\Model\Contact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Model\Contact[]|null $contacts contacts
      *
      * @return $this
      */

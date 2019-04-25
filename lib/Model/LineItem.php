@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * LineItem Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -66,7 +66,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'tax_type' => 'string',
         'tax_amount' => 'double',
         'line_amount' => 'double',
-        'tracking' => '\OpenAPI\Client\Model\LineItemTracking[]',
+        'tracking' => '\SidneyAllen\XeroPHP\Model\LineItemTracking[]',
         'discount_rate' => 'string',
         'repeating_invoice_id' => 'string'
     ];
@@ -489,7 +489,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Gets tracking
      *
-     * @return \OpenAPI\Client\Model\LineItemTracking[]|null
+     * @return \SidneyAllen\XeroPHP\Model\LineItemTracking[]|null
      */
     public function getTracking()
     {
@@ -499,7 +499,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets tracking
      *
-     * @param \OpenAPI\Client\Model\LineItemTracking[]|null $tracking Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Model\LineItemTracking[]|null $tracking Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

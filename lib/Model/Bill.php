@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Bill Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class Bill implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'day' => 'int',
-        'type' => '\OpenAPI\Client\Model\PaymentTermType'
+        'type' => '\SidneyAllen\XeroPHP\Model\PaymentTermType'
     ];
 
     /**
@@ -237,7 +237,7 @@ class Bill implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \OpenAPI\Client\Model\PaymentTermType|null
+     * @return \SidneyAllen\XeroPHP\Model\PaymentTermType|null
      */
     public function getType()
     {
@@ -247,7 +247,7 @@ class Bill implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \OpenAPI\Client\Model\PaymentTermType|null $type type
+     * @param \SidneyAllen\XeroPHP\Model\PaymentTermType|null $type type
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Contact Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -66,34 +66,34 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'email_address' => 'string',
         'skype_user_name' => 'string',
-        'contact_persons' => '\OpenAPI\Client\Model\ContactPerson[]',
+        'contact_persons' => '\SidneyAllen\XeroPHP\Model\ContactPerson[]',
         'bank_account_details' => 'string',
         'tax_number' => 'string',
         'accounts_receivable_tax_type' => 'string',
         'accounts_payable_tax_type' => 'string',
-        'addresses' => '\OpenAPI\Client\Model\Address[]',
-        'phones' => '\OpenAPI\Client\Model\Phone[]',
+        'addresses' => '\SidneyAllen\XeroPHP\Model\Address[]',
+        'phones' => '\SidneyAllen\XeroPHP\Model\Phone[]',
         'is_supplier' => 'bool',
         'is_customer' => 'bool',
-        'default_currency' => '\OpenAPI\Client\Model\CurrencyCode',
+        'default_currency' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
         'xero_network_key' => 'string',
         'sales_default_account_code' => 'string',
         'purchases_default_account_code' => 'string',
-        'sales_tracking_categories' => '\OpenAPI\Client\Model\TrackingCategory[]',
-        'purchases_tracking_categories' => '\OpenAPI\Client\Model\TrackingCategory[]',
+        'sales_tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]',
+        'purchases_tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]',
         'tracking_category_name' => 'string',
         'tracking_category_option' => 'string',
-        'payment_terms' => '\OpenAPI\Client\Model\PaymentTerm',
+        'payment_terms' => '\SidneyAllen\XeroPHP\Model\PaymentTerm',
         'updated_date_utc' => '\DateTime',
-        'contact_groups' => '\OpenAPI\Client\Model\ContactGroup[]',
+        'contact_groups' => '\SidneyAllen\XeroPHP\Model\ContactGroup[]',
         'website' => 'string',
-        'branding_theme' => '\OpenAPI\Client\Model\BrandingTheme',
-        'batch_payments' => '\OpenAPI\Client\Model\BatchPaymentDetails',
+        'branding_theme' => '\SidneyAllen\XeroPHP\Model\BrandingTheme',
+        'batch_payments' => '\SidneyAllen\XeroPHP\Model\BatchPaymentDetails',
         'discount' => 'double',
-        'balances' => '\OpenAPI\Client\Model\Balances',
-        'attachments' => '\OpenAPI\Client\Model\Attachment[]',
+        'balances' => '\SidneyAllen\XeroPHP\Model\Balances',
+        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]',
         'has_attachments' => 'bool',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]',
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
         'has_validation_errors' => 'bool'
     ];
 
@@ -731,7 +731,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets contact_persons
      *
-     * @return \OpenAPI\Client\Model\ContactPerson[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ContactPerson[]|null
      */
     public function getContactPersons()
     {
@@ -741,7 +741,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets contact_persons
      *
-     * @param \OpenAPI\Client\Model\ContactPerson[]|null $contact_persons See contact persons
+     * @param \SidneyAllen\XeroPHP\Model\ContactPerson[]|null $contact_persons See contact persons
      *
      * @return $this
      */
@@ -855,7 +855,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets addresses
      *
-     * @return \OpenAPI\Client\Model\Address[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Address[]|null
      */
     public function getAddresses()
     {
@@ -865,7 +865,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets addresses
      *
-     * @param \OpenAPI\Client\Model\Address[]|null $addresses Store certain address types for a contact – see address types
+     * @param \SidneyAllen\XeroPHP\Model\Address[]|null $addresses Store certain address types for a contact – see address types
      *
      * @return $this
      */
@@ -879,7 +879,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets phones
      *
-     * @return \OpenAPI\Client\Model\Phone[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Phone[]|null
      */
     public function getPhones()
     {
@@ -889,7 +889,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets phones
      *
-     * @param \OpenAPI\Client\Model\Phone[]|null $phones Store certain phone types for a contact – see phone types
+     * @param \SidneyAllen\XeroPHP\Model\Phone[]|null $phones Store certain phone types for a contact – see phone types
      *
      * @return $this
      */
@@ -951,7 +951,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets default_currency
      *
-     * @return \OpenAPI\Client\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
      */
     public function getDefaultCurrency()
     {
@@ -961,7 +961,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets default_currency
      *
-     * @param \OpenAPI\Client\Model\CurrencyCode|null $default_currency default_currency
+     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $default_currency default_currency
      *
      * @return $this
      */
@@ -1047,7 +1047,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets sales_tracking_categories
      *
-     * @return \OpenAPI\Client\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
      */
     public function getSalesTrackingCategories()
     {
@@ -1057,7 +1057,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets sales_tracking_categories
      *
-     * @param \OpenAPI\Client\Model\TrackingCategory[]|null $sales_tracking_categories The default sales tracking categories for contacts
+     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $sales_tracking_categories The default sales tracking categories for contacts
      *
      * @return $this
      */
@@ -1071,7 +1071,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets purchases_tracking_categories
      *
-     * @return \OpenAPI\Client\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
      */
     public function getPurchasesTrackingCategories()
     {
@@ -1081,7 +1081,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets purchases_tracking_categories
      *
-     * @param \OpenAPI\Client\Model\TrackingCategory[]|null $purchases_tracking_categories The default purchases tracking categories for contacts
+     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $purchases_tracking_categories The default purchases tracking categories for contacts
      *
      * @return $this
      */
@@ -1143,7 +1143,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets payment_terms
      *
-     * @return \OpenAPI\Client\Model\PaymentTerm|null
+     * @return \SidneyAllen\XeroPHP\Model\PaymentTerm|null
      */
     public function getPaymentTerms()
     {
@@ -1153,7 +1153,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets payment_terms
      *
-     * @param \OpenAPI\Client\Model\PaymentTerm|null $payment_terms payment_terms
+     * @param \SidneyAllen\XeroPHP\Model\PaymentTerm|null $payment_terms payment_terms
      *
      * @return $this
      */
@@ -1191,7 +1191,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets contact_groups
      *
-     * @return \OpenAPI\Client\Model\ContactGroup[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ContactGroup[]|null
      */
     public function getContactGroups()
     {
@@ -1201,7 +1201,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets contact_groups
      *
-     * @param \OpenAPI\Client\Model\ContactGroup[]|null $contact_groups Displays which contact groups a contact is included in
+     * @param \SidneyAllen\XeroPHP\Model\ContactGroup[]|null $contact_groups Displays which contact groups a contact is included in
      *
      * @return $this
      */
@@ -1239,7 +1239,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets branding_theme
      *
-     * @return \OpenAPI\Client\Model\BrandingTheme|null
+     * @return \SidneyAllen\XeroPHP\Model\BrandingTheme|null
      */
     public function getBrandingTheme()
     {
@@ -1249,7 +1249,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets branding_theme
      *
-     * @param \OpenAPI\Client\Model\BrandingTheme|null $branding_theme branding_theme
+     * @param \SidneyAllen\XeroPHP\Model\BrandingTheme|null $branding_theme branding_theme
      *
      * @return $this
      */
@@ -1263,7 +1263,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets batch_payments
      *
-     * @return \OpenAPI\Client\Model\BatchPaymentDetails|null
+     * @return \SidneyAllen\XeroPHP\Model\BatchPaymentDetails|null
      */
     public function getBatchPayments()
     {
@@ -1273,7 +1273,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets batch_payments
      *
-     * @param \OpenAPI\Client\Model\BatchPaymentDetails|null $batch_payments batch_payments
+     * @param \SidneyAllen\XeroPHP\Model\BatchPaymentDetails|null $batch_payments batch_payments
      *
      * @return $this
      */
@@ -1311,7 +1311,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets balances
      *
-     * @return \OpenAPI\Client\Model\Balances|null
+     * @return \SidneyAllen\XeroPHP\Model\Balances|null
      */
     public function getBalances()
     {
@@ -1321,7 +1321,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets balances
      *
-     * @param \OpenAPI\Client\Model\Balances|null $balances balances
+     * @param \SidneyAllen\XeroPHP\Model\Balances|null $balances balances
      *
      * @return $this
      */
@@ -1335,7 +1335,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \OpenAPI\Client\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -1345,7 +1345,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \OpenAPI\Client\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */
@@ -1383,7 +1383,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1393,7 +1393,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays validation errors returned from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays validation errors returned from the API
      *
      * @return $this
      */

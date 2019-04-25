@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Users Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Users implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'users' => '\OpenAPI\Client\Model\User[]'
+        'users' => '\SidneyAllen\XeroPHP\Model\User[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Users implements ModelInterface, ArrayAccess
     /**
      * Gets users
      *
-     * @return \OpenAPI\Client\Model\User[]|null
+     * @return \SidneyAllen\XeroPHP\Model\User[]|null
      */
     public function getUsers()
     {
@@ -217,7 +217,7 @@ class Users implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param \OpenAPI\Client\Model\User[]|null $users users
+     * @param \SidneyAllen\XeroPHP\Model\User[]|null $users users
      *
      * @return $this
      */

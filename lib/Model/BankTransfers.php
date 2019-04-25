@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * BankTransfers Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bank_transfers' => '\OpenAPI\Client\Model\BankTransfer[]'
+        'bank_transfers' => '\SidneyAllen\XeroPHP\Model\BankTransfer[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
     /**
      * Gets bank_transfers
      *
-     * @return \OpenAPI\Client\Model\BankTransfer[]|null
+     * @return \SidneyAllen\XeroPHP\Model\BankTransfer[]|null
      */
     public function getBankTransfers()
     {
@@ -217,7 +217,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
     /**
      * Sets bank_transfers
      *
-     * @param \OpenAPI\Client\Model\BankTransfer[]|null $bank_transfers bank_transfers
+     * @param \SidneyAllen\XeroPHP\Model\BankTransfer[]|null $bank_transfers bank_transfers
      *
      * @return $this
      */

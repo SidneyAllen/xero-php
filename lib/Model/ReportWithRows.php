@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ReportWithRows Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reports' => '\OpenAPI\Client\Model\ReportWithRow[]'
+        'reports' => '\SidneyAllen\XeroPHP\Model\ReportWithRow[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
     /**
      * Gets reports
      *
-     * @return \OpenAPI\Client\Model\ReportWithRow[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ReportWithRow[]|null
      */
     public function getReports()
     {
@@ -217,7 +217,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
     /**
      * Sets reports
      *
-     * @param \OpenAPI\Client\Model\ReportWithRow[]|null $reports reports
+     * @param \SidneyAllen\XeroPHP\Model\ReportWithRow[]|null $reports reports
      *
      * @return $this
      */

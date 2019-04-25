@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * PaymentTerm Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,8 +57,8 @@ class PaymentTerm implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bills' => '\OpenAPI\Client\Model\Bill',
-        'sales' => '\OpenAPI\Client\Model\Bill'
+        'bills' => '\SidneyAllen\XeroPHP\Model\Bill',
+        'sales' => '\SidneyAllen\XeroPHP\Model\Bill'
     ];
 
     /**
@@ -213,7 +213,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Gets bills
      *
-     * @return \OpenAPI\Client\Model\Bill|null
+     * @return \SidneyAllen\XeroPHP\Model\Bill|null
      */
     public function getBills()
     {
@@ -223,7 +223,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Sets bills
      *
-     * @param \OpenAPI\Client\Model\Bill|null $bills bills
+     * @param \SidneyAllen\XeroPHP\Model\Bill|null $bills bills
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Gets sales
      *
-     * @return \OpenAPI\Client\Model\Bill|null
+     * @return \SidneyAllen\XeroPHP\Model\Bill|null
      */
     public function getSales()
     {
@@ -247,7 +247,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Sets sales
      *
-     * @param \OpenAPI\Client\Model\Bill|null $sales sales
+     * @param \SidneyAllen\XeroPHP\Model\Bill|null $sales sales
      *
      * @return $this
      */

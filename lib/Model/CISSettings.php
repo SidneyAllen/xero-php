@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * CISSettings Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class CISSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cis_settings' => '\OpenAPI\Client\Model\CISSetting[]'
+        'cis_settings' => '\SidneyAllen\XeroPHP\Model\CISSetting[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CISSettings implements ModelInterface, ArrayAccess
     /**
      * Gets cis_settings
      *
-     * @return \OpenAPI\Client\Model\CISSetting[]|null
+     * @return \SidneyAllen\XeroPHP\Model\CISSetting[]|null
      */
     public function getCisSettings()
     {
@@ -217,7 +217,7 @@ class CISSettings implements ModelInterface, ArrayAccess
     /**
      * Sets cis_settings
      *
-     * @param \OpenAPI\Client\Model\CISSetting[]|null $cis_settings cis_settings
+     * @param \SidneyAllen\XeroPHP\Model\CISSetting[]|null $cis_settings cis_settings
      *
      * @return $this
      */

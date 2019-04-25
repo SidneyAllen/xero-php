@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ReportRow Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,9 +57,9 @@ class ReportRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'row_type' => '\OpenAPI\Client\Model\RowType',
+        'row_type' => '\SidneyAllen\XeroPHP\Model\RowType',
         'title' => 'string',
-        'cells' => '\OpenAPI\Client\Model\ReportCell[]'
+        'cells' => '\SidneyAllen\XeroPHP\Model\ReportCell[]'
     ];
 
     /**
@@ -219,7 +219,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets row_type
      *
-     * @return \OpenAPI\Client\Model\RowType|null
+     * @return \SidneyAllen\XeroPHP\Model\RowType|null
      */
     public function getRowType()
     {
@@ -229,7 +229,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets row_type
      *
-     * @param \OpenAPI\Client\Model\RowType|null $row_type row_type
+     * @param \SidneyAllen\XeroPHP\Model\RowType|null $row_type row_type
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets cells
      *
-     * @return \OpenAPI\Client\Model\ReportCell[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ReportCell[]|null
      */
     public function getCells()
     {
@@ -277,7 +277,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets cells
      *
-     * @param \OpenAPI\Client\Model\ReportCell[]|null $cells cells
+     * @param \SidneyAllen\XeroPHP\Model\ReportCell[]|null $cells cells
      *
      * @return $this
      */

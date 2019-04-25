@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * TaxRates Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class TaxRates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_rates' => '\OpenAPI\Client\Model\TaxRate[]'
+        'tax_rates' => '\SidneyAllen\XeroPHP\Model\TaxRate[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaxRates implements ModelInterface, ArrayAccess
     /**
      * Gets tax_rates
      *
-     * @return \OpenAPI\Client\Model\TaxRate[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TaxRate[]|null
      */
     public function getTaxRates()
     {
@@ -217,7 +217,7 @@ class TaxRates implements ModelInterface, ArrayAccess
     /**
      * Sets tax_rates
      *
-     * @param \OpenAPI\Client\Model\TaxRate[]|null $tax_rates tax_rates
+     * @param \SidneyAllen\XeroPHP\Model\TaxRate[]|null $tax_rates tax_rates
      *
      * @return $this
      */

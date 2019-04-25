@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ExpenseClaims Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'expense_claims' => '\OpenAPI\Client\Model\ExpenseClaim[]'
+        'expense_claims' => '\SidneyAllen\XeroPHP\Model\ExpenseClaim[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess
     /**
      * Gets expense_claims
      *
-     * @return \OpenAPI\Client\Model\ExpenseClaim[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ExpenseClaim[]|null
      */
     public function getExpenseClaims()
     {
@@ -217,7 +217,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess
     /**
      * Sets expense_claims
      *
-     * @param \OpenAPI\Client\Model\ExpenseClaim[]|null $expense_claims expense_claims
+     * @param \SidneyAllen\XeroPHP\Model\ExpenseClaim[]|null $expense_claims expense_claims
      *
      * @return $this
      */

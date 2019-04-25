@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Receipts Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Receipts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'receipts' => '\OpenAPI\Client\Model\Receipt[]'
+        'receipts' => '\SidneyAllen\XeroPHP\Model\Receipt[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Receipts implements ModelInterface, ArrayAccess
     /**
      * Gets receipts
      *
-     * @return \OpenAPI\Client\Model\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -217,7 +217,7 @@ class Receipts implements ModelInterface, ArrayAccess
     /**
      * Sets receipts
      *
-     * @param \OpenAPI\Client\Model\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Model\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

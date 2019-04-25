@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Invoices Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Invoices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoices' => '\OpenAPI\Client\Model\Invoice[]'
+        'invoices' => '\SidneyAllen\XeroPHP\Model\Invoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Invoices implements ModelInterface, ArrayAccess
     /**
      * Gets invoices
      *
-     * @return \OpenAPI\Client\Model\Invoice[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Invoice[]|null
      */
     public function getInvoices()
     {
@@ -217,7 +217,7 @@ class Invoices implements ModelInterface, ArrayAccess
     /**
      * Sets invoices
      *
-     * @param \OpenAPI\Client\Model\Invoice[]|null $invoices invoices
+     * @param \SidneyAllen\XeroPHP\Model\Invoice[]|null $invoices invoices
      *
      * @return $this
      */

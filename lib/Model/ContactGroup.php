@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * ContactGroup Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
         'name' => 'string',
         'status' => 'string',
         'contact_group_id' => 'string',
-        'contacts' => '\OpenAPI\Client\Model\Contact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Model\Contact[]'
     ];
 
     /**
@@ -329,7 +329,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \OpenAPI\Client\Model\Contact[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Contact[]|null
      */
     public function getContacts()
     {
@@ -339,7 +339,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \OpenAPI\Client\Model\Contact[]|null $contacts The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is supplied in the URL.
+     * @param \SidneyAllen\XeroPHP\Model\Contact[]|null $contacts The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is supplied in the URL.
      *
      * @return $this
      */

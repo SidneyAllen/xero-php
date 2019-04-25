@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Currencies Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Currencies implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currencies' => '\OpenAPI\Client\Model\Currency[]'
+        'currencies' => '\SidneyAllen\XeroPHP\Model\Currency[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Currencies implements ModelInterface, ArrayAccess
     /**
      * Gets currencies
      *
-     * @return \OpenAPI\Client\Model\Currency[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Currency[]|null
      */
     public function getCurrencies()
     {
@@ -217,7 +217,7 @@ class Currencies implements ModelInterface, ArrayAccess
     /**
      * Sets currencies
      *
-     * @param \OpenAPI\Client\Model\Currency[]|null $currencies currencies
+     * @param \SidneyAllen\XeroPHP\Model\Currency[]|null $currencies currencies
      *
      * @return $this
      */

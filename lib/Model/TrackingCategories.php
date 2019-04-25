@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * TrackingCategories Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tracking_categories' => '\OpenAPI\Client\Model\TrackingCategory[]'
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \OpenAPI\Client\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
      */
     public function getTrackingCategories()
     {
@@ -217,7 +217,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \OpenAPI\Client\Model\TrackingCategory[]|null $tracking_categories tracking_categories
+     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $tracking_categories tracking_categories
      *
      * @return $this
      */

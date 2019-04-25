@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Items Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class Items implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => '\OpenAPI\Client\Model\Item[]'
+        'items' => '\SidneyAllen\XeroPHP\Model\Item[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Items implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \OpenAPI\Client\Model\Item[]|null
+     * @return \SidneyAllen\XeroPHP\Model\Item[]|null
      */
     public function getItems()
     {
@@ -217,7 +217,7 @@ class Items implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \OpenAPI\Client\Model\Item[]|null $items items
+     * @param \SidneyAllen\XeroPHP\Model\Item[]|null $items items
      *
      * @return $this
      */

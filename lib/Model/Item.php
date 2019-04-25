@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Item Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,14 +64,14 @@ class Item implements ModelInterface, ArrayAccess
         'is_purchased' => 'bool',
         'description' => 'string',
         'purchase_description' => 'string',
-        'purchase_details' => '\OpenAPI\Client\Model\Purchase',
-        'sales_details' => '\OpenAPI\Client\Model\Purchase',
+        'purchase_details' => '\SidneyAllen\XeroPHP\Model\Purchase',
+        'sales_details' => '\SidneyAllen\XeroPHP\Model\Purchase',
         'is_tracked_as_inventory' => 'bool',
         'total_cost_pool' => 'double',
         'quantity_on_hand' => 'double',
         'updated_date_utc' => '\DateTime',
         'item_id' => 'string',
-        'validation_errors' => '\OpenAPI\Client\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
     ];
 
     /**
@@ -497,7 +497,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_details
      *
-     * @return \OpenAPI\Client\Model\Purchase|null
+     * @return \SidneyAllen\XeroPHP\Model\Purchase|null
      */
     public function getPurchaseDetails()
     {
@@ -507,7 +507,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_details
      *
-     * @param \OpenAPI\Client\Model\Purchase|null $purchase_details purchase_details
+     * @param \SidneyAllen\XeroPHP\Model\Purchase|null $purchase_details purchase_details
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets sales_details
      *
-     * @return \OpenAPI\Client\Model\Purchase|null
+     * @return \SidneyAllen\XeroPHP\Model\Purchase|null
      */
     public function getSalesDetails()
     {
@@ -531,7 +531,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets sales_details
      *
-     * @param \OpenAPI\Client\Model\Purchase|null $sales_details sales_details
+     * @param \SidneyAllen\XeroPHP\Model\Purchase|null $sales_details sales_details
      *
      * @return $this
      */
@@ -665,7 +665,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -675,7 +675,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace SidneyAllen\XeroPHP\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
  * Employee Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,7 +61,7 @@ class Employee implements ModelInterface, ArrayAccess
         'status' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
-        'external_link' => '\OpenAPI\Client\Model\ExternalLink',
+        'external_link' => '\SidneyAllen\XeroPHP\Model\ExternalLink',
         'updated_date_utc' => '\DateTime'
     ];
 
@@ -383,7 +383,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets external_link
      *
-     * @return \OpenAPI\Client\Model\ExternalLink|null
+     * @return \SidneyAllen\XeroPHP\Model\ExternalLink|null
      */
     public function getExternalLink()
     {
@@ -393,7 +393,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets external_link
      *
-     * @param \OpenAPI\Client\Model\ExternalLink|null $external_link external_link
+     * @param \SidneyAllen\XeroPHP\Model\ExternalLink|null $external_link external_link
      *
      * @return $this
      */
