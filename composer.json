@@ -9,8 +9,8 @@
         "rest",
         "api"
     ],
-    "homepage": "http://developer.xero.com",
-    "license": "proprietary",
+    "homepage": "https://github.com/SidneyAllen/xero-php",
+    "license": "MIT",
     "authors": [
         {
             "name": "Xero API Team",
