@@ -57,19 +57,19 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'box1' => 'string',
-        'box2' => 'string',
-        'box3' => 'string',
-        'box4' => 'string',
-        'box5' => 'string',
-        'box6' => 'string',
-        'box7' => 'string',
-        'box8' => 'string',
-        'box9' => 'string',
-        'box10' => 'string',
-        'box11' => 'string',
-        'box13' => 'string',
-        'box14' => 'string',
+        'box1' => 'double',
+        'box2' => 'double',
+        'box3' => 'double',
+        'box4' => 'double',
+        'box5' => 'double',
+        'box6' => 'double',
+        'box7' => 'double',
+        'box8' => 'double',
+        'box9' => 'double',
+        'box10' => 'double',
+        'box11' => 'double',
+        'box13' => 'double',
+        'box14' => 'double',
         'name' => 'string',
         'federal_tax_id_type' => 'string',
         'city' => 'string',
@@ -87,19 +87,19 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'box1' => null,
-        'box2' => null,
-        'box3' => null,
-        'box4' => null,
-        'box5' => null,
-        'box6' => null,
-        'box7' => null,
-        'box8' => null,
-        'box9' => null,
-        'box10' => null,
-        'box11' => null,
-        'box13' => null,
-        'box14' => null,
+        'box1' => 'double',
+        'box2' => 'double',
+        'box3' => 'double',
+        'box4' => 'double',
+        'box5' => 'double',
+        'box6' => 'double',
+        'box7' => 'double',
+        'box8' => 'double',
+        'box9' => 'double',
+        'box10' => 'double',
+        'box11' => 'double',
+        'box13' => 'double',
+        'box14' => 'double',
         'name' => null,
         'federal_tax_id_type' => null,
         'city' => null,
@@ -108,7 +108,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
         'email' => null,
         'street_address' => null,
         'tax_id' => null,
-        'contact_id' => null
+        'contact_id' => 'uuid'
     ];
 
     /**
@@ -333,7 +333,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box1
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox1()
     {
@@ -343,7 +343,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box1
      *
-     * @param string|null $box1 Box 1 on 1099 Form
+     * @param double|null $box1 Box 1 on 1099 Form
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box2
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox2()
     {
@@ -367,7 +367,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box2
      *
-     * @param string|null $box2 Box 2 on 1099 Form
+     * @param double|null $box2 Box 2 on 1099 Form
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box3
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox3()
     {
@@ -391,7 +391,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box3
      *
-     * @param string|null $box3 Box 3 on 1099 Form
+     * @param double|null $box3 Box 3 on 1099 Form
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box4
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox4()
     {
@@ -415,7 +415,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box4
      *
-     * @param string|null $box4 Box 4 on 1099 Form
+     * @param double|null $box4 Box 4 on 1099 Form
      *
      * @return $this
      */
@@ -429,7 +429,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box5
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox5()
     {
@@ -439,7 +439,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box5
      *
-     * @param string|null $box5 Box 5 on 1099 Form
+     * @param double|null $box5 Box 5 on 1099 Form
      *
      * @return $this
      */
@@ -453,7 +453,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box6
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox6()
     {
@@ -463,7 +463,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box6
      *
-     * @param string|null $box6 Box 6 on 1099 Form
+     * @param double|null $box6 Box 6 on 1099 Form
      *
      * @return $this
      */
@@ -477,7 +477,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box7
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox7()
     {
@@ -487,7 +487,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box7
      *
-     * @param string|null $box7 Box 7 on 1099 Form
+     * @param double|null $box7 Box 7 on 1099 Form
      *
      * @return $this
      */
@@ -501,7 +501,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box8
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox8()
     {
@@ -511,7 +511,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box8
      *
-     * @param string|null $box8 Box 8 on 1099 Form
+     * @param double|null $box8 Box 8 on 1099 Form
      *
      * @return $this
      */
@@ -525,7 +525,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box9
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox9()
     {
@@ -535,7 +535,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box9
      *
-     * @param string|null $box9 Box 9 on 1099 Form
+     * @param double|null $box9 Box 9 on 1099 Form
      *
      * @return $this
      */
@@ -549,7 +549,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box10
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox10()
     {
@@ -559,7 +559,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box10
      *
-     * @param string|null $box10 Box 10 on 1099 Form
+     * @param double|null $box10 Box 10 on 1099 Form
      *
      * @return $this
      */
@@ -573,7 +573,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box11
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox11()
     {
@@ -583,7 +583,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box11
      *
-     * @param string|null $box11 Box 11 on 1099 Form
+     * @param double|null $box11 Box 11 on 1099 Form
      *
      * @return $this
      */
@@ -597,7 +597,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box13
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox13()
     {
@@ -607,7 +607,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box13
      *
-     * @param string|null $box13 Box 13 on 1099 Form
+     * @param double|null $box13 Box 13 on 1099 Form
      *
      * @return $this
      */
@@ -621,7 +621,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Gets box14
      *
-     * @return string|null
+     * @return double|null
      */
     public function getBox14()
     {
@@ -631,7 +631,7 @@ class TenNinteyNineContact implements ModelInterface, ArrayAccess
     /**
      * Sets box14
      *
-     * @param string|null $box14 Box 14 on 1099 Form
+     * @param double|null $box14 Box 14 on 1099 Form
      *
      * @return $this
      */

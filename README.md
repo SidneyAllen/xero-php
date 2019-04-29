@@ -36,7 +36,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+    require_once('/path/to/xero-php/vendor/autoload.php');
 ```
 
 ## Tests

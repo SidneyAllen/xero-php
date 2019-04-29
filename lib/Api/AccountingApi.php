@@ -92,15 +92,16 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createAccount($account)
+    public function createAccount($xero_tenant_id, $account)
     {
-        list($response) = $this->createAccountWithHttpInfo($account);
+        list($response) = $this->createAccountWithHttpInfo($xero_tenant_id, $account);
         return $response;
     }
 
@@ -109,15 +110,16 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Accounts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAccountWithHttpInfo($account)
+    public function createAccountWithHttpInfo($xero_tenant_id, $account)
     {
-        $request = $this->createAccountRequest($account);
+        $request = $this->createAccountRequest($xero_tenant_id, $account);
 
         try {
             $options = $this->createHttpClientOption();
@@ -217,14 +219,15 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAccountAsync($account)
+    public function createAccountAsync($xero_tenant_id, $account)
     {
-        return $this->createAccountAsyncWithHttpInfo($account)
+        return $this->createAccountAsyncWithHttpInfo($xero_tenant_id, $account)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -237,15 +240,16 @@ class AccountingApi
      *
      * Allows you to create a new chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAccountAsyncWithHttpInfo($account)
+    public function createAccountAsyncWithHttpInfo($xero_tenant_id, $account)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
-        $request = $this->createAccountRequest($account);
+        $request = $this->createAccountRequest($xero_tenant_id, $account);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -284,13 +288,20 @@ class AccountingApi
     /**
      * Create request for operation 'createAccount'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Account $account Request of type Account (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createAccountRequest($account)
+    protected function createAccountRequest($xero_tenant_id, $account)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createAccount'
+            );
+        }
         // verify the required parameter 'account' is set
         if ($account === null || (is_array($account) && count($account) === 0)) {
             throw new \InvalidArgumentException(
@@ -305,6 +316,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -3482,30 +3497,32 @@ class AccountingApi
     /**
      * Operation createContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contact $contact contact (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createContact($contact)
+    public function createContact($xero_tenant_id, $contact)
     {
-        list($response) = $this->createContactWithHttpInfo($contact);
+        list($response) = $this->createContactWithHttpInfo($xero_tenant_id, $contact);
         return $response;
     }
 
     /**
      * Operation createContactWithHttpInfo
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactWithHttpInfo($contact)
+    public function createContactWithHttpInfo($xero_tenant_id, $contact)
     {
-        $request = $this->createContactRequest($contact);
+        $request = $this->createContactRequest($xero_tenant_id, $contact);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3605,14 +3622,15 @@ class AccountingApi
      *
      * 
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsync($contact)
+    public function createContactAsync($xero_tenant_id, $contact)
     {
-        return $this->createContactAsyncWithHttpInfo($contact)
+        return $this->createContactAsyncWithHttpInfo($xero_tenant_id, $contact)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3625,15 +3643,16 @@ class AccountingApi
      *
      * 
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactAsyncWithHttpInfo($contact)
+    public function createContactAsyncWithHttpInfo($xero_tenant_id, $contact)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
-        $request = $this->createContactRequest($contact);
+        $request = $this->createContactRequest($xero_tenant_id, $contact);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3672,13 +3691,20 @@ class AccountingApi
     /**
      * Create request for operation 'createContact'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contact $contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactRequest($contact)
+    protected function createContactRequest($xero_tenant_id, $contact)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createContact'
+            );
+        }
         // verify the required parameter 'contact' is set
         if ($contact === null || (is_array($contact) && count($contact) === 0)) {
             throw new \InvalidArgumentException(
@@ -3693,6 +3719,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -18608,6 +18638,7 @@ class AccountingApi
      *
      * Allows you to retrieve the full chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -18616,9 +18647,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Accounts
      */
-    public function getAccounts($if_modified_since = null, $where = null, $order = null)
+    public function getAccounts($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        list($response) = $this->getAccountsWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getAccountsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order);
         return $response;
     }
 
@@ -18627,6 +18658,7 @@ class AccountingApi
      *
      * Allows you to retrieve the full chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -18635,9 +18667,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Accounts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getAccountsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        $request = $this->getAccountsRequest($if_modified_since, $where, $order);
+        $request = $this->getAccountsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18717,6 +18749,7 @@ class AccountingApi
      *
      * Allows you to retrieve the full chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -18724,9 +18757,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsAsync($if_modified_since = null, $where = null, $order = null)
+    public function getAccountsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        return $this->getAccountsAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getAccountsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18739,6 +18772,7 @@ class AccountingApi
      *
      * Allows you to retrieve the full chart of accounts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -18746,10 +18780,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getAccountsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Accounts';
-        $request = $this->getAccountsRequest($if_modified_since, $where, $order);
+        $request = $this->getAccountsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18788,6 +18822,7 @@ class AccountingApi
     /**
      * Create request for operation 'getAccounts'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -18795,8 +18830,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountsRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getAccountsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getAccounts'
+            );
+        }
 
         $resourcePath = '/Accounts';
         $formParams = [];
@@ -18812,6 +18853,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -20068,14 +20113,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\BankTransactions
      */
-    public function getBankTransactions($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getBankTransactions($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getBankTransactionsWithHttpInfo($if_modified_since, $where, $order, $page);
+        list($response) = $this->getBankTransactionsWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -20088,14 +20134,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\BankTransactions, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBankTransactionsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getBankTransactionsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getBankTransactionsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getBankTransactionsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -20179,13 +20226,14 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankTransactionsAsync($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getBankTransactionsAsync($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getBankTransactionsAsyncWithHttpInfo($if_modified_since, $where, $order, $page)
+        return $this->getBankTransactionsAsyncWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -20202,14 +20250,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankTransactionsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getBankTransactionsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\BankTransactions';
-        $request = $this->getBankTransactionsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getBankTransactionsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -20252,11 +20301,12 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getBankTransactionsRequest($if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getBankTransactionsRequest($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
 
         $resourcePath = '/BankTransactions';
@@ -20277,6 +20327,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -26009,6 +26063,7 @@ class AccountingApi
      *
      * Allows you to retrieve, add and update contacts in a Xero organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -26020,9 +26075,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Contacts
      */
-    public function getContacts($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
+    public function getContacts($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
-        list($response) = $this->getContactsWithHttpInfo($if_modified_since, $where, $order, $i_ds, $page, $include_archived);
+        list($response) = $this->getContactsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived);
         return $response;
     }
 
@@ -26031,6 +26086,7 @@ class AccountingApi
      *
      * Allows you to retrieve, add and update contacts in a Xero organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -26042,9 +26098,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Contacts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
+    public function getContactsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
-        $request = $this->getContactsRequest($if_modified_since, $where, $order, $i_ds, $page, $include_archived);
+        $request = $this->getContactsRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived);
 
         try {
             $options = $this->createHttpClientOption();
@@ -26124,6 +26180,7 @@ class AccountingApi
      *
      * Allows you to retrieve, add and update contacts in a Xero organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -26134,9 +26191,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactsAsync($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
+    public function getContactsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
-        return $this->getContactsAsyncWithHttpInfo($if_modified_since, $where, $order, $i_ds, $page, $include_archived)
+        return $this->getContactsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -26149,6 +26206,7 @@ class AccountingApi
      *
      * Allows you to retrieve, add and update contacts in a Xero organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -26159,10 +26217,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
+    public function getContactsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
-        $request = $this->getContactsRequest($if_modified_since, $where, $order, $i_ds, $page, $include_archived);
+        $request = $this->getContactsRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -26201,6 +26259,7 @@ class AccountingApi
     /**
      * Create request for operation 'getContacts'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -26211,8 +26270,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getContactsRequest($if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
+    protected function getContactsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $page = null, $include_archived = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getContacts'
+            );
+        }
 
         $resourcePath = '/Contacts';
         $formParams = [];
@@ -26240,6 +26305,10 @@ class AccountingApi
         // query params
         if ($include_archived !== null) {
             $queryParams['includeArchived'] = ObjectSerializer::toQueryValue($include_archived);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -32019,7 +32088,7 @@ class AccountingApi
      *
      * Allows you to retrieve any sales invoices or purchase bills
      *
-     * @param  string $xero_tenant_id Xero identifier for Tenant (optional)
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -32030,14 +32099,15 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Invoices
      */
-    public function getInvoices($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
+    public function getInvoices($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null, $unitdp = null)
     {
-        list($response) = $this->getInvoicesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app);
+        list($response) = $this->getInvoicesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
         return $response;
     }
 
@@ -32046,7 +32116,7 @@ class AccountingApi
      *
      * Allows you to retrieve any sales invoices or purchase bills
      *
-     * @param  string $xero_tenant_id Xero identifier for Tenant (optional)
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -32057,14 +32127,15 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoicesWithHttpInfo($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
+    public function getInvoicesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null, $unitdp = null)
     {
-        $request = $this->getInvoicesRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app);
+        $request = $this->getInvoicesRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -32144,7 +32215,7 @@ class AccountingApi
      *
      * Allows you to retrieve any sales invoices or purchase bills
      *
-     * @param  string $xero_tenant_id Xero identifier for Tenant (optional)
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -32155,13 +32226,14 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsync($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
+    public function getInvoicesAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null, $unitdp = null)
     {
-        return $this->getInvoicesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app)
+        return $this->getInvoicesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -32174,7 +32246,7 @@ class AccountingApi
      *
      * Allows you to retrieve any sales invoices or purchase bills
      *
-     * @param  string $xero_tenant_id Xero identifier for Tenant (optional)
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -32185,14 +32257,15 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoicesAsyncWithHttpInfo($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
+    public function getInvoicesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
-        $request = $this->getInvoicesRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app);
+        $request = $this->getInvoicesRequest($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -32231,7 +32304,7 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoices'
      *
-     * @param  string $xero_tenant_id Xero identifier for Tenant (optional)
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -32242,12 +32315,19 @@ class AccountingApi
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoicesRequest($xero_tenant_id = null, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null)
+    protected function getInvoicesRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $i_ds = null, $invoice_numbers = null, $contact_i_ds = null, $statuses = null, $page = null, $include_archived = null, $created_by_my_app = null, $unitdp = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoices'
+            );
+        }
 
         $resourcePath = '/Invoices';
         $formParams = [];
@@ -32292,13 +32372,17 @@ class AccountingApi
         if ($created_by_my_app !== null) {
             $queryParams['createdByMyApp'] = ObjectSerializer::toQueryValue($created_by_my_app);
         }
-        // header params
-        if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -32930,14 +33014,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Items
      */
-    public function getItems($if_modified_since = null, $where = null, $order = null)
+    public function getItems($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        list($response) = $this->getItemsWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getItemsWithHttpInfo($if_modified_since, $where, $order, $unitdp);
         return $response;
     }
 
@@ -32949,14 +33034,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Items, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getItemsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        $request = $this->getItemsRequest($if_modified_since, $where, $order);
+        $request = $this->getItemsRequest($if_modified_since, $where, $order, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33039,13 +33125,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsync($if_modified_since = null, $where = null, $order = null)
+    public function getItemsAsync($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        return $this->getItemsAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getItemsAsyncWithHttpInfo($if_modified_since, $where, $order, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33061,14 +33148,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getItemsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Items';
-        $request = $this->getItemsRequest($if_modified_since, $where, $order);
+        $request = $this->getItemsRequest($if_modified_since, $where, $order, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33110,11 +33198,12 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getItemsRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getItemsRequest($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
 
         $resourcePath = '/Items';
@@ -33131,6 +33220,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -37188,14 +37281,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Overpayments
      */
-    public function getOverpayments($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getOverpayments($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getOverpaymentsWithHttpInfo($if_modified_since, $where, $order, $page);
+        list($response) = $this->getOverpaymentsWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -37208,14 +37302,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOverpaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getOverpaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -37299,13 +37394,14 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getOverpaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getOverpaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page)
+        return $this->getOverpaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -37322,14 +37418,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getOverpaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
-        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -37372,11 +37469,12 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOverpaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getOverpaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
 
         $resourcePath = '/Overpayments';
@@ -37397,6 +37495,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -39126,14 +39228,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Prepayments
      */
-    public function getPrepayments($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getPrepayments($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getPrepaymentsWithHttpInfo($if_modified_since, $where, $order, $page);
+        list($response) = $this->getPrepaymentsWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -39146,14 +39249,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPrepaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getPrepaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -39237,13 +39341,14 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getPrepaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getPrepaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page)
+        return $this->getPrepaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -39260,14 +39365,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getPrepaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
-        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -39310,11 +39416,12 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPrepaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getPrepaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
 
         $resourcePath = '/Prepayments';
@@ -39335,6 +39442,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -41729,14 +41840,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Receipts
      */
-    public function getReceipts($if_modified_since = null, $where = null, $order = null)
+    public function getReceipts($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        list($response) = $this->getReceiptsWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getReceiptsWithHttpInfo($if_modified_since, $where, $order, $unitdp);
         return $response;
     }
 
@@ -41748,14 +41860,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getReceiptsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        $request = $this->getReceiptsRequest($if_modified_since, $where, $order);
+        $request = $this->getReceiptsRequest($if_modified_since, $where, $order, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41838,13 +41951,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsync($if_modified_since = null, $where = null, $order = null)
+    public function getReceiptsAsync($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        return $this->getReceiptsAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getReceiptsAsyncWithHttpInfo($if_modified_since, $where, $order, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41860,14 +41974,15 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getReceiptsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
-        $request = $this->getReceiptsRequest($if_modified_since, $where, $order);
+        $request = $this->getReceiptsRequest($if_modified_since, $where, $order, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41909,11 +42024,12 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptsRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getReceiptsRequest($if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
 
         $resourcePath = '/Receipts';
@@ -41930,6 +42046,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -44033,9 +44153,9 @@ class AccountingApi
      * Allows you to retrieve report for AgedReceivablesByContact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  string $date The date of the Aged Receivables By Contact report (optional)
-     * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
-     * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $to_date The to date of the Aged Receivables By Contact report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -44053,9 +44173,9 @@ class AccountingApi
      * Allows you to retrieve report for AgedReceivablesByContact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  string $date The date of the Aged Receivables By Contact report (optional)
-     * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
-     * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $to_date The to date of the Aged Receivables By Contact report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -44144,9 +44264,9 @@ class AccountingApi
      * Allows you to retrieve report for AgedReceivablesByContact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  string $date The date of the Aged Receivables By Contact report (optional)
-     * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
-     * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $to_date The to date of the Aged Receivables By Contact report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -44167,9 +44287,9 @@ class AccountingApi
      * Allows you to retrieve report for AgedReceivablesByContact
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  string $date The date of the Aged Receivables By Contact report (optional)
-     * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
-     * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $to_date The to date of the Aged Receivables By Contact report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -44217,9 +44337,9 @@ class AccountingApi
      * Create request for operation 'getReportAgedReceivablesByContact'
      *
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  string $date The date of the Aged Receivables By Contact report (optional)
-     * @param  string $from_date The from date of the Aged Receivables By Contact report (optional)
-     * @param  string $to_date The to date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
+     * @param  \DateTime $to_date The to date of the Aged Receivables By Contact report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -45184,7 +45304,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45203,7 +45323,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45293,7 +45413,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45315,7 +45435,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45364,7 +45484,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBankSummary'
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45468,7 +45588,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45487,7 +45607,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45577,7 +45697,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45599,7 +45719,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45648,7 +45768,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBudgetSummary'
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
      *
@@ -45752,7 +45872,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -45769,7 +45889,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -45857,7 +45977,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -45877,7 +45997,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -45924,7 +46044,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportExecutiveSummary'
      *
-     * @param  string $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -46018,8 +46138,8 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
-     * @param  string $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
-     * @param  string $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
      * @param  string $tracking_category_id The trackingCategory 1 for the ProfitAndLoss report (optional)
@@ -46044,8 +46164,8 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
-     * @param  string $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
-     * @param  string $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
      * @param  string $tracking_category_id The trackingCategory 1 for the ProfitAndLoss report (optional)
@@ -46141,8 +46261,8 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
-     * @param  string $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
-     * @param  string $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
      * @param  string $tracking_category_id The trackingCategory 1 for the ProfitAndLoss report (optional)
@@ -46170,8 +46290,8 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
-     * @param  string $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
-     * @param  string $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
      * @param  string $tracking_category_id The trackingCategory 1 for the ProfitAndLoss report (optional)
@@ -46226,8 +46346,8 @@ class AccountingApi
     /**
      * Create request for operation 'getReportProfitAndLoss'
      *
-     * @param  string $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
-     * @param  string $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
      * @param  string $tracking_category_id The trackingCategory 1 for the ProfitAndLoss report (optional)
@@ -46631,7 +46751,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
-     * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
@@ -46649,7 +46769,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
-     * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
@@ -46738,7 +46858,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
-     * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
@@ -46759,7 +46879,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
-     * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
@@ -46807,7 +46927,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportTrialBalance'
      *
-     * @param  string $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
+     * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
