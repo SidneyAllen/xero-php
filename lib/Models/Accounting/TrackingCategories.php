@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]'
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null
      */
     public function getTrackingCategories()
     {
@@ -217,7 +217,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $tracking_categories tracking_categories
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking_categories tracking_categories
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,7 +58,7 @@ class ReportCell implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'attributes' => '\SidneyAllen\XeroPHP\Model\ReportAttribute[]'
+        'attributes' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportAttribute[]'
     ];
 
     /**
@@ -237,7 +237,7 @@ class ReportCell implements ModelInterface, ArrayAccess
     /**
      * Gets attributes
      *
-     * @return \SidneyAllen\XeroPHP\Model\ReportAttribute[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportAttribute[]|null
      */
     public function getAttributes()
     {
@@ -247,7 +247,7 @@ class ReportCell implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param \SidneyAllen\XeroPHP\Model\ReportAttribute[]|null $attributes attributes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportAttribute[]|null $attributes attributes
      *
      * @return $this
      */

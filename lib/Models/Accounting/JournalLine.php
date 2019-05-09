@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -60,7 +60,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'journal_line_id' => 'string',
         'account_id' => 'string',
         'account_code' => 'string',
-        'account_type' => '\SidneyAllen\XeroPHP\Model\AccountType',
+        'account_type' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountType',
         'account_name' => 'string',
         'description' => 'string',
         'net_amount' => 'double',
@@ -68,7 +68,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'tax_amount' => 'double',
         'tax_type' => 'string',
         'tax_name' => 'string',
-        'tracking_categories' => '\SidneyAllen\XeroPHP\Model\TrackingCategory[]'
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]'
     ];
 
     /**
@@ -345,7 +345,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets account_type
      *
-     * @return \SidneyAllen\XeroPHP\Model\AccountType|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\AccountType|null
      */
     public function getAccountType()
     {
@@ -355,7 +355,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets account_type
      *
-     * @param \SidneyAllen\XeroPHP\Model\AccountType|null $account_type account_type
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\AccountType|null $account_type account_type
      *
      * @return $this
      */
@@ -537,7 +537,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null
      */
     public function getTrackingCategories()
     {
@@ -547,7 +547,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \SidneyAllen\XeroPHP\Model\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

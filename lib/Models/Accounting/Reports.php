@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Reports implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reports' => '\SidneyAllen\XeroPHP\Model\Report[]'
+        'reports' => '\SidneyAllen\XeroPHP\Models\Accounting\Report[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Reports implements ModelInterface, ArrayAccess
     /**
      * Gets reports
      *
-     * @return \SidneyAllen\XeroPHP\Model\Report[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Report[]|null
      */
     public function getReports()
     {
@@ -217,7 +217,7 @@ class Reports implements ModelInterface, ArrayAccess
     /**
      * Sets reports
      *
-     * @param \SidneyAllen\XeroPHP\Model\Report[]|null $reports reports
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Report[]|null $reports reports
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,11 +58,11 @@ class Receipt implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'date' => '\DateTime',
-        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
-        'lineitems' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
-        'user' => '\SidneyAllen\XeroPHP\Model\User',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
+        'lineitems' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
+        'user' => '\SidneyAllen\XeroPHP\Models\Accounting\User',
         'reference' => 'string',
-        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
@@ -72,8 +72,8 @@ class Receipt implements ModelInterface, ArrayAccess
         'updated_date_utc' => '\DateTime',
         'has_attachments' => 'bool',
         'url' => 'string',
-        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
-        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -366,7 +366,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \SidneyAllen\XeroPHP\Model\Contact
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact
      */
     public function getContact()
     {
@@ -376,7 +376,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \SidneyAllen\XeroPHP\Model\Contact $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact $contact contact
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets lineitems
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineItem[]
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]
      */
     public function getLineitems()
     {
@@ -400,7 +400,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets lineitems
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineItem[] $lineitems lineitems
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[] $lineitems lineitems
      *
      * @return $this
      */
@@ -414,7 +414,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \SidneyAllen\XeroPHP\Model\User
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\User
      */
     public function getUser()
     {
@@ -424,7 +424,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \SidneyAllen\XeroPHP\Model\User $user user
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\User $user user
      *
      * @return $this
      */
@@ -462,7 +462,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -472,7 +472,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -711,7 +711,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -721,7 +721,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */
@@ -735,7 +735,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -745,7 +745,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

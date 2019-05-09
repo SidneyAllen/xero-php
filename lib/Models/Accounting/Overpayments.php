@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Overpayments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'overpayments' => '\SidneyAllen\XeroPHP\Model\Overpayment[]'
+        'overpayments' => '\SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Overpayments implements ModelInterface, ArrayAccess
     /**
      * Gets overpayments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Overpayment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]|null
      */
     public function getOverpayments()
     {
@@ -217,7 +217,7 @@ class Overpayments implements ModelInterface, ArrayAccess
     /**
      * Sets overpayments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Overpayment[]|null $overpayments overpayments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]|null $overpayments overpayments
      *
      * @return $this
      */

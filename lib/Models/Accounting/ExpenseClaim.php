@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -59,9 +59,9 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'expense_claim_id' => 'string',
         'status' => 'string',
-        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]',
-        'user' => '\SidneyAllen\XeroPHP\Model\User',
-        'receipts' => '\SidneyAllen\XeroPHP\Model\Receipt[]',
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]',
+        'user' => '\SidneyAllen\XeroPHP\Models\Accounting\User',
+        'receipts' => '\SidneyAllen\XeroPHP\Models\Accounting\Receipt[]',
         'updated_date_utc' => '\DateTime',
         'total' => 'double',
         'amount_due' => 'double',
@@ -357,7 +357,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -367,7 +367,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -381,7 +381,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \SidneyAllen\XeroPHP\Model\User|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\User|null
      */
     public function getUser()
     {
@@ -391,7 +391,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \SidneyAllen\XeroPHP\Model\User|null $user user
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\User|null $user user
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets receipts
      *
-     * @return \SidneyAllen\XeroPHP\Model\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -415,7 +415,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets receipts
      *
-     * @param \SidneyAllen\XeroPHP\Model\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

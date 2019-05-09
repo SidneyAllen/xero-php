@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class CISSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cis_settings' => '\SidneyAllen\XeroPHP\Model\CISSetting[]'
+        'cis_settings' => '\SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CISSettings implements ModelInterface, ArrayAccess
     /**
      * Gets cis_settings
      *
-     * @return \SidneyAllen\XeroPHP\Model\CISSetting[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]|null
      */
     public function getCisSettings()
     {
@@ -217,7 +217,7 @@ class CISSettings implements ModelInterface, ArrayAccess
     /**
      * Sets cis_settings
      *
-     * @param \SidneyAllen\XeroPHP\Model\CISSetting[]|null $cis_settings cis_settings
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]|null $cis_settings cis_settings
      *
      * @return $this
      */

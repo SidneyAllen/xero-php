@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'repeating_invoices' => '\SidneyAllen\XeroPHP\Model\RepeatingInvoice[]'
+        'repeating_invoices' => '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
     /**
      * Gets repeating_invoices
      *
-     * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoice[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoice[]|null
      */
     public function getRepeatingInvoices()
     {
@@ -217,7 +217,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess
     /**
      * Sets repeating_invoices
      *
-     * @param \SidneyAllen\XeroPHP\Model\RepeatingInvoice[]|null $repeating_invoices repeating_invoices
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoice[]|null $repeating_invoices repeating_invoices
      *
      * @return $this
      */

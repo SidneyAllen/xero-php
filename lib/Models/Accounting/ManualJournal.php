@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,18 +58,18 @@ class ManualJournal implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'narration' => 'string',
-        'journal_lines' => '\SidneyAllen\XeroPHP\Model\ManualJournalLine[]',
+        'journal_lines' => '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournalLine[]',
         'date' => '\DateTime',
-        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
         'status' => 'string',
         'url' => 'string',
         'show_on_cash_basis_reports' => 'bool',
         'has_attachments' => 'bool',
         'updated_date_utc' => '\DateTime',
         'manual_journal_id' => 'string',
-        'warnings' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
-        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]',
-        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
+        'warnings' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -336,7 +336,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets journal_lines
      *
-     * @return \SidneyAllen\XeroPHP\Model\ManualJournalLine[]
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ManualJournalLine[]
      */
     public function getJournalLines()
     {
@@ -346,7 +346,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets journal_lines
      *
-     * @param \SidneyAllen\XeroPHP\Model\ManualJournalLine[] $journal_lines See JournalLines
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ManualJournalLine[] $journal_lines See JournalLines
      *
      * @return $this
      */
@@ -384,7 +384,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -394,7 +394,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -561,7 +561,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets warnings
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getWarnings()
     {
@@ -571,7 +571,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $warnings Displays array of warning messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
      *
      * @return $this
      */
@@ -585,7 +585,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -595,7 +595,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */
@@ -609,7 +609,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -619,7 +619,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

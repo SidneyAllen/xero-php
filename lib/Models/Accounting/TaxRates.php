@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class TaxRates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_rates' => '\SidneyAllen\XeroPHP\Model\TaxRate[]'
+        'tax_rates' => '\SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaxRates implements ModelInterface, ArrayAccess
     /**
      * Gets tax_rates
      *
-     * @return \SidneyAllen\XeroPHP\Model\TaxRate[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]|null
      */
     public function getTaxRates()
     {
@@ -217,7 +217,7 @@ class TaxRates implements ModelInterface, ArrayAccess
     /**
      * Sets tax_rates
      *
-     * @param \SidneyAllen\XeroPHP\Model\TaxRate[]|null $tax_rates tax_rates
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]|null $tax_rates tax_rates
      *
      * @return $this
      */

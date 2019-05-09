@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Organisations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organisations' => '\SidneyAllen\XeroPHP\Model\Organisation[]'
+        'organisations' => '\SidneyAllen\XeroPHP\Models\Accounting\Organisation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Organisations implements ModelInterface, ArrayAccess
     /**
      * Gets organisations
      *
-     * @return \SidneyAllen\XeroPHP\Model\Organisation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Organisation[]|null
      */
     public function getOrganisations()
     {
@@ -217,7 +217,7 @@ class Organisations implements ModelInterface, ArrayAccess
     /**
      * Sets organisations
      *
-     * @param \SidneyAllen\XeroPHP\Model\Organisation[]|null $organisations organisations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Organisation[]|null $organisations organisations
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'online_invoices' => '\SidneyAllen\XeroPHP\Model\OnlineInvoice[]'
+        'online_invoices' => '\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess
     /**
      * Gets online_invoices
      *
-     * @return \SidneyAllen\XeroPHP\Model\OnlineInvoice[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]|null
      */
     public function getOnlineInvoices()
     {
@@ -217,7 +217,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess
     /**
      * Sets online_invoices
      *
-     * @param \SidneyAllen\XeroPHP\Model\OnlineInvoice[]|null $online_invoices online_invoices
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]|null $online_invoices online_invoices
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Prepayments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'prepayments' => '\SidneyAllen\XeroPHP\Model\Prepayment[]'
+        'prepayments' => '\SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Prepayments implements ModelInterface, ArrayAccess
     /**
      * Gets prepayments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Prepayment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]|null
      */
     public function getPrepayments()
     {
@@ -217,7 +217,7 @@ class Prepayments implements ModelInterface, ArrayAccess
     /**
      * Sets prepayments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Prepayment[]|null $prepayments prepayments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]|null $prepayments prepayments
      *
      * @return $this
      */

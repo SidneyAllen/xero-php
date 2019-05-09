@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Contacts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contacts' => '\SidneyAllen\XeroPHP\Model\Contact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Contacts implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \SidneyAllen\XeroPHP\Model\Contact[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null
      */
     public function getContacts()
     {
@@ -217,7 +217,7 @@ class Contacts implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \SidneyAllen\XeroPHP\Model\Contact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null $contacts contacts
      *
      * @return $this
      */

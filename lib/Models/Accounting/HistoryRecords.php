@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'history_records' => '\SidneyAllen\XeroPHP\Model\HistoryRecord[]'
+        'history_records' => '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecord[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
     /**
      * Gets history_records
      *
-     * @return \SidneyAllen\XeroPHP\Model\HistoryRecord[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecord[]|null
      */
     public function getHistoryRecords()
     {
@@ -217,7 +217,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess
     /**
      * Sets history_records
      *
-     * @param \SidneyAllen\XeroPHP\Model\HistoryRecord[]|null $history_records history_records
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecord[]|null $history_records history_records
      *
      * @return $this
      */

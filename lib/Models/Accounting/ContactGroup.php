@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -60,7 +60,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
         'name' => 'string',
         'status' => 'string',
         'contact_group_id' => 'string',
-        'contacts' => '\SidneyAllen\XeroPHP\Model\Contact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact[]'
     ];
 
     /**
@@ -329,7 +329,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \SidneyAllen\XeroPHP\Model\Contact[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null
      */
     public function getContacts()
     {
@@ -339,7 +339,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \SidneyAllen\XeroPHP\Model\Contact[]|null $contacts The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is supplied in the URL.
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null $contacts The ContactID and Name of Contacts in a contact group. Returned on GETs when the ContactGroupID is supplied in the URL.
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,9 +57,9 @@ class ReportRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'row_type' => '\SidneyAllen\XeroPHP\Model\RowType',
+        'row_type' => '\SidneyAllen\XeroPHP\Models\Accounting\RowType',
         'title' => 'string',
-        'cells' => '\SidneyAllen\XeroPHP\Model\ReportCell[]'
+        'cells' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]'
     ];
 
     /**
@@ -219,7 +219,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets row_type
      *
-     * @return \SidneyAllen\XeroPHP\Model\RowType|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\RowType|null
      */
     public function getRowType()
     {
@@ -229,7 +229,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets row_type
      *
-     * @param \SidneyAllen\XeroPHP\Model\RowType|null $row_type row_type
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\RowType|null $row_type row_type
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets cells
      *
-     * @return \SidneyAllen\XeroPHP\Model\ReportCell[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]|null
      */
     public function getCells()
     {
@@ -277,7 +277,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets cells
      *
-     * @param \SidneyAllen\XeroPHP\Model\ReportCell[]|null $cells cells
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]|null $cells cells
      *
      * @return $this
      */

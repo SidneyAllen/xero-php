@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -63,7 +63,7 @@ class Report implements ModelInterface, ArrayAccess
         'report_title' => 'string',
         'report_date' => 'string',
         'updated_date_utc' => '\DateTime',
-        'contacts' => '\SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]'
     ];
 
     /**
@@ -417,7 +417,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null
      */
     public function getContacts()
     {
@@ -427,7 +427,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \SidneyAllen\XeroPHP\Model\TenNinteyNineContact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null $contacts contacts
      *
      * @return $this
      */

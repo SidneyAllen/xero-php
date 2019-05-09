@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,8 +57,8 @@ class PaymentTerm implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bills' => '\SidneyAllen\XeroPHP\Model\Bill',
-        'sales' => '\SidneyAllen\XeroPHP\Model\Bill'
+        'bills' => '\SidneyAllen\XeroPHP\Models\Accounting\Bill',
+        'sales' => '\SidneyAllen\XeroPHP\Models\Accounting\Bill'
     ];
 
     /**
@@ -213,7 +213,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Gets bills
      *
-     * @return \SidneyAllen\XeroPHP\Model\Bill|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Bill|null
      */
     public function getBills()
     {
@@ -223,7 +223,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Sets bills
      *
-     * @param \SidneyAllen\XeroPHP\Model\Bill|null $bills bills
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Bill|null $bills bills
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Gets sales
      *
-     * @return \SidneyAllen\XeroPHP\Model\Bill|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Bill|null
      */
     public function getSales()
     {
@@ -247,7 +247,7 @@ class PaymentTerm implements ModelInterface, ArrayAccess
     /**
      * Sets sales
      *
-     * @param \SidneyAllen\XeroPHP\Model\Bill|null $sales sales
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Bill|null $sales sales
      *
      * @return $this
      */

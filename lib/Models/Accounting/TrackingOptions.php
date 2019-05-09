@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'options' => '\SidneyAllen\XeroPHP\Model\TrackingOption[]'
+        'options' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \SidneyAllen\XeroPHP\Model\TrackingOption[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null
      */
     public function getOptions()
     {
@@ -217,7 +217,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \SidneyAllen\XeroPHP\Model\TrackingOption[]|null $options options
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null $options options
      *
      * @return $this
      */

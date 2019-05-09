@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Receipts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'receipts' => '\SidneyAllen\XeroPHP\Model\Receipt[]'
+        'receipts' => '\SidneyAllen\XeroPHP\Models\Accounting\Receipt[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Receipts implements ModelInterface, ArrayAccess
     /**
      * Gets receipts
      *
-     * @return \SidneyAllen\XeroPHP\Model\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -217,7 +217,7 @@ class Receipts implements ModelInterface, ArrayAccess
     /**
      * Sets receipts
      *
-     * @param \SidneyAllen\XeroPHP\Model\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Employees implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employees' => '\SidneyAllen\XeroPHP\Model\Employee[]'
+        'employees' => '\SidneyAllen\XeroPHP\Models\Accounting\Employee[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Gets employees
      *
-     * @return \SidneyAllen\XeroPHP\Model\Employee[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Employee[]|null
      */
     public function getEmployees()
     {
@@ -217,7 +217,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Sets employees
      *
-     * @param \SidneyAllen\XeroPHP\Model\Employee[]|null $employees employees
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Employee[]|null $employees employees
      *
      * @return $this
      */

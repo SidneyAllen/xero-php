@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Journals implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'journals' => '\SidneyAllen\XeroPHP\Model\Journal[]'
+        'journals' => '\SidneyAllen\XeroPHP\Models\Accounting\Journal[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Journals implements ModelInterface, ArrayAccess
     /**
      * Gets journals
      *
-     * @return \SidneyAllen\XeroPHP\Model\Journal[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Journal[]|null
      */
     public function getJournals()
     {
@@ -217,7 +217,7 @@ class Journals implements ModelInterface, ArrayAccess
     /**
      * Sets journals
      *
-     * @param \SidneyAllen\XeroPHP\Model\Journal[]|null $journals journals
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Journal[]|null $journals journals
      *
      * @return $this
      */

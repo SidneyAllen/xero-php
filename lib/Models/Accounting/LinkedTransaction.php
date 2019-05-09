@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -67,7 +67,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
         'type' => 'string',
         'updated_date_utc' => '\DateTime',
         'source_transaction_type_code' => 'string',
-        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -610,7 +610,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -620,7 +620,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

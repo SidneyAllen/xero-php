@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Allocations implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'allocations' => '\SidneyAllen\XeroPHP\Model\Allocation[]'
+        'allocations' => '\SidneyAllen\XeroPHP\Models\Accounting\Allocation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Allocations implements ModelInterface, ArrayAccess
     /**
      * Gets allocations
      *
-     * @return \SidneyAllen\XeroPHP\Model\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -217,7 +217,7 @@ class Allocations implements ModelInterface, ArrayAccess
     /**
      * Sets allocations
      *
-     * @param \SidneyAllen\XeroPHP\Model\Allocation[]|null $allocations allocations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null $allocations allocations
      *
      * @return $this
      */

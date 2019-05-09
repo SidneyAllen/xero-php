@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,22 +58,22 @@ class Prepayment implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
         'date' => '\DateTime',
         'status' => 'string',
-        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
-        'line_items' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
+        'line_items' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
         'updated_date_utc' => '\DateTime',
-        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'prepayment_id' => 'string',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
-        'allocations' => '\SidneyAllen\XeroPHP\Model\Allocation[]',
+        'allocations' => '\SidneyAllen\XeroPHP\Models\Accounting\Allocation[]',
         'has_attachments' => 'bool',
-        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -384,7 +384,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \SidneyAllen\XeroPHP\Model\Contact|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -394,7 +394,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \SidneyAllen\XeroPHP\Model\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -465,7 +465,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -475,7 +475,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -489,7 +489,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -499,7 +499,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineItem[]|null $line_items See Prepayment Line Items
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null $line_items See Prepayment Line Items
      *
      * @return $this
      */
@@ -609,7 +609,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -619,7 +619,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -705,7 +705,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets allocations
      *
-     * @return \SidneyAllen\XeroPHP\Model\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -715,7 +715,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets allocations
      *
-     * @param \SidneyAllen\XeroPHP\Model\Allocation[]|null $allocations See Allocations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null $allocations See Allocations
      *
      * @return $this
      */
@@ -753,7 +753,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -763,7 +763,7 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments See Attachments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments See Attachments
      *
      * @return $this
      */

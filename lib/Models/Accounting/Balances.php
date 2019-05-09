@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,8 +58,8 @@ class Balances implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts_receivable' => '\SidneyAllen\XeroPHP\Model\AccountsReceivable',
-        'accounts_payable' => '\SidneyAllen\XeroPHP\Model\AccountsPayable'
+        'accounts_receivable' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable',
+        'accounts_payable' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable'
     ];
 
     /**
@@ -214,7 +214,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_receivable
      *
-     * @return \SidneyAllen\XeroPHP\Model\AccountsReceivable|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable|null
      */
     public function getAccountsReceivable()
     {
@@ -224,7 +224,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_receivable
      *
-     * @param \SidneyAllen\XeroPHP\Model\AccountsReceivable|null $accounts_receivable accounts_receivable
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable|null $accounts_receivable accounts_receivable
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_payable
      *
-     * @return \SidneyAllen\XeroPHP\Model\AccountsPayable|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable|null
      */
     public function getAccountsPayable()
     {
@@ -248,7 +248,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_payable
      *
-     * @param \SidneyAllen\XeroPHP\Model\AccountsPayable|null $accounts_payable accounts_payable
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable|null $accounts_payable accounts_payable
      *
      * @return $this
      */

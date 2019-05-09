@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bank_transfers' => '\SidneyAllen\XeroPHP\Model\BankTransfer[]'
+        'bank_transfers' => '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfer[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
     /**
      * Gets bank_transfers
      *
-     * @return \SidneyAllen\XeroPHP\Model\BankTransfer[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BankTransfer[]|null
      */
     public function getBankTransfers()
     {
@@ -217,7 +217,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
     /**
      * Sets bank_transfers
      *
-     * @param \SidneyAllen\XeroPHP\Model\BankTransfer[]|null $bank_transfers bank_transfers
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BankTransfer[]|null $bank_transfers bank_transfers
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Items implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => '\SidneyAllen\XeroPHP\Model\Item[]'
+        'items' => '\SidneyAllen\XeroPHP\Models\Accounting\Item[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Items implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \SidneyAllen\XeroPHP\Model\Item[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Item[]|null
      */
     public function getItems()
     {
@@ -217,7 +217,7 @@ class Items implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \SidneyAllen\XeroPHP\Model\Item[]|null $items items
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Item[]|null $items items
      *
      * @return $this
      */

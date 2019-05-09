@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Allocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice' => '\SidneyAllen\XeroPHP\Model\Invoice',
+        'invoice' => '\SidneyAllen\XeroPHP\Models\Accounting\Invoice',
         'amount' => 'double',
         'date' => '\DateTime'
     ];
@@ -228,7 +228,7 @@ class Allocation implements ModelInterface, ArrayAccess
     /**
      * Gets invoice
      *
-     * @return \SidneyAllen\XeroPHP\Model\Invoice
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Invoice
      */
     public function getInvoice()
     {
@@ -238,7 +238,7 @@ class Allocation implements ModelInterface, ArrayAccess
     /**
      * Sets invoice
      *
-     * @param \SidneyAllen\XeroPHP\Model\Invoice $invoice invoice
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Invoice $invoice invoice
      *
      * @return $this
      */

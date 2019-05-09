@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -64,8 +64,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_titles' => 'string[]',
         'report_date' => 'string',
         'updated_date_utc' => '\DateTime',
-        'rows' => '\SidneyAllen\XeroPHP\Model\ReportRows[]',
-        'fields' => '\SidneyAllen\XeroPHP\Model\ReportFields[]'
+        'rows' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]',
+        'fields' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]'
     ];
 
     /**
@@ -423,7 +423,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets rows
      *
-     * @return \SidneyAllen\XeroPHP\Model\ReportRows[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]|null
      */
     public function getRows()
     {
@@ -433,7 +433,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets rows
      *
-     * @param \SidneyAllen\XeroPHP\Model\ReportRows[]|null $rows rows
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]|null $rows rows
      *
      * @return $this
      */
@@ -447,7 +447,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return \SidneyAllen\XeroPHP\Model\ReportFields[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]|null
      */
     public function getFields()
     {
@@ -457,7 +457,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param \SidneyAllen\XeroPHP\Model\ReportFields[]|null $fields fields
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]|null $fields fields
      *
      * @return $this
      */

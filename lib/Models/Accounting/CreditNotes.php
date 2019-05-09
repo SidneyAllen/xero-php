@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credit_notes' => '\SidneyAllen\XeroPHP\Model\CreditNote[]'
+        'credit_notes' => '\SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
     /**
      * Gets credit_notes
      *
-     * @return \SidneyAllen\XeroPHP\Model\CreditNote[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]|null
      */
     public function getCreditNotes()
     {
@@ -217,7 +217,7 @@ class CreditNotes implements ModelInterface, ArrayAccess
     /**
      * Sets credit_notes
      *
-     * @param \SidneyAllen\XeroPHP\Model\CreditNote[]|null $credit_notes credit_notes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]|null $credit_notes credit_notes
      *
      * @return $this
      */

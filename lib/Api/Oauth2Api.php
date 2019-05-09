@@ -95,7 +95,7 @@ class Oauth2Api
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SidneyAllen\XeroPHP\Model\Connection[]
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Connection[]
      */
     public function getConnections()
     {
@@ -111,7 +111,7 @@ class Oauth2Api
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SidneyAllen\XeroPHP\Model\Connection[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Accounting\Connection[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getConnectionsWithHttpInfo()
     {
@@ -148,20 +148,20 @@ class Oauth2Api
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SidneyAllen\XeroPHP\Model\Connection[]' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Accounting\Connection[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Model\Connection[]', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Connection[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SidneyAllen\XeroPHP\Model\Connection[]';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Accounting\Connection[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -180,7 +180,7 @@ class Oauth2Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SidneyAllen\XeroPHP\Model\Connection[]',
+                        '\SidneyAllen\XeroPHP\Models\Accounting\Connection[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -220,7 +220,7 @@ class Oauth2Api
      */
     public function getConnectionsAsyncWithHttpInfo()
     {
-        $returnType = '\SidneyAllen\XeroPHP\Model\Connection[]';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Accounting\Connection[]';
         $request = $this->getConnectionsRequest();
 
         return $this->client

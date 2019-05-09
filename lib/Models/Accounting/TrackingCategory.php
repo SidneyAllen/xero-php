@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -62,7 +62,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
         'name' => 'string',
         'option' => 'string',
         'status' => 'string',
-        'options' => '\SidneyAllen\XeroPHP\Model\TrackingOption[]'
+        'options' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]'
     ];
 
     /**
@@ -407,7 +407,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \SidneyAllen\XeroPHP\Model\TrackingOption[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null
      */
     public function getOptions()
     {
@@ -417,7 +417,7 @@ class TrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \SidneyAllen\XeroPHP\Model\TrackingOption[]|null $options See Tracking Options
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null $options See Tracking Options
      *
      * @return $this
      */

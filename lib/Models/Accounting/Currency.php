@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Currency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
+        'code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'description' => 'string'
     ];
 
@@ -213,7 +213,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Gets code
      *
-     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null
      */
     public function getCode()
     {
@@ -223,7 +223,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $code code
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null $code code
      *
      * @return $this
      */

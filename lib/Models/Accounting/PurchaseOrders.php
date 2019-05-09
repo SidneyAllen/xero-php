@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'purchase_orders' => '\SidneyAllen\XeroPHP\Model\PurchaseOrder[]'
+        'purchase_orders' => '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_orders
      *
-     * @return \SidneyAllen\XeroPHP\Model\PurchaseOrder[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]|null
      */
     public function getPurchaseOrders()
     {
@@ -217,7 +217,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_orders
      *
-     * @param \SidneyAllen\XeroPHP\Model\PurchaseOrder[]|null $purchase_orders purchase_orders
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]|null $purchase_orders purchase_orders
      *
      * @return $this
      */

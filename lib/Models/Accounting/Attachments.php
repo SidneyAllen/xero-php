@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Attachments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attachments' => '\SidneyAllen\XeroPHP\Model\Attachment[]'
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Attachments implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -217,7 +217,7 @@ class Attachments implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Attachment[]|null $attachments attachments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments attachments
      *
      * @return $this
      */

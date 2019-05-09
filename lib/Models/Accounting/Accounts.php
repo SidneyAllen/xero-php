@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Accounts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts' => '\SidneyAllen\XeroPHP\Model\Account[]'
+        'accounts' => '\SidneyAllen\XeroPHP\Models\Accounting\Account[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Accounts implements ModelInterface, ArrayAccess
     /**
      * Gets accounts
      *
-     * @return \SidneyAllen\XeroPHP\Model\Account[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account[]|null
      */
     public function getAccounts()
     {
@@ -217,7 +217,7 @@ class Accounts implements ModelInterface, ArrayAccess
     /**
      * Sets accounts
      *
-     * @param \SidneyAllen\XeroPHP\Model\Account[]|null $accounts accounts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account[]|null $accounts accounts
      *
      * @return $this
      */

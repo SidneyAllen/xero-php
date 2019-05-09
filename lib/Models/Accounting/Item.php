@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -64,14 +64,14 @@ class Item implements ModelInterface, ArrayAccess
         'is_purchased' => 'bool',
         'description' => 'string',
         'purchase_description' => 'string',
-        'purchase_details' => '\SidneyAllen\XeroPHP\Model\Purchase',
-        'sales_details' => '\SidneyAllen\XeroPHP\Model\Purchase',
+        'purchase_details' => '\SidneyAllen\XeroPHP\Models\Accounting\Purchase',
+        'sales_details' => '\SidneyAllen\XeroPHP\Models\Accounting\Purchase',
         'is_tracked_as_inventory' => 'bool',
         'total_cost_pool' => 'double',
         'quantity_on_hand' => 'double',
         'updated_date_utc' => '\DateTime',
         'item_id' => 'string',
-        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -497,7 +497,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_details
      *
-     * @return \SidneyAllen\XeroPHP\Model\Purchase|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Purchase|null
      */
     public function getPurchaseDetails()
     {
@@ -507,7 +507,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_details
      *
-     * @param \SidneyAllen\XeroPHP\Model\Purchase|null $purchase_details purchase_details
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Purchase|null $purchase_details purchase_details
      *
      * @return $this
      */
@@ -521,7 +521,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets sales_details
      *
-     * @return \SidneyAllen\XeroPHP\Model\Purchase|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Purchase|null
      */
     public function getSalesDetails()
     {
@@ -531,7 +531,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets sales_details
      *
-     * @param \SidneyAllen\XeroPHP\Model\Purchase|null $sales_details sales_details
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Purchase|null $sales_details sales_details
      *
      * @return $this
      */
@@ -665,7 +665,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -675,7 +675,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

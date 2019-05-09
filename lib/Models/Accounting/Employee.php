@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -61,7 +61,7 @@ class Employee implements ModelInterface, ArrayAccess
         'status' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
-        'external_link' => '\SidneyAllen\XeroPHP\Model\ExternalLink',
+        'external_link' => '\SidneyAllen\XeroPHP\Models\Accounting\ExternalLink',
         'updated_date_utc' => '\DateTime'
     ];
 
@@ -383,7 +383,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets external_link
      *
-     * @return \SidneyAllen\XeroPHP\Model\ExternalLink|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink|null
      */
     public function getExternalLink()
     {
@@ -393,7 +393,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets external_link
      *
-     * @param \SidneyAllen\XeroPHP\Model\ExternalLink|null $external_link external_link
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink|null $external_link external_link
      *
      * @return $this
      */

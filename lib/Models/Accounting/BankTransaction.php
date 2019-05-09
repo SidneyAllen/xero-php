@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -58,17 +58,17 @@ class BankTransaction implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\SidneyAllen\XeroPHP\Model\Contact',
-        'lineitems' => '\SidneyAllen\XeroPHP\Model\LineItem[]',
-        'bank_account' => '\SidneyAllen\XeroPHP\Model\Account',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
+        'lineitems' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
+        'bank_account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
         'is_reconciled' => 'bool',
         'date' => '\DateTime',
         'reference' => 'string',
-        'currency_code' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'currency_rate' => 'double',
         'url' => 'string',
         'status' => 'string',
-        'line_amount_types' => '\SidneyAllen\XeroPHP\Model\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
@@ -78,7 +78,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
         'updated_date_utc' => '\DateTime',
         'has_attachments' => 'bool',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\SidneyAllen\XeroPHP\Model\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -436,7 +436,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \SidneyAllen\XeroPHP\Model\Contact
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact
      */
     public function getContact()
     {
@@ -446,7 +446,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \SidneyAllen\XeroPHP\Model\Contact $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact $contact contact
      *
      * @return $this
      */
@@ -460,7 +460,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets lineitems
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineItem[]
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]
      */
     public function getLineitems()
     {
@@ -470,7 +470,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets lineitems
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineItem[] $lineitems See LineItems
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[] $lineitems See LineItems
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets bank_account
      *
-     * @return \SidneyAllen\XeroPHP\Model\Account
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account
      */
     public function getBankAccount()
     {
@@ -494,7 +494,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets bank_account
      *
-     * @param \SidneyAllen\XeroPHP\Model\Account $bank_account bank_account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account $bank_account bank_account
      *
      * @return $this
      */
@@ -580,7 +580,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null
      */
     public function getCurrencyCode()
     {
@@ -590,7 +590,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $currency_code currency_code
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null $currency_code currency_code
      *
      * @return $this
      */
@@ -685,7 +685,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \SidneyAllen\XeroPHP\Model\LineAmountTypes|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -695,7 +695,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \SidneyAllen\XeroPHP\Model\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -925,7 +925,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \SidneyAllen\XeroPHP\Model\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -935,7 +935,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \SidneyAllen\XeroPHP\Model\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

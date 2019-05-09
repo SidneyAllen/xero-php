@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Payments implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]'
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Payments implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -217,7 +217,7 @@ class Payments implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments payments
      *
      * @return $this
      */

@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class Invoices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoices' => '\SidneyAllen\XeroPHP\Model\Invoice[]'
+        'invoices' => '\SidneyAllen\XeroPHP\Models\Accounting\Invoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Invoices implements ModelInterface, ArrayAccess
     /**
      * Gets invoices
      *
-     * @return \SidneyAllen\XeroPHP\Model\Invoice[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Invoice[]|null
      */
     public function getInvoices()
     {
@@ -217,7 +217,7 @@ class Invoices implements ModelInterface, ArrayAccess
     /**
      * Sets invoices
      *
-     * @param \SidneyAllen\XeroPHP\Model\Invoice[]|null $invoices invoices
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Invoice[]|null $invoices invoices
      *
      * @return $this
      */

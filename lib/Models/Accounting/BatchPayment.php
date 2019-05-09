@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => '\SidneyAllen\XeroPHP\Model\Account',
+        'account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
         'reference' => 'string',
         'particulars' => 'string',
         'code' => 'string',
@@ -67,7 +67,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'date_string' => 'string',
         'date' => '\DateTime',
         'amount' => 'double',
-        'payments' => '\SidneyAllen\XeroPHP\Model\Payment[]',
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]',
         'type' => 'string',
         'status' => 'string',
         'total_amount' => 'string',
@@ -317,7 +317,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets account
      *
-     * @return \SidneyAllen\XeroPHP\Model\Account|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account|null
      */
     public function getAccount()
     {
@@ -327,7 +327,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param \SidneyAllen\XeroPHP\Model\Account|null $account account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account|null $account account
      *
      * @return $this
      */
@@ -577,7 +577,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \SidneyAllen\XeroPHP\Model\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -587,7 +587,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \SidneyAllen\XeroPHP\Model\Payment[]|null $payments payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments payments
      *
      * @return $this
      */

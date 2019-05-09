@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -64,8 +64,8 @@ class Organisation implements ModelInterface, ArrayAccess
         'pays_tax' => 'bool',
         'version' => 'string',
         'organisation_type' => 'string',
-        'base_currency' => '\SidneyAllen\XeroPHP\Model\CurrencyCode',
-        'country_code' => '\SidneyAllen\XeroPHP\Model\CountryCode',
+        'base_currency' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
+        'country_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CountryCode',
         'is_demo_company' => 'bool',
         'organisation_status' => 'string',
         'registration_number' => 'string',
@@ -79,16 +79,16 @@ class Organisation implements ModelInterface, ArrayAccess
         'period_lock_date' => '\DateTime',
         'end_of_year_lock_date' => '\DateTime',
         'created_date_utc' => '\DateTime',
-        'timezone' => '\SidneyAllen\XeroPHP\Model\TimeZone',
+        'timezone' => '\SidneyAllen\XeroPHP\Models\Accounting\TimeZone',
         'organisation_entity_type' => 'string',
         'short_code' => 'string',
         'class' => 'string',
         'edition' => 'string',
         'line_of_business' => 'string',
-        'addresses' => '\SidneyAllen\XeroPHP\Model\Address[]',
-        'phones' => '\SidneyAllen\XeroPHP\Model\Phone[]',
-        'external_links' => '\SidneyAllen\XeroPHP\Model\ExternalLink[]',
-        'payment_terms' => '\SidneyAllen\XeroPHP\Model\PaymentTerm'
+        'addresses' => '\SidneyAllen\XeroPHP\Models\Accounting\Address[]',
+        'phones' => '\SidneyAllen\XeroPHP\Models\Accounting\Phone[]',
+        'external_links' => '\SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]',
+        'payment_terms' => '\SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm'
     ];
 
     /**
@@ -834,7 +834,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets base_currency
      *
-     * @return \SidneyAllen\XeroPHP\Model\CurrencyCode|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null
      */
     public function getBaseCurrency()
     {
@@ -844,7 +844,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets base_currency
      *
-     * @param \SidneyAllen\XeroPHP\Model\CurrencyCode|null $base_currency base_currency
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode|null $base_currency base_currency
      *
      * @return $this
      */
@@ -858,7 +858,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets country_code
      *
-     * @return \SidneyAllen\XeroPHP\Model\CountryCode|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CountryCode|null
      */
     public function getCountryCode()
     {
@@ -868,7 +868,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets country_code
      *
-     * @param \SidneyAllen\XeroPHP\Model\CountryCode|null $country_code country_code
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CountryCode|null $country_code country_code
      *
      * @return $this
      */
@@ -1212,7 +1212,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets timezone
      *
-     * @return \SidneyAllen\XeroPHP\Model\TimeZone|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TimeZone|null
      */
     public function getTimezone()
     {
@@ -1222,7 +1222,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets timezone
      *
-     * @param \SidneyAllen\XeroPHP\Model\TimeZone|null $timezone timezone
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TimeZone|null $timezone timezone
      *
      * @return $this
      */
@@ -1383,7 +1383,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets addresses
      *
-     * @return \SidneyAllen\XeroPHP\Model\Address[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null
      */
     public function getAddresses()
     {
@@ -1393,7 +1393,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets addresses
      *
-     * @param \SidneyAllen\XeroPHP\Model\Address[]|null $addresses Address details for organisation – see Addresses
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null $addresses Address details for organisation – see Addresses
      *
      * @return $this
      */
@@ -1407,7 +1407,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets phones
      *
-     * @return \SidneyAllen\XeroPHP\Model\Phone[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null
      */
     public function getPhones()
     {
@@ -1417,7 +1417,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets phones
      *
-     * @param \SidneyAllen\XeroPHP\Model\Phone[]|null $phones Phones details for organisation – see Phones
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null $phones Phones details for organisation – see Phones
      *
      * @return $this
      */
@@ -1431,7 +1431,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets external_links
      *
-     * @return \SidneyAllen\XeroPHP\Model\ExternalLink[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]|null
      */
     public function getExternalLinks()
     {
@@ -1441,7 +1441,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets external_links
      *
-     * @param \SidneyAllen\XeroPHP\Model\ExternalLink[]|null $external_links Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]|null $external_links Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below
      *
      * @return $this
      */
@@ -1455,7 +1455,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets payment_terms
      *
-     * @return \SidneyAllen\XeroPHP\Model\PaymentTerm|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null
      */
     public function getPaymentTerms()
     {
@@ -1465,7 +1465,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets payment_terms
      *
-     * @param \SidneyAllen\XeroPHP\Model\PaymentTerm|null $payment_terms payment_terms
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null $payment_terms payment_terms
      *
      * @return $this
      */

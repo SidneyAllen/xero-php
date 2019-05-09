@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branding_themes' => '\SidneyAllen\XeroPHP\Model\BrandingTheme[]'
+        'branding_themes' => '\SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
     /**
      * Gets branding_themes
      *
-     * @return \SidneyAllen\XeroPHP\Model\BrandingTheme[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]|null
      */
     public function getBrandingThemes()
     {
@@ -217,7 +217,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess
     /**
      * Sets branding_themes
      *
-     * @param \SidneyAllen\XeroPHP\Model\BrandingTheme[]|null $branding_themes branding_themes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]|null $branding_themes branding_themes
      *
      * @return $this
      */

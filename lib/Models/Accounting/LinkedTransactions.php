@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace SidneyAllen\XeroPHP\Model;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
@@ -57,7 +57,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'linked_transactions' => '\SidneyAllen\XeroPHP\Model\LinkedTransaction[]'
+        'linked_transactions' => '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransaction[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
     /**
      * Gets linked_transactions
      *
-     * @return \SidneyAllen\XeroPHP\Model\LinkedTransaction[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransaction[]|null
      */
     public function getLinkedTransactions()
     {
@@ -217,7 +217,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess
     /**
      * Sets linked_transactions
      *
-     * @param \SidneyAllen\XeroPHP\Model\LinkedTransaction[]|null $linked_transactions linked_transactions
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransaction[]|null $linked_transactions linked_transactions
      *
      * @return $this
      */
