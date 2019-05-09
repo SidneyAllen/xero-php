@@ -29,7 +29,7 @@
 
 namespace SidneyAllen\XeroPHP;
 
-use SidneyAllen\XeroPHP\Model\ModelInterface;
+use SidneyAllen\XeroPHP\Models\Accounting\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
