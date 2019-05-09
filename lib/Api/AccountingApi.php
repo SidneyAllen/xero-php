@@ -4291,15 +4291,16 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups contact_groups (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createContactGroup($contact_groups = null)
+    public function createContactGroup($xero_tenant_id, $contact_groups = null)
     {
-        list($response) = $this->createContactGroupWithHttpInfo($contact_groups);
+        list($response) = $this->createContactGroupWithHttpInfo($xero_tenant_id, $contact_groups);
         return $response;
     }
 
@@ -4308,15 +4309,16 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactGroupWithHttpInfo($contact_groups = null)
+    public function createContactGroupWithHttpInfo($xero_tenant_id, $contact_groups = null)
     {
-        $request = $this->createContactGroupRequest($contact_groups);
+        $request = $this->createContactGroupRequest($xero_tenant_id, $contact_groups);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4416,14 +4418,15 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactGroupAsync($contact_groups = null)
+    public function createContactGroupAsync($xero_tenant_id, $contact_groups = null)
     {
-        return $this->createContactGroupAsyncWithHttpInfo($contact_groups)
+        return $this->createContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_groups)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4436,15 +4439,16 @@ class AccountingApi
      *
      * Allows you to create a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactGroupAsyncWithHttpInfo($contact_groups = null)
+    public function createContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_groups = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
-        $request = $this->createContactGroupRequest($contact_groups);
+        $request = $this->createContactGroupRequest($xero_tenant_id, $contact_groups);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4483,13 +4487,20 @@ class AccountingApi
     /**
      * Create request for operation 'createContactGroup'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactGroupRequest($contact_groups = null)
+    protected function createContactGroupRequest($xero_tenant_id, $contact_groups = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createContactGroup'
+            );
+        }
 
         $resourcePath = '/ContactGroups';
         $formParams = [];
@@ -4498,6 +4509,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -4576,6 +4591,7 @@ class AccountingApi
      *
      * Allows you to add Contacts to a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts contacts (optional)
      *
@@ -4583,9 +4599,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createContactGroupContacts($contact_group_id, $contacts = null)
+    public function createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts = null)
     {
-        list($response) = $this->createContactGroupContactsWithHttpInfo($contact_group_id, $contacts);
+        list($response) = $this->createContactGroupContactsWithHttpInfo($xero_tenant_id, $contact_group_id, $contacts);
         return $response;
     }
 
@@ -4594,6 +4610,7 @@ class AccountingApi
      *
      * Allows you to add Contacts to a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
@@ -4601,9 +4618,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Contacts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactGroupContactsWithHttpInfo($contact_group_id, $contacts = null)
+    public function createContactGroupContactsWithHttpInfo($xero_tenant_id, $contact_group_id, $contacts = null)
     {
-        $request = $this->createContactGroupContactsRequest($contact_group_id, $contacts);
+        $request = $this->createContactGroupContactsRequest($xero_tenant_id, $contact_group_id, $contacts);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4703,15 +4720,16 @@ class AccountingApi
      *
      * Allows you to add Contacts to a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactGroupContactsAsync($contact_group_id, $contacts = null)
+    public function createContactGroupContactsAsync($xero_tenant_id, $contact_group_id, $contacts = null)
     {
-        return $this->createContactGroupContactsAsyncWithHttpInfo($contact_group_id, $contacts)
+        return $this->createContactGroupContactsAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contacts)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4724,16 +4742,17 @@ class AccountingApi
      *
      * Allows you to add Contacts to a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactGroupContactsAsyncWithHttpInfo($contact_group_id, $contacts = null)
+    public function createContactGroupContactsAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contacts = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Contacts';
-        $request = $this->createContactGroupContactsRequest($contact_group_id, $contacts);
+        $request = $this->createContactGroupContactsRequest($xero_tenant_id, $contact_group_id, $contacts);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4772,14 +4791,21 @@ class AccountingApi
     /**
      * Create request for operation 'createContactGroupContacts'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\Contacts $contacts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactGroupContactsRequest($contact_group_id, $contacts = null)
+    protected function createContactGroupContactsRequest($xero_tenant_id, $contact_group_id, $contacts = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createContactGroupContacts'
+            );
+        }
         // verify the required parameter 'contact_group_id' is set
         if ($contact_group_id === null || (is_array($contact_group_id) && count($contact_group_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4794,6 +4820,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($contact_group_id !== null) {
@@ -5205,6 +5235,7 @@ class AccountingApi
      *
      * Allows you to create a credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes credit_notes (optional)
      *
@@ -5212,9 +5243,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createCreditNote($summarize_errors = null, $credit_notes = null)
+    public function createCreditNote($xero_tenant_id, $summarize_errors = null, $credit_notes = null)
     {
-        list($response) = $this->createCreditNoteWithHttpInfo($summarize_errors, $credit_notes);
+        list($response) = $this->createCreditNoteWithHttpInfo($xero_tenant_id, $summarize_errors, $credit_notes);
         return $response;
     }
 
@@ -5223,6 +5254,7 @@ class AccountingApi
      *
      * Allows you to create a credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
@@ -5230,9 +5262,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNoteWithHttpInfo($summarize_errors = null, $credit_notes = null)
+    public function createCreditNoteWithHttpInfo($xero_tenant_id, $summarize_errors = null, $credit_notes = null)
     {
-        $request = $this->createCreditNoteRequest($summarize_errors, $credit_notes);
+        $request = $this->createCreditNoteRequest($xero_tenant_id, $summarize_errors, $credit_notes);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5332,15 +5364,16 @@ class AccountingApi
      *
      * Allows you to create a credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAsync($summarize_errors = null, $credit_notes = null)
+    public function createCreditNoteAsync($xero_tenant_id, $summarize_errors = null, $credit_notes = null)
     {
-        return $this->createCreditNoteAsyncWithHttpInfo($summarize_errors, $credit_notes)
+        return $this->createCreditNoteAsyncWithHttpInfo($xero_tenant_id, $summarize_errors, $credit_notes)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5353,16 +5386,17 @@ class AccountingApi
      *
      * Allows you to create a credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAsyncWithHttpInfo($summarize_errors = null, $credit_notes = null)
+    public function createCreditNoteAsyncWithHttpInfo($xero_tenant_id, $summarize_errors = null, $credit_notes = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
-        $request = $this->createCreditNoteRequest($summarize_errors, $credit_notes);
+        $request = $this->createCreditNoteRequest($xero_tenant_id, $summarize_errors, $credit_notes);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5401,14 +5435,21 @@ class AccountingApi
     /**
      * Create request for operation 'createCreditNote'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  bool $summarize_errors shows validation errors for each credit note (optional)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNoteRequest($summarize_errors = null, $credit_notes = null)
+    protected function createCreditNoteRequest($xero_tenant_id, $summarize_errors = null, $credit_notes = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createCreditNote'
+            );
+        }
 
         $resourcePath = '/CreditNotes';
         $formParams = [];
@@ -5420,6 +5461,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -5499,6 +5544,7 @@ class AccountingApi
      *
      * Allows you to create Allocation on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (optional)
      *
@@ -5506,9 +5552,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createCreditNoteAllocation($credit_note_id, $allocations = null)
+    public function createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations = null)
     {
-        list($response) = $this->createCreditNoteAllocationWithHttpInfo($credit_note_id, $allocations);
+        list($response) = $this->createCreditNoteAllocationWithHttpInfo($xero_tenant_id, $credit_note_id, $allocations);
         return $response;
     }
 
@@ -5517,6 +5563,7 @@ class AccountingApi
      *
      * Allows you to create Allocation on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
@@ -5524,9 +5571,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNoteAllocationWithHttpInfo($credit_note_id, $allocations = null)
+    public function createCreditNoteAllocationWithHttpInfo($xero_tenant_id, $credit_note_id, $allocations = null)
     {
-        $request = $this->createCreditNoteAllocationRequest($credit_note_id, $allocations);
+        $request = $this->createCreditNoteAllocationRequest($xero_tenant_id, $credit_note_id, $allocations);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5626,15 +5673,16 @@ class AccountingApi
      *
      * Allows you to create Allocation on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAllocationAsync($credit_note_id, $allocations = null)
+    public function createCreditNoteAllocationAsync($xero_tenant_id, $credit_note_id, $allocations = null)
     {
-        return $this->createCreditNoteAllocationAsyncWithHttpInfo($credit_note_id, $allocations)
+        return $this->createCreditNoteAllocationAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $allocations)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5647,16 +5695,17 @@ class AccountingApi
      *
      * Allows you to create Allocation on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAllocationAsyncWithHttpInfo($credit_note_id, $allocations = null)
+    public function createCreditNoteAllocationAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $allocations = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
-        $request = $this->createCreditNoteAllocationRequest($credit_note_id, $allocations);
+        $request = $this->createCreditNoteAllocationRequest($xero_tenant_id, $credit_note_id, $allocations);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5695,14 +5744,21 @@ class AccountingApi
     /**
      * Create request for operation 'createCreditNoteAllocation'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNoteAllocationRequest($credit_note_id, $allocations = null)
+    protected function createCreditNoteAllocationRequest($xero_tenant_id, $credit_note_id, $allocations = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createCreditNoteAllocation'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5717,6 +5773,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -5803,6 +5863,7 @@ class AccountingApi
      *
      * Allows you to create Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -5811,9 +5872,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createCreditNoteAttachmentByFileName($credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        list($response) = $this->createCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body);
+        list($response) = $this->createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body);
         return $response;
     }
 
@@ -5822,6 +5883,7 @@ class AccountingApi
      *
      * Allows you to create Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -5830,9 +5892,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        $request = $this->createCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
+        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5932,6 +5994,7 @@ class AccountingApi
      *
      * Allows you to create Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -5939,9 +6002,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAttachmentByFileNameAsync($credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameAsync($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        return $this->createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
+        return $this->createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5954,6 +6017,7 @@ class AccountingApi
      *
      * Allows you to create Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -5961,10 +6025,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->createCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
+        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6003,6 +6067,7 @@ class AccountingApi
     /**
      * Create request for operation 'createCreditNoteAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -6010,8 +6075,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body)
+    protected function createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createCreditNoteAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6038,6 +6109,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -6132,6 +6207,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -6139,9 +6215,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createCreditNoteHistory($credit_note_id, $history_records)
+    public function createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records)
     {
-        list($response) = $this->createCreditNoteHistoryWithHttpInfo($credit_note_id, $history_records);
+        list($response) = $this->createCreditNoteHistoryWithHttpInfo($xero_tenant_id, $credit_note_id, $history_records);
         return $response;
     }
 
@@ -6150,6 +6226,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -6157,9 +6234,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNoteHistoryWithHttpInfo($credit_note_id, $history_records)
+    public function createCreditNoteHistoryWithHttpInfo($xero_tenant_id, $credit_note_id, $history_records)
     {
-        $request = $this->createCreditNoteHistoryRequest($credit_note_id, $history_records);
+        $request = $this->createCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6259,15 +6336,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteHistoryAsync($credit_note_id, $history_records)
+    public function createCreditNoteHistoryAsync($xero_tenant_id, $credit_note_id, $history_records)
     {
-        return $this->createCreditNoteHistoryAsyncWithHttpInfo($credit_note_id, $history_records)
+        return $this->createCreditNoteHistoryAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6280,16 +6358,17 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteHistoryAsyncWithHttpInfo($credit_note_id, $history_records)
+    public function createCreditNoteHistoryAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createCreditNoteHistoryRequest($credit_note_id, $history_records);
+        $request = $this->createCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6328,14 +6407,21 @@ class AccountingApi
     /**
      * Create request for operation 'createCreditNoteHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNoteHistoryRequest($credit_note_id, $history_records)
+    protected function createCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createCreditNoteHistory'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6356,6 +6442,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -6440,30 +6530,32 @@ class AccountingApi
     /**
      * Operation createCurrency
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies currencies (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Currencies
      */
-    public function createCurrency($currencies)
+    public function createCurrency($xero_tenant_id, $currencies)
     {
-        list($response) = $this->createCurrencyWithHttpInfo($currencies);
+        list($response) = $this->createCurrencyWithHttpInfo($xero_tenant_id, $currencies);
         return $response;
     }
 
     /**
      * Operation createCurrencyWithHttpInfo
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCurrencyWithHttpInfo($currencies)
+    public function createCurrencyWithHttpInfo($xero_tenant_id, $currencies)
     {
-        $request = $this->createCurrencyRequest($currencies);
+        $request = $this->createCurrencyRequest($xero_tenant_id, $currencies);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6543,14 +6635,15 @@ class AccountingApi
      *
      * 
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCurrencyAsync($currencies)
+    public function createCurrencyAsync($xero_tenant_id, $currencies)
     {
-        return $this->createCurrencyAsyncWithHttpInfo($currencies)
+        return $this->createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currencies)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6563,15 +6656,16 @@ class AccountingApi
      *
      * 
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCurrencyAsyncWithHttpInfo($currencies)
+    public function createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currencies)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
-        $request = $this->createCurrencyRequest($currencies);
+        $request = $this->createCurrencyRequest($xero_tenant_id, $currencies);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6610,13 +6704,20 @@ class AccountingApi
     /**
      * Create request for operation 'createCurrency'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Currencies $currencies (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCurrencyRequest($currencies)
+    protected function createCurrencyRequest($xero_tenant_id, $currencies)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createCurrency'
+            );
+        }
         // verify the required parameter 'currencies' is set
         if ($currencies === null || (is_array($currencies) && count($currencies) === 0)) {
             throw new \InvalidArgumentException(
@@ -6631,6 +6732,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -6709,15 +6814,16 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees employees (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createEmployee($employees)
+    public function createEmployee($xero_tenant_id, $employees)
     {
-        list($response) = $this->createEmployeeWithHttpInfo($employees);
+        list($response) = $this->createEmployeeWithHttpInfo($xero_tenant_id, $employees);
         return $response;
     }
 
@@ -6726,15 +6832,16 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createEmployeeWithHttpInfo($employees)
+    public function createEmployeeWithHttpInfo($xero_tenant_id, $employees)
     {
-        $request = $this->createEmployeeRequest($employees);
+        $request = $this->createEmployeeRequest($xero_tenant_id, $employees);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6834,14 +6941,15 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEmployeeAsync($employees)
+    public function createEmployeeAsync($xero_tenant_id, $employees)
     {
-        return $this->createEmployeeAsyncWithHttpInfo($employees)
+        return $this->createEmployeeAsyncWithHttpInfo($xero_tenant_id, $employees)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6854,15 +6962,16 @@ class AccountingApi
      *
      * Allows you to create new employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createEmployeeAsyncWithHttpInfo($employees)
+    public function createEmployeeAsyncWithHttpInfo($xero_tenant_id, $employees)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
-        $request = $this->createEmployeeRequest($employees);
+        $request = $this->createEmployeeRequest($xero_tenant_id, $employees);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6901,13 +7010,20 @@ class AccountingApi
     /**
      * Create request for operation 'createEmployee'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createEmployeeRequest($employees)
+    protected function createEmployeeRequest($xero_tenant_id, $employees)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createEmployee'
+            );
+        }
         // verify the required parameter 'employees' is set
         if ($employees === null || (is_array($employees) && count($employees) === 0)) {
             throw new \InvalidArgumentException(
@@ -6922,6 +7038,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -7000,6 +7120,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
@@ -7007,9 +7128,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createExpenseClaim($expense_claims, $summarize_errors = null)
+    public function createExpenseClaim($xero_tenant_id, $expense_claims, $summarize_errors = null)
     {
-        list($response) = $this->createExpenseClaimWithHttpInfo($expense_claims, $summarize_errors);
+        list($response) = $this->createExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claims, $summarize_errors);
         return $response;
     }
 
@@ -7018,6 +7139,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
@@ -7025,9 +7147,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createExpenseClaimWithHttpInfo($expense_claims, $summarize_errors = null)
+    public function createExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claims, $summarize_errors = null)
     {
-        $request = $this->createExpenseClaimRequest($expense_claims, $summarize_errors);
+        $request = $this->createExpenseClaimRequest($xero_tenant_id, $expense_claims, $summarize_errors);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7127,15 +7249,16 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExpenseClaimAsync($expense_claims, $summarize_errors = null)
+    public function createExpenseClaimAsync($xero_tenant_id, $expense_claims, $summarize_errors = null)
     {
-        return $this->createExpenseClaimAsyncWithHttpInfo($expense_claims, $summarize_errors)
+        return $this->createExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claims, $summarize_errors)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7148,16 +7271,17 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExpenseClaimAsyncWithHttpInfo($expense_claims, $summarize_errors = null)
+    public function createExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claims, $summarize_errors = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
-        $request = $this->createExpenseClaimRequest($expense_claims, $summarize_errors);
+        $request = $this->createExpenseClaimRequest($xero_tenant_id, $expense_claims, $summarize_errors);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7196,14 +7320,21 @@ class AccountingApi
     /**
      * Create request for operation 'createExpenseClaim'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      * @param  bool $summarize_errors shows validation errors for each expense claim (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createExpenseClaimRequest($expense_claims, $summarize_errors = null)
+    protected function createExpenseClaimRequest($xero_tenant_id, $expense_claims, $summarize_errors = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createExpenseClaim'
+            );
+        }
         // verify the required parameter 'expense_claims' is set
         if ($expense_claims === null || (is_array($expense_claims) && count($expense_claims) === 0)) {
             throw new \InvalidArgumentException(
@@ -7221,6 +7352,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -7300,6 +7435,7 @@ class AccountingApi
      *
      * Allows you to create a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -7307,9 +7443,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function createExpenseClaimHistory($expense_claim_id, $history_records)
+    public function createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records)
     {
-        list($response) = $this->createExpenseClaimHistoryWithHttpInfo($expense_claim_id, $history_records);
+        list($response) = $this->createExpenseClaimHistoryWithHttpInfo($xero_tenant_id, $expense_claim_id, $history_records);
         return $response;
     }
 
@@ -7318,6 +7454,7 @@ class AccountingApi
      *
      * Allows you to create a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -7325,9 +7462,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createExpenseClaimHistoryWithHttpInfo($expense_claim_id, $history_records)
+    public function createExpenseClaimHistoryWithHttpInfo($xero_tenant_id, $expense_claim_id, $history_records)
     {
-        $request = $this->createExpenseClaimHistoryRequest($expense_claim_id, $history_records);
+        $request = $this->createExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7407,15 +7544,16 @@ class AccountingApi
      *
      * Allows you to create a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExpenseClaimHistoryAsync($expense_claim_id, $history_records)
+    public function createExpenseClaimHistoryAsync($xero_tenant_id, $expense_claim_id, $history_records)
     {
-        return $this->createExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id, $history_records)
+        return $this->createExpenseClaimHistoryAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7428,16 +7566,17 @@ class AccountingApi
      *
      * Allows you to create a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id, $history_records)
+    public function createExpenseClaimHistoryAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createExpenseClaimHistoryRequest($expense_claim_id, $history_records);
+        $request = $this->createExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7476,14 +7615,21 @@ class AccountingApi
     /**
      * Create request for operation 'createExpenseClaimHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createExpenseClaimHistoryRequest($expense_claim_id, $history_records)
+    protected function createExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createExpenseClaimHistory'
+            );
+        }
         // verify the required parameter 'expense_claim_id' is set
         if ($expense_claim_id === null || (is_array($expense_claim_id) && count($expense_claim_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -7504,6 +7650,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($expense_claim_id !== null) {
@@ -7590,6 +7740,7 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
@@ -7597,9 +7748,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createInvoice($invoices, $summarize_errors = null)
+    public function createInvoice($xero_tenant_id, $invoices, $summarize_errors = null)
     {
-        list($response) = $this->createInvoiceWithHttpInfo($invoices, $summarize_errors);
+        list($response) = $this->createInvoiceWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors);
         return $response;
     }
 
@@ -7608,6 +7759,7 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
@@ -7615,9 +7767,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvoiceWithHttpInfo($invoices, $summarize_errors = null)
+    public function createInvoiceWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = null)
     {
-        $request = $this->createInvoiceRequest($invoices, $summarize_errors);
+        $request = $this->createInvoiceRequest($xero_tenant_id, $invoices, $summarize_errors);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7717,15 +7869,16 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAsync($invoices, $summarize_errors = null)
+    public function createInvoiceAsync($xero_tenant_id, $invoices, $summarize_errors = null)
     {
-        return $this->createInvoiceAsyncWithHttpInfo($invoices, $summarize_errors)
+        return $this->createInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7738,16 +7891,17 @@ class AccountingApi
      *
      * Allows you to create any sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAsyncWithHttpInfo($invoices, $summarize_errors = null)
+    public function createInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
-        $request = $this->createInvoiceRequest($invoices, $summarize_errors);
+        $request = $this->createInvoiceRequest($xero_tenant_id, $invoices, $summarize_errors);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7786,14 +7940,21 @@ class AccountingApi
     /**
      * Create request for operation 'createInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      * @param  bool $summarize_errors shows validation errors for each invoice (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createInvoiceRequest($invoices, $summarize_errors = null)
+    protected function createInvoiceRequest($xero_tenant_id, $invoices, $summarize_errors = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createInvoice'
+            );
+        }
         // verify the required parameter 'invoices' is set
         if ($invoices === null || (is_array($invoices) && count($invoices) === 0)) {
             throw new \InvalidArgumentException(
@@ -7811,6 +7972,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -7890,6 +8055,7 @@ class AccountingApi
      *
      * Allows you to create an Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -7898,9 +8064,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createInvoiceAttachmentByFileName($invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        list($response) = $this->createInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body);
+        list($response) = $this->createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body);
         return $response;
     }
 
@@ -7909,6 +8075,7 @@ class AccountingApi
      *
      * Allows you to create an Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -7917,9 +8084,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        $request = $this->createInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
+        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8019,6 +8186,7 @@ class AccountingApi
      *
      * Allows you to create an Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -8026,9 +8194,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAttachmentByFileNameAsync($invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameAsync($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        return $this->createInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
+        return $this->createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8041,6 +8209,7 @@ class AccountingApi
      *
      * Allows you to create an Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -8048,10 +8217,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->createInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
+        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8090,6 +8259,7 @@ class AccountingApi
     /**
      * Create request for operation 'createInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -8097,8 +8267,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body)
+    protected function createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -8125,6 +8301,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -8219,6 +8399,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -8226,9 +8407,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createInvoiceHistory($invoice_id, $history_records)
+    public function createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records)
     {
-        list($response) = $this->createInvoiceHistoryWithHttpInfo($invoice_id, $history_records);
+        list($response) = $this->createInvoiceHistoryWithHttpInfo($xero_tenant_id, $invoice_id, $history_records);
         return $response;
     }
 
@@ -8237,6 +8418,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -8244,9 +8426,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvoiceHistoryWithHttpInfo($invoice_id, $history_records)
+    public function createInvoiceHistoryWithHttpInfo($xero_tenant_id, $invoice_id, $history_records)
     {
-        $request = $this->createInvoiceHistoryRequest($invoice_id, $history_records);
+        $request = $this->createInvoiceHistoryRequest($xero_tenant_id, $invoice_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8346,15 +8528,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceHistoryAsync($invoice_id, $history_records)
+    public function createInvoiceHistoryAsync($xero_tenant_id, $invoice_id, $history_records)
     {
-        return $this->createInvoiceHistoryAsyncWithHttpInfo($invoice_id, $history_records)
+        return $this->createInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8367,16 +8550,17 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceHistoryAsyncWithHttpInfo($invoice_id, $history_records)
+    public function createInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createInvoiceHistoryRequest($invoice_id, $history_records);
+        $request = $this->createInvoiceHistoryRequest($xero_tenant_id, $invoice_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8415,14 +8599,21 @@ class AccountingApi
     /**
      * Create request for operation 'createInvoiceHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createInvoiceHistoryRequest($invoice_id, $history_records)
+    protected function createInvoiceHistoryRequest($xero_tenant_id, $invoice_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createInvoiceHistory'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -8443,6 +8634,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -8529,15 +8724,16 @@ class AccountingApi
      *
      * Allows you to create an item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items items (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createItem($items)
+    public function createItem($xero_tenant_id, $items)
     {
-        list($response) = $this->createItemWithHttpInfo($items);
+        list($response) = $this->createItemWithHttpInfo($xero_tenant_id, $items);
         return $response;
     }
 
@@ -8546,15 +8742,16 @@ class AccountingApi
      *
      * Allows you to create an item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createItemWithHttpInfo($items)
+    public function createItemWithHttpInfo($xero_tenant_id, $items)
     {
-        $request = $this->createItemRequest($items);
+        $request = $this->createItemRequest($xero_tenant_id, $items);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8654,14 +8851,15 @@ class AccountingApi
      *
      * Allows you to create an item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemAsync($items)
+    public function createItemAsync($xero_tenant_id, $items)
     {
-        return $this->createItemAsyncWithHttpInfo($items)
+        return $this->createItemAsyncWithHttpInfo($xero_tenant_id, $items)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8674,15 +8872,16 @@ class AccountingApi
      *
      * Allows you to create an item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemAsyncWithHttpInfo($items)
+    public function createItemAsyncWithHttpInfo($xero_tenant_id, $items)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Items';
-        $request = $this->createItemRequest($items);
+        $request = $this->createItemRequest($xero_tenant_id, $items);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8721,13 +8920,20 @@ class AccountingApi
     /**
      * Create request for operation 'createItem'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createItemRequest($items)
+    protected function createItemRequest($xero_tenant_id, $items)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createItem'
+            );
+        }
         // verify the required parameter 'items' is set
         if ($items === null || (is_array($items) && count($items) === 0)) {
             throw new \InvalidArgumentException(
@@ -8742,6 +8948,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -8820,6 +9030,7 @@ class AccountingApi
      *
      * Allows you to create a history record for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -8827,9 +9038,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function createItemHistory($item_id, $history_records)
+    public function createItemHistory($xero_tenant_id, $item_id, $history_records)
     {
-        list($response) = $this->createItemHistoryWithHttpInfo($item_id, $history_records);
+        list($response) = $this->createItemHistoryWithHttpInfo($xero_tenant_id, $item_id, $history_records);
         return $response;
     }
 
@@ -8838,6 +9049,7 @@ class AccountingApi
      *
      * Allows you to create a history record for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -8845,9 +9057,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createItemHistoryWithHttpInfo($item_id, $history_records)
+    public function createItemHistoryWithHttpInfo($xero_tenant_id, $item_id, $history_records)
     {
-        $request = $this->createItemHistoryRequest($item_id, $history_records);
+        $request = $this->createItemHistoryRequest($xero_tenant_id, $item_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8927,15 +9139,16 @@ class AccountingApi
      *
      * Allows you to create a history record for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemHistoryAsync($item_id, $history_records)
+    public function createItemHistoryAsync($xero_tenant_id, $item_id, $history_records)
     {
-        return $this->createItemHistoryAsyncWithHttpInfo($item_id, $history_records)
+        return $this->createItemHistoryAsyncWithHttpInfo($xero_tenant_id, $item_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8948,16 +9161,17 @@ class AccountingApi
      *
      * Allows you to create a history record for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemHistoryAsyncWithHttpInfo($item_id, $history_records)
+    public function createItemHistoryAsyncWithHttpInfo($xero_tenant_id, $item_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createItemHistoryRequest($item_id, $history_records);
+        $request = $this->createItemHistoryRequest($xero_tenant_id, $item_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8996,14 +9210,21 @@ class AccountingApi
     /**
      * Create request for operation 'createItemHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createItemHistoryRequest($item_id, $history_records)
+    protected function createItemHistoryRequest($xero_tenant_id, $item_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createItemHistory'
+            );
+        }
         // verify the required parameter 'item_id' is set
         if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -9024,6 +9245,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($item_id !== null) {
@@ -9110,15 +9335,16 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions linked_transactions (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createLinkedTransaction($linked_transactions)
+    public function createLinkedTransaction($xero_tenant_id, $linked_transactions)
     {
-        list($response) = $this->createLinkedTransactionWithHttpInfo($linked_transactions);
+        list($response) = $this->createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transactions);
         return $response;
     }
 
@@ -9127,15 +9353,16 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createLinkedTransactionWithHttpInfo($linked_transactions)
+    public function createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transactions)
     {
-        $request = $this->createLinkedTransactionRequest($linked_transactions);
+        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transactions);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9235,14 +9462,15 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLinkedTransactionAsync($linked_transactions)
+    public function createLinkedTransactionAsync($xero_tenant_id, $linked_transactions)
     {
-        return $this->createLinkedTransactionAsyncWithHttpInfo($linked_transactions)
+        return $this->createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9255,15 +9483,16 @@ class AccountingApi
      *
      * Allows you to create linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLinkedTransactionAsyncWithHttpInfo($linked_transactions)
+    public function createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
-        $request = $this->createLinkedTransactionRequest($linked_transactions);
+        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transactions);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9302,13 +9531,20 @@ class AccountingApi
     /**
      * Create request for operation 'createLinkedTransaction'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createLinkedTransactionRequest($linked_transactions)
+    protected function createLinkedTransactionRequest($xero_tenant_id, $linked_transactions)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createLinkedTransaction'
+            );
+        }
         // verify the required parameter 'linked_transactions' is set
         if ($linked_transactions === null || (is_array($linked_transactions) && count($linked_transactions) === 0)) {
             throw new \InvalidArgumentException(
@@ -9323,6 +9559,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -9401,15 +9641,16 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals manual_journals (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createManualJournal($manual_journals)
+    public function createManualJournal($xero_tenant_id, $manual_journals)
     {
-        list($response) = $this->createManualJournalWithHttpInfo($manual_journals);
+        list($response) = $this->createManualJournalWithHttpInfo($xero_tenant_id, $manual_journals);
         return $response;
     }
 
@@ -9418,15 +9659,16 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createManualJournalWithHttpInfo($manual_journals)
+    public function createManualJournalWithHttpInfo($xero_tenant_id, $manual_journals)
     {
-        $request = $this->createManualJournalRequest($manual_journals);
+        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journals);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9526,14 +9768,15 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAsync($manual_journals)
+    public function createManualJournalAsync($xero_tenant_id, $manual_journals)
     {
-        return $this->createManualJournalAsyncWithHttpInfo($manual_journals)
+        return $this->createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9546,15 +9789,16 @@ class AccountingApi
      *
      * Allows you to create a manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAsyncWithHttpInfo($manual_journals)
+    public function createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
-        $request = $this->createManualJournalRequest($manual_journals);
+        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journals);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9593,13 +9837,20 @@ class AccountingApi
     /**
      * Create request for operation 'createManualJournal'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createManualJournalRequest($manual_journals)
+    protected function createManualJournalRequest($xero_tenant_id, $manual_journals)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createManualJournal'
+            );
+        }
         // verify the required parameter 'manual_journals' is set
         if ($manual_journals === null || (is_array($manual_journals) && count($manual_journals) === 0)) {
             throw new \InvalidArgumentException(
@@ -9614,6 +9865,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -9692,6 +9947,7 @@ class AccountingApi
      *
      * Allows you to create a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -9700,9 +9956,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createManualJournalAttachmentByFileName($manual_journal_id, $file_name, $body)
+    public function createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        list($response) = $this->createManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body);
+        list($response) = $this->createManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body);
         return $response;
     }
 
@@ -9711,6 +9967,7 @@ class AccountingApi
      *
      * Allows you to create a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -9719,9 +9976,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body)
+    public function createManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        $request = $this->createManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
+        $request = $this->createManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9821,6 +10078,7 @@ class AccountingApi
      *
      * Allows you to create a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -9828,9 +10086,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAttachmentByFileNameAsync($manual_journal_id, $file_name, $body)
+    public function createManualJournalAttachmentByFileNameAsync($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        return $this->createManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
+        return $this->createManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9843,6 +10101,7 @@ class AccountingApi
      *
      * Allows you to create a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -9850,10 +10109,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
+    public function createManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->createManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
+        $request = $this->createManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9892,6 +10151,7 @@ class AccountingApi
     /**
      * Create request for operation 'createManualJournalAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -9899,8 +10159,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body)
+    protected function createManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createManualJournalAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -9927,6 +10193,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($manual_journal_id !== null) {
@@ -10021,6 +10291,7 @@ class AccountingApi
      *
      * Allows you to retrieve Allocations for overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (required)
      *
@@ -10028,9 +10299,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createOverpaymentAllocation($overpayment_id, $allocations)
+    public function createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocations)
     {
-        list($response) = $this->createOverpaymentAllocationWithHttpInfo($overpayment_id, $allocations);
+        list($response) = $this->createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations);
         return $response;
     }
 
@@ -10039,6 +10310,7 @@ class AccountingApi
      *
      * Allows you to retrieve Allocations for overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
@@ -10046,9 +10318,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOverpaymentAllocationWithHttpInfo($overpayment_id, $allocations)
+    public function createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
     {
-        $request = $this->createOverpaymentAllocationRequest($overpayment_id, $allocations);
+        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10148,15 +10420,16 @@ class AccountingApi
      *
      * Allows you to retrieve Allocations for overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentAllocationAsync($overpayment_id, $allocations)
+    public function createOverpaymentAllocationAsync($xero_tenant_id, $overpayment_id, $allocations)
     {
-        return $this->createOverpaymentAllocationAsyncWithHttpInfo($overpayment_id, $allocations)
+        return $this->createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10169,16 +10442,17 @@ class AccountingApi
      *
      * Allows you to retrieve Allocations for overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentAllocationAsyncWithHttpInfo($overpayment_id, $allocations)
+    public function createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
-        $request = $this->createOverpaymentAllocationRequest($overpayment_id, $allocations);
+        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10217,14 +10491,21 @@ class AccountingApi
     /**
      * Create request for operation 'createOverpaymentAllocation'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createOverpaymentAllocationRequest($overpayment_id, $allocations)
+    protected function createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createOverpaymentAllocation'
+            );
+        }
         // verify the required parameter 'overpayment_id' is set
         if ($overpayment_id === null || (is_array($overpayment_id) && count($overpayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -10245,6 +10526,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($overpayment_id !== null) {
@@ -10331,6 +10616,7 @@ class AccountingApi
      *
      * Allows you to create history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -10338,9 +10624,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createOverpaymentHistory($overpayment_id, $history_records)
+    public function createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records)
     {
-        list($response) = $this->createOverpaymentHistoryWithHttpInfo($overpayment_id, $history_records);
+        list($response) = $this->createOverpaymentHistoryWithHttpInfo($xero_tenant_id, $overpayment_id, $history_records);
         return $response;
     }
 
@@ -10349,6 +10635,7 @@ class AccountingApi
      *
      * Allows you to create history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -10356,9 +10643,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOverpaymentHistoryWithHttpInfo($overpayment_id, $history_records)
+    public function createOverpaymentHistoryWithHttpInfo($xero_tenant_id, $overpayment_id, $history_records)
     {
-        $request = $this->createOverpaymentHistoryRequest($overpayment_id, $history_records);
+        $request = $this->createOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10458,15 +10745,16 @@ class AccountingApi
      *
      * Allows you to create history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentHistoryAsync($overpayment_id, $history_records)
+    public function createOverpaymentHistoryAsync($xero_tenant_id, $overpayment_id, $history_records)
     {
-        return $this->createOverpaymentHistoryAsyncWithHttpInfo($overpayment_id, $history_records)
+        return $this->createOverpaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10479,16 +10767,17 @@ class AccountingApi
      *
      * Allows you to create history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentHistoryAsyncWithHttpInfo($overpayment_id, $history_records)
+    public function createOverpaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createOverpaymentHistoryRequest($overpayment_id, $history_records);
+        $request = $this->createOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10527,14 +10816,21 @@ class AccountingApi
     /**
      * Create request for operation 'createOverpaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createOverpaymentHistoryRequest($overpayment_id, $history_records)
+    protected function createOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createOverpaymentHistory'
+            );
+        }
         // verify the required parameter 'overpayment_id' is set
         if ($overpayment_id === null || (is_array($overpayment_id) && count($overpayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -10555,6 +10851,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($overpayment_id !== null) {
@@ -10641,15 +10941,16 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments payments (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPayment($payments)
+    public function createPayment($xero_tenant_id, $payments)
     {
-        list($response) = $this->createPaymentWithHttpInfo($payments);
+        list($response) = $this->createPaymentWithHttpInfo($xero_tenant_id, $payments);
         return $response;
     }
 
@@ -10658,15 +10959,16 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentWithHttpInfo($payments)
+    public function createPaymentWithHttpInfo($xero_tenant_id, $payments)
     {
-        $request = $this->createPaymentRequest($payments);
+        $request = $this->createPaymentRequest($xero_tenant_id, $payments);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10766,14 +11068,15 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentAsync($payments)
+    public function createPaymentAsync($xero_tenant_id, $payments)
     {
-        return $this->createPaymentAsyncWithHttpInfo($payments)
+        return $this->createPaymentAsyncWithHttpInfo($xero_tenant_id, $payments)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10786,15 +11089,16 @@ class AccountingApi
      *
      * Allows you to create payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentAsyncWithHttpInfo($payments)
+    public function createPaymentAsyncWithHttpInfo($xero_tenant_id, $payments)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
-        $request = $this->createPaymentRequest($payments);
+        $request = $this->createPaymentRequest($xero_tenant_id, $payments);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10833,13 +11137,20 @@ class AccountingApi
     /**
      * Create request for operation 'createPayment'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPaymentRequest($payments)
+    protected function createPaymentRequest($xero_tenant_id, $payments)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPayment'
+            );
+        }
         // verify the required parameter 'payments' is set
         if ($payments === null || (is_array($payments) && count($payments) === 0)) {
             throw new \InvalidArgumentException(
@@ -10854,6 +11165,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -10932,6 +11247,7 @@ class AccountingApi
      *
      * Allows you to create a history record for a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -10939,9 +11255,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPaymentHistory($payment_id, $history_records)
+    public function createPaymentHistory($xero_tenant_id, $payment_id, $history_records)
     {
-        list($response) = $this->createPaymentHistoryWithHttpInfo($payment_id, $history_records);
+        list($response) = $this->createPaymentHistoryWithHttpInfo($xero_tenant_id, $payment_id, $history_records);
         return $response;
     }
 
@@ -10950,6 +11266,7 @@ class AccountingApi
      *
      * Allows you to create a history record for a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -10957,9 +11274,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentHistoryWithHttpInfo($payment_id, $history_records)
+    public function createPaymentHistoryWithHttpInfo($xero_tenant_id, $payment_id, $history_records)
     {
-        $request = $this->createPaymentHistoryRequest($payment_id, $history_records);
+        $request = $this->createPaymentHistoryRequest($xero_tenant_id, $payment_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11059,15 +11376,16 @@ class AccountingApi
      *
      * Allows you to create a history record for a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentHistoryAsync($payment_id, $history_records)
+    public function createPaymentHistoryAsync($xero_tenant_id, $payment_id, $history_records)
     {
-        return $this->createPaymentHistoryAsyncWithHttpInfo($payment_id, $history_records)
+        return $this->createPaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $payment_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11080,16 +11398,17 @@ class AccountingApi
      *
      * Allows you to create a history record for a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentHistoryAsyncWithHttpInfo($payment_id, $history_records)
+    public function createPaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $payment_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createPaymentHistoryRequest($payment_id, $history_records);
+        $request = $this->createPaymentHistoryRequest($xero_tenant_id, $payment_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11128,14 +11447,21 @@ class AccountingApi
     /**
      * Create request for operation 'createPaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPaymentHistoryRequest($payment_id, $history_records)
+    protected function createPaymentHistoryRequest($xero_tenant_id, $payment_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPaymentHistory'
+            );
+        }
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -11156,6 +11482,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($payment_id !== null) {
@@ -11242,15 +11572,16 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services payment_services (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPaymentService($payment_services)
+    public function createPaymentService($xero_tenant_id, $payment_services)
     {
-        list($response) = $this->createPaymentServiceWithHttpInfo($payment_services);
+        list($response) = $this->createPaymentServiceWithHttpInfo($xero_tenant_id, $payment_services);
         return $response;
     }
 
@@ -11259,15 +11590,16 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentServiceWithHttpInfo($payment_services)
+    public function createPaymentServiceWithHttpInfo($xero_tenant_id, $payment_services)
     {
-        $request = $this->createPaymentServiceRequest($payment_services);
+        $request = $this->createPaymentServiceRequest($xero_tenant_id, $payment_services);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11367,14 +11699,15 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentServiceAsync($payment_services)
+    public function createPaymentServiceAsync($xero_tenant_id, $payment_services)
     {
-        return $this->createPaymentServiceAsyncWithHttpInfo($payment_services)
+        return $this->createPaymentServiceAsyncWithHttpInfo($xero_tenant_id, $payment_services)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11387,15 +11720,16 @@ class AccountingApi
      *
      * Allows you to create payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentServiceAsyncWithHttpInfo($payment_services)
+    public function createPaymentServiceAsyncWithHttpInfo($xero_tenant_id, $payment_services)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
-        $request = $this->createPaymentServiceRequest($payment_services);
+        $request = $this->createPaymentServiceRequest($xero_tenant_id, $payment_services);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11434,13 +11768,20 @@ class AccountingApi
     /**
      * Create request for operation 'createPaymentService'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PaymentServices $payment_services (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPaymentServiceRequest($payment_services)
+    protected function createPaymentServiceRequest($xero_tenant_id, $payment_services)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPaymentService'
+            );
+        }
         // verify the required parameter 'payment_services' is set
         if ($payment_services === null || (is_array($payment_services) && count($payment_services) === 0)) {
             throw new \InvalidArgumentException(
@@ -11455,6 +11796,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -11533,6 +11878,7 @@ class AccountingApi
      *
      * Allows you to create an Allocation for prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id prepayment_id (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations allocations (required)
      *
@@ -11540,9 +11886,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPrepaymentAllocation($prepayment_id, $allocations)
+    public function createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations)
     {
-        list($response) = $this->createPrepaymentAllocationWithHttpInfo($prepayment_id, $allocations);
+        list($response) = $this->createPrepaymentAllocationWithHttpInfo($xero_tenant_id, $prepayment_id, $allocations);
         return $response;
     }
 
@@ -11551,6 +11897,7 @@ class AccountingApi
      *
      * Allows you to create an Allocation for prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
@@ -11558,9 +11905,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Allocations|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPrepaymentAllocationWithHttpInfo($prepayment_id, $allocations)
+    public function createPrepaymentAllocationWithHttpInfo($xero_tenant_id, $prepayment_id, $allocations)
     {
-        $request = $this->createPrepaymentAllocationRequest($prepayment_id, $allocations);
+        $request = $this->createPrepaymentAllocationRequest($xero_tenant_id, $prepayment_id, $allocations);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11660,15 +12007,16 @@ class AccountingApi
      *
      * Allows you to create an Allocation for prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPrepaymentAllocationAsync($prepayment_id, $allocations)
+    public function createPrepaymentAllocationAsync($xero_tenant_id, $prepayment_id, $allocations)
     {
-        return $this->createPrepaymentAllocationAsyncWithHttpInfo($prepayment_id, $allocations)
+        return $this->createPrepaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $prepayment_id, $allocations)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11681,16 +12029,17 @@ class AccountingApi
      *
      * Allows you to create an Allocation for prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPrepaymentAllocationAsyncWithHttpInfo($prepayment_id, $allocations)
+    public function createPrepaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $prepayment_id, $allocations)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Allocations';
-        $request = $this->createPrepaymentAllocationRequest($prepayment_id, $allocations);
+        $request = $this->createPrepaymentAllocationRequest($xero_tenant_id, $prepayment_id, $allocations);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11729,14 +12078,21 @@ class AccountingApi
     /**
      * Create request for operation 'createPrepaymentAllocation'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id (required)
      * @param  \SidneyAllen\XeroPHP\Model\Allocations $allocations (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPrepaymentAllocationRequest($prepayment_id, $allocations)
+    protected function createPrepaymentAllocationRequest($xero_tenant_id, $prepayment_id, $allocations)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPrepaymentAllocation'
+            );
+        }
         // verify the required parameter 'prepayment_id' is set
         if ($prepayment_id === null || (is_array($prepayment_id) && count($prepayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -11757,6 +12113,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($prepayment_id !== null) {
@@ -11843,6 +12203,7 @@ class AccountingApi
      *
      * Allows you to create a history record for an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -11850,9 +12211,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPrepaymentHistory($prepayment_id, $history_records)
+    public function createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records)
     {
-        list($response) = $this->createPrepaymentHistoryWithHttpInfo($prepayment_id, $history_records);
+        list($response) = $this->createPrepaymentHistoryWithHttpInfo($xero_tenant_id, $prepayment_id, $history_records);
         return $response;
     }
 
@@ -11861,6 +12222,7 @@ class AccountingApi
      *
      * Allows you to create a history record for an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -11868,9 +12230,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPrepaymentHistoryWithHttpInfo($prepayment_id, $history_records)
+    public function createPrepaymentHistoryWithHttpInfo($xero_tenant_id, $prepayment_id, $history_records)
     {
-        $request = $this->createPrepaymentHistoryRequest($prepayment_id, $history_records);
+        $request = $this->createPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11970,15 +12332,16 @@ class AccountingApi
      *
      * Allows you to create a history record for an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPrepaymentHistoryAsync($prepayment_id, $history_records)
+    public function createPrepaymentHistoryAsync($xero_tenant_id, $prepayment_id, $history_records)
     {
-        return $this->createPrepaymentHistoryAsyncWithHttpInfo($prepayment_id, $history_records)
+        return $this->createPrepaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $prepayment_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11991,16 +12354,17 @@ class AccountingApi
      *
      * Allows you to create a history record for an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPrepaymentHistoryAsyncWithHttpInfo($prepayment_id, $history_records)
+    public function createPrepaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $prepayment_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createPrepaymentHistoryRequest($prepayment_id, $history_records);
+        $request = $this->createPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12039,14 +12403,21 @@ class AccountingApi
     /**
      * Create request for operation 'createPrepaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPrepaymentHistoryRequest($prepayment_id, $history_records)
+    protected function createPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPrepaymentHistory'
+            );
+        }
         // verify the required parameter 'prepayment_id' is set
         if ($prepayment_id === null || (is_array($prepayment_id) && count($prepayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -12067,6 +12438,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($prepayment_id !== null) {
@@ -12153,6 +12528,7 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
@@ -12160,9 +12536,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPurchaseOrder($purchase_orders, $summarize_errors = null)
+    public function createPurchaseOrder($xero_tenant_id, $purchase_orders, $summarize_errors = null)
     {
-        list($response) = $this->createPurchaseOrderWithHttpInfo($purchase_orders, $summarize_errors);
+        list($response) = $this->createPurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_orders, $summarize_errors);
         return $response;
     }
 
@@ -12171,6 +12547,7 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
@@ -12178,9 +12555,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPurchaseOrderWithHttpInfo($purchase_orders, $summarize_errors = null)
+    public function createPurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_orders, $summarize_errors = null)
     {
-        $request = $this->createPurchaseOrderRequest($purchase_orders, $summarize_errors);
+        $request = $this->createPurchaseOrderRequest($xero_tenant_id, $purchase_orders, $summarize_errors);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12280,15 +12657,16 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseOrderAsync($purchase_orders, $summarize_errors = null)
+    public function createPurchaseOrderAsync($xero_tenant_id, $purchase_orders, $summarize_errors = null)
     {
-        return $this->createPurchaseOrderAsyncWithHttpInfo($purchase_orders, $summarize_errors)
+        return $this->createPurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_orders, $summarize_errors)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12301,16 +12679,17 @@ class AccountingApi
      *
      * Allows you to create purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseOrderAsyncWithHttpInfo($purchase_orders, $summarize_errors = null)
+    public function createPurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_orders, $summarize_errors = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
-        $request = $this->createPurchaseOrderRequest($purchase_orders, $summarize_errors);
+        $request = $this->createPurchaseOrderRequest($xero_tenant_id, $purchase_orders, $summarize_errors);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12349,14 +12728,21 @@ class AccountingApi
     /**
      * Create request for operation 'createPurchaseOrder'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      * @param  bool $summarize_errors shows validation errors for each purchase order. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPurchaseOrderRequest($purchase_orders, $summarize_errors = null)
+    protected function createPurchaseOrderRequest($xero_tenant_id, $purchase_orders, $summarize_errors = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPurchaseOrder'
+            );
+        }
         // verify the required parameter 'purchase_orders' is set
         if ($purchase_orders === null || (is_array($purchase_orders) && count($purchase_orders) === 0)) {
             throw new \InvalidArgumentException(
@@ -12374,6 +12760,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -12453,6 +12843,7 @@ class AccountingApi
      *
      * Allows you to create HistoryRecord for purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -12460,9 +12851,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createPurchaseOrderHistory($purchase_order_id, $history_records)
+    public function createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
     {
-        list($response) = $this->createPurchaseOrderHistoryWithHttpInfo($purchase_order_id, $history_records);
+        list($response) = $this->createPurchaseOrderHistoryWithHttpInfo($xero_tenant_id, $purchase_order_id, $history_records);
         return $response;
     }
 
@@ -12471,6 +12862,7 @@ class AccountingApi
      *
      * Allows you to create HistoryRecord for purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -12478,9 +12870,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPurchaseOrderHistoryWithHttpInfo($purchase_order_id, $history_records)
+    public function createPurchaseOrderHistoryWithHttpInfo($xero_tenant_id, $purchase_order_id, $history_records)
     {
-        $request = $this->createPurchaseOrderHistoryRequest($purchase_order_id, $history_records);
+        $request = $this->createPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12580,15 +12972,16 @@ class AccountingApi
      *
      * Allows you to create HistoryRecord for purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseOrderHistoryAsync($purchase_order_id, $history_records)
+    public function createPurchaseOrderHistoryAsync($xero_tenant_id, $purchase_order_id, $history_records)
     {
-        return $this->createPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id, $history_records)
+        return $this->createPurchaseOrderHistoryAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12601,16 +12994,17 @@ class AccountingApi
      *
      * Allows you to create HistoryRecord for purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id, $history_records)
+    public function createPurchaseOrderHistoryAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createPurchaseOrderHistoryRequest($purchase_order_id, $history_records);
+        $request = $this->createPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12649,14 +13043,21 @@ class AccountingApi
     /**
      * Create request for operation 'createPurchaseOrderHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPurchaseOrderHistoryRequest($purchase_order_id, $history_records)
+    protected function createPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPurchaseOrderHistory'
+            );
+        }
         // verify the required parameter 'purchase_order_id' is set
         if ($purchase_order_id === null || (is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -12677,6 +13078,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($purchase_order_id !== null) {
@@ -12763,15 +13168,16 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts receipts (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createReceipt($receipts)
+    public function createReceipt($xero_tenant_id, $receipts)
     {
-        list($response) = $this->createReceiptWithHttpInfo($receipts);
+        list($response) = $this->createReceiptWithHttpInfo($xero_tenant_id, $receipts);
         return $response;
     }
 
@@ -12780,15 +13186,16 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReceiptWithHttpInfo($receipts)
+    public function createReceiptWithHttpInfo($xero_tenant_id, $receipts)
     {
-        $request = $this->createReceiptRequest($receipts);
+        $request = $this->createReceiptRequest($xero_tenant_id, $receipts);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12888,14 +13295,15 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAsync($receipts)
+    public function createReceiptAsync($xero_tenant_id, $receipts)
     {
-        return $this->createReceiptAsyncWithHttpInfo($receipts)
+        return $this->createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12908,15 +13316,16 @@ class AccountingApi
      *
      * Allows you to create draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAsyncWithHttpInfo($receipts)
+    public function createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
-        $request = $this->createReceiptRequest($receipts);
+        $request = $this->createReceiptRequest($xero_tenant_id, $receipts);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12955,13 +13364,20 @@ class AccountingApi
     /**
      * Create request for operation 'createReceipt'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createReceiptRequest($receipts)
+    protected function createReceiptRequest($xero_tenant_id, $receipts)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createReceipt'
+            );
+        }
         // verify the required parameter 'receipts' is set
         if ($receipts === null || (is_array($receipts) && count($receipts) === 0)) {
             throw new \InvalidArgumentException(
@@ -12976,6 +13392,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -13054,6 +13474,7 @@ class AccountingApi
      *
      * Allows you to create Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13062,9 +13483,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createReceiptAttachmentByFileName($receipt_id, $file_name, $body)
+    public function createReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        list($response) = $this->createReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body);
+        list($response) = $this->createReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body);
         return $response;
     }
 
@@ -13073,6 +13494,7 @@ class AccountingApi
      *
      * Allows you to create Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13081,9 +13503,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body)
+    public function createReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        $request = $this->createReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
+        $request = $this->createReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13183,6 +13605,7 @@ class AccountingApi
      *
      * Allows you to create Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13190,9 +13613,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAttachmentByFileNameAsync($receipt_id, $file_name, $body)
+    public function createReceiptAttachmentByFileNameAsync($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        return $this->createReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
+        return $this->createReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13205,6 +13628,7 @@ class AccountingApi
      *
      * Allows you to create Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13212,10 +13636,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
+    public function createReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->createReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
+        $request = $this->createReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13254,6 +13678,7 @@ class AccountingApi
     /**
      * Create request for operation 'createReceiptAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13261,8 +13686,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body)
+    protected function createReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createReceiptAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -13289,6 +13720,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -13383,6 +13818,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -13390,9 +13826,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createReceiptHistory($receipt_id, $history_records)
+    public function createReceiptHistory($xero_tenant_id, $receipt_id, $history_records)
     {
-        list($response) = $this->createReceiptHistoryWithHttpInfo($receipt_id, $history_records);
+        list($response) = $this->createReceiptHistoryWithHttpInfo($xero_tenant_id, $receipt_id, $history_records);
         return $response;
     }
 
@@ -13401,6 +13837,7 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -13408,9 +13845,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReceiptHistoryWithHttpInfo($receipt_id, $history_records)
+    public function createReceiptHistoryWithHttpInfo($xero_tenant_id, $receipt_id, $history_records)
     {
-        $request = $this->createReceiptHistoryRequest($receipt_id, $history_records);
+        $request = $this->createReceiptHistoryRequest($xero_tenant_id, $receipt_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13510,15 +13947,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptHistoryAsync($receipt_id, $history_records)
+    public function createReceiptHistoryAsync($xero_tenant_id, $receipt_id, $history_records)
     {
-        return $this->createReceiptHistoryAsyncWithHttpInfo($receipt_id, $history_records)
+        return $this->createReceiptHistoryAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13531,16 +13969,17 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptHistoryAsyncWithHttpInfo($receipt_id, $history_records)
+    public function createReceiptHistoryAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createReceiptHistoryRequest($receipt_id, $history_records);
+        $request = $this->createReceiptHistoryRequest($xero_tenant_id, $receipt_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13579,14 +14018,21 @@ class AccountingApi
     /**
      * Create request for operation 'createReceiptHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createReceiptHistoryRequest($receipt_id, $history_records)
+    protected function createReceiptHistoryRequest($xero_tenant_id, $receipt_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createReceiptHistory'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -13607,6 +14053,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -13693,6 +14143,7 @@ class AccountingApi
      *
      * Allows you to create attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13701,9 +14152,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createRepeatingInvoiceAttachmentByFileName($repeating_invoice_id, $file_name, $body)
+    public function createRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        list($response) = $this->createRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body);
+        list($response) = $this->createRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
         return $response;
     }
 
@@ -13712,6 +14163,7 @@ class AccountingApi
      *
      * Allows you to create attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13720,9 +14172,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body)
+    public function createRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        $request = $this->createRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
+        $request = $this->createRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13822,6 +14274,7 @@ class AccountingApi
      *
      * Allows you to create attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13829,9 +14282,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRepeatingInvoiceAttachmentByFileNameAsync($repeating_invoice_id, $file_name, $body)
+    public function createRepeatingInvoiceAttachmentByFileNameAsync($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        return $this->createRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
+        return $this->createRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13844,6 +14297,7 @@ class AccountingApi
      *
      * Allows you to create attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13851,10 +14305,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
+    public function createRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->createRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
+        $request = $this->createRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13893,6 +14347,7 @@ class AccountingApi
     /**
      * Create request for operation 'createRepeatingInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -13900,8 +14355,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body)
+    protected function createRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createRepeatingInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -13928,6 +14389,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -14022,6 +14487,7 @@ class AccountingApi
      *
      * Allows you to create history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records history_records (required)
      *
@@ -14029,9 +14495,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createRepeatingInvoiceHistory($repeating_invoice_id, $history_records)
+    public function createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records)
     {
-        list($response) = $this->createRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id, $history_records);
+        list($response) = $this->createRepeatingInvoiceHistoryWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $history_records);
         return $response;
     }
 
@@ -14040,6 +14506,7 @@ class AccountingApi
      *
      * Allows you to create history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
@@ -14047,9 +14514,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id, $history_records)
+    public function createRepeatingInvoiceHistoryWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $history_records)
     {
-        $request = $this->createRepeatingInvoiceHistoryRequest($repeating_invoice_id, $history_records);
+        $request = $this->createRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id, $history_records);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14149,15 +14616,16 @@ class AccountingApi
      *
      * Allows you to create history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRepeatingInvoiceHistoryAsync($repeating_invoice_id, $history_records)
+    public function createRepeatingInvoiceHistoryAsync($xero_tenant_id, $repeating_invoice_id, $history_records)
     {
-        return $this->createRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id, $history_records)
+        return $this->createRepeatingInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $history_records)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14170,16 +14638,17 @@ class AccountingApi
      *
      * Allows you to create history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id, $history_records)
+    public function createRepeatingInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $history_records)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->createRepeatingInvoiceHistoryRequest($repeating_invoice_id, $history_records);
+        $request = $this->createRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id, $history_records);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14218,14 +14687,21 @@ class AccountingApi
     /**
      * Create request for operation 'createRepeatingInvoiceHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\HistoryRecords $history_records (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRepeatingInvoiceHistoryRequest($repeating_invoice_id, $history_records)
+    protected function createRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id, $history_records)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createRepeatingInvoiceHistory'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -14246,6 +14722,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -14332,15 +14812,16 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates tax_rates (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createTaxRate($tax_rates)
+    public function createTaxRate($xero_tenant_id, $tax_rates)
     {
-        list($response) = $this->createTaxRateWithHttpInfo($tax_rates);
+        list($response) = $this->createTaxRateWithHttpInfo($xero_tenant_id, $tax_rates);
         return $response;
     }
 
@@ -14349,15 +14830,16 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaxRateWithHttpInfo($tax_rates)
+    public function createTaxRateWithHttpInfo($xero_tenant_id, $tax_rates)
     {
-        $request = $this->createTaxRateRequest($tax_rates);
+        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rates);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14457,14 +14939,15 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateAsync($tax_rates)
+    public function createTaxRateAsync($xero_tenant_id, $tax_rates)
     {
-        return $this->createTaxRateAsyncWithHttpInfo($tax_rates)
+        return $this->createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14477,15 +14960,16 @@ class AccountingApi
      *
      * Allows you to create Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateAsyncWithHttpInfo($tax_rates)
+    public function createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
-        $request = $this->createTaxRateRequest($tax_rates);
+        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rates);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14524,13 +15008,20 @@ class AccountingApi
     /**
      * Create request for operation 'createTaxRate'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTaxRateRequest($tax_rates)
+    protected function createTaxRateRequest($xero_tenant_id, $tax_rates)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createTaxRate'
+            );
+        }
         // verify the required parameter 'tax_rates' is set
         if ($tax_rates === null || (is_array($tax_rates) && count($tax_rates) === 0)) {
             throw new \InvalidArgumentException(
@@ -14545,6 +15036,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -14623,15 +15118,16 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category tracking_category (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createTrackingCategory($tracking_category)
+    public function createTrackingCategory($xero_tenant_id, $tracking_category)
     {
-        list($response) = $this->createTrackingCategoryWithHttpInfo($tracking_category);
+        list($response) = $this->createTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category);
         return $response;
     }
 
@@ -14640,15 +15136,16 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTrackingCategoryWithHttpInfo($tracking_category)
+    public function createTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category)
     {
-        $request = $this->createTrackingCategoryRequest($tracking_category);
+        $request = $this->createTrackingCategoryRequest($xero_tenant_id, $tracking_category);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14748,14 +15245,15 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrackingCategoryAsync($tracking_category)
+    public function createTrackingCategoryAsync($xero_tenant_id, $tracking_category)
     {
-        return $this->createTrackingCategoryAsyncWithHttpInfo($tracking_category)
+        return $this->createTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14768,15 +15266,16 @@ class AccountingApi
      *
      * Allows you to create tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrackingCategoryAsyncWithHttpInfo($tracking_category)
+    public function createTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
-        $request = $this->createTrackingCategoryRequest($tracking_category);
+        $request = $this->createTrackingCategoryRequest($xero_tenant_id, $tracking_category);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14815,13 +15314,20 @@ class AccountingApi
     /**
      * Create request for operation 'createTrackingCategory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTrackingCategoryRequest($tracking_category)
+    protected function createTrackingCategoryRequest($xero_tenant_id, $tracking_category)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createTrackingCategory'
+            );
+        }
         // verify the required parameter 'tracking_category' is set
         if ($tracking_category === null || (is_array($tracking_category) && count($tracking_category) === 0)) {
             throw new \InvalidArgumentException(
@@ -14836,6 +15342,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -14914,6 +15424,7 @@ class AccountingApi
      *
      * Allows you to create options for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option tracking_option (required)
      *
@@ -14921,9 +15432,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function createTrackingOptions($tracking_category_id, $tracking_option)
+    public function createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option)
     {
-        list($response) = $this->createTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option);
+        list($response) = $this->createTrackingOptionsWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option);
         return $response;
     }
 
@@ -14932,6 +15443,7 @@ class AccountingApi
      *
      * Allows you to create options for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
@@ -14939,9 +15451,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option)
+    public function createTrackingOptionsWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option)
     {
-        $request = $this->createTrackingOptionsRequest($tracking_category_id, $tracking_option);
+        $request = $this->createTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15041,15 +15553,16 @@ class AccountingApi
      *
      * Allows you to create options for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrackingOptionsAsync($tracking_category_id, $tracking_option)
+    public function createTrackingOptionsAsync($xero_tenant_id, $tracking_category_id, $tracking_option)
     {
-        return $this->createTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option)
+        return $this->createTrackingOptionsAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15062,16 +15575,17 @@ class AccountingApi
      *
      * Allows you to create options for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option)
+    public function createTrackingOptionsAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
-        $request = $this->createTrackingOptionsRequest($tracking_category_id, $tracking_option);
+        $request = $this->createTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15110,14 +15624,21 @@ class AccountingApi
     /**
      * Create request for operation 'createTrackingOptions'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingOption $tracking_option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTrackingOptionsRequest($tracking_category_id, $tracking_option)
+    protected function createTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createTrackingOptions'
+            );
+        }
         // verify the required parameter 'tracking_category_id' is set
         if ($tracking_category_id === null || (is_array($tracking_category_id) && count($tracking_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -15138,6 +15659,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($tracking_category_id !== null) {
@@ -15535,6 +16060,7 @@ class AccountingApi
      *
      * Allows you to delete a specific Contact from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
@@ -15542,9 +16068,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactGroupContact($contact_group_id, $contact_id)
+    public function deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id)
     {
-        $this->deleteContactGroupContactWithHttpInfo($contact_group_id, $contact_id);
+        $this->deleteContactGroupContactWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_id);
     }
 
     /**
@@ -15552,6 +16078,7 @@ class AccountingApi
      *
      * Allows you to delete a specific Contact from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
@@ -15559,9 +16086,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactGroupContactWithHttpInfo($contact_group_id, $contact_id)
+    public function deleteContactGroupContactWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_id)
     {
-        $request = $this->deleteContactGroupContactRequest($contact_group_id, $contact_id);
+        $request = $this->deleteContactGroupContactRequest($xero_tenant_id, $contact_group_id, $contact_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15613,15 +16140,16 @@ class AccountingApi
      *
      * Allows you to delete a specific Contact from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactGroupContactAsync($contact_group_id, $contact_id)
+    public function deleteContactGroupContactAsync($xero_tenant_id, $contact_group_id, $contact_id)
     {
-        return $this->deleteContactGroupContactAsyncWithHttpInfo($contact_group_id, $contact_id)
+        return $this->deleteContactGroupContactAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15634,16 +16162,17 @@ class AccountingApi
      *
      * Allows you to delete a specific Contact from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactGroupContactAsyncWithHttpInfo($contact_group_id, $contact_id)
+    public function deleteContactGroupContactAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_id)
     {
         $returnType = '';
-        $request = $this->deleteContactGroupContactRequest($contact_group_id, $contact_id);
+        $request = $this->deleteContactGroupContactRequest($xero_tenant_id, $contact_group_id, $contact_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15671,14 +16200,21 @@ class AccountingApi
     /**
      * Create request for operation 'deleteContactGroupContact'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactGroupContactRequest($contact_group_id, $contact_id)
+    protected function deleteContactGroupContactRequest($xero_tenant_id, $contact_group_id, $contact_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteContactGroupContact'
+            );
+        }
         // verify the required parameter 'contact_group_id' is set
         if ($contact_group_id === null || (is_array($contact_group_id) && count($contact_group_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -15699,6 +16235,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($contact_group_id !== null) {
@@ -15790,15 +16330,16 @@ class AccountingApi
      *
      * Allows you to delete  all Contacts from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteContactGroupContacts($contact_group_id)
+    public function deleteContactGroupContacts($xero_tenant_id, $contact_group_id)
     {
-        $this->deleteContactGroupContactsWithHttpInfo($contact_group_id);
+        $this->deleteContactGroupContactsWithHttpInfo($xero_tenant_id, $contact_group_id);
     }
 
     /**
@@ -15806,15 +16347,16 @@ class AccountingApi
      *
      * Allows you to delete  all Contacts from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteContactGroupContactsWithHttpInfo($contact_group_id)
+    public function deleteContactGroupContactsWithHttpInfo($xero_tenant_id, $contact_group_id)
     {
-        $request = $this->deleteContactGroupContactsRequest($contact_group_id);
+        $request = $this->deleteContactGroupContactsRequest($xero_tenant_id, $contact_group_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15858,14 +16400,15 @@ class AccountingApi
      *
      * Allows you to delete  all Contacts from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactGroupContactsAsync($contact_group_id)
+    public function deleteContactGroupContactsAsync($xero_tenant_id, $contact_group_id)
     {
-        return $this->deleteContactGroupContactsAsyncWithHttpInfo($contact_group_id)
+        return $this->deleteContactGroupContactsAsyncWithHttpInfo($xero_tenant_id, $contact_group_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15878,15 +16421,16 @@ class AccountingApi
      *
      * Allows you to delete  all Contacts from a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteContactGroupContactsAsyncWithHttpInfo($contact_group_id)
+    public function deleteContactGroupContactsAsyncWithHttpInfo($xero_tenant_id, $contact_group_id)
     {
         $returnType = '';
-        $request = $this->deleteContactGroupContactsRequest($contact_group_id);
+        $request = $this->deleteContactGroupContactsRequest($xero_tenant_id, $contact_group_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15914,13 +16458,20 @@ class AccountingApi
     /**
      * Create request for operation 'deleteContactGroupContacts'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteContactGroupContactsRequest($contact_group_id)
+    protected function deleteContactGroupContactsRequest($xero_tenant_id, $contact_group_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteContactGroupContacts'
+            );
+        }
         // verify the required parameter 'contact_group_id' is set
         if ($contact_group_id === null || (is_array($contact_group_id) && count($contact_group_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -15935,6 +16486,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($contact_group_id !== null) {
@@ -16018,15 +16573,16 @@ class AccountingApi
      *
      * Allows you to delete a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteItem($item_id)
+    public function deleteItem($xero_tenant_id, $item_id)
     {
-        $this->deleteItemWithHttpInfo($item_id);
+        $this->deleteItemWithHttpInfo($xero_tenant_id, $item_id);
     }
 
     /**
@@ -16034,15 +16590,16 @@ class AccountingApi
      *
      * Allows you to delete a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteItemWithHttpInfo($item_id)
+    public function deleteItemWithHttpInfo($xero_tenant_id, $item_id)
     {
-        $request = $this->deleteItemRequest($item_id);
+        $request = $this->deleteItemRequest($xero_tenant_id, $item_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16094,14 +16651,15 @@ class AccountingApi
      *
      * Allows you to delete a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteItemAsync($item_id)
+    public function deleteItemAsync($xero_tenant_id, $item_id)
     {
-        return $this->deleteItemAsyncWithHttpInfo($item_id)
+        return $this->deleteItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16114,15 +16672,16 @@ class AccountingApi
      *
      * Allows you to delete a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteItemAsyncWithHttpInfo($item_id)
+    public function deleteItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
     {
         $returnType = '';
-        $request = $this->deleteItemRequest($item_id);
+        $request = $this->deleteItemRequest($xero_tenant_id, $item_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16150,13 +16709,20 @@ class AccountingApi
     /**
      * Create request for operation 'deleteItem'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteItemRequest($item_id)
+    protected function deleteItemRequest($xero_tenant_id, $item_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteItem'
+            );
+        }
         // verify the required parameter 'item_id' is set
         if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -16171,6 +16737,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($item_id !== null) {
@@ -16254,15 +16824,16 @@ class AccountingApi
      *
      * Allows you to delete a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteLinkedTransaction($linked_transaction_id)
+    public function deleteLinkedTransaction($xero_tenant_id, $linked_transaction_id)
     {
-        $this->deleteLinkedTransactionWithHttpInfo($linked_transaction_id);
+        $this->deleteLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id);
     }
 
     /**
@@ -16270,15 +16841,16 @@ class AccountingApi
      *
      * Allows you to delete a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteLinkedTransactionWithHttpInfo($linked_transaction_id)
+    public function deleteLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id)
     {
-        $request = $this->deleteLinkedTransactionRequest($linked_transaction_id);
+        $request = $this->deleteLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16330,14 +16902,15 @@ class AccountingApi
      *
      * Allows you to delete a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLinkedTransactionAsync($linked_transaction_id)
+    public function deleteLinkedTransactionAsync($xero_tenant_id, $linked_transaction_id)
     {
-        return $this->deleteLinkedTransactionAsyncWithHttpInfo($linked_transaction_id)
+        return $this->deleteLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16350,15 +16923,16 @@ class AccountingApi
      *
      * Allows you to delete a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLinkedTransactionAsyncWithHttpInfo($linked_transaction_id)
+    public function deleteLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id)
     {
         $returnType = '';
-        $request = $this->deleteLinkedTransactionRequest($linked_transaction_id);
+        $request = $this->deleteLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16386,13 +16960,20 @@ class AccountingApi
     /**
      * Create request for operation 'deleteLinkedTransaction'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteLinkedTransactionRequest($linked_transaction_id)
+    protected function deleteLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteLinkedTransaction'
+            );
+        }
         // verify the required parameter 'linked_transaction_id' is set
         if ($linked_transaction_id === null || (is_array($linked_transaction_id) && count($linked_transaction_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -16407,6 +16988,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($linked_transaction_id !== null) {
@@ -16490,6 +17075,7 @@ class AccountingApi
      *
      * Allows you to update a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments payments (required)
      *
@@ -16497,9 +17083,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function deletePayment($payment_id, $payments)
+    public function deletePayment($xero_tenant_id, $payment_id, $payments)
     {
-        list($response) = $this->deletePaymentWithHttpInfo($payment_id, $payments);
+        list($response) = $this->deletePaymentWithHttpInfo($xero_tenant_id, $payment_id, $payments);
         return $response;
     }
 
@@ -16508,6 +17094,7 @@ class AccountingApi
      *
      * Allows you to update a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
@@ -16515,9 +17102,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Payments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePaymentWithHttpInfo($payment_id, $payments)
+    public function deletePaymentWithHttpInfo($xero_tenant_id, $payment_id, $payments)
     {
-        $request = $this->deletePaymentRequest($payment_id, $payments);
+        $request = $this->deletePaymentRequest($xero_tenant_id, $payment_id, $payments);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16617,15 +17204,16 @@ class AccountingApi
      *
      * Allows you to update a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePaymentAsync($payment_id, $payments)
+    public function deletePaymentAsync($xero_tenant_id, $payment_id, $payments)
     {
-        return $this->deletePaymentAsyncWithHttpInfo($payment_id, $payments)
+        return $this->deletePaymentAsyncWithHttpInfo($xero_tenant_id, $payment_id, $payments)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16638,16 +17226,17 @@ class AccountingApi
      *
      * Allows you to update a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePaymentAsyncWithHttpInfo($payment_id, $payments)
+    public function deletePaymentAsyncWithHttpInfo($xero_tenant_id, $payment_id, $payments)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
-        $request = $this->deletePaymentRequest($payment_id, $payments);
+        $request = $this->deletePaymentRequest($xero_tenant_id, $payment_id, $payments);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16686,14 +17275,21 @@ class AccountingApi
     /**
      * Create request for operation 'deletePayment'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      * @param  \SidneyAllen\XeroPHP\Model\Payments $payments (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deletePaymentRequest($payment_id, $payments)
+    protected function deletePaymentRequest($xero_tenant_id, $payment_id, $payments)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deletePayment'
+            );
+        }
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -16714,6 +17310,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($payment_id !== null) {
@@ -16800,15 +17400,16 @@ class AccountingApi
      *
      * Allows you to delete tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function deleteTrackingCategory($tracking_category_id)
+    public function deleteTrackingCategory($xero_tenant_id, $tracking_category_id)
     {
-        list($response) = $this->deleteTrackingCategoryWithHttpInfo($tracking_category_id);
+        list($response) = $this->deleteTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id);
         return $response;
     }
 
@@ -16817,15 +17418,16 @@ class AccountingApi
      *
      * Allows you to delete tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTrackingCategoryWithHttpInfo($tracking_category_id)
+    public function deleteTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id)
     {
-        $request = $this->deleteTrackingCategoryRequest($tracking_category_id);
+        $request = $this->deleteTrackingCategoryRequest($xero_tenant_id, $tracking_category_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16925,14 +17527,15 @@ class AccountingApi
      *
      * Allows you to delete tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrackingCategoryAsync($tracking_category_id)
+    public function deleteTrackingCategoryAsync($xero_tenant_id, $tracking_category_id)
     {
-        return $this->deleteTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
+        return $this->deleteTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16945,15 +17548,16 @@ class AccountingApi
      *
      * Allows you to delete tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
+    public function deleteTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
-        $request = $this->deleteTrackingCategoryRequest($tracking_category_id);
+        $request = $this->deleteTrackingCategoryRequest($xero_tenant_id, $tracking_category_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16992,13 +17596,20 @@ class AccountingApi
     /**
      * Create request for operation 'deleteTrackingCategory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteTrackingCategoryRequest($tracking_category_id)
+    protected function deleteTrackingCategoryRequest($xero_tenant_id, $tracking_category_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteTrackingCategory'
+            );
+        }
         // verify the required parameter 'tracking_category_id' is set
         if ($tracking_category_id === null || (is_array($tracking_category_id) && count($tracking_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -17013,6 +17624,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($tracking_category_id !== null) {
@@ -17096,6 +17711,7 @@ class AccountingApi
      *
      * Allows you to delete a specified option for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
@@ -17103,9 +17719,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function deleteTrackingOptions($tracking_category_id, $tracking_option_id)
+    public function deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id)
     {
-        list($response) = $this->deleteTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option_id);
+        list($response) = $this->deleteTrackingOptionsWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option_id);
         return $response;
     }
 
@@ -17114,6 +17730,7 @@ class AccountingApi
      *
      * Allows you to delete a specified option for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
@@ -17121,9 +17738,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingOptions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTrackingOptionsWithHttpInfo($tracking_category_id, $tracking_option_id)
+    public function deleteTrackingOptionsWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option_id)
     {
-        $request = $this->deleteTrackingOptionsRequest($tracking_category_id, $tracking_option_id);
+        $request = $this->deleteTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17223,15 +17840,16 @@ class AccountingApi
      *
      * Allows you to delete a specified option for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrackingOptionsAsync($tracking_category_id, $tracking_option_id)
+    public function deleteTrackingOptionsAsync($xero_tenant_id, $tracking_category_id, $tracking_option_id)
     {
-        return $this->deleteTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option_id)
+        return $this->deleteTrackingOptionsAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17244,16 +17862,17 @@ class AccountingApi
      *
      * Allows you to delete a specified option for a specified tracking category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTrackingOptionsAsyncWithHttpInfo($tracking_category_id, $tracking_option_id)
+    public function deleteTrackingOptionsAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_option_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingOptions';
-        $request = $this->deleteTrackingOptionsRequest($tracking_category_id, $tracking_option_id);
+        $request = $this->deleteTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17292,14 +17911,21 @@ class AccountingApi
     /**
      * Create request for operation 'deleteTrackingOptions'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  string $tracking_option_id Unique identifier for a Tracking Option (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteTrackingOptionsRequest($tracking_category_id, $tracking_option_id)
+    protected function deleteTrackingOptionsRequest($xero_tenant_id, $tracking_category_id, $tracking_option_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling deleteTrackingOptions'
+            );
+        }
         // verify the required parameter 'tracking_category_id' is set
         if ($tracking_category_id === null || (is_array($tracking_category_id) && count($tracking_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -17320,6 +17946,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($tracking_category_id !== null) {
@@ -17411,6 +18041,7 @@ class AccountingApi
      *
      * Allows you to email a copy of invoice to related Contact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty request_empty (required)
      *
@@ -17418,9 +18049,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function emailInvoice($invoice_id, $request_empty)
+    public function emailInvoice($xero_tenant_id, $invoice_id, $request_empty)
     {
-        $this->emailInvoiceWithHttpInfo($invoice_id, $request_empty);
+        $this->emailInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $request_empty);
     }
 
     /**
@@ -17428,6 +18059,7 @@ class AccountingApi
      *
      * Allows you to email a copy of invoice to related Contact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
@@ -17435,9 +18067,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailInvoiceWithHttpInfo($invoice_id, $request_empty)
+    public function emailInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $request_empty)
     {
-        $request = $this->emailInvoiceRequest($invoice_id, $request_empty);
+        $request = $this->emailInvoiceRequest($xero_tenant_id, $invoice_id, $request_empty);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17489,15 +18121,16 @@ class AccountingApi
      *
      * Allows you to email a copy of invoice to related Contact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInvoiceAsync($invoice_id, $request_empty)
+    public function emailInvoiceAsync($xero_tenant_id, $invoice_id, $request_empty)
     {
-        return $this->emailInvoiceAsyncWithHttpInfo($invoice_id, $request_empty)
+        return $this->emailInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $request_empty)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17510,16 +18143,17 @@ class AccountingApi
      *
      * Allows you to email a copy of invoice to related Contact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInvoiceAsyncWithHttpInfo($invoice_id, $request_empty)
+    public function emailInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $request_empty)
     {
         $returnType = '';
-        $request = $this->emailInvoiceRequest($invoice_id, $request_empty);
+        $request = $this->emailInvoiceRequest($xero_tenant_id, $invoice_id, $request_empty);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17547,14 +18181,21 @@ class AccountingApi
     /**
      * Create request for operation 'emailInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\RequestEmpty $request_empty (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function emailInvoiceRequest($invoice_id, $request_empty)
+    protected function emailInvoiceRequest($xero_tenant_id, $invoice_id, $request_empty)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling emailInvoice'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -17575,6 +18216,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -25821,15 +26466,16 @@ class AccountingApi
      *
      * Allows you to retrieve a unique Contract Group by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ContactGroups
      */
-    public function getContactGroup($contact_group_id)
+    public function getContactGroup($xero_tenant_id, $contact_group_id)
     {
-        list($response) = $this->getContactGroupWithHttpInfo($contact_group_id);
+        list($response) = $this->getContactGroupWithHttpInfo($xero_tenant_id, $contact_group_id);
         return $response;
     }
 
@@ -25838,15 +26484,16 @@ class AccountingApi
      *
      * Allows you to retrieve a unique Contract Group by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactGroupWithHttpInfo($contact_group_id)
+    public function getContactGroupWithHttpInfo($xero_tenant_id, $contact_group_id)
     {
-        $request = $this->getContactGroupRequest($contact_group_id);
+        $request = $this->getContactGroupRequest($xero_tenant_id, $contact_group_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25926,14 +26573,15 @@ class AccountingApi
      *
      * Allows you to retrieve a unique Contract Group by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactGroupAsync($contact_group_id)
+    public function getContactGroupAsync($xero_tenant_id, $contact_group_id)
     {
-        return $this->getContactGroupAsyncWithHttpInfo($contact_group_id)
+        return $this->getContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_group_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25946,15 +26594,16 @@ class AccountingApi
      *
      * Allows you to retrieve a unique Contract Group by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactGroupAsyncWithHttpInfo($contact_group_id)
+    public function getContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_group_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
-        $request = $this->getContactGroupRequest($contact_group_id);
+        $request = $this->getContactGroupRequest($xero_tenant_id, $contact_group_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25993,13 +26642,20 @@ class AccountingApi
     /**
      * Create request for operation 'getContactGroup'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getContactGroupRequest($contact_group_id)
+    protected function getContactGroupRequest($xero_tenant_id, $contact_group_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getContactGroup'
+            );
+        }
         // verify the required parameter 'contact_group_id' is set
         if ($contact_group_id === null || (is_array($contact_group_id) && count($contact_group_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -26014,6 +26670,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($contact_group_id !== null) {
@@ -26097,6 +26757,7 @@ class AccountingApi
      *
      * Allows you to retrieve the ContactID and Name of all the contacts in a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -26104,9 +26765,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ContactGroups
      */
-    public function getContactGroups($where = null, $order = null)
+    public function getContactGroups($xero_tenant_id, $where = null, $order = null)
     {
-        list($response) = $this->getContactGroupsWithHttpInfo($where, $order);
+        list($response) = $this->getContactGroupsWithHttpInfo($xero_tenant_id, $where, $order);
         return $response;
     }
 
@@ -26115,6 +26776,7 @@ class AccountingApi
      *
      * Allows you to retrieve the ContactID and Name of all the contacts in a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -26122,9 +26784,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getContactGroupsWithHttpInfo($where = null, $order = null)
+    public function getContactGroupsWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
-        $request = $this->getContactGroupsRequest($where, $order);
+        $request = $this->getContactGroupsRequest($xero_tenant_id, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -26204,15 +26866,16 @@ class AccountingApi
      *
      * Allows you to retrieve the ContactID and Name of all the contacts in a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactGroupsAsync($where = null, $order = null)
+    public function getContactGroupsAsync($xero_tenant_id, $where = null, $order = null)
     {
-        return $this->getContactGroupsAsyncWithHttpInfo($where, $order)
+        return $this->getContactGroupsAsyncWithHttpInfo($xero_tenant_id, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -26225,16 +26888,17 @@ class AccountingApi
      *
      * Allows you to retrieve the ContactID and Name of all the contacts in a contact group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getContactGroupsAsyncWithHttpInfo($where = null, $order = null)
+    public function getContactGroupsAsyncWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
-        $request = $this->getContactGroupsRequest($where, $order);
+        $request = $this->getContactGroupsRequest($xero_tenant_id, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -26273,14 +26937,21 @@ class AccountingApi
     /**
      * Create request for operation 'getContactGroups'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getContactGroupsRequest($where = null, $order = null)
+    protected function getContactGroupsRequest($xero_tenant_id, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getContactGroups'
+            );
+        }
 
         $resourcePath = '/ContactGroups';
         $formParams = [];
@@ -26296,6 +26967,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -26989,15 +27664,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\CreditNotes
      */
-    public function getCreditNote($credit_note_id)
+    public function getCreditNote($xero_tenant_id, $credit_note_id)
     {
-        list($response) = $this->getCreditNoteWithHttpInfo($credit_note_id);
+        list($response) = $this->getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id);
         return $response;
     }
 
@@ -27006,15 +27682,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteWithHttpInfo($credit_note_id)
+    public function getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
-        $request = $this->getCreditNoteRequest($credit_note_id);
+        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27094,14 +27771,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsync($credit_note_id)
+    public function getCreditNoteAsync($xero_tenant_id, $credit_note_id)
     {
-        return $this->getCreditNoteAsyncWithHttpInfo($credit_note_id)
+        return $this->getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27114,15 +27792,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsyncWithHttpInfo($credit_note_id)
+    public function getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
-        $request = $this->getCreditNoteRequest($credit_note_id);
+        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27161,13 +27840,20 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNote'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteRequest($credit_note_id)
+    protected function getCreditNoteRequest($xero_tenant_id, $credit_note_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNote'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -27182,6 +27868,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -27265,6 +27955,7 @@ class AccountingApi
      *
      * Allows you to retrieve Credit Note as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
@@ -27272,9 +27963,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getCreditNoteAsPdf($credit_note_id, $content_type)
+    public function getCreditNoteAsPdf($xero_tenant_id, $credit_note_id, $content_type)
     {
-        list($response) = $this->getCreditNoteAsPdfWithHttpInfo($credit_note_id, $content_type);
+        list($response) = $this->getCreditNoteAsPdfWithHttpInfo($xero_tenant_id, $credit_note_id, $content_type);
         return $response;
     }
 
@@ -27283,6 +27974,7 @@ class AccountingApi
      *
      * Allows you to retrieve Credit Note as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
@@ -27290,9 +27982,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteAsPdfWithHttpInfo($credit_note_id, $content_type)
+    public function getCreditNoteAsPdfWithHttpInfo($xero_tenant_id, $credit_note_id, $content_type)
     {
-        $request = $this->getCreditNoteAsPdfRequest($credit_note_id, $content_type);
+        $request = $this->getCreditNoteAsPdfRequest($xero_tenant_id, $credit_note_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27372,15 +28064,16 @@ class AccountingApi
      *
      * Allows you to retrieve Credit Note as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsPdfAsync($credit_note_id, $content_type)
+    public function getCreditNoteAsPdfAsync($xero_tenant_id, $credit_note_id, $content_type)
     {
-        return $this->getCreditNoteAsPdfAsyncWithHttpInfo($credit_note_id, $content_type)
+        return $this->getCreditNoteAsPdfAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27393,16 +28086,17 @@ class AccountingApi
      *
      * Allows you to retrieve Credit Note as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsPdfAsyncWithHttpInfo($credit_note_id, $content_type)
+    public function getCreditNoteAsPdfAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getCreditNoteAsPdfRequest($credit_note_id, $content_type);
+        $request = $this->getCreditNoteAsPdfRequest($xero_tenant_id, $credit_note_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27441,14 +28135,21 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNoteAsPdf'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteAsPdfRequest($credit_note_id, $content_type)
+    protected function getCreditNoteAsPdfRequest($xero_tenant_id, $credit_note_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNoteAsPdf'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -27469,6 +28170,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -27556,6 +28261,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27564,9 +28270,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getCreditNoteAttachmentByFileName($credit_note_id, $file_name, $content_type)
+    public function getCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $content_type)
     {
-        list($response) = $this->getCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $content_type);
+        list($response) = $this->getCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $content_type);
         return $response;
     }
 
@@ -27575,6 +28281,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27583,9 +28290,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $content_type)
+    public function getCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $content_type)
     {
-        $request = $this->getCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $content_type);
+        $request = $this->getCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27665,6 +28372,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27672,9 +28380,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentByFileNameAsync($credit_note_id, $file_name, $content_type)
+    public function getCreditNoteAttachmentByFileNameAsync($xero_tenant_id, $credit_note_id, $file_name, $content_type)
     {
-        return $this->getCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $content_type)
+        return $this->getCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27687,6 +28395,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27694,10 +28403,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $content_type)
+    public function getCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $content_type);
+        $request = $this->getCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27736,6 +28445,7 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNoteAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27743,8 +28453,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $content_type)
+    protected function getCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNoteAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -27771,6 +28487,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -27866,6 +28586,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27874,9 +28595,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getCreditNoteAttachmentById($credit_note_id, $attachment_id, $content_type)
+    public function getCreditNoteAttachmentById($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
     {
-        list($response) = $this->getCreditNoteAttachmentByIdWithHttpInfo($credit_note_id, $attachment_id, $content_type);
+        list($response) = $this->getCreditNoteAttachmentByIdWithHttpInfo($xero_tenant_id, $credit_note_id, $attachment_id, $content_type);
         return $response;
     }
 
@@ -27885,6 +28606,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27893,9 +28615,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteAttachmentByIdWithHttpInfo($credit_note_id, $attachment_id, $content_type)
+    public function getCreditNoteAttachmentByIdWithHttpInfo($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
     {
-        $request = $this->getCreditNoteAttachmentByIdRequest($credit_note_id, $attachment_id, $content_type);
+        $request = $this->getCreditNoteAttachmentByIdRequest($xero_tenant_id, $credit_note_id, $attachment_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27975,6 +28697,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -27982,9 +28705,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentByIdAsync($credit_note_id, $attachment_id, $content_type)
+    public function getCreditNoteAttachmentByIdAsync($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
     {
-        return $this->getCreditNoteAttachmentByIdAsyncWithHttpInfo($credit_note_id, $attachment_id, $content_type)
+        return $this->getCreditNoteAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27997,6 +28720,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -28004,10 +28728,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentByIdAsyncWithHttpInfo($credit_note_id, $attachment_id, $content_type)
+    public function getCreditNoteAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getCreditNoteAttachmentByIdRequest($credit_note_id, $attachment_id, $content_type);
+        $request = $this->getCreditNoteAttachmentByIdRequest($xero_tenant_id, $credit_note_id, $attachment_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28046,6 +28770,7 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNoteAttachmentById'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -28053,8 +28778,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteAttachmentByIdRequest($credit_note_id, $attachment_id, $content_type)
+    protected function getCreditNoteAttachmentByIdRequest($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNoteAttachmentById'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -28081,6 +28812,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -28176,15 +28911,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
-    public function getCreditNoteAttachments($credit_note_id)
+    public function getCreditNoteAttachments($xero_tenant_id, $credit_note_id)
     {
-        list($response) = $this->getCreditNoteAttachmentsWithHttpInfo($credit_note_id);
+        list($response) = $this->getCreditNoteAttachmentsWithHttpInfo($xero_tenant_id, $credit_note_id);
         return $response;
     }
 
@@ -28193,15 +28929,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteAttachmentsWithHttpInfo($credit_note_id)
+    public function getCreditNoteAttachmentsWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
-        $request = $this->getCreditNoteAttachmentsRequest($credit_note_id);
+        $request = $this->getCreditNoteAttachmentsRequest($xero_tenant_id, $credit_note_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28281,14 +29018,15 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentsAsync($credit_note_id)
+    public function getCreditNoteAttachmentsAsync($xero_tenant_id, $credit_note_id)
     {
-        return $this->getCreditNoteAttachmentsAsyncWithHttpInfo($credit_note_id)
+        return $this->getCreditNoteAttachmentsAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28301,15 +29039,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAttachmentsAsyncWithHttpInfo($credit_note_id)
+    public function getCreditNoteAttachmentsAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->getCreditNoteAttachmentsRequest($credit_note_id);
+        $request = $this->getCreditNoteAttachmentsRequest($xero_tenant_id, $credit_note_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28348,13 +29087,20 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNoteAttachments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteAttachmentsRequest($credit_note_id)
+    protected function getCreditNoteAttachmentsRequest($xero_tenant_id, $credit_note_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNoteAttachments'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -28369,6 +29115,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -28452,15 +29202,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getCreditNoteHistory($credit_note_id)
+    public function getCreditNoteHistory($xero_tenant_id, $credit_note_id)
     {
-        list($response) = $this->getCreditNoteHistoryWithHttpInfo($credit_note_id);
+        list($response) = $this->getCreditNoteHistoryWithHttpInfo($xero_tenant_id, $credit_note_id);
         return $response;
     }
 
@@ -28469,15 +29220,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteHistoryWithHttpInfo($credit_note_id)
+    public function getCreditNoteHistoryWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
-        $request = $this->getCreditNoteHistoryRequest($credit_note_id);
+        $request = $this->getCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28557,14 +29309,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteHistoryAsync($credit_note_id)
+    public function getCreditNoteHistoryAsync($xero_tenant_id, $credit_note_id)
     {
-        return $this->getCreditNoteHistoryAsyncWithHttpInfo($credit_note_id)
+        return $this->getCreditNoteHistoryAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28577,15 +29330,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an CreditNote
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteHistoryAsyncWithHttpInfo($credit_note_id)
+    public function getCreditNoteHistoryAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getCreditNoteHistoryRequest($credit_note_id);
+        $request = $this->getCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28624,13 +29378,20 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNoteHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteHistoryRequest($credit_note_id)
+    protected function getCreditNoteHistoryRequest($xero_tenant_id, $credit_note_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNoteHistory'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -28645,6 +29406,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -28728,6 +29493,7 @@ class AccountingApi
      *
      * Allows you to retrieve any credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -28737,9 +29503,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\CreditNotes
      */
-    public function getCreditNotes($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotes($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        list($response) = $this->getCreditNotesWithHttpInfo($if_modified_since, $where, $order, $page);
+        list($response) = $this->getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page);
         return $response;
     }
 
@@ -28748,6 +29514,7 @@ class AccountingApi
      *
      * Allows you to retrieve any credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -28757,9 +29524,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNotesWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $request = $this->getCreditNotesRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28839,6 +29606,7 @@ class AccountingApi
      *
      * Allows you to retrieve any credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -28847,9 +29615,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNotesAsync($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        return $this->getCreditNotesAsyncWithHttpInfo($if_modified_since, $where, $order, $page)
+        return $this->getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28862,6 +29630,7 @@ class AccountingApi
      *
      * Allows you to retrieve any credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -28870,10 +29639,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNotesAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
-        $request = $this->getCreditNotesRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28912,6 +29681,7 @@ class AccountingApi
     /**
      * Create request for operation 'getCreditNotes'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -28920,8 +29690,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNotesRequest($if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getCreditNotesRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCreditNotes'
+            );
+        }
 
         $resourcePath = '/CreditNotes';
         $formParams = [];
@@ -28941,6 +29717,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -29021,6 +29801,7 @@ class AccountingApi
      *
      * Allows you to retrieve currencies for your organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -29028,9 +29809,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Currencies
      */
-    public function getCurrencies($where = null, $order = null)
+    public function getCurrencies($xero_tenant_id, $where = null, $order = null)
     {
-        list($response) = $this->getCurrenciesWithHttpInfo($where, $order);
+        list($response) = $this->getCurrenciesWithHttpInfo($xero_tenant_id, $where, $order);
         return $response;
     }
 
@@ -29039,6 +29820,7 @@ class AccountingApi
      *
      * Allows you to retrieve currencies for your organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -29046,9 +29828,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Currencies, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrenciesWithHttpInfo($where = null, $order = null)
+    public function getCurrenciesWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
-        $request = $this->getCurrenciesRequest($where, $order);
+        $request = $this->getCurrenciesRequest($xero_tenant_id, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29128,15 +29910,16 @@ class AccountingApi
      *
      * Allows you to retrieve currencies for your organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsync($where = null, $order = null)
+    public function getCurrenciesAsync($xero_tenant_id, $where = null, $order = null)
     {
-        return $this->getCurrenciesAsyncWithHttpInfo($where, $order)
+        return $this->getCurrenciesAsyncWithHttpInfo($xero_tenant_id, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29149,16 +29932,17 @@ class AccountingApi
      *
      * Allows you to retrieve currencies for your organisation
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsyncWithHttpInfo($where = null, $order = null)
+    public function getCurrenciesAsyncWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Currencies';
-        $request = $this->getCurrenciesRequest($where, $order);
+        $request = $this->getCurrenciesRequest($xero_tenant_id, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29197,14 +29981,21 @@ class AccountingApi
     /**
      * Create request for operation 'getCurrencies'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCurrenciesRequest($where = null, $order = null)
+    protected function getCurrenciesRequest($xero_tenant_id, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getCurrencies'
+            );
+        }
 
         $resourcePath = '/Currencies';
         $formParams = [];
@@ -29220,6 +30011,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -29296,15 +30091,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Employees
      */
-    public function getEmployee($employee_id)
+    public function getEmployee($xero_tenant_id, $employee_id)
     {
-        list($response) = $this->getEmployeeWithHttpInfo($employee_id);
+        list($response) = $this->getEmployeeWithHttpInfo($xero_tenant_id, $employee_id);
         return $response;
     }
 
@@ -29313,15 +30109,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Employees, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeeWithHttpInfo($employee_id)
+    public function getEmployeeWithHttpInfo($xero_tenant_id, $employee_id)
     {
-        $request = $this->getEmployeeRequest($employee_id);
+        $request = $this->getEmployeeRequest($xero_tenant_id, $employee_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29401,14 +30198,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeAsync($employee_id)
+    public function getEmployeeAsync($xero_tenant_id, $employee_id)
     {
-        return $this->getEmployeeAsyncWithHttpInfo($employee_id)
+        return $this->getEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29421,15 +30219,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeeAsyncWithHttpInfo($employee_id)
+    public function getEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
-        $request = $this->getEmployeeRequest($employee_id);
+        $request = $this->getEmployeeRequest($xero_tenant_id, $employee_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29468,13 +30267,20 @@ class AccountingApi
     /**
      * Create request for operation 'getEmployee'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEmployeeRequest($employee_id)
+    protected function getEmployeeRequest($xero_tenant_id, $employee_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getEmployee'
+            );
+        }
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -29489,6 +30295,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($employee_id !== null) {
@@ -29572,6 +30382,7 @@ class AccountingApi
      *
      * Allows you to retrieve employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -29580,9 +30391,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Employees
      */
-    public function getEmployees($if_modified_since = null, $where = null, $order = null)
+    public function getEmployees($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        list($response) = $this->getEmployeesWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getEmployeesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order);
         return $response;
     }
 
@@ -29591,6 +30402,7 @@ class AccountingApi
      *
      * Allows you to retrieve employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -29599,9 +30411,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Employees, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmployeesWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getEmployeesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        $request = $this->getEmployeesRequest($if_modified_since, $where, $order);
+        $request = $this->getEmployeesRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29681,6 +30493,7 @@ class AccountingApi
      *
      * Allows you to retrieve employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -29688,9 +30501,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesAsync($if_modified_since = null, $where = null, $order = null)
+    public function getEmployeesAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        return $this->getEmployeesAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getEmployeesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29703,6 +30516,7 @@ class AccountingApi
      *
      * Allows you to retrieve employees used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -29710,10 +30524,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmployeesAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getEmployeesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
-        $request = $this->getEmployeesRequest($if_modified_since, $where, $order);
+        $request = $this->getEmployeesRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29752,6 +30566,7 @@ class AccountingApi
     /**
      * Create request for operation 'getEmployees'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -29759,8 +30574,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getEmployeesRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getEmployeesRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getEmployees'
+            );
+        }
 
         $resourcePath = '/Employees';
         $formParams = [];
@@ -29776,6 +30597,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -29856,15 +30681,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified expense claim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims
      */
-    public function getExpenseClaim($expense_claim_id)
+    public function getExpenseClaim($xero_tenant_id, $expense_claim_id)
     {
-        list($response) = $this->getExpenseClaimWithHttpInfo($expense_claim_id);
+        list($response) = $this->getExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claim_id);
         return $response;
     }
 
@@ -29873,15 +30699,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified expense claim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpenseClaimWithHttpInfo($expense_claim_id)
+    public function getExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claim_id)
     {
-        $request = $this->getExpenseClaimRequest($expense_claim_id);
+        $request = $this->getExpenseClaimRequest($xero_tenant_id, $expense_claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29961,14 +30788,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified expense claim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimAsync($expense_claim_id)
+    public function getExpenseClaimAsync($xero_tenant_id, $expense_claim_id)
     {
-        return $this->getExpenseClaimAsyncWithHttpInfo($expense_claim_id)
+        return $this->getExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29981,15 +30809,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified expense claim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimAsyncWithHttpInfo($expense_claim_id)
+    public function getExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
-        $request = $this->getExpenseClaimRequest($expense_claim_id);
+        $request = $this->getExpenseClaimRequest($xero_tenant_id, $expense_claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -30028,13 +30857,20 @@ class AccountingApi
     /**
      * Create request for operation 'getExpenseClaim'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getExpenseClaimRequest($expense_claim_id)
+    protected function getExpenseClaimRequest($xero_tenant_id, $expense_claim_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getExpenseClaim'
+            );
+        }
         // verify the required parameter 'expense_claim_id' is set
         if ($expense_claim_id === null || (is_array($expense_claim_id) && count($expense_claim_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -30049,6 +30885,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($expense_claim_id !== null) {
@@ -30132,15 +30972,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getExpenseClaimHistory($expense_claim_id)
+    public function getExpenseClaimHistory($xero_tenant_id, $expense_claim_id)
     {
-        list($response) = $this->getExpenseClaimHistoryWithHttpInfo($expense_claim_id);
+        list($response) = $this->getExpenseClaimHistoryWithHttpInfo($xero_tenant_id, $expense_claim_id);
         return $response;
     }
 
@@ -30149,15 +30990,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpenseClaimHistoryWithHttpInfo($expense_claim_id)
+    public function getExpenseClaimHistoryWithHttpInfo($xero_tenant_id, $expense_claim_id)
     {
-        $request = $this->getExpenseClaimHistoryRequest($expense_claim_id);
+        $request = $this->getExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -30237,14 +31079,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimHistoryAsync($expense_claim_id)
+    public function getExpenseClaimHistoryAsync($xero_tenant_id, $expense_claim_id)
     {
-        return $this->getExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id)
+        return $this->getExpenseClaimHistoryAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -30257,15 +31100,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an ExpenseClaim
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimHistoryAsyncWithHttpInfo($expense_claim_id)
+    public function getExpenseClaimHistoryAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getExpenseClaimHistoryRequest($expense_claim_id);
+        $request = $this->getExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -30304,13 +31148,20 @@ class AccountingApi
     /**
      * Create request for operation 'getExpenseClaimHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getExpenseClaimHistoryRequest($expense_claim_id)
+    protected function getExpenseClaimHistoryRequest($xero_tenant_id, $expense_claim_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getExpenseClaimHistory'
+            );
+        }
         // verify the required parameter 'expense_claim_id' is set
         if ($expense_claim_id === null || (is_array($expense_claim_id) && count($expense_claim_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -30325,6 +31176,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($expense_claim_id !== null) {
@@ -30408,6 +31263,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -30416,9 +31272,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims
      */
-    public function getExpenseClaims($if_modified_since = null, $where = null, $order = null)
+    public function getExpenseClaims($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        list($response) = $this->getExpenseClaimsWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getExpenseClaimsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order);
         return $response;
     }
 
@@ -30427,6 +31283,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -30435,9 +31292,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getExpenseClaimsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getExpenseClaimsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        $request = $this->getExpenseClaimsRequest($if_modified_since, $where, $order);
+        $request = $this->getExpenseClaimsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -30517,6 +31374,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -30524,9 +31382,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimsAsync($if_modified_since = null, $where = null, $order = null)
+    public function getExpenseClaimsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        return $this->getExpenseClaimsAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getExpenseClaimsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -30539,6 +31397,7 @@ class AccountingApi
      *
      * Allows you to retrieve expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -30546,10 +31405,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getExpenseClaimsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getExpenseClaimsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
-        $request = $this->getExpenseClaimsRequest($if_modified_since, $where, $order);
+        $request = $this->getExpenseClaimsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -30588,6 +31447,7 @@ class AccountingApi
     /**
      * Create request for operation 'getExpenseClaims'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -30595,8 +31455,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getExpenseClaimsRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getExpenseClaimsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getExpenseClaims'
+            );
+        }
 
         $resourcePath = '/ExpenseClaims';
         $formParams = [];
@@ -30612,6 +31478,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -30692,15 +31562,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified sales invoice or purchase bill
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Invoices
      */
-    public function getInvoice($invoice_id)
+    public function getInvoice($xero_tenant_id, $invoice_id)
     {
-        list($response) = $this->getInvoiceWithHttpInfo($invoice_id);
+        list($response) = $this->getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id);
         return $response;
     }
 
@@ -30709,15 +31580,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified sales invoice or purchase bill
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Invoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceWithHttpInfo($invoice_id)
+    public function getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id)
     {
-        $request = $this->getInvoiceRequest($invoice_id);
+        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -30797,14 +31669,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified sales invoice or purchase bill
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsync($invoice_id)
+    public function getInvoiceAsync($xero_tenant_id, $invoice_id)
     {
-        return $this->getInvoiceAsyncWithHttpInfo($invoice_id)
+        return $this->getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -30817,15 +31690,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified sales invoice or purchase bill
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsyncWithHttpInfo($invoice_id)
+    public function getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
-        $request = $this->getInvoiceRequest($invoice_id);
+        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -30864,13 +31738,20 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceRequest($invoice_id)
+    protected function getInvoiceRequest($xero_tenant_id, $invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoice'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -30885,6 +31766,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -30968,6 +31853,7 @@ class AccountingApi
      *
      * Allows you to retrieve invoices or purchase bills as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
@@ -30975,9 +31861,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getInvoiceAsPdf($invoice_id, $content_type)
+    public function getInvoiceAsPdf($xero_tenant_id, $invoice_id, $content_type)
     {
-        list($response) = $this->getInvoiceAsPdfWithHttpInfo($invoice_id, $content_type);
+        list($response) = $this->getInvoiceAsPdfWithHttpInfo($xero_tenant_id, $invoice_id, $content_type);
         return $response;
     }
 
@@ -30986,6 +31872,7 @@ class AccountingApi
      *
      * Allows you to retrieve invoices or purchase bills as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
@@ -30993,9 +31880,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAsPdfWithHttpInfo($invoice_id, $content_type)
+    public function getInvoiceAsPdfWithHttpInfo($xero_tenant_id, $invoice_id, $content_type)
     {
-        $request = $this->getInvoiceAsPdfRequest($invoice_id, $content_type);
+        $request = $this->getInvoiceAsPdfRequest($xero_tenant_id, $invoice_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31075,15 +31962,16 @@ class AccountingApi
      *
      * Allows you to retrieve invoices or purchase bills as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsPdfAsync($invoice_id, $content_type)
+    public function getInvoiceAsPdfAsync($xero_tenant_id, $invoice_id, $content_type)
     {
-        return $this->getInvoiceAsPdfAsyncWithHttpInfo($invoice_id, $content_type)
+        return $this->getInvoiceAsPdfAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -31096,16 +31984,17 @@ class AccountingApi
      *
      * Allows you to retrieve invoices or purchase bills as PDF files
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsPdfAsyncWithHttpInfo($invoice_id, $content_type)
+    public function getInvoiceAsPdfAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getInvoiceAsPdfRequest($invoice_id, $content_type);
+        $request = $this->getInvoiceAsPdfRequest($xero_tenant_id, $invoice_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -31144,14 +32033,21 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceAsPdf'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceAsPdfRequest($invoice_id, $content_type)
+    protected function getInvoiceAsPdfRequest($xero_tenant_id, $invoice_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceAsPdf'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -31172,6 +32068,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -31259,6 +32159,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31267,9 +32168,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getInvoiceAttachmentByFileName($invoice_id, $file_name, $content_type)
+    public function getInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $content_type)
     {
-        list($response) = $this->getInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $content_type);
+        list($response) = $this->getInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $content_type);
         return $response;
     }
 
@@ -31278,6 +32179,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31286,9 +32188,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $content_type)
+    public function getInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $content_type)
     {
-        $request = $this->getInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $content_type);
+        $request = $this->getInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31368,6 +32270,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31375,9 +32278,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentByFileNameAsync($invoice_id, $file_name, $content_type)
+    public function getInvoiceAttachmentByFileNameAsync($xero_tenant_id, $invoice_id, $file_name, $content_type)
     {
-        return $this->getInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $content_type)
+        return $this->getInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -31390,6 +32293,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31397,10 +32301,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $content_type)
+    public function getInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $content_type);
+        $request = $this->getInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -31439,6 +32343,7 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31446,8 +32351,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $content_type)
+    protected function getInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -31474,6 +32385,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -31569,6 +32484,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31577,9 +32493,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getInvoiceAttachmentById($invoice_id, $attachment_id, $content_type)
+    public function getInvoiceAttachmentById($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
     {
-        list($response) = $this->getInvoiceAttachmentByIdWithHttpInfo($invoice_id, $attachment_id, $content_type);
+        list($response) = $this->getInvoiceAttachmentByIdWithHttpInfo($xero_tenant_id, $invoice_id, $attachment_id, $content_type);
         return $response;
     }
 
@@ -31588,6 +32504,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31596,9 +32513,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAttachmentByIdWithHttpInfo($invoice_id, $attachment_id, $content_type)
+    public function getInvoiceAttachmentByIdWithHttpInfo($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
     {
-        $request = $this->getInvoiceAttachmentByIdRequest($invoice_id, $attachment_id, $content_type);
+        $request = $this->getInvoiceAttachmentByIdRequest($xero_tenant_id, $invoice_id, $attachment_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31678,6 +32595,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31685,9 +32603,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentByIdAsync($invoice_id, $attachment_id, $content_type)
+    public function getInvoiceAttachmentByIdAsync($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
     {
-        return $this->getInvoiceAttachmentByIdAsyncWithHttpInfo($invoice_id, $attachment_id, $content_type)
+        return $this->getInvoiceAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -31700,6 +32618,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31707,10 +32626,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentByIdAsyncWithHttpInfo($invoice_id, $attachment_id, $content_type)
+    public function getInvoiceAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getInvoiceAttachmentByIdRequest($invoice_id, $attachment_id, $content_type);
+        $request = $this->getInvoiceAttachmentByIdRequest($xero_tenant_id, $invoice_id, $attachment_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -31749,6 +32668,7 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceAttachmentById'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $attachment_id Unique identifier for an Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -31756,8 +32676,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceAttachmentByIdRequest($invoice_id, $attachment_id, $content_type)
+    protected function getInvoiceAttachmentByIdRequest($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceAttachmentById'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -31784,6 +32710,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -31879,15 +32809,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
-    public function getInvoiceAttachments($invoice_id)
+    public function getInvoiceAttachments($xero_tenant_id, $invoice_id)
     {
-        list($response) = $this->getInvoiceAttachmentsWithHttpInfo($invoice_id);
+        list($response) = $this->getInvoiceAttachmentsWithHttpInfo($xero_tenant_id, $invoice_id);
         return $response;
     }
 
@@ -31896,15 +32827,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceAttachmentsWithHttpInfo($invoice_id)
+    public function getInvoiceAttachmentsWithHttpInfo($xero_tenant_id, $invoice_id)
     {
-        $request = $this->getInvoiceAttachmentsRequest($invoice_id);
+        $request = $this->getInvoiceAttachmentsRequest($xero_tenant_id, $invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31984,14 +32916,15 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentsAsync($invoice_id)
+    public function getInvoiceAttachmentsAsync($xero_tenant_id, $invoice_id)
     {
-        return $this->getInvoiceAttachmentsAsyncWithHttpInfo($invoice_id)
+        return $this->getInvoiceAttachmentsAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -32004,15 +32937,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAttachmentsAsyncWithHttpInfo($invoice_id)
+    public function getInvoiceAttachmentsAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->getInvoiceAttachmentsRequest($invoice_id);
+        $request = $this->getInvoiceAttachmentsRequest($xero_tenant_id, $invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -32051,13 +32985,20 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceAttachments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceAttachmentsRequest($invoice_id)
+    protected function getInvoiceAttachmentsRequest($xero_tenant_id, $invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceAttachments'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -32072,6 +33013,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -32155,15 +33100,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getInvoiceHistory($invoice_id)
+    public function getInvoiceHistory($xero_tenant_id, $invoice_id)
     {
-        list($response) = $this->getInvoiceHistoryWithHttpInfo($invoice_id);
+        list($response) = $this->getInvoiceHistoryWithHttpInfo($xero_tenant_id, $invoice_id);
         return $response;
     }
 
@@ -32172,15 +33118,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceHistoryWithHttpInfo($invoice_id)
+    public function getInvoiceHistoryWithHttpInfo($xero_tenant_id, $invoice_id)
     {
-        $request = $this->getInvoiceHistoryRequest($invoice_id);
+        $request = $this->getInvoiceHistoryRequest($xero_tenant_id, $invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -32260,14 +33207,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceHistoryAsync($invoice_id)
+    public function getInvoiceHistoryAsync($xero_tenant_id, $invoice_id)
     {
-        return $this->getInvoiceHistoryAsyncWithHttpInfo($invoice_id)
+        return $this->getInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -32280,15 +33228,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceHistoryAsyncWithHttpInfo($invoice_id)
+    public function getInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getInvoiceHistoryRequest($invoice_id);
+        $request = $this->getInvoiceHistoryRequest($xero_tenant_id, $invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -32327,13 +33276,20 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceHistoryRequest($invoice_id)
+    protected function getInvoiceHistoryRequest($xero_tenant_id, $invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceHistory'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -32348,6 +33304,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -32431,14 +33391,15 @@ class AccountingApi
      *
      * Allows you to retrieve invoice reminder settings
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\InvoiceReminders
      */
-    public function getInvoiceReminders()
+    public function getInvoiceReminders($xero_tenant_id)
     {
-        list($response) = $this->getInvoiceRemindersWithHttpInfo();
+        list($response) = $this->getInvoiceRemindersWithHttpInfo($xero_tenant_id);
         return $response;
     }
 
@@ -32447,14 +33408,15 @@ class AccountingApi
      *
      * Allows you to retrieve invoice reminder settings
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\InvoiceReminders, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceRemindersWithHttpInfo()
+    public function getInvoiceRemindersWithHttpInfo($xero_tenant_id)
     {
-        $request = $this->getInvoiceRemindersRequest();
+        $request = $this->getInvoiceRemindersRequest($xero_tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -32534,13 +33496,14 @@ class AccountingApi
      *
      * Allows you to retrieve invoice reminder settings
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceRemindersAsync()
+    public function getInvoiceRemindersAsync($xero_tenant_id)
     {
-        return $this->getInvoiceRemindersAsyncWithHttpInfo()
+        return $this->getInvoiceRemindersAsyncWithHttpInfo($xero_tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -32553,14 +33516,15 @@ class AccountingApi
      *
      * Allows you to retrieve invoice reminder settings
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceRemindersAsyncWithHttpInfo()
+    public function getInvoiceRemindersAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\InvoiceReminders';
-        $request = $this->getInvoiceRemindersRequest();
+        $request = $this->getInvoiceRemindersRequest($xero_tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -32599,12 +33563,19 @@ class AccountingApi
     /**
      * Create request for operation 'getInvoiceReminders'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceRemindersRequest()
+    protected function getInvoiceRemindersRequest($xero_tenant_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getInvoiceReminders'
+            );
+        }
 
         $resourcePath = '/InvoiceReminders/Settings';
         $formParams = [];
@@ -32613,6 +33584,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -32977,12 +33952,12 @@ class AccountingApi
             $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
         }
         // header params
-        if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
-        }
-        // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        // header params
+        if ($if_modified_since !== null) {
+            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -33059,15 +34034,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Items
      */
-    public function getItem($item_id)
+    public function getItem($xero_tenant_id, $item_id)
     {
-        list($response) = $this->getItemWithHttpInfo($item_id);
+        list($response) = $this->getItemWithHttpInfo($xero_tenant_id, $item_id);
         return $response;
     }
 
@@ -33076,15 +34052,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Items, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemWithHttpInfo($item_id)
+    public function getItemWithHttpInfo($xero_tenant_id, $item_id)
     {
-        $request = $this->getItemRequest($item_id);
+        $request = $this->getItemRequest($xero_tenant_id, $item_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33164,14 +34141,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAsync($item_id)
+    public function getItemAsync($xero_tenant_id, $item_id)
     {
-        return $this->getItemAsyncWithHttpInfo($item_id)
+        return $this->getItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33184,15 +34162,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAsyncWithHttpInfo($item_id)
+    public function getItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Items';
-        $request = $this->getItemRequest($item_id);
+        $request = $this->getItemRequest($xero_tenant_id, $item_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33231,13 +34210,20 @@ class AccountingApi
     /**
      * Create request for operation 'getItem'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getItemRequest($item_id)
+    protected function getItemRequest($xero_tenant_id, $item_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getItem'
+            );
+        }
         // verify the required parameter 'item_id' is set
         if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -33252,6 +34238,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($item_id !== null) {
@@ -33335,15 +34325,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getItemHistory($item_id)
+    public function getItemHistory($xero_tenant_id, $item_id)
     {
-        list($response) = $this->getItemHistoryWithHttpInfo($item_id);
+        list($response) = $this->getItemHistoryWithHttpInfo($xero_tenant_id, $item_id);
         return $response;
     }
 
@@ -33352,15 +34343,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemHistoryWithHttpInfo($item_id)
+    public function getItemHistoryWithHttpInfo($xero_tenant_id, $item_id)
     {
-        $request = $this->getItemHistoryRequest($item_id);
+        $request = $this->getItemHistoryRequest($xero_tenant_id, $item_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33440,14 +34432,15 @@ class AccountingApi
      *
      * Allows you to retrieve history for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemHistoryAsync($item_id)
+    public function getItemHistoryAsync($xero_tenant_id, $item_id)
     {
-        return $this->getItemHistoryAsyncWithHttpInfo($item_id)
+        return $this->getItemHistoryAsyncWithHttpInfo($xero_tenant_id, $item_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33460,15 +34453,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemHistoryAsyncWithHttpInfo($item_id)
+    public function getItemHistoryAsyncWithHttpInfo($xero_tenant_id, $item_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getItemHistoryRequest($item_id);
+        $request = $this->getItemHistoryRequest($xero_tenant_id, $item_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33507,13 +34501,20 @@ class AccountingApi
     /**
      * Create request for operation 'getItemHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getItemHistoryRequest($item_id)
+    protected function getItemHistoryRequest($xero_tenant_id, $item_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getItemHistory'
+            );
+        }
         // verify the required parameter 'item_id' is set
         if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -33528,6 +34529,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($item_id !== null) {
@@ -33611,6 +34616,7 @@ class AccountingApi
      *
      * Allows you to retrieve any items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -33620,9 +34626,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Items
      */
-    public function getItems($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getItems($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        list($response) = $this->getItemsWithHttpInfo($if_modified_since, $where, $order, $unitdp);
+        list($response) = $this->getItemsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
         return $response;
     }
 
@@ -33631,6 +34637,7 @@ class AccountingApi
      *
      * Allows you to retrieve any items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -33640,9 +34647,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Items, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getItemsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        $request = $this->getItemsRequest($if_modified_since, $where, $order, $unitdp);
+        $request = $this->getItemsRequest($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33722,6 +34729,7 @@ class AccountingApi
      *
      * Allows you to retrieve any items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -33730,9 +34738,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsync($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getItemsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        return $this->getItemsAsyncWithHttpInfo($if_modified_since, $where, $order, $unitdp)
+        return $this->getItemsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33745,6 +34753,7 @@ class AccountingApi
      *
      * Allows you to retrieve any items
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -33753,10 +34762,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getItemsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Items';
-        $request = $this->getItemsRequest($if_modified_since, $where, $order, $unitdp);
+        $request = $this->getItemsRequest($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33795,6 +34804,7 @@ class AccountingApi
     /**
      * Create request for operation 'getItems'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -33803,8 +34813,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getItemsRequest($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    protected function getItemsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getItems'
+            );
+        }
 
         $resourcePath = '/Items';
         $formParams = [];
@@ -33824,6 +34840,10 @@ class AccountingApi
         // query params
         if ($unitdp !== null) {
             $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -33904,15 +34924,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Journals
      */
-    public function getJournal($journal_id)
+    public function getJournal($xero_tenant_id, $journal_id)
     {
-        list($response) = $this->getJournalWithHttpInfo($journal_id);
+        list($response) = $this->getJournalWithHttpInfo($xero_tenant_id, $journal_id);
         return $response;
     }
 
@@ -33921,15 +34942,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Journals, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJournalWithHttpInfo($journal_id)
+    public function getJournalWithHttpInfo($xero_tenant_id, $journal_id)
     {
-        $request = $this->getJournalRequest($journal_id);
+        $request = $this->getJournalRequest($xero_tenant_id, $journal_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34009,14 +35031,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalAsync($journal_id)
+    public function getJournalAsync($xero_tenant_id, $journal_id)
     {
-        return $this->getJournalAsyncWithHttpInfo($journal_id)
+        return $this->getJournalAsyncWithHttpInfo($xero_tenant_id, $journal_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34029,15 +35052,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalAsyncWithHttpInfo($journal_id)
+    public function getJournalAsyncWithHttpInfo($xero_tenant_id, $journal_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
-        $request = $this->getJournalRequest($journal_id);
+        $request = $this->getJournalRequest($xero_tenant_id, $journal_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34076,13 +35100,20 @@ class AccountingApi
     /**
      * Create request for operation 'getJournal'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $journal_id Unique identifier for a Journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getJournalRequest($journal_id)
+    protected function getJournalRequest($xero_tenant_id, $journal_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getJournal'
+            );
+        }
         // verify the required parameter 'journal_id' is set
         if ($journal_id === null || (is_array($journal_id) && count($journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -34097,6 +35128,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($journal_id !== null) {
@@ -34180,6 +35215,7 @@ class AccountingApi
      *
      * Allows you to retrieve any journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
@@ -34188,9 +35224,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Journals
      */
-    public function getJournals($if_modified_since = null, $offset = null, $payments_only = null)
+    public function getJournals($xero_tenant_id, $if_modified_since = null, $offset = null, $payments_only = null)
     {
-        list($response) = $this->getJournalsWithHttpInfo($if_modified_since, $offset, $payments_only);
+        list($response) = $this->getJournalsWithHttpInfo($xero_tenant_id, $if_modified_since, $offset, $payments_only);
         return $response;
     }
 
@@ -34199,6 +35235,7 @@ class AccountingApi
      *
      * Allows you to retrieve any journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
@@ -34207,9 +35244,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Journals, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJournalsWithHttpInfo($if_modified_since = null, $offset = null, $payments_only = null)
+    public function getJournalsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $offset = null, $payments_only = null)
     {
-        $request = $this->getJournalsRequest($if_modified_since, $offset, $payments_only);
+        $request = $this->getJournalsRequest($xero_tenant_id, $if_modified_since, $offset, $payments_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34289,6 +35326,7 @@ class AccountingApi
      *
      * Allows you to retrieve any journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
@@ -34296,9 +35334,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalsAsync($if_modified_since = null, $offset = null, $payments_only = null)
+    public function getJournalsAsync($xero_tenant_id, $if_modified_since = null, $offset = null, $payments_only = null)
     {
-        return $this->getJournalsAsyncWithHttpInfo($if_modified_since, $offset, $payments_only)
+        return $this->getJournalsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $offset, $payments_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34311,6 +35349,7 @@ class AccountingApi
      *
      * Allows you to retrieve any journals.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
@@ -34318,10 +35357,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJournalsAsyncWithHttpInfo($if_modified_since = null, $offset = null, $payments_only = null)
+    public function getJournalsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $offset = null, $payments_only = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Journals';
-        $request = $this->getJournalsRequest($if_modified_since, $offset, $payments_only);
+        $request = $this->getJournalsRequest($xero_tenant_id, $if_modified_since, $offset, $payments_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34360,6 +35399,7 @@ class AccountingApi
     /**
      * Create request for operation 'getJournals'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  int $offset Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned (optional)
      * @param  bool $payments_only Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default. (optional)
@@ -34367,8 +35407,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getJournalsRequest($if_modified_since = null, $offset = null, $payments_only = null)
+    protected function getJournalsRequest($xero_tenant_id, $if_modified_since = null, $offset = null, $payments_only = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getJournals'
+            );
+        }
 
         $resourcePath = '/Journals';
         $formParams = [];
@@ -34384,6 +35430,10 @@ class AccountingApi
         // query params
         if ($payments_only !== null) {
             $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -34464,15 +35514,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions
      */
-    public function getLinkedTransaction($linked_transaction_id)
+    public function getLinkedTransaction($xero_tenant_id, $linked_transaction_id)
     {
-        list($response) = $this->getLinkedTransactionWithHttpInfo($linked_transaction_id);
+        list($response) = $this->getLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id);
         return $response;
     }
 
@@ -34481,15 +35532,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLinkedTransactionWithHttpInfo($linked_transaction_id)
+    public function getLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id)
     {
-        $request = $this->getLinkedTransactionRequest($linked_transaction_id);
+        $request = $this->getLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34569,14 +35621,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLinkedTransactionAsync($linked_transaction_id)
+    public function getLinkedTransactionAsync($xero_tenant_id, $linked_transaction_id)
     {
-        return $this->getLinkedTransactionAsyncWithHttpInfo($linked_transaction_id)
+        return $this->getLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34589,15 +35642,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLinkedTransactionAsyncWithHttpInfo($linked_transaction_id)
+    public function getLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
-        $request = $this->getLinkedTransactionRequest($linked_transaction_id);
+        $request = $this->getLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34636,13 +35690,20 @@ class AccountingApi
     /**
      * Create request for operation 'getLinkedTransaction'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLinkedTransactionRequest($linked_transaction_id)
+    protected function getLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getLinkedTransaction'
+            );
+        }
         // verify the required parameter 'linked_transaction_id' is set
         if ($linked_transaction_id === null || (is_array($linked_transaction_id) && count($linked_transaction_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -34657,6 +35718,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($linked_transaction_id !== null) {
@@ -34740,6 +35805,7 @@ class AccountingApi
      *
      * Retrieve linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
      * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
@@ -34751,9 +35817,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions
      */
-    public function getLinkedTransactions($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
+    public function getLinkedTransactions($xero_tenant_id, $page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
-        list($response) = $this->getLinkedTransactionsWithHttpInfo($page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
+        list($response) = $this->getLinkedTransactionsWithHttpInfo($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
         return $response;
     }
 
@@ -34762,6 +35828,7 @@ class AccountingApi
      *
      * Retrieve linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
      * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
@@ -34773,9 +35840,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLinkedTransactionsWithHttpInfo($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
+    public function getLinkedTransactionsWithHttpInfo($xero_tenant_id, $page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
-        $request = $this->getLinkedTransactionsRequest($page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
+        $request = $this->getLinkedTransactionsRequest($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -34855,6 +35922,7 @@ class AccountingApi
      *
      * Retrieve linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
      * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
@@ -34865,9 +35933,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLinkedTransactionsAsync($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
+    public function getLinkedTransactionsAsync($xero_tenant_id, $page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
-        return $this->getLinkedTransactionsAsyncWithHttpInfo($page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
+        return $this->getLinkedTransactionsAsyncWithHttpInfo($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -34880,6 +35948,7 @@ class AccountingApi
      *
      * Retrieve linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
      * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
@@ -34890,10 +35959,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLinkedTransactionsAsyncWithHttpInfo($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
+    public function getLinkedTransactionsAsyncWithHttpInfo($xero_tenant_id, $page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
-        $request = $this->getLinkedTransactionsRequest($page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
+        $request = $this->getLinkedTransactionsRequest($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -34932,6 +36001,7 @@ class AccountingApi
     /**
      * Create request for operation 'getLinkedTransactions'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
      * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
@@ -34942,8 +36012,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getLinkedTransactionsRequest($page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
+    protected function getLinkedTransactionsRequest($xero_tenant_id, $page = null, $linked_transaction_id = null, $source_transaction_id = null, $contact_id = null, $status = null, $target_transaction_id = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getLinkedTransactions'
+            );
+        }
 
         $resourcePath = '/LinkedTransactions';
         $formParams = [];
@@ -34975,6 +36051,10 @@ class AccountingApi
         // query params
         if ($target_transaction_id !== null) {
             $queryParams['TargetTransactionID'] = ObjectSerializer::toQueryValue($target_transaction_id);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -35051,15 +36131,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ManualJournals
      */
-    public function getManualJournal($manual_journal_id)
+    public function getManualJournal($xero_tenant_id, $manual_journal_id)
     {
-        list($response) = $this->getManualJournalWithHttpInfo($manual_journal_id);
+        list($response) = $this->getManualJournalWithHttpInfo($xero_tenant_id, $manual_journal_id);
         return $response;
     }
 
@@ -35068,15 +36149,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManualJournalWithHttpInfo($manual_journal_id)
+    public function getManualJournalWithHttpInfo($xero_tenant_id, $manual_journal_id)
     {
-        $request = $this->getManualJournalRequest($manual_journal_id);
+        $request = $this->getManualJournalRequest($xero_tenant_id, $manual_journal_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35156,14 +36238,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAsync($manual_journal_id)
+    public function getManualJournalAsync($xero_tenant_id, $manual_journal_id)
     {
-        return $this->getManualJournalAsyncWithHttpInfo($manual_journal_id)
+        return $this->getManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35176,15 +36259,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAsyncWithHttpInfo($manual_journal_id)
+    public function getManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
-        $request = $this->getManualJournalRequest($manual_journal_id);
+        $request = $this->getManualJournalRequest($xero_tenant_id, $manual_journal_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35223,13 +36307,20 @@ class AccountingApi
     /**
      * Create request for operation 'getManualJournal'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getManualJournalRequest($manual_journal_id)
+    protected function getManualJournalRequest($xero_tenant_id, $manual_journal_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getManualJournal'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -35244,6 +36335,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($manual_journal_id !== null) {
@@ -35327,6 +36422,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35335,9 +36431,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getManualJournalAttachmentByFileName($manual_journal_id, $file_name, $content_type)
+    public function getManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
     {
-        list($response) = $this->getManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $content_type);
+        list($response) = $this->getManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $content_type);
         return $response;
     }
 
@@ -35346,6 +36442,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35354,9 +36451,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $content_type)
+    public function getManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
     {
-        $request = $this->getManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $content_type);
+        $request = $this->getManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35436,6 +36533,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35443,9 +36541,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentByFileNameAsync($manual_journal_id, $file_name, $content_type)
+    public function getManualJournalAttachmentByFileNameAsync($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
     {
-        return $this->getManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $content_type)
+        return $this->getManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35458,6 +36556,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35465,10 +36564,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $content_type)
+    public function getManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $content_type);
+        $request = $this->getManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35507,6 +36606,7 @@ class AccountingApi
     /**
      * Create request for operation 'getManualJournalAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35514,8 +36614,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $content_type)
+    protected function getManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getManualJournalAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -35542,6 +36648,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -35637,6 +36747,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35645,9 +36756,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getManualJournalAttachmentById($manual_journal_id, $attachment_id, $content_type)
+    public function getManualJournalAttachmentById($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
     {
-        list($response) = $this->getManualJournalAttachmentByIdWithHttpInfo($manual_journal_id, $attachment_id, $content_type);
+        list($response) = $this->getManualJournalAttachmentByIdWithHttpInfo($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type);
         return $response;
     }
 
@@ -35656,6 +36767,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35664,9 +36776,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManualJournalAttachmentByIdWithHttpInfo($manual_journal_id, $attachment_id, $content_type)
+    public function getManualJournalAttachmentByIdWithHttpInfo($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
     {
-        $request = $this->getManualJournalAttachmentByIdRequest($manual_journal_id, $attachment_id, $content_type);
+        $request = $this->getManualJournalAttachmentByIdRequest($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -35746,6 +36858,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35753,9 +36866,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentByIdAsync($manual_journal_id, $attachment_id, $content_type)
+    public function getManualJournalAttachmentByIdAsync($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
     {
-        return $this->getManualJournalAttachmentByIdAsyncWithHttpInfo($manual_journal_id, $attachment_id, $content_type)
+        return $this->getManualJournalAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -35768,6 +36881,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified Attachment on ManualJournals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35775,10 +36889,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentByIdAsyncWithHttpInfo($manual_journal_id, $attachment_id, $content_type)
+    public function getManualJournalAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getManualJournalAttachmentByIdRequest($manual_journal_id, $attachment_id, $content_type);
+        $request = $this->getManualJournalAttachmentByIdRequest($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -35817,6 +36931,7 @@ class AccountingApi
     /**
      * Create request for operation 'getManualJournalAttachmentById'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -35824,8 +36939,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getManualJournalAttachmentByIdRequest($manual_journal_id, $attachment_id, $content_type)
+    protected function getManualJournalAttachmentByIdRequest($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getManualJournalAttachmentById'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -35852,6 +36973,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -35947,15 +37072,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment for manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
-    public function getManualJournalAttachments($manual_journal_id)
+    public function getManualJournalAttachments($xero_tenant_id, $manual_journal_id)
     {
-        list($response) = $this->getManualJournalAttachmentsWithHttpInfo($manual_journal_id);
+        list($response) = $this->getManualJournalAttachmentsWithHttpInfo($xero_tenant_id, $manual_journal_id);
         return $response;
     }
 
@@ -35964,15 +37090,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment for manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManualJournalAttachmentsWithHttpInfo($manual_journal_id)
+    public function getManualJournalAttachmentsWithHttpInfo($xero_tenant_id, $manual_journal_id)
     {
-        $request = $this->getManualJournalAttachmentsRequest($manual_journal_id);
+        $request = $this->getManualJournalAttachmentsRequest($xero_tenant_id, $manual_journal_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36052,14 +37179,15 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment for manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentsAsync($manual_journal_id)
+    public function getManualJournalAttachmentsAsync($xero_tenant_id, $manual_journal_id)
     {
-        return $this->getManualJournalAttachmentsAsyncWithHttpInfo($manual_journal_id)
+        return $this->getManualJournalAttachmentsAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36072,15 +37200,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachment for manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalAttachmentsAsyncWithHttpInfo($manual_journal_id)
+    public function getManualJournalAttachmentsAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->getManualJournalAttachmentsRequest($manual_journal_id);
+        $request = $this->getManualJournalAttachmentsRequest($xero_tenant_id, $manual_journal_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36119,13 +37248,20 @@ class AccountingApi
     /**
      * Create request for operation 'getManualJournalAttachments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getManualJournalAttachmentsRequest($manual_journal_id)
+    protected function getManualJournalAttachmentsRequest($xero_tenant_id, $manual_journal_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getManualJournalAttachments'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -36140,6 +37276,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($manual_journal_id !== null) {
@@ -36223,6 +37363,7 @@ class AccountingApi
      *
      * Allows you to retrieve any manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -36232,9 +37373,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ManualJournals
      */
-    public function getManualJournals($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getManualJournals($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        list($response) = $this->getManualJournalsWithHttpInfo($if_modified_since, $where, $order, $page);
+        list($response) = $this->getManualJournalsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page);
         return $response;
     }
 
@@ -36243,6 +37384,7 @@ class AccountingApi
      *
      * Allows you to retrieve any manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -36252,9 +37394,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getManualJournalsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getManualJournalsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $request = $this->getManualJournalsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getManualJournalsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36334,6 +37476,7 @@ class AccountingApi
      *
      * Allows you to retrieve any manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -36342,9 +37485,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalsAsync($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getManualJournalsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        return $this->getManualJournalsAsyncWithHttpInfo($if_modified_since, $where, $order, $page)
+        return $this->getManualJournalsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36357,6 +37500,7 @@ class AccountingApi
      *
      * Allows you to retrieve any manual journals
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -36365,10 +37509,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getManualJournalsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getManualJournalsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
-        $request = $this->getManualJournalsRequest($if_modified_since, $where, $order, $page);
+        $request = $this->getManualJournalsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36407,6 +37551,7 @@ class AccountingApi
     /**
      * Create request for operation 'getManualJournals'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -36415,8 +37560,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getManualJournalsRequest($if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getManualJournalsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getManualJournals'
+            );
+        }
 
         $resourcePath = '/ManualJournals';
         $formParams = [];
@@ -36436,6 +37587,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -36516,15 +37671,16 @@ class AccountingApi
      *
      * Allows you to retrieve a URL to an online invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\OnlineInvoices
      */
-    public function getOnlineInvoice($invoice_id)
+    public function getOnlineInvoice($xero_tenant_id, $invoice_id)
     {
-        list($response) = $this->getOnlineInvoiceWithHttpInfo($invoice_id);
+        list($response) = $this->getOnlineInvoiceWithHttpInfo($xero_tenant_id, $invoice_id);
         return $response;
     }
 
@@ -36533,15 +37689,16 @@ class AccountingApi
      *
      * Allows you to retrieve a URL to an online invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\OnlineInvoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOnlineInvoiceWithHttpInfo($invoice_id)
+    public function getOnlineInvoiceWithHttpInfo($xero_tenant_id, $invoice_id)
     {
-        $request = $this->getOnlineInvoiceRequest($invoice_id);
+        $request = $this->getOnlineInvoiceRequest($xero_tenant_id, $invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36621,14 +37778,15 @@ class AccountingApi
      *
      * Allows you to retrieve a URL to an online invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOnlineInvoiceAsync($invoice_id)
+    public function getOnlineInvoiceAsync($xero_tenant_id, $invoice_id)
     {
-        return $this->getOnlineInvoiceAsyncWithHttpInfo($invoice_id)
+        return $this->getOnlineInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36641,15 +37799,16 @@ class AccountingApi
      *
      * Allows you to retrieve a URL to an online invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOnlineInvoiceAsyncWithHttpInfo($invoice_id)
+    public function getOnlineInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\OnlineInvoices';
-        $request = $this->getOnlineInvoiceRequest($invoice_id);
+        $request = $this->getOnlineInvoiceRequest($xero_tenant_id, $invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36688,13 +37847,20 @@ class AccountingApi
     /**
      * Create request for operation 'getOnlineInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOnlineInvoiceRequest($invoice_id)
+    protected function getOnlineInvoiceRequest($xero_tenant_id, $invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOnlineInvoice'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -36709,6 +37875,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -36792,15 +37962,16 @@ class AccountingApi
      *
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $organisation_id organisation_id (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\CISOrgSetting
      */
-    public function getOrganisationCISSettings($organisation_id)
+    public function getOrganisationCISSettings($xero_tenant_id, $organisation_id)
     {
-        list($response) = $this->getOrganisationCISSettingsWithHttpInfo($organisation_id);
+        list($response) = $this->getOrganisationCISSettingsWithHttpInfo($xero_tenant_id, $organisation_id);
         return $response;
     }
 
@@ -36809,15 +37980,16 @@ class AccountingApi
      *
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $organisation_id (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\CISOrgSetting, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrganisationCISSettingsWithHttpInfo($organisation_id)
+    public function getOrganisationCISSettingsWithHttpInfo($xero_tenant_id, $organisation_id)
     {
-        $request = $this->getOrganisationCISSettingsRequest($organisation_id);
+        $request = $this->getOrganisationCISSettingsRequest($xero_tenant_id, $organisation_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36897,14 +38069,15 @@ class AccountingApi
      *
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $organisation_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrganisationCISSettingsAsync($organisation_id)
+    public function getOrganisationCISSettingsAsync($xero_tenant_id, $organisation_id)
     {
-        return $this->getOrganisationCISSettingsAsyncWithHttpInfo($organisation_id)
+        return $this->getOrganisationCISSettingsAsyncWithHttpInfo($xero_tenant_id, $organisation_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36917,15 +38090,16 @@ class AccountingApi
      *
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $organisation_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrganisationCISSettingsAsyncWithHttpInfo($organisation_id)
+    public function getOrganisationCISSettingsAsyncWithHttpInfo($xero_tenant_id, $organisation_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\CISOrgSetting';
-        $request = $this->getOrganisationCISSettingsRequest($organisation_id);
+        $request = $this->getOrganisationCISSettingsRequest($xero_tenant_id, $organisation_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36964,13 +38138,20 @@ class AccountingApi
     /**
      * Create request for operation 'getOrganisationCISSettings'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $organisation_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrganisationCISSettingsRequest($organisation_id)
+    protected function getOrganisationCISSettingsRequest($xero_tenant_id, $organisation_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOrganisationCISSettings'
+            );
+        }
         // verify the required parameter 'organisation_id' is set
         if ($organisation_id === null || (is_array($organisation_id) && count($organisation_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -36985,6 +38166,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($organisation_id !== null) {
@@ -37068,14 +38253,15 @@ class AccountingApi
      *
      * Allows you to retrieve Organisation details
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Organisations
      */
-    public function getOrganisations()
+    public function getOrganisations($xero_tenant_id)
     {
-        list($response) = $this->getOrganisationsWithHttpInfo();
+        list($response) = $this->getOrganisationsWithHttpInfo($xero_tenant_id);
         return $response;
     }
 
@@ -37084,14 +38270,15 @@ class AccountingApi
      *
      * Allows you to retrieve Organisation details
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Organisations, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrganisationsWithHttpInfo()
+    public function getOrganisationsWithHttpInfo($xero_tenant_id)
     {
-        $request = $this->getOrganisationsRequest();
+        $request = $this->getOrganisationsRequest($xero_tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -37171,13 +38358,14 @@ class AccountingApi
      *
      * Allows you to retrieve Organisation details
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrganisationsAsync()
+    public function getOrganisationsAsync($xero_tenant_id)
     {
-        return $this->getOrganisationsAsyncWithHttpInfo()
+        return $this->getOrganisationsAsyncWithHttpInfo($xero_tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -37190,14 +38378,15 @@ class AccountingApi
      *
      * Allows you to retrieve Organisation details
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrganisationsAsyncWithHttpInfo()
+    public function getOrganisationsAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Organisations';
-        $request = $this->getOrganisationsRequest();
+        $request = $this->getOrganisationsRequest($xero_tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -37236,12 +38425,19 @@ class AccountingApi
     /**
      * Create request for operation 'getOrganisations'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrganisationsRequest()
+    protected function getOrganisationsRequest($xero_tenant_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOrganisations'
+            );
+        }
 
         $resourcePath = '/Organisation';
         $formParams = [];
@@ -37250,6 +38446,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -37325,15 +38525,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Overpayments
      */
-    public function getOverpayment($overpayment_id)
+    public function getOverpayment($xero_tenant_id, $overpayment_id)
     {
-        list($response) = $this->getOverpaymentWithHttpInfo($overpayment_id);
+        list($response) = $this->getOverpaymentWithHttpInfo($xero_tenant_id, $overpayment_id);
         return $response;
     }
 
@@ -37342,15 +38543,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOverpaymentWithHttpInfo($overpayment_id)
+    public function getOverpaymentWithHttpInfo($xero_tenant_id, $overpayment_id)
     {
-        $request = $this->getOverpaymentRequest($overpayment_id);
+        $request = $this->getOverpaymentRequest($xero_tenant_id, $overpayment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -37430,14 +38632,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentAsync($overpayment_id)
+    public function getOverpaymentAsync($xero_tenant_id, $overpayment_id)
     {
-        return $this->getOverpaymentAsyncWithHttpInfo($overpayment_id)
+        return $this->getOverpaymentAsyncWithHttpInfo($xero_tenant_id, $overpayment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -37450,15 +38653,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentAsyncWithHttpInfo($overpayment_id)
+    public function getOverpaymentAsyncWithHttpInfo($xero_tenant_id, $overpayment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
-        $request = $this->getOverpaymentRequest($overpayment_id);
+        $request = $this->getOverpaymentRequest($xero_tenant_id, $overpayment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -37497,13 +38701,20 @@ class AccountingApi
     /**
      * Create request for operation 'getOverpayment'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOverpaymentRequest($overpayment_id)
+    protected function getOverpaymentRequest($xero_tenant_id, $overpayment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOverpayment'
+            );
+        }
         // verify the required parameter 'overpayment_id' is set
         if ($overpayment_id === null || (is_array($overpayment_id) && count($overpayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -37518,6 +38729,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($overpayment_id !== null) {
@@ -37601,15 +38816,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getOverpaymentHistory($overpayment_id)
+    public function getOverpaymentHistory($xero_tenant_id, $overpayment_id)
     {
-        list($response) = $this->getOverpaymentHistoryWithHttpInfo($overpayment_id);
+        list($response) = $this->getOverpaymentHistoryWithHttpInfo($xero_tenant_id, $overpayment_id);
         return $response;
     }
 
@@ -37618,15 +38834,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOverpaymentHistoryWithHttpInfo($overpayment_id)
+    public function getOverpaymentHistoryWithHttpInfo($xero_tenant_id, $overpayment_id)
     {
-        $request = $this->getOverpaymentHistoryRequest($overpayment_id);
+        $request = $this->getOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -37706,14 +38923,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentHistoryAsync($overpayment_id)
+    public function getOverpaymentHistoryAsync($xero_tenant_id, $overpayment_id)
     {
-        return $this->getOverpaymentHistoryAsyncWithHttpInfo($overpayment_id)
+        return $this->getOverpaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $overpayment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -37726,15 +38944,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Overpayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentHistoryAsyncWithHttpInfo($overpayment_id)
+    public function getOverpaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $overpayment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getOverpaymentHistoryRequest($overpayment_id);
+        $request = $this->getOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -37773,13 +38992,20 @@ class AccountingApi
     /**
      * Create request for operation 'getOverpaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOverpaymentHistoryRequest($overpayment_id)
+    protected function getOverpaymentHistoryRequest($xero_tenant_id, $overpayment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOverpaymentHistory'
+            );
+        }
         // verify the required parameter 'overpayment_id' is set
         if ($overpayment_id === null || (is_array($overpayment_id) && count($overpayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -37794,6 +39020,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($overpayment_id !== null) {
@@ -37877,6 +39107,7 @@ class AccountingApi
      *
      * Allows you to retrieve overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -37887,9 +39118,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Overpayments
      */
-    public function getOverpayments($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getOverpayments($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getOverpaymentsWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp);
+        list($response) = $this->getOverpaymentsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -37898,6 +39129,7 @@ class AccountingApi
      *
      * Allows you to retrieve overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -37908,9 +39140,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Overpayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOverpaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getOverpaymentsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
+        $request = $this->getOverpaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -37990,6 +39222,7 @@ class AccountingApi
      *
      * Allows you to retrieve overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -37999,9 +39232,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getOverpaymentsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getOverpaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp)
+        return $this->getOverpaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -38014,6 +39247,7 @@ class AccountingApi
      *
      * Allows you to retrieve overpayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -38023,10 +39257,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverpaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getOverpaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Overpayments';
-        $request = $this->getOverpaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
+        $request = $this->getOverpaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -38065,6 +39299,7 @@ class AccountingApi
     /**
      * Create request for operation 'getOverpayments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -38074,8 +39309,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOverpaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    protected function getOverpaymentsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getOverpayments'
+            );
+        }
 
         $resourcePath = '/Overpayments';
         $formParams = [];
@@ -38099,6 +39340,10 @@ class AccountingApi
         // query params
         if ($unitdp !== null) {
             $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -38179,15 +39424,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Payments
      */
-    public function getPayment($payment_id)
+    public function getPayment($xero_tenant_id, $payment_id)
     {
-        list($response) = $this->getPaymentWithHttpInfo($payment_id);
+        list($response) = $this->getPaymentWithHttpInfo($xero_tenant_id, $payment_id);
         return $response;
     }
 
@@ -38196,15 +39442,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Payments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentWithHttpInfo($payment_id)
+    public function getPaymentWithHttpInfo($xero_tenant_id, $payment_id)
     {
-        $request = $this->getPaymentRequest($payment_id);
+        $request = $this->getPaymentRequest($xero_tenant_id, $payment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -38284,14 +39531,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentAsync($payment_id)
+    public function getPaymentAsync($xero_tenant_id, $payment_id)
     {
-        return $this->getPaymentAsyncWithHttpInfo($payment_id)
+        return $this->getPaymentAsyncWithHttpInfo($xero_tenant_id, $payment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -38304,15 +39552,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified payment for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentAsyncWithHttpInfo($payment_id)
+    public function getPaymentAsyncWithHttpInfo($xero_tenant_id, $payment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
-        $request = $this->getPaymentRequest($payment_id);
+        $request = $this->getPaymentRequest($xero_tenant_id, $payment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -38351,13 +39600,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPayment'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPaymentRequest($payment_id)
+    protected function getPaymentRequest($xero_tenant_id, $payment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPayment'
+            );
+        }
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -38372,6 +39628,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($payment_id !== null) {
@@ -38455,15 +39715,16 @@ class AccountingApi
      *
      * Allows you to retrieve history records of a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getPaymentHistory($payment_id)
+    public function getPaymentHistory($xero_tenant_id, $payment_id)
     {
-        list($response) = $this->getPaymentHistoryWithHttpInfo($payment_id);
+        list($response) = $this->getPaymentHistoryWithHttpInfo($xero_tenant_id, $payment_id);
         return $response;
     }
 
@@ -38472,15 +39733,16 @@ class AccountingApi
      *
      * Allows you to retrieve history records of a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentHistoryWithHttpInfo($payment_id)
+    public function getPaymentHistoryWithHttpInfo($xero_tenant_id, $payment_id)
     {
-        $request = $this->getPaymentHistoryRequest($payment_id);
+        $request = $this->getPaymentHistoryRequest($xero_tenant_id, $payment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -38560,14 +39822,15 @@ class AccountingApi
      *
      * Allows you to retrieve history records of a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentHistoryAsync($payment_id)
+    public function getPaymentHistoryAsync($xero_tenant_id, $payment_id)
     {
-        return $this->getPaymentHistoryAsyncWithHttpInfo($payment_id)
+        return $this->getPaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $payment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -38580,15 +39843,16 @@ class AccountingApi
      *
      * Allows you to retrieve history records of a payment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentHistoryAsyncWithHttpInfo($payment_id)
+    public function getPaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $payment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getPaymentHistoryRequest($payment_id);
+        $request = $this->getPaymentHistoryRequest($xero_tenant_id, $payment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -38627,13 +39891,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPaymentHistoryRequest($payment_id)
+    protected function getPaymentHistoryRequest($xero_tenant_id, $payment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPaymentHistory'
+            );
+        }
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -38648,6 +39919,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($payment_id !== null) {
@@ -38731,14 +40006,15 @@ class AccountingApi
      *
      * Allows you to retrieve payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PaymentServices
      */
-    public function getPaymentServices()
+    public function getPaymentServices($xero_tenant_id)
     {
-        list($response) = $this->getPaymentServicesWithHttpInfo();
+        list($response) = $this->getPaymentServicesWithHttpInfo($xero_tenant_id);
         return $response;
     }
 
@@ -38747,14 +40023,15 @@ class AccountingApi
      *
      * Allows you to retrieve payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PaymentServices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentServicesWithHttpInfo()
+    public function getPaymentServicesWithHttpInfo($xero_tenant_id)
     {
-        $request = $this->getPaymentServicesRequest();
+        $request = $this->getPaymentServicesRequest($xero_tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -38834,13 +40111,14 @@ class AccountingApi
      *
      * Allows you to retrieve payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentServicesAsync()
+    public function getPaymentServicesAsync($xero_tenant_id)
     {
-        return $this->getPaymentServicesAsyncWithHttpInfo()
+        return $this->getPaymentServicesAsyncWithHttpInfo($xero_tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -38853,14 +40131,15 @@ class AccountingApi
      *
      * Allows you to retrieve payment services
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentServicesAsyncWithHttpInfo()
+    public function getPaymentServicesAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PaymentServices';
-        $request = $this->getPaymentServicesRequest();
+        $request = $this->getPaymentServicesRequest($xero_tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -38899,12 +40178,19 @@ class AccountingApi
     /**
      * Create request for operation 'getPaymentServices'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPaymentServicesRequest()
+    protected function getPaymentServicesRequest($xero_tenant_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPaymentServices'
+            );
+        }
 
         $resourcePath = '/PaymentServices';
         $formParams = [];
@@ -38913,6 +40199,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -38988,6 +40278,7 @@ class AccountingApi
      *
      * Allows you to retrieve payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -38996,9 +40287,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Payments
      */
-    public function getPayments($if_modified_since = null, $where = null, $order = null)
+    public function getPayments($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        list($response) = $this->getPaymentsWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getPaymentsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order);
         return $response;
     }
 
@@ -39007,6 +40298,7 @@ class AccountingApi
      *
      * Allows you to retrieve payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39015,9 +40307,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Payments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getPaymentsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        $request = $this->getPaymentsRequest($if_modified_since, $where, $order);
+        $request = $this->getPaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -39097,6 +40389,7 @@ class AccountingApi
      *
      * Allows you to retrieve payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39104,9 +40397,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentsAsync($if_modified_since = null, $where = null, $order = null)
+    public function getPaymentsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        return $this->getPaymentsAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getPaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -39119,6 +40412,7 @@ class AccountingApi
      *
      * Allows you to retrieve payments for invoices and credit notes
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39126,10 +40420,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getPaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Payments';
-        $request = $this->getPaymentsRequest($if_modified_since, $where, $order);
+        $request = $this->getPaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -39168,6 +40462,7 @@ class AccountingApi
     /**
      * Create request for operation 'getPayments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39175,8 +40470,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPaymentsRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getPaymentsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPayments'
+            );
+        }
 
         $resourcePath = '/Payments';
         $formParams = [];
@@ -39192,6 +40493,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -39272,15 +40577,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Prepayments
      */
-    public function getPrepayment($prepayment_id)
+    public function getPrepayment($xero_tenant_id, $prepayment_id)
     {
-        list($response) = $this->getPrepaymentWithHttpInfo($prepayment_id);
+        list($response) = $this->getPrepaymentWithHttpInfo($xero_tenant_id, $prepayment_id);
         return $response;
     }
 
@@ -39289,15 +40595,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPrepaymentWithHttpInfo($prepayment_id)
+    public function getPrepaymentWithHttpInfo($xero_tenant_id, $prepayment_id)
     {
-        $request = $this->getPrepaymentRequest($prepayment_id);
+        $request = $this->getPrepaymentRequest($xero_tenant_id, $prepayment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -39377,14 +40684,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentAsync($prepayment_id)
+    public function getPrepaymentAsync($xero_tenant_id, $prepayment_id)
     {
-        return $this->getPrepaymentAsyncWithHttpInfo($prepayment_id)
+        return $this->getPrepaymentAsyncWithHttpInfo($xero_tenant_id, $prepayment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -39397,15 +40705,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentAsyncWithHttpInfo($prepayment_id)
+    public function getPrepaymentAsyncWithHttpInfo($xero_tenant_id, $prepayment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
-        $request = $this->getPrepaymentRequest($prepayment_id);
+        $request = $this->getPrepaymentRequest($xero_tenant_id, $prepayment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -39444,13 +40753,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPrepayment'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPrepaymentRequest($prepayment_id)
+    protected function getPrepaymentRequest($xero_tenant_id, $prepayment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPrepayment'
+            );
+        }
         // verify the required parameter 'prepayment_id' is set
         if ($prepayment_id === null || (is_array($prepayment_id) && count($prepayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -39465,6 +40781,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($prepayment_id !== null) {
@@ -39548,15 +40868,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getPrepaymentHistory($prepayment_id)
+    public function getPrepaymentHistory($xero_tenant_id, $prepayment_id)
     {
-        list($response) = $this->getPrepaymentHistoryWithHttpInfo($prepayment_id);
+        list($response) = $this->getPrepaymentHistoryWithHttpInfo($xero_tenant_id, $prepayment_id);
         return $response;
     }
 
@@ -39565,15 +40886,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPrepaymentHistoryWithHttpInfo($prepayment_id)
+    public function getPrepaymentHistoryWithHttpInfo($xero_tenant_id, $prepayment_id)
     {
-        $request = $this->getPrepaymentHistoryRequest($prepayment_id);
+        $request = $this->getPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -39653,14 +40975,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentHistoryAsync($prepayment_id)
+    public function getPrepaymentHistoryAsync($xero_tenant_id, $prepayment_id)
     {
-        return $this->getPrepaymentHistoryAsyncWithHttpInfo($prepayment_id)
+        return $this->getPrepaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $prepayment_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -39673,15 +40996,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Prepayment
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentHistoryAsyncWithHttpInfo($prepayment_id)
+    public function getPrepaymentHistoryAsyncWithHttpInfo($xero_tenant_id, $prepayment_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getPrepaymentHistoryRequest($prepayment_id);
+        $request = $this->getPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -39720,13 +41044,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPrepaymentHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPrepaymentHistoryRequest($prepayment_id)
+    protected function getPrepaymentHistoryRequest($xero_tenant_id, $prepayment_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPrepaymentHistory'
+            );
+        }
         // verify the required parameter 'prepayment_id' is set
         if ($prepayment_id === null || (is_array($prepayment_id) && count($prepayment_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -39741,6 +41072,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($prepayment_id !== null) {
@@ -39824,6 +41159,7 @@ class AccountingApi
      *
      * Allows you to retrieve prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39834,9 +41170,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Prepayments
      */
-    public function getPrepayments($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getPrepayments($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getPrepaymentsWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp);
+        list($response) = $this->getPrepaymentsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -39845,6 +41181,7 @@ class AccountingApi
      *
      * Allows you to retrieve prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39855,9 +41192,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Prepayments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPrepaymentsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getPrepaymentsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
+        $request = $this->getPrepaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -39937,6 +41274,7 @@ class AccountingApi
      *
      * Allows you to retrieve prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39946,9 +41284,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentsAsync($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getPrepaymentsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getPrepaymentsAsyncWithHttpInfo($if_modified_since, $where, $order, $page, $unitdp)
+        return $this->getPrepaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -39961,6 +41299,7 @@ class AccountingApi
      *
      * Allows you to retrieve prepayments
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -39970,10 +41309,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPrepaymentsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    public function getPrepaymentsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Prepayments';
-        $request = $this->getPrepaymentsRequest($if_modified_since, $where, $order, $page, $unitdp);
+        $request = $this->getPrepaymentsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40012,6 +41351,7 @@ class AccountingApi
     /**
      * Create request for operation 'getPrepayments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -40021,8 +41361,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPrepaymentsRequest($if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
+    protected function getPrepaymentsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPrepayments'
+            );
+        }
 
         $resourcePath = '/Prepayments';
         $formParams = [];
@@ -40046,6 +41392,10 @@ class AccountingApi
         // query params
         if ($unitdp !== null) {
             $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -40126,15 +41476,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders
      */
-    public function getPurchaseOrder($purchase_order_id)
+    public function getPurchaseOrder($xero_tenant_id, $purchase_order_id)
     {
-        list($response) = $this->getPurchaseOrderWithHttpInfo($purchase_order_id);
+        list($response) = $this->getPurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_order_id);
         return $response;
     }
 
@@ -40143,15 +41494,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPurchaseOrderWithHttpInfo($purchase_order_id)
+    public function getPurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_order_id)
     {
-        $request = $this->getPurchaseOrderRequest($purchase_order_id);
+        $request = $this->getPurchaseOrderRequest($xero_tenant_id, $purchase_order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40231,14 +41583,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrderAsync($purchase_order_id)
+    public function getPurchaseOrderAsync($xero_tenant_id, $purchase_order_id)
     {
-        return $this->getPurchaseOrderAsyncWithHttpInfo($purchase_order_id)
+        return $this->getPurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40251,15 +41604,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrderAsyncWithHttpInfo($purchase_order_id)
+    public function getPurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
-        $request = $this->getPurchaseOrderRequest($purchase_order_id);
+        $request = $this->getPurchaseOrderRequest($xero_tenant_id, $purchase_order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40298,13 +41652,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPurchaseOrder'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPurchaseOrderRequest($purchase_order_id)
+    protected function getPurchaseOrderRequest($xero_tenant_id, $purchase_order_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPurchaseOrder'
+            );
+        }
         // verify the required parameter 'purchase_order_id' is set
         if ($purchase_order_id === null || (is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -40319,6 +41680,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($purchase_order_id !== null) {
@@ -40402,15 +41767,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for PurchaseOrder
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getPurchaseOrderHistory($purchase_order_id)
+    public function getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id)
     {
-        list($response) = $this->getPurchaseOrderHistoryWithHttpInfo($purchase_order_id);
+        list($response) = $this->getPurchaseOrderHistoryWithHttpInfo($xero_tenant_id, $purchase_order_id);
         return $response;
     }
 
@@ -40419,15 +41785,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for PurchaseOrder
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPurchaseOrderHistoryWithHttpInfo($purchase_order_id)
+    public function getPurchaseOrderHistoryWithHttpInfo($xero_tenant_id, $purchase_order_id)
     {
-        $request = $this->getPurchaseOrderHistoryRequest($purchase_order_id);
+        $request = $this->getPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40507,14 +41874,15 @@ class AccountingApi
      *
      * Allows you to retrieve history for PurchaseOrder
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrderHistoryAsync($purchase_order_id)
+    public function getPurchaseOrderHistoryAsync($xero_tenant_id, $purchase_order_id)
     {
-        return $this->getPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id)
+        return $this->getPurchaseOrderHistoryAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40527,15 +41895,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for PurchaseOrder
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrderHistoryAsyncWithHttpInfo($purchase_order_id)
+    public function getPurchaseOrderHistoryAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getPurchaseOrderHistoryRequest($purchase_order_id);
+        $request = $this->getPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40574,13 +41943,20 @@ class AccountingApi
     /**
      * Create request for operation 'getPurchaseOrderHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPurchaseOrderHistoryRequest($purchase_order_id)
+    protected function getPurchaseOrderHistoryRequest($xero_tenant_id, $purchase_order_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPurchaseOrderHistory'
+            );
+        }
         // verify the required parameter 'purchase_order_id' is set
         if ($purchase_order_id === null || (is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -40595,6 +41971,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($purchase_order_id !== null) {
@@ -40678,6 +42058,7 @@ class AccountingApi
      *
      * Allows you to retrieve purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $status Filter by purchase order status (optional)
      * @param  string $date_from Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 (optional)
@@ -40689,9 +42070,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders
      */
-    public function getPurchaseOrders($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
+    public function getPurchaseOrders($xero_tenant_id, $if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
-        list($response) = $this->getPurchaseOrdersWithHttpInfo($if_modified_since, $status, $date_from, $date_to, $order, $page);
+        list($response) = $this->getPurchaseOrdersWithHttpInfo($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page);
         return $response;
     }
 
@@ -40700,6 +42081,7 @@ class AccountingApi
      *
      * Allows you to retrieve purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $status Filter by purchase order status (optional)
      * @param  string $date_from Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 (optional)
@@ -40711,9 +42093,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPurchaseOrdersWithHttpInfo($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
+    public function getPurchaseOrdersWithHttpInfo($xero_tenant_id, $if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
-        $request = $this->getPurchaseOrdersRequest($if_modified_since, $status, $date_from, $date_to, $order, $page);
+        $request = $this->getPurchaseOrdersRequest($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -40793,6 +42175,7 @@ class AccountingApi
      *
      * Allows you to retrieve purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $status Filter by purchase order status (optional)
      * @param  string $date_from Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 (optional)
@@ -40803,9 +42186,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrdersAsync($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
+    public function getPurchaseOrdersAsync($xero_tenant_id, $if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
-        return $this->getPurchaseOrdersAsyncWithHttpInfo($if_modified_since, $status, $date_from, $date_to, $order, $page)
+        return $this->getPurchaseOrdersAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -40818,6 +42201,7 @@ class AccountingApi
      *
      * Allows you to retrieve purchase orders
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $status Filter by purchase order status (optional)
      * @param  string $date_from Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 (optional)
@@ -40828,10 +42212,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPurchaseOrdersAsyncWithHttpInfo($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
+    public function getPurchaseOrdersAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
-        $request = $this->getPurchaseOrdersRequest($if_modified_since, $status, $date_from, $date_to, $order, $page);
+        $request = $this->getPurchaseOrdersRequest($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -40870,6 +42254,7 @@ class AccountingApi
     /**
      * Create request for operation 'getPurchaseOrders'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $status Filter by purchase order status (optional)
      * @param  string $date_from Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom&#x3D;2015-12-01&amp;DateTo&#x3D;2015-12-31 (optional)
@@ -40880,8 +42265,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getPurchaseOrdersRequest($if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
+    protected function getPurchaseOrdersRequest($xero_tenant_id, $if_modified_since = null, $status = null, $date_from = null, $date_to = null, $order = null, $page = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getPurchaseOrders'
+            );
+        }
 
         $resourcePath = '/PurchaseOrders';
         $formParams = [];
@@ -40909,6 +42300,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -40989,15 +42384,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Receipts
      */
-    public function getReceipt($receipt_id)
+    public function getReceipt($xero_tenant_id, $receipt_id)
     {
-        list($response) = $this->getReceiptWithHttpInfo($receipt_id);
+        list($response) = $this->getReceiptWithHttpInfo($xero_tenant_id, $receipt_id);
         return $response;
     }
 
@@ -41006,15 +42402,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptWithHttpInfo($receipt_id)
+    public function getReceiptWithHttpInfo($xero_tenant_id, $receipt_id)
     {
-        $request = $this->getReceiptRequest($receipt_id);
+        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41094,14 +42491,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAsync($receipt_id)
+    public function getReceiptAsync($xero_tenant_id, $receipt_id)
     {
-        return $this->getReceiptAsyncWithHttpInfo($receipt_id)
+        return $this->getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41114,15 +42512,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAsyncWithHttpInfo($receipt_id)
+    public function getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
-        $request = $this->getReceiptRequest($receipt_id);
+        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41161,13 +42560,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReceipt'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptRequest($receipt_id)
+    protected function getReceiptRequest($xero_tenant_id, $receipt_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceipt'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -41182,6 +42588,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -41265,6 +42675,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41273,9 +42684,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getReceiptAttachmentByFileName($receipt_id, $file_name, $content_type)
+    public function getReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $content_type)
     {
-        list($response) = $this->getReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $content_type);
+        list($response) = $this->getReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $content_type);
         return $response;
     }
 
@@ -41284,6 +42695,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41292,9 +42704,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $content_type)
+    public function getReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $content_type)
     {
-        $request = $this->getReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $content_type);
+        $request = $this->getReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41374,6 +42786,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41381,9 +42794,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentByFileNameAsync($receipt_id, $file_name, $content_type)
+    public function getReceiptAttachmentByFileNameAsync($xero_tenant_id, $receipt_id, $file_name, $content_type)
     {
-        return $this->getReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $content_type)
+        return $this->getReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41396,6 +42809,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41403,10 +42817,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $content_type)
+    public function getReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $content_type);
+        $request = $this->getReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41445,6 +42859,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReceiptAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41452,8 +42867,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $content_type)
+    protected function getReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceiptAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -41480,6 +42901,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -41575,6 +43000,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41583,9 +43009,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getReceiptAttachmentById($receipt_id, $attachment_id, $content_type)
+    public function getReceiptAttachmentById($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
     {
-        list($response) = $this->getReceiptAttachmentByIdWithHttpInfo($receipt_id, $attachment_id, $content_type);
+        list($response) = $this->getReceiptAttachmentByIdWithHttpInfo($xero_tenant_id, $receipt_id, $attachment_id, $content_type);
         return $response;
     }
 
@@ -41594,6 +43020,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41602,9 +43029,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptAttachmentByIdWithHttpInfo($receipt_id, $attachment_id, $content_type)
+    public function getReceiptAttachmentByIdWithHttpInfo($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
     {
-        $request = $this->getReceiptAttachmentByIdRequest($receipt_id, $attachment_id, $content_type);
+        $request = $this->getReceiptAttachmentByIdRequest($xero_tenant_id, $receipt_id, $attachment_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41684,6 +43111,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41691,9 +43119,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentByIdAsync($receipt_id, $attachment_id, $content_type)
+    public function getReceiptAttachmentByIdAsync($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
     {
-        return $this->getReceiptAttachmentByIdAsyncWithHttpInfo($receipt_id, $attachment_id, $content_type)
+        return $this->getReceiptAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -41706,6 +43134,7 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on expense claim receipts by ID
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41713,10 +43142,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentByIdAsyncWithHttpInfo($receipt_id, $attachment_id, $content_type)
+    public function getReceiptAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getReceiptAttachmentByIdRequest($receipt_id, $attachment_id, $content_type);
+        $request = $this->getReceiptAttachmentByIdRequest($xero_tenant_id, $receipt_id, $attachment_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -41755,6 +43184,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReceiptAttachmentById'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -41762,8 +43192,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptAttachmentByIdRequest($receipt_id, $attachment_id, $content_type)
+    protected function getReceiptAttachmentByIdRequest($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceiptAttachmentById'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -41790,6 +43226,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -41885,15 +43325,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
-    public function getReceiptAttachments($receipt_id)
+    public function getReceiptAttachments($xero_tenant_id, $receipt_id)
     {
-        list($response) = $this->getReceiptAttachmentsWithHttpInfo($receipt_id);
+        list($response) = $this->getReceiptAttachmentsWithHttpInfo($xero_tenant_id, $receipt_id);
         return $response;
     }
 
@@ -41902,15 +43343,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptAttachmentsWithHttpInfo($receipt_id)
+    public function getReceiptAttachmentsWithHttpInfo($xero_tenant_id, $receipt_id)
     {
-        $request = $this->getReceiptAttachmentsRequest($receipt_id);
+        $request = $this->getReceiptAttachmentsRequest($xero_tenant_id, $receipt_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -41990,14 +43432,15 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentsAsync($receipt_id)
+    public function getReceiptAttachmentsAsync($xero_tenant_id, $receipt_id)
     {
-        return $this->getReceiptAttachmentsAsyncWithHttpInfo($receipt_id)
+        return $this->getReceiptAttachmentsAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42010,15 +43453,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments for expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAttachmentsAsyncWithHttpInfo($receipt_id)
+    public function getReceiptAttachmentsAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->getReceiptAttachmentsRequest($receipt_id);
+        $request = $this->getReceiptAttachmentsRequest($xero_tenant_id, $receipt_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42057,13 +43501,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReceiptAttachments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptAttachmentsRequest($receipt_id)
+    protected function getReceiptAttachmentsRequest($xero_tenant_id, $receipt_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceiptAttachments'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -42078,6 +43529,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -42161,15 +43616,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getReceiptHistory($receipt_id)
+    public function getReceiptHistory($xero_tenant_id, $receipt_id)
     {
-        list($response) = $this->getReceiptHistoryWithHttpInfo($receipt_id);
+        list($response) = $this->getReceiptHistoryWithHttpInfo($xero_tenant_id, $receipt_id);
         return $response;
     }
 
@@ -42178,15 +43634,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptHistoryWithHttpInfo($receipt_id)
+    public function getReceiptHistoryWithHttpInfo($xero_tenant_id, $receipt_id)
     {
-        $request = $this->getReceiptHistoryRequest($receipt_id);
+        $request = $this->getReceiptHistoryRequest($xero_tenant_id, $receipt_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42266,14 +43723,15 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptHistoryAsync($receipt_id)
+    public function getReceiptHistoryAsync($xero_tenant_id, $receipt_id)
     {
-        return $this->getReceiptHistoryAsyncWithHttpInfo($receipt_id)
+        return $this->getReceiptHistoryAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42286,15 +43744,16 @@ class AccountingApi
      *
      * Allows you to retrieve a history records of an Receipt
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptHistoryAsyncWithHttpInfo($receipt_id)
+    public function getReceiptHistoryAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getReceiptHistoryRequest($receipt_id);
+        $request = $this->getReceiptHistoryRequest($xero_tenant_id, $receipt_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42333,13 +43792,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReceiptHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptHistoryRequest($receipt_id)
+    protected function getReceiptHistoryRequest($xero_tenant_id, $receipt_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceiptHistory'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -42354,6 +43820,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -42437,6 +43907,7 @@ class AccountingApi
      *
      * Allows you to retrieve draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -42446,9 +43917,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Receipts
      */
-    public function getReceipts($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getReceipts($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        list($response) = $this->getReceiptsWithHttpInfo($if_modified_since, $where, $order, $unitdp);
+        list($response) = $this->getReceiptsWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
         return $response;
     }
 
@@ -42457,6 +43928,7 @@ class AccountingApi
      *
      * Allows you to retrieve draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -42466,9 +43938,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptsWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getReceiptsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        $request = $this->getReceiptsRequest($if_modified_since, $where, $order, $unitdp);
+        $request = $this->getReceiptsRequest($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42548,6 +44020,7 @@ class AccountingApi
      *
      * Allows you to retrieve draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -42556,9 +44029,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsync($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getReceiptsAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
-        return $this->getReceiptsAsyncWithHttpInfo($if_modified_since, $where, $order, $unitdp)
+        return $this->getReceiptsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42571,6 +44044,7 @@ class AccountingApi
      *
      * Allows you to retrieve draft expense claim receipts for any user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -42579,10 +44053,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptsAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    public function getReceiptsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
-        $request = $this->getReceiptsRequest($if_modified_since, $where, $order, $unitdp);
+        $request = $this->getReceiptsRequest($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42621,6 +44095,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReceipts'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -42629,8 +44104,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptsRequest($if_modified_since = null, $where = null, $order = null, $unitdp = null)
+    protected function getReceiptsRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $unitdp = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReceipts'
+            );
+        }
 
         $resourcePath = '/Receipts';
         $formParams = [];
@@ -42650,6 +44131,10 @@ class AccountingApi
         // query params
         if ($unitdp !== null) {
             $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -42730,15 +44215,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoices
      */
-    public function getRepeatingInvoice($repeating_invoice_id)
+    public function getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id)
     {
-        list($response) = $this->getRepeatingInvoiceWithHttpInfo($repeating_invoice_id);
+        list($response) = $this->getRepeatingInvoiceWithHttpInfo($xero_tenant_id, $repeating_invoice_id);
         return $response;
     }
 
@@ -42747,15 +44233,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoiceWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
-        $request = $this->getRepeatingInvoiceRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceRequest($xero_tenant_id, $repeating_invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -42835,14 +44322,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAsync($repeating_invoice_id)
+    public function getRepeatingInvoiceAsync($xero_tenant_id, $repeating_invoice_id)
     {
-        return $this->getRepeatingInvoiceAsyncWithHttpInfo($repeating_invoice_id)
+        return $this->getRepeatingInvoiceAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -42855,15 +44343,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAsyncWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
-        $request = $this->getRepeatingInvoiceRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceRequest($xero_tenant_id, $repeating_invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -42902,13 +44391,20 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoiceRequest($repeating_invoice_id)
+    protected function getRepeatingInvoiceRequest($xero_tenant_id, $repeating_invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoice'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -42923,6 +44419,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -43006,6 +44506,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43014,9 +44515,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getRepeatingInvoiceAttachmentByFileName($repeating_invoice_id, $file_name, $content_type)
+    public function getRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
     {
-        list($response) = $this->getRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $content_type);
+        list($response) = $this->getRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type);
         return $response;
     }
 
@@ -43025,6 +44526,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43033,9 +44535,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $content_type)
+    public function getRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
     {
-        $request = $this->getRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $content_type);
+        $request = $this->getRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43115,6 +44617,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43122,9 +44625,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentByFileNameAsync($repeating_invoice_id, $file_name, $content_type)
+    public function getRepeatingInvoiceAttachmentByFileNameAsync($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
     {
-        return $this->getRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $content_type)
+        return $this->getRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43137,6 +44640,7 @@ class AccountingApi
      *
      * Allows you to retrieve specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43144,10 +44648,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $content_type)
+    public function getRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $content_type);
+        $request = $this->getRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43186,6 +44690,7 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43193,8 +44698,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $content_type)
+    protected function getRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -43221,6 +44732,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -43316,6 +44831,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachments on repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43324,9 +44840,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getRepeatingInvoiceAttachmentById($repeating_invoice_id, $attachment_id, $content_type)
+    public function getRepeatingInvoiceAttachmentById($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
     {
-        list($response) = $this->getRepeatingInvoiceAttachmentByIdWithHttpInfo($repeating_invoice_id, $attachment_id, $content_type);
+        list($response) = $this->getRepeatingInvoiceAttachmentByIdWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type);
         return $response;
     }
 
@@ -43335,6 +44851,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachments on repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43343,9 +44860,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoiceAttachmentByIdWithHttpInfo($repeating_invoice_id, $attachment_id, $content_type)
+    public function getRepeatingInvoiceAttachmentByIdWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
     {
-        $request = $this->getRepeatingInvoiceAttachmentByIdRequest($repeating_invoice_id, $attachment_id, $content_type);
+        $request = $this->getRepeatingInvoiceAttachmentByIdRequest($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43425,6 +44942,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachments on repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43432,9 +44950,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentByIdAsync($repeating_invoice_id, $attachment_id, $content_type)
+    public function getRepeatingInvoiceAttachmentByIdAsync($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
     {
-        return $this->getRepeatingInvoiceAttachmentByIdAsyncWithHttpInfo($repeating_invoice_id, $attachment_id, $content_type)
+        return $this->getRepeatingInvoiceAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43447,6 +44965,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified Attachments on repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43454,10 +44973,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentByIdAsyncWithHttpInfo($repeating_invoice_id, $attachment_id, $content_type)
+    public function getRepeatingInvoiceAttachmentByIdAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getRepeatingInvoiceAttachmentByIdRequest($repeating_invoice_id, $attachment_id, $content_type);
+        $request = $this->getRepeatingInvoiceAttachmentByIdRequest($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43496,6 +45015,7 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoiceAttachmentById'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $attachment_id Unique identifier for a Attachment (required)
      * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
@@ -43503,8 +45023,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoiceAttachmentByIdRequest($repeating_invoice_id, $attachment_id, $content_type)
+    protected function getRepeatingInvoiceAttachmentByIdRequest($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoiceAttachmentById'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -43531,6 +45057,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
         // header params
         if ($content_type !== null) {
             $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
@@ -43626,15 +45156,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments
      */
-    public function getRepeatingInvoiceAttachments($repeating_invoice_id)
+    public function getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id)
     {
-        list($response) = $this->getRepeatingInvoiceAttachmentsWithHttpInfo($repeating_invoice_id);
+        list($response) = $this->getRepeatingInvoiceAttachmentsWithHttpInfo($xero_tenant_id, $repeating_invoice_id);
         return $response;
     }
 
@@ -43643,15 +45174,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoiceAttachmentsWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceAttachmentsWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
-        $request = $this->getRepeatingInvoiceAttachmentsRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceAttachmentsRequest($xero_tenant_id, $repeating_invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -43731,14 +45263,15 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentsAsync($repeating_invoice_id)
+    public function getRepeatingInvoiceAttachmentsAsync($xero_tenant_id, $repeating_invoice_id)
     {
-        return $this->getRepeatingInvoiceAttachmentsAsyncWithHttpInfo($repeating_invoice_id)
+        return $this->getRepeatingInvoiceAttachmentsAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -43751,15 +45284,16 @@ class AccountingApi
      *
      * Allows you to retrieve Attachments on repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceAttachmentsAsyncWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceAttachmentsAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->getRepeatingInvoiceAttachmentsRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceAttachmentsRequest($xero_tenant_id, $repeating_invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -43798,13 +45332,20 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoiceAttachments'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoiceAttachmentsRequest($repeating_invoice_id)
+    protected function getRepeatingInvoiceAttachmentsRequest($xero_tenant_id, $repeating_invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoiceAttachments'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -43819,6 +45360,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -43902,15 +45447,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\HistoryRecords
      */
-    public function getRepeatingInvoiceHistory($repeating_invoice_id)
+    public function getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id)
     {
-        list($response) = $this->getRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id);
+        list($response) = $this->getRepeatingInvoiceHistoryWithHttpInfo($xero_tenant_id, $repeating_invoice_id);
         return $response;
     }
 
@@ -43919,15 +45465,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoiceHistoryWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceHistoryWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
-        $request = $this->getRepeatingInvoiceHistoryRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44007,14 +45554,15 @@ class AccountingApi
      *
      * Allows you to retrieve history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceHistoryAsync($repeating_invoice_id)
+    public function getRepeatingInvoiceHistoryAsync($xero_tenant_id, $repeating_invoice_id)
     {
-        return $this->getRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id)
+        return $this->getRepeatingInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44027,15 +45575,16 @@ class AccountingApi
      *
      * Allows you to retrieve history for a repeating invoice
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoiceHistoryAsyncWithHttpInfo($repeating_invoice_id)
+    public function getRepeatingInvoiceHistoryAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\HistoryRecords';
-        $request = $this->getRepeatingInvoiceHistoryRequest($repeating_invoice_id);
+        $request = $this->getRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44074,13 +45623,20 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoiceHistory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoiceHistoryRequest($repeating_invoice_id)
+    protected function getRepeatingInvoiceHistoryRequest($xero_tenant_id, $repeating_invoice_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoiceHistory'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -44095,6 +45651,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -44178,6 +45738,7 @@ class AccountingApi
      *
      * Allows you to retrieve any repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -44185,9 +45746,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\RepeatingInvoices
      */
-    public function getRepeatingInvoices($where = null, $order = null)
+    public function getRepeatingInvoices($xero_tenant_id, $where = null, $order = null)
     {
-        list($response) = $this->getRepeatingInvoicesWithHttpInfo($where, $order);
+        list($response) = $this->getRepeatingInvoicesWithHttpInfo($xero_tenant_id, $where, $order);
         return $response;
     }
 
@@ -44196,6 +45757,7 @@ class AccountingApi
      *
      * Allows you to retrieve any repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
@@ -44203,9 +45765,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\RepeatingInvoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRepeatingInvoicesWithHttpInfo($where = null, $order = null)
+    public function getRepeatingInvoicesWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
-        $request = $this->getRepeatingInvoicesRequest($where, $order);
+        $request = $this->getRepeatingInvoicesRequest($xero_tenant_id, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44285,15 +45847,16 @@ class AccountingApi
      *
      * Allows you to retrieve any repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoicesAsync($where = null, $order = null)
+    public function getRepeatingInvoicesAsync($xero_tenant_id, $where = null, $order = null)
     {
-        return $this->getRepeatingInvoicesAsyncWithHttpInfo($where, $order)
+        return $this->getRepeatingInvoicesAsyncWithHttpInfo($xero_tenant_id, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44306,16 +45869,17 @@ class AccountingApi
      *
      * Allows you to retrieve any repeating invoices
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRepeatingInvoicesAsyncWithHttpInfo($where = null, $order = null)
+    public function getRepeatingInvoicesAsyncWithHttpInfo($xero_tenant_id, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\RepeatingInvoices';
-        $request = $this->getRepeatingInvoicesRequest($where, $order);
+        $request = $this->getRepeatingInvoicesRequest($xero_tenant_id, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44354,14 +45918,21 @@ class AccountingApi
     /**
      * Create request for operation 'getRepeatingInvoices'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getRepeatingInvoicesRequest($where = null, $order = null)
+    protected function getRepeatingInvoicesRequest($xero_tenant_id, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoices'
+            );
+        }
 
         $resourcePath = '/RepeatingInvoices';
         $formParams = [];
@@ -44377,6 +45948,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -44453,6 +46028,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedPayablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
@@ -44462,9 +46038,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportAgedPayablesByContact($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        list($response) = $this->getReportAgedPayablesByContactWithHttpInfo($contact_id, $date, $from_date, $to_date);
+        list($response) = $this->getReportAgedPayablesByContactWithHttpInfo($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
         return $response;
     }
 
@@ -44473,6 +46049,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedPayablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
@@ -44482,9 +46059,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportAgedPayablesByContactWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedPayablesByContactWithHttpInfo($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        $request = $this->getReportAgedPayablesByContactRequest($contact_id, $date, $from_date, $to_date);
+        $request = $this->getReportAgedPayablesByContactRequest($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44564,6 +46141,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedPayablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
@@ -44572,9 +46150,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAgedPayablesByContactAsync($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedPayablesByContactAsync($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        return $this->getReportAgedPayablesByContactAsyncWithHttpInfo($contact_id, $date, $from_date, $to_date)
+        return $this->getReportAgedPayablesByContactAsyncWithHttpInfo($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44587,6 +46165,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedPayablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
@@ -44595,10 +46174,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAgedPayablesByContactAsyncWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedPayablesByContactAsyncWithHttpInfo($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportAgedPayablesByContactRequest($contact_id, $date, $from_date, $to_date);
+        $request = $this->getReportAgedPayablesByContactRequest($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44637,6 +46216,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportAgedPayablesByContact'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Payables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Payables By Contact report (optional)
@@ -44645,8 +46225,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportAgedPayablesByContactRequest($contact_id, $date = null, $from_date = null, $to_date = null)
+    protected function getReportAgedPayablesByContactRequest($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportAgedPayablesByContact'
+            );
+        }
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -44676,6 +46262,10 @@ class AccountingApi
         // query params
         if ($to_date !== null) {
             $queryParams['toDate'] = ObjectSerializer::toQueryValue($to_date);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -44752,6 +46342,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedReceivablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
@@ -44761,9 +46352,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportAgedReceivablesByContact($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        list($response) = $this->getReportAgedReceivablesByContactWithHttpInfo($contact_id, $date, $from_date, $to_date);
+        list($response) = $this->getReportAgedReceivablesByContactWithHttpInfo($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
         return $response;
     }
 
@@ -44772,6 +46363,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedReceivablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
@@ -44781,9 +46373,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportAgedReceivablesByContactWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedReceivablesByContactWithHttpInfo($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        $request = $this->getReportAgedReceivablesByContactRequest($contact_id, $date, $from_date, $to_date);
+        $request = $this->getReportAgedReceivablesByContactRequest($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
 
         try {
             $options = $this->createHttpClientOption();
@@ -44863,6 +46455,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedReceivablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
@@ -44871,9 +46464,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAgedReceivablesByContactAsync($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedReceivablesByContactAsync($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
-        return $this->getReportAgedReceivablesByContactAsyncWithHttpInfo($contact_id, $date, $from_date, $to_date)
+        return $this->getReportAgedReceivablesByContactAsyncWithHttpInfo($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -44886,6 +46479,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for AgedReceivablesByContact
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
@@ -44894,10 +46488,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportAgedReceivablesByContactAsyncWithHttpInfo($contact_id, $date = null, $from_date = null, $to_date = null)
+    public function getReportAgedReceivablesByContactAsyncWithHttpInfo($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportAgedReceivablesByContactRequest($contact_id, $date, $from_date, $to_date);
+        $request = $this->getReportAgedReceivablesByContactRequest($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -44936,6 +46530,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportAgedReceivablesByContact'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  \DateTime $date The date of the Aged Receivables By Contact report (optional)
      * @param  \DateTime $from_date The from date of the Aged Receivables By Contact report (optional)
@@ -44944,8 +46539,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportAgedReceivablesByContactRequest($contact_id, $date = null, $from_date = null, $to_date = null)
+    protected function getReportAgedReceivablesByContactRequest($xero_tenant_id, $contact_id, $date = null, $from_date = null, $to_date = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportAgedReceivablesByContact'
+            );
+        }
         // verify the required parameter 'contact_id' is set
         if ($contact_id === null || (is_array($contact_id) && count($contact_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -44975,6 +46576,10 @@ class AccountingApi
         // query params
         if ($to_date !== null) {
             $queryParams['toDate'] = ObjectSerializer::toQueryValue($to_date);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -45051,15 +46656,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_id Unique identifier for a Report (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportBASorGST($report_id)
+    public function getReportBASorGST($xero_tenant_id, $report_id)
     {
-        list($response) = $this->getReportBASorGSTWithHttpInfo($report_id);
+        list($response) = $this->getReportBASorGSTWithHttpInfo($xero_tenant_id, $report_id);
         return $response;
     }
 
@@ -45068,15 +46674,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_id Unique identifier for a Report (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBASorGSTWithHttpInfo($report_id)
+    public function getReportBASorGSTWithHttpInfo($xero_tenant_id, $report_id)
     {
-        $request = $this->getReportBASorGSTRequest($report_id);
+        $request = $this->getReportBASorGSTRequest($xero_tenant_id, $report_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45156,14 +46763,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_id Unique identifier for a Report (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBASorGSTAsync($report_id)
+    public function getReportBASorGSTAsync($xero_tenant_id, $report_id)
     {
-        return $this->getReportBASorGSTAsyncWithHttpInfo($report_id)
+        return $this->getReportBASorGSTAsyncWithHttpInfo($xero_tenant_id, $report_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45176,15 +46784,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_id Unique identifier for a Report (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBASorGSTAsyncWithHttpInfo($report_id)
+    public function getReportBASorGSTAsyncWithHttpInfo($xero_tenant_id, $report_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportBASorGSTRequest($report_id);
+        $request = $this->getReportBASorGSTRequest($xero_tenant_id, $report_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45223,13 +46832,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBASorGST'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_id Unique identifier for a Report (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportBASorGSTRequest($report_id)
+    protected function getReportBASorGSTRequest($xero_tenant_id, $report_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportBASorGST'
+            );
+        }
         // verify the required parameter 'report_id' is set
         if ($report_id === null || (is_array($report_id) && count($report_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -45244,6 +46860,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($report_id !== null) {
@@ -45327,14 +46947,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportBASorGSTList()
+    public function getReportBASorGSTList($xero_tenant_id)
     {
-        list($response) = $this->getReportBASorGSTListWithHttpInfo();
+        list($response) = $this->getReportBASorGSTListWithHttpInfo($xero_tenant_id);
         return $response;
     }
 
@@ -45343,14 +46964,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBASorGSTListWithHttpInfo()
+    public function getReportBASorGSTListWithHttpInfo($xero_tenant_id)
     {
-        $request = $this->getReportBASorGSTListRequest();
+        $request = $this->getReportBASorGSTListRequest($xero_tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45430,13 +47052,14 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBASorGSTListAsync()
+    public function getReportBASorGSTListAsync($xero_tenant_id)
     {
-        return $this->getReportBASorGSTListAsyncWithHttpInfo()
+        return $this->getReportBASorGSTListAsyncWithHttpInfo($xero_tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45449,14 +47072,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for BAS only valid for AU orgs
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBASorGSTListAsyncWithHttpInfo()
+    public function getReportBASorGSTListAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportBASorGSTListRequest();
+        $request = $this->getReportBASorGSTListRequest($xero_tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45495,12 +47119,19 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBASorGSTList'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportBASorGSTListRequest()
+    protected function getReportBASorGSTListRequest($xero_tenant_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportBASorGSTList'
+            );
+        }
 
         $resourcePath = '/Reports';
         $formParams = [];
@@ -45509,6 +47140,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -45584,6 +47219,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BalanceSheet
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $date The date of the Balance Sheet report (optional)
      * @param  int $periods The number of periods for the Balance Sheet report (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
@@ -45596,9 +47232,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportBalanceSheet($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportBalanceSheet($xero_tenant_id, $date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        list($response) = $this->getReportBalanceSheetWithHttpInfo($date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
+        list($response) = $this->getReportBalanceSheetWithHttpInfo($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
         return $response;
     }
 
@@ -45607,6 +47243,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BalanceSheet
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $date The date of the Balance Sheet report (optional)
      * @param  int $periods The number of periods for the Balance Sheet report (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
@@ -45619,9 +47256,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBalanceSheetWithHttpInfo($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportBalanceSheetWithHttpInfo($xero_tenant_id, $date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        $request = $this->getReportBalanceSheetRequest($date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
+        $request = $this->getReportBalanceSheetRequest($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45701,6 +47338,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BalanceSheet
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $date The date of the Balance Sheet report (optional)
      * @param  int $periods The number of periods for the Balance Sheet report (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
@@ -45712,9 +47350,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBalanceSheetAsync($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportBalanceSheetAsync($xero_tenant_id, $date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        return $this->getReportBalanceSheetAsyncWithHttpInfo($date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
+        return $this->getReportBalanceSheetAsyncWithHttpInfo($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45727,6 +47365,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BalanceSheet
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $date The date of the Balance Sheet report (optional)
      * @param  int $periods The number of periods for the Balance Sheet report (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
@@ -45738,10 +47377,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBalanceSheetAsyncWithHttpInfo($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportBalanceSheetAsyncWithHttpInfo($xero_tenant_id, $date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportBalanceSheetRequest($date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
+        $request = $this->getReportBalanceSheetRequest($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45780,6 +47419,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBalanceSheet'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $date The date of the Balance Sheet report (optional)
      * @param  int $periods The number of periods for the Balance Sheet report (optional)
      * @param  string $timeframe The period size to compare to (MONTH, QUARTER, YEAR) (optional)
@@ -45791,8 +47431,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportBalanceSheetRequest($date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    protected function getReportBalanceSheetRequest($xero_tenant_id, $date = null, $periods = null, $timeframe = null, $tracking_option_id1 = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportBalanceSheet'
+            );
+        }
 
         $resourcePath = '/Reports/BalanceSheet';
         $formParams = [];
@@ -45828,6 +47474,10 @@ class AccountingApi
         // query params
         if ($payments_only !== null) {
             $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -45904,6 +47554,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -45912,9 +47563,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportBankSummary($date = null, $period = null, $timeframe = null)
+    public function getReportBankSummary($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        list($response) = $this->getReportBankSummaryWithHttpInfo($date, $period, $timeframe);
+        list($response) = $this->getReportBankSummaryWithHttpInfo($xero_tenant_id, $date, $period, $timeframe);
         return $response;
     }
 
@@ -45923,6 +47574,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -45931,9 +47583,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBankSummaryWithHttpInfo($date = null, $period = null, $timeframe = null)
+    public function getReportBankSummaryWithHttpInfo($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        $request = $this->getReportBankSummaryRequest($date, $period, $timeframe);
+        $request = $this->getReportBankSummaryRequest($xero_tenant_id, $date, $period, $timeframe);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46013,6 +47665,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46020,9 +47673,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBankSummaryAsync($date = null, $period = null, $timeframe = null)
+    public function getReportBankSummaryAsync($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        return $this->getReportBankSummaryAsyncWithHttpInfo($date, $period, $timeframe)
+        return $this->getReportBankSummaryAsyncWithHttpInfo($xero_tenant_id, $date, $period, $timeframe)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46035,6 +47688,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for BankSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46042,10 +47696,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBankSummaryAsyncWithHttpInfo($date = null, $period = null, $timeframe = null)
+    public function getReportBankSummaryAsyncWithHttpInfo($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportBankSummaryRequest($date, $period, $timeframe);
+        $request = $this->getReportBankSummaryRequest($xero_tenant_id, $date, $period, $timeframe);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46084,6 +47738,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBankSummary'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46091,8 +47746,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportBankSummaryRequest($date = null, $period = null, $timeframe = null)
+    protected function getReportBankSummaryRequest($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportBankSummary'
+            );
+        }
 
         $resourcePath = '/Reports/BankSummary';
         $formParams = [];
@@ -46112,6 +47773,10 @@ class AccountingApi
         // query params
         if ($timeframe !== null) {
             $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46188,6 +47853,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46196,9 +47862,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportBudgetSummary($date = null, $period = null, $timeframe = null)
+    public function getReportBudgetSummary($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        list($response) = $this->getReportBudgetSummaryWithHttpInfo($date, $period, $timeframe);
+        list($response) = $this->getReportBudgetSummaryWithHttpInfo($xero_tenant_id, $date, $period, $timeframe);
         return $response;
     }
 
@@ -46207,6 +47873,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46215,9 +47882,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportBudgetSummaryWithHttpInfo($date = null, $period = null, $timeframe = null)
+    public function getReportBudgetSummaryWithHttpInfo($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        $request = $this->getReportBudgetSummaryRequest($date, $period, $timeframe);
+        $request = $this->getReportBudgetSummaryRequest($xero_tenant_id, $date, $period, $timeframe);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46297,6 +47964,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46304,9 +47972,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBudgetSummaryAsync($date = null, $period = null, $timeframe = null)
+    public function getReportBudgetSummaryAsync($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
-        return $this->getReportBudgetSummaryAsyncWithHttpInfo($date, $period, $timeframe)
+        return $this->getReportBudgetSummaryAsyncWithHttpInfo($xero_tenant_id, $date, $period, $timeframe)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46319,6 +47987,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for Budget Summary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46326,10 +47995,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportBudgetSummaryAsyncWithHttpInfo($date = null, $period = null, $timeframe = null)
+    public function getReportBudgetSummaryAsyncWithHttpInfo($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportBudgetSummaryRequest($date, $period, $timeframe);
+        $request = $this->getReportBudgetSummaryRequest($xero_tenant_id, $date, $period, $timeframe);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46368,6 +48037,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportBudgetSummary'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      * @param  int $period The number of periods to compare (integer between 1 and 12) (optional)
      * @param  int $timeframe The period size to compare to (1&#x3D;month, 3&#x3D;quarter, 12&#x3D;year) (optional)
@@ -46375,8 +48045,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportBudgetSummaryRequest($date = null, $period = null, $timeframe = null)
+    protected function getReportBudgetSummaryRequest($xero_tenant_id, $date = null, $period = null, $timeframe = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportBudgetSummary'
+            );
+        }
 
         $resourcePath = '/Reports/BudgetSummary';
         $formParams = [];
@@ -46396,6 +48072,10 @@ class AccountingApi
         // query params
         if ($timeframe !== null) {
             $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46472,15 +48152,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportExecutiveSummary($date = null)
+    public function getReportExecutiveSummary($xero_tenant_id, $date = null)
     {
-        list($response) = $this->getReportExecutiveSummaryWithHttpInfo($date);
+        list($response) = $this->getReportExecutiveSummaryWithHttpInfo($xero_tenant_id, $date);
         return $response;
     }
 
@@ -46489,15 +48170,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportExecutiveSummaryWithHttpInfo($date = null)
+    public function getReportExecutiveSummaryWithHttpInfo($xero_tenant_id, $date = null)
     {
-        $request = $this->getReportExecutiveSummaryRequest($date);
+        $request = $this->getReportExecutiveSummaryRequest($xero_tenant_id, $date);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46577,14 +48259,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportExecutiveSummaryAsync($date = null)
+    public function getReportExecutiveSummaryAsync($xero_tenant_id, $date = null)
     {
-        return $this->getReportExecutiveSummaryAsyncWithHttpInfo($date)
+        return $this->getReportExecutiveSummaryAsyncWithHttpInfo($xero_tenant_id, $date)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46597,15 +48280,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for ExecutiveSummary
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportExecutiveSummaryAsyncWithHttpInfo($date = null)
+    public function getReportExecutiveSummaryAsyncWithHttpInfo($xero_tenant_id, $date = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportExecutiveSummaryRequest($date);
+        $request = $this->getReportExecutiveSummaryRequest($xero_tenant_id, $date);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46644,13 +48328,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReportExecutiveSummary'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Bank Summary report e.g. 2018-03-31 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportExecutiveSummaryRequest($date = null)
+    protected function getReportExecutiveSummaryRequest($xero_tenant_id, $date = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportExecutiveSummary'
+            );
+        }
 
         $resourcePath = '/Reports/ExecutiveSummary';
         $formParams = [];
@@ -46662,6 +48353,10 @@ class AccountingApi
         // query params
         if ($date !== null) {
             $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46738,6 +48433,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
@@ -46753,9 +48449,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportProfitAndLoss($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportProfitAndLoss($xero_tenant_id, $from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        list($response) = $this->getReportProfitAndLossWithHttpInfo($from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
+        list($response) = $this->getReportProfitAndLossWithHttpInfo($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
         return $response;
     }
 
@@ -46764,6 +48460,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
@@ -46779,9 +48476,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportProfitAndLossWithHttpInfo($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportProfitAndLossWithHttpInfo($xero_tenant_id, $from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        $request = $this->getReportProfitAndLossRequest($from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
+        $request = $this->getReportProfitAndLossRequest($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -46861,6 +48558,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
@@ -46875,9 +48573,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportProfitAndLossAsync($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportProfitAndLossAsync($xero_tenant_id, $from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
-        return $this->getReportProfitAndLossAsyncWithHttpInfo($from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
+        return $this->getReportProfitAndLossAsyncWithHttpInfo($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -46890,6 +48588,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for ProfitAndLoss
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
@@ -46904,10 +48603,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportProfitAndLossAsyncWithHttpInfo($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    public function getReportProfitAndLossAsyncWithHttpInfo($xero_tenant_id, $from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportProfitAndLossRequest($from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
+        $request = $this->getReportProfitAndLossRequest($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -46946,6 +48645,7 @@ class AccountingApi
     /**
      * Create request for operation 'getReportProfitAndLoss'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $from_date The from date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  \DateTime $to_date The to date for the ProfitAndLoss report e.g. 2018-03-31 (optional)
      * @param  int $periods The number of periods to compare (integer between 1 and 12) (optional)
@@ -46960,8 +48660,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportProfitAndLossRequest($from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
+    protected function getReportProfitAndLossRequest($xero_tenant_id, $from_date = null, $to_date = null, $periods = null, $timeframe = null, $tracking_category_id = null, $tracking_category_id2 = null, $tracking_option_id = null, $tracking_option_id2 = null, $standard_layout = null, $payments_only = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportProfitAndLoss'
+            );
+        }
 
         $resourcePath = '/Reports/ProfitAndLoss';
         $formParams = [];
@@ -47009,6 +48715,10 @@ class AccountingApi
         // query params
         if ($payments_only !== null) {
             $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47085,15 +48795,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for TenNinetyNine
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_year The year of the 1099 report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Reports
      */
-    public function getReportTenNinetyNine($report_year = null)
+    public function getReportTenNinetyNine($xero_tenant_id, $report_year = null)
     {
-        list($response) = $this->getReportTenNinetyNineWithHttpInfo($report_year);
+        list($response) = $this->getReportTenNinetyNineWithHttpInfo($xero_tenant_id, $report_year);
         return $response;
     }
 
@@ -47102,15 +48813,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for TenNinetyNine
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_year The year of the 1099 report (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Reports, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportTenNinetyNineWithHttpInfo($report_year = null)
+    public function getReportTenNinetyNineWithHttpInfo($xero_tenant_id, $report_year = null)
     {
-        $request = $this->getReportTenNinetyNineRequest($report_year);
+        $request = $this->getReportTenNinetyNineRequest($xero_tenant_id, $report_year);
 
         try {
             $options = $this->createHttpClientOption();
@@ -47190,14 +48902,15 @@ class AccountingApi
      *
      * Allows you to retrieve report for TenNinetyNine
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_year The year of the 1099 report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportTenNinetyNineAsync($report_year = null)
+    public function getReportTenNinetyNineAsync($xero_tenant_id, $report_year = null)
     {
-        return $this->getReportTenNinetyNineAsyncWithHttpInfo($report_year)
+        return $this->getReportTenNinetyNineAsyncWithHttpInfo($xero_tenant_id, $report_year)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -47210,15 +48923,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for TenNinetyNine
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_year The year of the 1099 report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportTenNinetyNineAsyncWithHttpInfo($report_year = null)
+    public function getReportTenNinetyNineAsyncWithHttpInfo($xero_tenant_id, $report_year = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Reports';
-        $request = $this->getReportTenNinetyNineRequest($report_year);
+        $request = $this->getReportTenNinetyNineRequest($xero_tenant_id, $report_year);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -47257,13 +48971,20 @@ class AccountingApi
     /**
      * Create request for operation 'getReportTenNinetyNine'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $report_year The year of the 1099 report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportTenNinetyNineRequest($report_year = null)
+    protected function getReportTenNinetyNineRequest($xero_tenant_id, $report_year = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportTenNinetyNine'
+            );
+        }
 
         $resourcePath = '/Reports/TenNinetyNine';
         $formParams = [];
@@ -47275,6 +48996,10 @@ class AccountingApi
         // query params
         if ($report_year !== null) {
             $queryParams['reportYear'] = ObjectSerializer::toQueryValue($report_year);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47351,6 +49076,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
@@ -47358,9 +49084,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ReportWithRows
      */
-    public function getReportTrialBalance($date = null, $payments_only = null)
+    public function getReportTrialBalance($xero_tenant_id, $date = null, $payments_only = null)
     {
-        list($response) = $this->getReportTrialBalanceWithHttpInfo($date, $payments_only);
+        list($response) = $this->getReportTrialBalanceWithHttpInfo($xero_tenant_id, $date, $payments_only);
         return $response;
     }
 
@@ -47369,6 +49095,7 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
@@ -47376,9 +49103,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ReportWithRows, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReportTrialBalanceWithHttpInfo($date = null, $payments_only = null)
+    public function getReportTrialBalanceWithHttpInfo($xero_tenant_id, $date = null, $payments_only = null)
     {
-        $request = $this->getReportTrialBalanceRequest($date, $payments_only);
+        $request = $this->getReportTrialBalanceRequest($xero_tenant_id, $date, $payments_only);
 
         try {
             $options = $this->createHttpClientOption();
@@ -47458,15 +49185,16 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportTrialBalanceAsync($date = null, $payments_only = null)
+    public function getReportTrialBalanceAsync($xero_tenant_id, $date = null, $payments_only = null)
     {
-        return $this->getReportTrialBalanceAsyncWithHttpInfo($date, $payments_only)
+        return $this->getReportTrialBalanceAsyncWithHttpInfo($xero_tenant_id, $date, $payments_only)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -47479,16 +49207,17 @@ class AccountingApi
      *
      * Allows you to retrieve report for TrialBalance
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReportTrialBalanceAsyncWithHttpInfo($date = null, $payments_only = null)
+    public function getReportTrialBalanceAsyncWithHttpInfo($xero_tenant_id, $date = null, $payments_only = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ReportWithRows';
-        $request = $this->getReportTrialBalanceRequest($date, $payments_only);
+        $request = $this->getReportTrialBalanceRequest($xero_tenant_id, $date, $payments_only);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -47527,14 +49256,21 @@ class AccountingApi
     /**
      * Create request for operation 'getReportTrialBalance'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $date The date for the Trial Balance report e.g. 2018-03-31 (optional)
      * @param  bool $payments_only Return cash only basis for the Trial Balance report (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReportTrialBalanceRequest($date = null, $payments_only = null)
+    protected function getReportTrialBalanceRequest($xero_tenant_id, $date = null, $payments_only = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getReportTrialBalance'
+            );
+        }
 
         $resourcePath = '/Reports/TrialBalance';
         $formParams = [];
@@ -47550,6 +49286,10 @@ class AccountingApi
         // query params
         if ($payments_only !== null) {
             $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47626,6 +49366,7 @@ class AccountingApi
      *
      * Allows you to retrieve Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
@@ -47634,9 +49375,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TaxRates
      */
-    public function getTaxRates($where = null, $order = null, $tax_type = null)
+    public function getTaxRates($xero_tenant_id, $where = null, $order = null, $tax_type = null)
     {
-        list($response) = $this->getTaxRatesWithHttpInfo($where, $order, $tax_type);
+        list($response) = $this->getTaxRatesWithHttpInfo($xero_tenant_id, $where, $order, $tax_type);
         return $response;
     }
 
@@ -47645,6 +49386,7 @@ class AccountingApi
      *
      * Allows you to retrieve Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
@@ -47653,9 +49395,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TaxRates, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaxRatesWithHttpInfo($where = null, $order = null, $tax_type = null)
+    public function getTaxRatesWithHttpInfo($xero_tenant_id, $where = null, $order = null, $tax_type = null)
     {
-        $request = $this->getTaxRatesRequest($where, $order, $tax_type);
+        $request = $this->getTaxRatesRequest($xero_tenant_id, $where, $order, $tax_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -47735,6 +49477,7 @@ class AccountingApi
      *
      * Allows you to retrieve Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
@@ -47742,9 +49485,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesAsync($where = null, $order = null, $tax_type = null)
+    public function getTaxRatesAsync($xero_tenant_id, $where = null, $order = null, $tax_type = null)
     {
-        return $this->getTaxRatesAsyncWithHttpInfo($where, $order, $tax_type)
+        return $this->getTaxRatesAsyncWithHttpInfo($xero_tenant_id, $where, $order, $tax_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -47757,6 +49500,7 @@ class AccountingApi
      *
      * Allows you to retrieve Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
@@ -47764,10 +49508,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRatesAsyncWithHttpInfo($where = null, $order = null, $tax_type = null)
+    public function getTaxRatesAsyncWithHttpInfo($xero_tenant_id, $where = null, $order = null, $tax_type = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
-        $request = $this->getTaxRatesRequest($where, $order, $tax_type);
+        $request = $this->getTaxRatesRequest($xero_tenant_id, $where, $order, $tax_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -47806,6 +49550,7 @@ class AccountingApi
     /**
      * Create request for operation 'getTaxRates'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  string $tax_type Filter by tax type (optional)
@@ -47813,8 +49558,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTaxRatesRequest($where = null, $order = null, $tax_type = null)
+    protected function getTaxRatesRequest($xero_tenant_id, $where = null, $order = null, $tax_type = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getTaxRates'
+            );
+        }
 
         $resourcePath = '/TaxRates';
         $formParams = [];
@@ -47834,6 +49585,10 @@ class AccountingApi
         // query params
         if ($tax_type !== null) {
             $queryParams['TaxType'] = ObjectSerializer::toQueryValue($tax_type);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47910,6 +49665,7 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
@@ -47918,9 +49674,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingCategories
      */
-    public function getTrackingCategories($where = null, $order = null, $include_archived = null)
+    public function getTrackingCategories($xero_tenant_id, $where = null, $order = null, $include_archived = null)
     {
-        list($response) = $this->getTrackingCategoriesWithHttpInfo($where, $order, $include_archived);
+        list($response) = $this->getTrackingCategoriesWithHttpInfo($xero_tenant_id, $where, $order, $include_archived);
         return $response;
     }
 
@@ -47929,6 +49685,7 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
@@ -47937,9 +49694,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrackingCategoriesWithHttpInfo($where = null, $order = null, $include_archived = null)
+    public function getTrackingCategoriesWithHttpInfo($xero_tenant_id, $where = null, $order = null, $include_archived = null)
     {
-        $request = $this->getTrackingCategoriesRequest($where, $order, $include_archived);
+        $request = $this->getTrackingCategoriesRequest($xero_tenant_id, $where, $order, $include_archived);
 
         try {
             $options = $this->createHttpClientOption();
@@ -48019,6 +49776,7 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
@@ -48026,9 +49784,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingCategoriesAsync($where = null, $order = null, $include_archived = null)
+    public function getTrackingCategoriesAsync($xero_tenant_id, $where = null, $order = null, $include_archived = null)
     {
-        return $this->getTrackingCategoriesAsyncWithHttpInfo($where, $order, $include_archived)
+        return $this->getTrackingCategoriesAsyncWithHttpInfo($xero_tenant_id, $where, $order, $include_archived)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -48041,6 +49799,7 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
@@ -48048,10 +49807,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingCategoriesAsyncWithHttpInfo($where = null, $order = null, $include_archived = null)
+    public function getTrackingCategoriesAsyncWithHttpInfo($xero_tenant_id, $where = null, $order = null, $include_archived = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
-        $request = $this->getTrackingCategoriesRequest($where, $order, $include_archived);
+        $request = $this->getTrackingCategoriesRequest($xero_tenant_id, $where, $order, $include_archived);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -48090,6 +49849,7 @@ class AccountingApi
     /**
      * Create request for operation 'getTrackingCategories'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Categories and options with a status of ARCHIVED will be included in the response (optional)
@@ -48097,8 +49857,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTrackingCategoriesRequest($where = null, $order = null, $include_archived = null)
+    protected function getTrackingCategoriesRequest($xero_tenant_id, $where = null, $order = null, $include_archived = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getTrackingCategories'
+            );
+        }
 
         $resourcePath = '/TrackingCategories';
         $formParams = [];
@@ -48118,6 +49884,10 @@ class AccountingApi
         // query params
         if ($include_archived !== null) {
             $queryParams['includeArchived'] = ObjectSerializer::toQueryValue($include_archived);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -48194,15 +49964,16 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options for specified category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingCategories
      */
-    public function getTrackingCategory($tracking_category_id)
+    public function getTrackingCategory($xero_tenant_id, $tracking_category_id)
     {
-        list($response) = $this->getTrackingCategoryWithHttpInfo($tracking_category_id);
+        list($response) = $this->getTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id);
         return $response;
     }
 
@@ -48211,15 +49982,16 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options for specified category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrackingCategoryWithHttpInfo($tracking_category_id)
+    public function getTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id)
     {
-        $request = $this->getTrackingCategoryRequest($tracking_category_id);
+        $request = $this->getTrackingCategoryRequest($xero_tenant_id, $tracking_category_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -48299,14 +50071,15 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options for specified category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingCategoryAsync($tracking_category_id)
+    public function getTrackingCategoryAsync($xero_tenant_id, $tracking_category_id)
     {
-        return $this->getTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
+        return $this->getTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -48319,15 +50092,16 @@ class AccountingApi
      *
      * Allows you to retrieve tracking categories and options for specified category
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrackingCategoryAsyncWithHttpInfo($tracking_category_id)
+    public function getTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
-        $request = $this->getTrackingCategoryRequest($tracking_category_id);
+        $request = $this->getTrackingCategoryRequest($xero_tenant_id, $tracking_category_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -48366,13 +50140,20 @@ class AccountingApi
     /**
      * Create request for operation 'getTrackingCategory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getTrackingCategoryRequest($tracking_category_id)
+    protected function getTrackingCategoryRequest($xero_tenant_id, $tracking_category_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getTrackingCategory'
+            );
+        }
         // verify the required parameter 'tracking_category_id' is set
         if ($tracking_category_id === null || (is_array($tracking_category_id) && count($tracking_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -48387,6 +50168,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($tracking_category_id !== null) {
@@ -48470,15 +50255,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $user_id Unique identifier for a User (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Users
      */
-    public function getUser($user_id)
+    public function getUser($xero_tenant_id, $user_id)
     {
-        list($response) = $this->getUserWithHttpInfo($user_id);
+        list($response) = $this->getUserWithHttpInfo($xero_tenant_id, $user_id);
         return $response;
     }
 
@@ -48487,15 +50273,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $user_id Unique identifier for a User (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Users, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserWithHttpInfo($user_id)
+    public function getUserWithHttpInfo($xero_tenant_id, $user_id)
     {
-        $request = $this->getUserRequest($user_id);
+        $request = $this->getUserRequest($xero_tenant_id, $user_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -48575,14 +50362,15 @@ class AccountingApi
      *
      * Allows you to retrieve a specified user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $user_id Unique identifier for a User (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAsync($user_id)
+    public function getUserAsync($xero_tenant_id, $user_id)
     {
-        return $this->getUserAsyncWithHttpInfo($user_id)
+        return $this->getUserAsyncWithHttpInfo($xero_tenant_id, $user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -48595,15 +50383,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified user
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $user_id Unique identifier for a User (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserAsyncWithHttpInfo($user_id)
+    public function getUserAsyncWithHttpInfo($xero_tenant_id, $user_id)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Users';
-        $request = $this->getUserRequest($user_id);
+        $request = $this->getUserRequest($xero_tenant_id, $user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -48642,13 +50431,20 @@ class AccountingApi
     /**
      * Create request for operation 'getUser'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $user_id Unique identifier for a User (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserRequest($user_id)
+    protected function getUserRequest($xero_tenant_id, $user_id)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getUser'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -48663,6 +50459,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($user_id !== null) {
@@ -48746,6 +50546,7 @@ class AccountingApi
      *
      * Allows you to retrieve users
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -48754,9 +50555,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Users
      */
-    public function getUsers($if_modified_since = null, $where = null, $order = null)
+    public function getUsers($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        list($response) = $this->getUsersWithHttpInfo($if_modified_since, $where, $order);
+        list($response) = $this->getUsersWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order);
         return $response;
     }
 
@@ -48765,6 +50566,7 @@ class AccountingApi
      *
      * Allows you to retrieve users
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -48773,9 +50575,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Users, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUsersWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getUsersWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        $request = $this->getUsersRequest($if_modified_since, $where, $order);
+        $request = $this->getUsersRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -48855,6 +50657,7 @@ class AccountingApi
      *
      * Allows you to retrieve users
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -48862,9 +50665,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsync($if_modified_since = null, $where = null, $order = null)
+    public function getUsersAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
-        return $this->getUsersAsyncWithHttpInfo($if_modified_since, $where, $order)
+        return $this->getUsersAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -48877,6 +50680,7 @@ class AccountingApi
      *
      * Allows you to retrieve users
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -48884,10 +50688,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUsersAsyncWithHttpInfo($if_modified_since = null, $where = null, $order = null)
+    public function getUsersAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Users';
-        $request = $this->getUsersRequest($if_modified_since, $where, $order);
+        $request = $this->getUsersRequest($xero_tenant_id, $if_modified_since, $where, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -48926,6 +50730,7 @@ class AccountingApi
     /**
      * Create request for operation 'getUsers'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
@@ -48933,8 +50738,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUsersRequest($if_modified_since = null, $where = null, $order = null)
+    protected function getUsersRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getUsers'
+            );
+        }
 
         $resourcePath = '/Users';
         $formParams = [];
@@ -48950,6 +50761,10 @@ class AccountingApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
@@ -51363,6 +53178,7 @@ class AccountingApi
      *
      * Allows you to update a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups contact_groups (optional)
      *
@@ -51370,9 +53186,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateContactGroup($contact_group_id, $contact_groups = null)
+    public function updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups = null)
     {
-        list($response) = $this->updateContactGroupWithHttpInfo($contact_group_id, $contact_groups);
+        list($response) = $this->updateContactGroupWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_groups);
         return $response;
     }
 
@@ -51381,6 +53197,7 @@ class AccountingApi
      *
      * Allows you to update a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
@@ -51388,9 +53205,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ContactGroups|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateContactGroupWithHttpInfo($contact_group_id, $contact_groups = null)
+    public function updateContactGroupWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_groups = null)
     {
-        $request = $this->updateContactGroupRequest($contact_group_id, $contact_groups);
+        $request = $this->updateContactGroupRequest($xero_tenant_id, $contact_group_id, $contact_groups);
 
         try {
             $options = $this->createHttpClientOption();
@@ -51490,15 +53307,16 @@ class AccountingApi
      *
      * Allows you to update a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactGroupAsync($contact_group_id, $contact_groups = null)
+    public function updateContactGroupAsync($xero_tenant_id, $contact_group_id, $contact_groups = null)
     {
-        return $this->updateContactGroupAsyncWithHttpInfo($contact_group_id, $contact_groups)
+        return $this->updateContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_groups)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -51511,16 +53329,17 @@ class AccountingApi
      *
      * Allows you to update a Contract Group
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateContactGroupAsyncWithHttpInfo($contact_group_id, $contact_groups = null)
+    public function updateContactGroupAsyncWithHttpInfo($xero_tenant_id, $contact_group_id, $contact_groups = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ContactGroups';
-        $request = $this->updateContactGroupRequest($contact_group_id, $contact_groups);
+        $request = $this->updateContactGroupRequest($xero_tenant_id, $contact_group_id, $contact_groups);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -51559,14 +53378,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateContactGroup'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
      * @param  \SidneyAllen\XeroPHP\Model\ContactGroups $contact_groups (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateContactGroupRequest($contact_group_id, $contact_groups = null)
+    protected function updateContactGroupRequest($xero_tenant_id, $contact_group_id, $contact_groups = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateContactGroup'
+            );
+        }
         // verify the required parameter 'contact_group_id' is set
         if ($contact_group_id === null || (is_array($contact_group_id) && count($contact_group_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -51581,6 +53407,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($contact_group_id !== null) {
@@ -51667,6 +53497,7 @@ class AccountingApi
      *
      * Allows you to update a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes credit_notes (optional)
      *
@@ -51674,9 +53505,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateCreditNote($credit_note_id, $credit_notes = null)
+    public function updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes = null)
     {
-        list($response) = $this->updateCreditNoteWithHttpInfo($credit_note_id, $credit_notes);
+        list($response) = $this->updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes);
         return $response;
     }
 
@@ -51685,6 +53516,7 @@ class AccountingApi
      *
      * Allows you to update a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
@@ -51692,9 +53524,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\CreditNotes|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCreditNoteWithHttpInfo($credit_note_id, $credit_notes = null)
+    public function updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes = null)
     {
-        $request = $this->updateCreditNoteRequest($credit_note_id, $credit_notes);
+        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes);
 
         try {
             $options = $this->createHttpClientOption();
@@ -51794,15 +53626,16 @@ class AccountingApi
      *
      * Allows you to update a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAsync($credit_note_id, $credit_notes = null)
+    public function updateCreditNoteAsync($xero_tenant_id, $credit_note_id, $credit_notes = null)
     {
-        return $this->updateCreditNoteAsyncWithHttpInfo($credit_note_id, $credit_notes)
+        return $this->updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -51815,16 +53648,17 @@ class AccountingApi
      *
      * Allows you to update a specific credit note
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAsyncWithHttpInfo($credit_note_id, $credit_notes = null)
+    public function updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\CreditNotes';
-        $request = $this->updateCreditNoteRequest($credit_note_id, $credit_notes);
+        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -51863,14 +53697,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateCreditNote'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \SidneyAllen\XeroPHP\Model\CreditNotes $credit_notes (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCreditNoteRequest($credit_note_id, $credit_notes = null)
+    protected function updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes = null)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateCreditNote'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -51885,6 +53726,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -51971,6 +53816,7 @@ class AccountingApi
      *
      * Allows you to update Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -51979,9 +53825,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateCreditNoteAttachmentByFileName($credit_note_id, $file_name, $body)
+    public function updateCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        list($response) = $this->updateCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body);
+        list($response) = $this->updateCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body);
         return $response;
     }
 
@@ -51990,6 +53836,7 @@ class AccountingApi
      *
      * Allows you to update Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -51998,9 +53845,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCreditNoteAttachmentByFileNameWithHttpInfo($credit_note_id, $file_name, $body)
+    public function updateCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        $request = $this->updateCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
+        $request = $this->updateCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -52100,6 +53947,7 @@ class AccountingApi
      *
      * Allows you to update Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -52107,9 +53955,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAttachmentByFileNameAsync($credit_note_id, $file_name, $body)
+    public function updateCreditNoteAttachmentByFileNameAsync($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
-        return $this->updateCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
+        return $this->updateCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -52122,6 +53970,7 @@ class AccountingApi
      *
      * Allows you to update Attachments on CreditNote by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -52129,10 +53978,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAttachmentByFileNameAsyncWithHttpInfo($credit_note_id, $file_name, $body)
+    public function updateCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->updateCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body);
+        $request = $this->updateCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -52171,6 +54020,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateCreditNoteAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -52178,8 +54028,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCreditNoteAttachmentByFileNameRequest($credit_note_id, $file_name, $body)
+    protected function updateCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateCreditNoteAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'credit_note_id' is set
         if ($credit_note_id === null || (is_array($credit_note_id) && count($credit_note_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -52206,6 +54062,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($credit_note_id !== null) {
@@ -52300,6 +54160,7 @@ class AccountingApi
      *
      * Allows you to update a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees employees (required)
      *
@@ -52307,9 +54168,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateEmployee($employee_id, $employees)
+    public function updateEmployee($xero_tenant_id, $employee_id, $employees)
     {
-        list($response) = $this->updateEmployeeWithHttpInfo($employee_id, $employees);
+        list($response) = $this->updateEmployeeWithHttpInfo($xero_tenant_id, $employee_id, $employees);
         return $response;
     }
 
@@ -52318,6 +54179,7 @@ class AccountingApi
      *
      * Allows you to update a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
@@ -52325,9 +54187,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Employees|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmployeeWithHttpInfo($employee_id, $employees)
+    public function updateEmployeeWithHttpInfo($xero_tenant_id, $employee_id, $employees)
     {
-        $request = $this->updateEmployeeRequest($employee_id, $employees);
+        $request = $this->updateEmployeeRequest($xero_tenant_id, $employee_id, $employees);
 
         try {
             $options = $this->createHttpClientOption();
@@ -52427,15 +54289,16 @@ class AccountingApi
      *
      * Allows you to update a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeAsync($employee_id, $employees)
+    public function updateEmployeeAsync($xero_tenant_id, $employee_id, $employees)
     {
-        return $this->updateEmployeeAsyncWithHttpInfo($employee_id, $employees)
+        return $this->updateEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id, $employees)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -52448,16 +54311,17 @@ class AccountingApi
      *
      * Allows you to update a specific employee used in Xero payrun
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmployeeAsyncWithHttpInfo($employee_id, $employees)
+    public function updateEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id, $employees)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Employees';
-        $request = $this->updateEmployeeRequest($employee_id, $employees);
+        $request = $this->updateEmployeeRequest($xero_tenant_id, $employee_id, $employees);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -52496,14 +54360,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateEmployee'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Unique identifier for a Employee (required)
      * @param  \SidneyAllen\XeroPHP\Model\Employees $employees (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateEmployeeRequest($employee_id, $employees)
+    protected function updateEmployeeRequest($xero_tenant_id, $employee_id, $employees)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateEmployee'
+            );
+        }
         // verify the required parameter 'employee_id' is set
         if ($employee_id === null || (is_array($employee_id) && count($employee_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -52524,6 +54395,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($employee_id !== null) {
@@ -52610,6 +54485,7 @@ class AccountingApi
      *
      * Allows you to update specified expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims expense_claims (required)
      *
@@ -52617,9 +54493,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateExpenseClaim($expense_claim_id, $expense_claims)
+    public function updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims)
     {
-        list($response) = $this->updateExpenseClaimWithHttpInfo($expense_claim_id, $expense_claims);
+        list($response) = $this->updateExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claim_id, $expense_claims);
         return $response;
     }
 
@@ -52628,6 +54504,7 @@ class AccountingApi
      *
      * Allows you to update specified expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
@@ -52635,9 +54512,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ExpenseClaims|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateExpenseClaimWithHttpInfo($expense_claim_id, $expense_claims)
+    public function updateExpenseClaimWithHttpInfo($xero_tenant_id, $expense_claim_id, $expense_claims)
     {
-        $request = $this->updateExpenseClaimRequest($expense_claim_id, $expense_claims);
+        $request = $this->updateExpenseClaimRequest($xero_tenant_id, $expense_claim_id, $expense_claims);
 
         try {
             $options = $this->createHttpClientOption();
@@ -52737,15 +54614,16 @@ class AccountingApi
      *
      * Allows you to update specified expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateExpenseClaimAsync($expense_claim_id, $expense_claims)
+    public function updateExpenseClaimAsync($xero_tenant_id, $expense_claim_id, $expense_claims)
     {
-        return $this->updateExpenseClaimAsyncWithHttpInfo($expense_claim_id, $expense_claims)
+        return $this->updateExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id, $expense_claims)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -52758,16 +54636,17 @@ class AccountingApi
      *
      * Allows you to update specified expense claims
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateExpenseClaimAsyncWithHttpInfo($expense_claim_id, $expense_claims)
+    public function updateExpenseClaimAsyncWithHttpInfo($xero_tenant_id, $expense_claim_id, $expense_claims)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ExpenseClaims';
-        $request = $this->updateExpenseClaimRequest($expense_claim_id, $expense_claims);
+        $request = $this->updateExpenseClaimRequest($xero_tenant_id, $expense_claim_id, $expense_claims);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -52806,14 +54685,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateExpenseClaim'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
      * @param  \SidneyAllen\XeroPHP\Model\ExpenseClaims $expense_claims (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateExpenseClaimRequest($expense_claim_id, $expense_claims)
+    protected function updateExpenseClaimRequest($xero_tenant_id, $expense_claim_id, $expense_claims)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateExpenseClaim'
+            );
+        }
         // verify the required parameter 'expense_claim_id' is set
         if ($expense_claim_id === null || (is_array($expense_claim_id) && count($expense_claim_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -52834,6 +54720,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($expense_claim_id !== null) {
@@ -52920,6 +54810,7 @@ class AccountingApi
      *
      * Allows you to update a specified sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices invoices (required)
      *
@@ -52927,9 +54818,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateInvoice($invoice_id, $invoices)
+    public function updateInvoice($xero_tenant_id, $invoice_id, $invoices)
     {
-        list($response) = $this->updateInvoiceWithHttpInfo($invoice_id, $invoices);
+        list($response) = $this->updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices);
         return $response;
     }
 
@@ -52938,6 +54829,7 @@ class AccountingApi
      *
      * Allows you to update a specified sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
@@ -52945,9 +54837,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Invoices|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInvoiceWithHttpInfo($invoice_id, $invoices)
+    public function updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
     {
-        $request = $this->updateInvoiceRequest($invoice_id, $invoices);
+        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices);
 
         try {
             $options = $this->createHttpClientOption();
@@ -53047,15 +54939,16 @@ class AccountingApi
      *
      * Allows you to update a specified sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAsync($invoice_id, $invoices)
+    public function updateInvoiceAsync($xero_tenant_id, $invoice_id, $invoices)
     {
-        return $this->updateInvoiceAsyncWithHttpInfo($invoice_id, $invoices)
+        return $this->updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -53068,16 +54961,17 @@ class AccountingApi
      *
      * Allows you to update a specified sales invoices or purchase bills
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAsyncWithHttpInfo($invoice_id, $invoices)
+    public function updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Invoices';
-        $request = $this->updateInvoiceRequest($invoice_id, $invoices);
+        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -53116,14 +55010,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateInvoice'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \SidneyAllen\XeroPHP\Model\Invoices $invoices (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateInvoiceRequest($invoice_id, $invoices)
+    protected function updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateInvoice'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -53144,6 +55045,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -53230,6 +55135,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -53238,9 +55144,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateInvoiceAttachmentByFileName($invoice_id, $file_name, $body)
+    public function updateInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        list($response) = $this->updateInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body);
+        list($response) = $this->updateInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body);
         return $response;
     }
 
@@ -53249,6 +55155,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -53257,9 +55164,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInvoiceAttachmentByFileNameWithHttpInfo($invoice_id, $file_name, $body)
+    public function updateInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        $request = $this->updateInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
+        $request = $this->updateInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -53359,6 +55266,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -53366,9 +55274,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAttachmentByFileNameAsync($invoice_id, $file_name, $body)
+    public function updateInvoiceAttachmentByFileNameAsync($xero_tenant_id, $invoice_id, $file_name, $body)
     {
-        return $this->updateInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
+        return $this->updateInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -53381,6 +55289,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on invoices or purchase bills by it's filename
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -53388,10 +55297,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAttachmentByFileNameAsyncWithHttpInfo($invoice_id, $file_name, $body)
+    public function updateInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->updateInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body);
+        $request = $this->updateInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -53430,6 +55339,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -53437,8 +55347,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateInvoiceAttachmentByFileNameRequest($invoice_id, $file_name, $body)
+    protected function updateInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'invoice_id' is set
         if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -53465,6 +55381,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($invoice_id !== null) {
@@ -53559,6 +55479,7 @@ class AccountingApi
      *
      * Allows you to udpate a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items items (required)
      *
@@ -53566,9 +55487,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateItem($item_id, $items)
+    public function updateItem($xero_tenant_id, $item_id, $items)
     {
-        list($response) = $this->updateItemWithHttpInfo($item_id, $items);
+        list($response) = $this->updateItemWithHttpInfo($xero_tenant_id, $item_id, $items);
         return $response;
     }
 
@@ -53577,6 +55498,7 @@ class AccountingApi
      *
      * Allows you to udpate a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
@@ -53584,9 +55506,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Items|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateItemWithHttpInfo($item_id, $items)
+    public function updateItemWithHttpInfo($xero_tenant_id, $item_id, $items)
     {
-        $request = $this->updateItemRequest($item_id, $items);
+        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items);
 
         try {
             $options = $this->createHttpClientOption();
@@ -53686,15 +55608,16 @@ class AccountingApi
      *
      * Allows you to udpate a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemAsync($item_id, $items)
+    public function updateItemAsync($xero_tenant_id, $item_id, $items)
     {
-        return $this->updateItemAsyncWithHttpInfo($item_id, $items)
+        return $this->updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -53707,16 +55630,17 @@ class AccountingApi
      *
      * Allows you to udpate a specified item
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemAsyncWithHttpInfo($item_id, $items)
+    public function updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Items';
-        $request = $this->updateItemRequest($item_id, $items);
+        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -53755,14 +55679,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateItem'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \SidneyAllen\XeroPHP\Model\Items $items (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateItemRequest($item_id, $items)
+    protected function updateItemRequest($xero_tenant_id, $item_id, $items)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateItem'
+            );
+        }
         // verify the required parameter 'item_id' is set
         if ($item_id === null || (is_array($item_id) && count($item_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -53783,6 +55714,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($item_id !== null) {
@@ -53869,6 +55804,7 @@ class AccountingApi
      *
      * Allows you to update a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions linked_transactions (required)
      *
@@ -53876,9 +55812,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateLinkedTransaction($linked_transaction_id, $linked_transactions)
+    public function updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions)
     {
-        list($response) = $this->updateLinkedTransactionWithHttpInfo($linked_transaction_id, $linked_transactions);
+        list($response) = $this->updateLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id, $linked_transactions);
         return $response;
     }
 
@@ -53887,6 +55823,7 @@ class AccountingApi
      *
      * Allows you to update a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
@@ -53894,9 +55831,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\LinkedTransactions|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateLinkedTransactionWithHttpInfo($linked_transaction_id, $linked_transactions)
+    public function updateLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction_id, $linked_transactions)
     {
-        $request = $this->updateLinkedTransactionRequest($linked_transaction_id, $linked_transactions);
+        $request = $this->updateLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id, $linked_transactions);
 
         try {
             $options = $this->createHttpClientOption();
@@ -53996,15 +55933,16 @@ class AccountingApi
      *
      * Allows you to update a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLinkedTransactionAsync($linked_transaction_id, $linked_transactions)
+    public function updateLinkedTransactionAsync($xero_tenant_id, $linked_transaction_id, $linked_transactions)
     {
-        return $this->updateLinkedTransactionAsyncWithHttpInfo($linked_transaction_id, $linked_transactions)
+        return $this->updateLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id, $linked_transactions)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -54017,16 +55955,17 @@ class AccountingApi
      *
      * Allows you to update a specified linked transactions (billable expenses)
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateLinkedTransactionAsyncWithHttpInfo($linked_transaction_id, $linked_transactions)
+    public function updateLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction_id, $linked_transactions)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\LinkedTransactions';
-        $request = $this->updateLinkedTransactionRequest($linked_transaction_id, $linked_transactions);
+        $request = $this->updateLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id, $linked_transactions);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -54065,14 +56004,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateLinkedTransaction'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $linked_transaction_id Unique identifier for a LinkedTransaction (required)
      * @param  \SidneyAllen\XeroPHP\Model\LinkedTransactions $linked_transactions (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateLinkedTransactionRequest($linked_transaction_id, $linked_transactions)
+    protected function updateLinkedTransactionRequest($xero_tenant_id, $linked_transaction_id, $linked_transactions)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateLinkedTransaction'
+            );
+        }
         // verify the required parameter 'linked_transaction_id' is set
         if ($linked_transaction_id === null || (is_array($linked_transaction_id) && count($linked_transaction_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -54093,6 +56039,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($linked_transaction_id !== null) {
@@ -54179,6 +56129,7 @@ class AccountingApi
      *
      * Allows you to update a specified manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals manual_journals (required)
      *
@@ -54186,9 +56137,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateManualJournal($manual_journal_id, $manual_journals)
+    public function updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals)
     {
-        list($response) = $this->updateManualJournalWithHttpInfo($manual_journal_id, $manual_journals);
+        list($response) = $this->updateManualJournalWithHttpInfo($xero_tenant_id, $manual_journal_id, $manual_journals);
         return $response;
     }
 
@@ -54197,6 +56148,7 @@ class AccountingApi
      *
      * Allows you to update a specified manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
@@ -54204,9 +56156,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\ManualJournals|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateManualJournalWithHttpInfo($manual_journal_id, $manual_journals)
+    public function updateManualJournalWithHttpInfo($xero_tenant_id, $manual_journal_id, $manual_journals)
     {
-        $request = $this->updateManualJournalRequest($manual_journal_id, $manual_journals);
+        $request = $this->updateManualJournalRequest($xero_tenant_id, $manual_journal_id, $manual_journals);
 
         try {
             $options = $this->createHttpClientOption();
@@ -54306,15 +56258,16 @@ class AccountingApi
      *
      * Allows you to update a specified manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateManualJournalAsync($manual_journal_id, $manual_journals)
+    public function updateManualJournalAsync($xero_tenant_id, $manual_journal_id, $manual_journals)
     {
-        return $this->updateManualJournalAsyncWithHttpInfo($manual_journal_id, $manual_journals)
+        return $this->updateManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $manual_journals)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -54327,16 +56280,17 @@ class AccountingApi
      *
      * Allows you to update a specified manual journal
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateManualJournalAsyncWithHttpInfo($manual_journal_id, $manual_journals)
+    public function updateManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $manual_journals)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\ManualJournals';
-        $request = $this->updateManualJournalRequest($manual_journal_id, $manual_journals);
+        $request = $this->updateManualJournalRequest($xero_tenant_id, $manual_journal_id, $manual_journals);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -54375,14 +56329,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateManualJournal'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  \SidneyAllen\XeroPHP\Model\ManualJournals $manual_journals (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateManualJournalRequest($manual_journal_id, $manual_journals)
+    protected function updateManualJournalRequest($xero_tenant_id, $manual_journal_id, $manual_journals)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateManualJournal'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -54403,6 +56364,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($manual_journal_id !== null) {
@@ -54489,6 +56454,7 @@ class AccountingApi
      *
      * Allows you to update a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -54497,9 +56463,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateManualJournalAttachmentByFileName($manual_journal_id, $file_name, $body)
+    public function updateManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        list($response) = $this->updateManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body);
+        list($response) = $this->updateManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body);
         return $response;
     }
 
@@ -54508,6 +56474,7 @@ class AccountingApi
      *
      * Allows you to update a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -54516,9 +56483,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateManualJournalAttachmentByFileNameWithHttpInfo($manual_journal_id, $file_name, $body)
+    public function updateManualJournalAttachmentByFileNameWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        $request = $this->updateManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
+        $request = $this->updateManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -54618,6 +56585,7 @@ class AccountingApi
      *
      * Allows you to update a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -54625,9 +56593,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateManualJournalAttachmentByFileNameAsync($manual_journal_id, $file_name, $body)
+    public function updateManualJournalAttachmentByFileNameAsync($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
-        return $this->updateManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
+        return $this->updateManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -54640,6 +56608,7 @@ class AccountingApi
      *
      * Allows you to update a specified Attachment on ManualJournal by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -54647,10 +56616,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateManualJournalAttachmentByFileNameAsyncWithHttpInfo($manual_journal_id, $file_name, $body)
+    public function updateManualJournalAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->updateManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body);
+        $request = $this->updateManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -54689,6 +56658,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateManualJournalAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name The name of the file being attached to a ManualJournal (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -54696,8 +56666,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateManualJournalAttachmentByFileNameRequest($manual_journal_id, $file_name, $body)
+    protected function updateManualJournalAttachmentByFileNameRequest($xero_tenant_id, $manual_journal_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateManualJournalAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'manual_journal_id' is set
         if ($manual_journal_id === null || (is_array($manual_journal_id) && count($manual_journal_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -54724,6 +56700,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($manual_journal_id !== null) {
@@ -54818,6 +56798,7 @@ class AccountingApi
      *
      * Allows you to update a specified purchase order
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders purchase_orders (required)
      *
@@ -54825,9 +56806,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updatePurchaseOrder($purchase_order_id, $purchase_orders)
+    public function updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders)
     {
-        list($response) = $this->updatePurchaseOrderWithHttpInfo($purchase_order_id, $purchase_orders);
+        list($response) = $this->updatePurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_order_id, $purchase_orders);
         return $response;
     }
 
@@ -54836,6 +56817,7 @@ class AccountingApi
      *
      * Allows you to update a specified purchase order
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
@@ -54843,9 +56825,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\PurchaseOrders|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePurchaseOrderWithHttpInfo($purchase_order_id, $purchase_orders)
+    public function updatePurchaseOrderWithHttpInfo($xero_tenant_id, $purchase_order_id, $purchase_orders)
     {
-        $request = $this->updatePurchaseOrderRequest($purchase_order_id, $purchase_orders);
+        $request = $this->updatePurchaseOrderRequest($xero_tenant_id, $purchase_order_id, $purchase_orders);
 
         try {
             $options = $this->createHttpClientOption();
@@ -54945,15 +56927,16 @@ class AccountingApi
      *
      * Allows you to update a specified purchase order
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePurchaseOrderAsync($purchase_order_id, $purchase_orders)
+    public function updatePurchaseOrderAsync($xero_tenant_id, $purchase_order_id, $purchase_orders)
     {
-        return $this->updatePurchaseOrderAsyncWithHttpInfo($purchase_order_id, $purchase_orders)
+        return $this->updatePurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id, $purchase_orders)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -54966,16 +56949,17 @@ class AccountingApi
      *
      * Allows you to update a specified purchase order
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePurchaseOrderAsyncWithHttpInfo($purchase_order_id, $purchase_orders)
+    public function updatePurchaseOrderAsyncWithHttpInfo($xero_tenant_id, $purchase_order_id, $purchase_orders)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\PurchaseOrders';
-        $request = $this->updatePurchaseOrderRequest($purchase_order_id, $purchase_orders);
+        $request = $this->updatePurchaseOrderRequest($xero_tenant_id, $purchase_order_id, $purchase_orders);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -55014,14 +56998,21 @@ class AccountingApi
     /**
      * Create request for operation 'updatePurchaseOrder'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
      * @param  \SidneyAllen\XeroPHP\Model\PurchaseOrders $purchase_orders (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updatePurchaseOrderRequest($purchase_order_id, $purchase_orders)
+    protected function updatePurchaseOrderRequest($xero_tenant_id, $purchase_order_id, $purchase_orders)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updatePurchaseOrder'
+            );
+        }
         // verify the required parameter 'purchase_order_id' is set
         if ($purchase_order_id === null || (is_array($purchase_order_id) && count($purchase_order_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -55042,6 +57033,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($purchase_order_id !== null) {
@@ -55128,6 +57123,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts receipts (required)
      *
@@ -55135,9 +57131,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateReceipt($receipt_id, $receipts)
+    public function updateReceipt($xero_tenant_id, $receipt_id, $receipts)
     {
-        list($response) = $this->updateReceiptWithHttpInfo($receipt_id, $receipts);
+        list($response) = $this->updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts);
         return $response;
     }
 
@@ -55146,6 +57142,7 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
@@ -55153,9 +57150,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Receipts|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReceiptWithHttpInfo($receipt_id, $receipts)
+    public function updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
     {
-        $request = $this->updateReceiptRequest($receipt_id, $receipts);
+        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts);
 
         try {
             $options = $this->createHttpClientOption();
@@ -55255,15 +57252,16 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAsync($receipt_id, $receipts)
+    public function updateReceiptAsync($xero_tenant_id, $receipt_id, $receipts)
     {
-        return $this->updateReceiptAsyncWithHttpInfo($receipt_id, $receipts)
+        return $this->updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -55276,16 +57274,17 @@ class AccountingApi
      *
      * Allows you to retrieve a specified draft expense claim receipts
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAsyncWithHttpInfo($receipt_id, $receipts)
+    public function updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Receipts';
-        $request = $this->updateReceiptRequest($receipt_id, $receipts);
+        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -55324,14 +57323,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateReceipt'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \SidneyAllen\XeroPHP\Model\Receipts $receipts (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateReceiptRequest($receipt_id, $receipts)
+    protected function updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateReceipt'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -55352,6 +57358,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -55438,6 +57448,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55446,9 +57457,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateReceiptAttachmentByFileName($receipt_id, $file_name, $body)
+    public function updateReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        list($response) = $this->updateReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body);
+        list($response) = $this->updateReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body);
         return $response;
     }
 
@@ -55457,6 +57468,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55465,9 +57477,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReceiptAttachmentByFileNameWithHttpInfo($receipt_id, $file_name, $body)
+    public function updateReceiptAttachmentByFileNameWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        $request = $this->updateReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
+        $request = $this->updateReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -55567,6 +57579,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55574,9 +57587,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAttachmentByFileNameAsync($receipt_id, $file_name, $body)
+    public function updateReceiptAttachmentByFileNameAsync($xero_tenant_id, $receipt_id, $file_name, $body)
     {
-        return $this->updateReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
+        return $this->updateReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -55589,6 +57602,7 @@ class AccountingApi
      *
      * Allows you to update Attachment on expense claim receipts by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55596,10 +57610,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAttachmentByFileNameAsyncWithHttpInfo($receipt_id, $file_name, $body)
+    public function updateReceiptAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->updateReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body);
+        $request = $this->updateReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -55638,6 +57652,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateReceiptAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name The name of the file being attached to the Receipt (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55645,8 +57660,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateReceiptAttachmentByFileNameRequest($receipt_id, $file_name, $body)
+    protected function updateReceiptAttachmentByFileNameRequest($xero_tenant_id, $receipt_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateReceiptAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'receipt_id' is set
         if ($receipt_id === null || (is_array($receipt_id) && count($receipt_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -55673,6 +57694,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($receipt_id !== null) {
@@ -55767,6 +57792,7 @@ class AccountingApi
      *
      * Allows you to update specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55775,9 +57801,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateRepeatingInvoiceAttachmentByFileName($repeating_invoice_id, $file_name, $body)
+    public function updateRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        list($response) = $this->updateRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body);
+        list($response) = $this->updateRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
         return $response;
     }
 
@@ -55786,6 +57812,7 @@ class AccountingApi
      *
      * Allows you to update specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55794,9 +57821,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\Attachments|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateRepeatingInvoiceAttachmentByFileNameWithHttpInfo($repeating_invoice_id, $file_name, $body)
+    public function updateRepeatingInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        $request = $this->updateRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
+        $request = $this->updateRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -55896,6 +57923,7 @@ class AccountingApi
      *
      * Allows you to update specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55903,9 +57931,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRepeatingInvoiceAttachmentByFileNameAsync($repeating_invoice_id, $file_name, $body)
+    public function updateRepeatingInvoiceAttachmentByFileNameAsync($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
-        return $this->updateRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
+        return $this->updateRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -55918,6 +57946,7 @@ class AccountingApi
      *
      * Allows you to update specified attachment on repeating invoices by file name
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55925,10 +57954,10 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($repeating_invoice_id, $file_name, $body)
+    public function updateRepeatingInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\Attachments';
-        $request = $this->updateRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body);
+        $request = $this->updateRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -55967,6 +57996,7 @@ class AccountingApi
     /**
      * Create request for operation 'updateRepeatingInvoiceAttachmentByFileName'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name The name of the file being attached to a Repeating Invoice (required)
      * @param  string $body Byte array of file in body of request (required)
@@ -55974,8 +58004,14 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateRepeatingInvoiceAttachmentByFileNameRequest($repeating_invoice_id, $file_name, $body)
+    protected function updateRepeatingInvoiceAttachmentByFileNameRequest($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateRepeatingInvoiceAttachmentByFileName'
+            );
+        }
         // verify the required parameter 'repeating_invoice_id' is set
         if ($repeating_invoice_id === null || (is_array($repeating_invoice_id) && count($repeating_invoice_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -56002,6 +58038,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($repeating_invoice_id !== null) {
@@ -56096,15 +58136,16 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates tax_rates (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateTaxRate($tax_rates)
+    public function updateTaxRate($xero_tenant_id, $tax_rates)
     {
-        list($response) = $this->updateTaxRateWithHttpInfo($tax_rates);
+        list($response) = $this->updateTaxRateWithHttpInfo($xero_tenant_id, $tax_rates);
         return $response;
     }
 
@@ -56113,15 +58154,16 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TaxRates|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTaxRateWithHttpInfo($tax_rates)
+    public function updateTaxRateWithHttpInfo($xero_tenant_id, $tax_rates)
     {
-        $request = $this->updateTaxRateRequest($tax_rates);
+        $request = $this->updateTaxRateRequest($xero_tenant_id, $tax_rates);
 
         try {
             $options = $this->createHttpClientOption();
@@ -56221,14 +58263,15 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaxRateAsync($tax_rates)
+    public function updateTaxRateAsync($xero_tenant_id, $tax_rates)
     {
-        return $this->updateTaxRateAsyncWithHttpInfo($tax_rates)
+        return $this->updateTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -56241,15 +58284,16 @@ class AccountingApi
      *
      * Allows you to update Tax Rates
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaxRateAsyncWithHttpInfo($tax_rates)
+    public function updateTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TaxRates';
-        $request = $this->updateTaxRateRequest($tax_rates);
+        $request = $this->updateTaxRateRequest($xero_tenant_id, $tax_rates);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -56288,13 +58332,20 @@ class AccountingApi
     /**
      * Create request for operation 'updateTaxRate'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \SidneyAllen\XeroPHP\Model\TaxRates $tax_rates (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateTaxRateRequest($tax_rates)
+    protected function updateTaxRateRequest($xero_tenant_id, $tax_rates)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateTaxRate'
+            );
+        }
         // verify the required parameter 'tax_rates' is set
         if ($tax_rates === null || (is_array($tax_rates) && count($tax_rates) === 0)) {
             throw new \InvalidArgumentException(
@@ -56309,6 +58360,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
 
         // body params
@@ -56387,6 +58442,7 @@ class AccountingApi
      *
      * Allows you to update tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category tracking_category (required)
      *
@@ -56394,9 +58450,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error
      */
-    public function updateTrackingCategory($tracking_category_id, $tracking_category)
+    public function updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category)
     {
-        list($response) = $this->updateTrackingCategoryWithHttpInfo($tracking_category_id, $tracking_category);
+        list($response) = $this->updateTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_category);
         return $response;
     }
 
@@ -56405,6 +58461,7 @@ class AccountingApi
      *
      * Allows you to update tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
@@ -56412,9 +58469,9 @@ class AccountingApi
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Model\TrackingCategories|\SidneyAllen\XeroPHP\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTrackingCategoryWithHttpInfo($tracking_category_id, $tracking_category)
+    public function updateTrackingCategoryWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_category)
     {
-        $request = $this->updateTrackingCategoryRequest($tracking_category_id, $tracking_category);
+        $request = $this->updateTrackingCategoryRequest($xero_tenant_id, $tracking_category_id, $tracking_category);
 
         try {
             $options = $this->createHttpClientOption();
@@ -56514,15 +58571,16 @@ class AccountingApi
      *
      * Allows you to update tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrackingCategoryAsync($tracking_category_id, $tracking_category)
+    public function updateTrackingCategoryAsync($xero_tenant_id, $tracking_category_id, $tracking_category)
     {
-        return $this->updateTrackingCategoryAsyncWithHttpInfo($tracking_category_id, $tracking_category)
+        return $this->updateTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_category)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -56535,16 +58593,17 @@ class AccountingApi
      *
      * Allows you to update tracking categories
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTrackingCategoryAsyncWithHttpInfo($tracking_category_id, $tracking_category)
+    public function updateTrackingCategoryAsyncWithHttpInfo($xero_tenant_id, $tracking_category_id, $tracking_category)
     {
         $returnType = '\SidneyAllen\XeroPHP\Model\TrackingCategories';
-        $request = $this->updateTrackingCategoryRequest($tracking_category_id, $tracking_category);
+        $request = $this->updateTrackingCategoryRequest($xero_tenant_id, $tracking_category_id, $tracking_category);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -56583,14 +58642,21 @@ class AccountingApi
     /**
      * Create request for operation 'updateTrackingCategory'
      *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
      * @param  \SidneyAllen\XeroPHP\Model\TrackingCategory $tracking_category (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateTrackingCategoryRequest($tracking_category_id, $tracking_category)
+    protected function updateTrackingCategoryRequest($xero_tenant_id, $tracking_category_id, $tracking_category)
     {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateTrackingCategory'
+            );
+        }
         // verify the required parameter 'tracking_category_id' is set
         if ($tracking_category_id === null || (is_array($tracking_category_id) && count($tracking_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -56611,6 +58677,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
 
         // path params
         if ($tracking_category_id !== null) {
