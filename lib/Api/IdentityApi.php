@@ -5,7 +5,7 @@
  *
  * @category Class
  * @package  SidneyAllen\XeroPHP
- * @author   OpenAPI Generator team
+ * @author   Xero
  * @link     https://openapi-generator.tech
  */
 
