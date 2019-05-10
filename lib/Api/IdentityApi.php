@@ -5,7 +5,7 @@
  *
  * @category Class
  * @package  SidneyAllen\XeroPHP
- * @author   Xero
+ * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
 
@@ -556,7 +556,7 @@ class IdentityApi
 
         // header params
         if ($grant_type !== null) {
-            $headerParams['grant-type'] = ObjectSerializer::toHeaderValue($grant_type);
+            $headerParams['grant_type'] = ObjectSerializer::toHeaderValue($grant_type);
         }
         // header params
         if ($content_type !== null) {
