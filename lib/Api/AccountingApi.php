@@ -310,7 +310,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts';
         $formParams = [];
         $queryParams = [];
@@ -640,7 +639,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts/{AccountID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -968,7 +966,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transactions when calling createBankTransaction'
             );
         }
-
 
         $resourcePath = '/BankTransactions';
         $formParams = [];
@@ -1302,7 +1299,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling createBankTransactionAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}';
         $formParams = [];
@@ -1638,7 +1634,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransactions/{BankTransactionID}/History';
         $formParams = [];
         $queryParams = [];
@@ -1953,7 +1948,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transfers when calling createBankTransfer'
             );
         }
-
 
         $resourcePath = '/BankTransfers';
         $formParams = [];
@@ -2279,7 +2273,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling createBankTransferAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/BankTransfers/{BankTransferID}/Attachments/{FileName}';
         $formParams = [];
@@ -2611,7 +2604,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransfers/{BankTransferID}/History';
         $formParams = [];
         $queryParams = [];
@@ -2926,7 +2918,6 @@ class AccountingApi
                 'Missing the required parameter $batch_payments when calling createBatchPayment'
             );
         }
-
 
         $resourcePath = '/BatchPayments';
         $formParams = [];
@@ -3245,7 +3236,6 @@ class AccountingApi
                 'Missing the required parameter $history_records when calling createBatchPaymentHistoryRecord'
             );
         }
-
 
         $resourcePath = '/BatchPayments/{BatchPaymentID}/History';
         $formParams = [];
@@ -3573,7 +3563,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BrandingThemes/{BrandingThemeID}/PaymentServices';
         $formParams = [];
         $queryParams = [];
@@ -3884,7 +3873,6 @@ class AccountingApi
                 'Missing the required parameter $contact when calling createContact'
             );
         }
-
 
         $resourcePath = '/Contacts';
         $formParams = [];
@@ -4211,7 +4199,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts/{ContactID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -4529,7 +4516,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ContactGroups';
         $formParams = [];
         $queryParams = [];
@@ -4841,7 +4827,6 @@ class AccountingApi
                 'Missing the required parameter $contact_group_id when calling createContactGroupContacts'
             );
         }
-
 
         $resourcePath = '/ContactGroups/{ContactGroupID}/Contacts';
         $formParams = [];
@@ -5169,7 +5154,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts/{ContactID}/History';
         $formParams = [];
         $queryParams = [];
@@ -5483,7 +5467,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createCreditNote'
             );
         }
-
 
         $resourcePath = '/CreditNotes';
         $formParams = [];
@@ -5800,7 +5783,6 @@ class AccountingApi
                 'Missing the required parameter $credit_note_id when calling createCreditNoteAllocation'
             );
         }
-
 
         $resourcePath = '/CreditNotes/{CreditNoteID}/Allocations';
         $formParams = [];
@@ -6139,7 +6121,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -6474,7 +6455,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}/History';
         $formParams = [];
         $queryParams = [];
@@ -6765,7 +6745,6 @@ class AccountingApi
                 'Missing the required parameter $currencies when calling createCurrency'
             );
         }
-
 
         $resourcePath = '/Currencies';
         $formParams = [];
@@ -7073,7 +7052,6 @@ class AccountingApi
                 'Missing the required parameter $employees when calling createEmployee'
             );
         }
-
 
         $resourcePath = '/Employees';
         $formParams = [];
@@ -7387,7 +7365,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ExpenseClaims';
         $formParams = [];
         $queryParams = [];
@@ -7689,7 +7666,6 @@ class AccountingApi
                 'Missing the required parameter $history_records when calling createExpenseClaimHistory'
             );
         }
-
 
         $resourcePath = '/ExpenseClaims/{ExpenseClaimID}/History';
         $formParams = [];
@@ -8010,7 +7986,6 @@ class AccountingApi
                 'Missing the required parameter $invoices when calling createInvoice'
             );
         }
-
 
         $resourcePath = '/Invoices';
         $formParams = [];
@@ -8344,7 +8319,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling createInvoiceAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}/Attachments/{FileName}';
         $formParams = [];
@@ -8680,7 +8654,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/History';
         $formParams = [];
         $queryParams = [];
@@ -8996,7 +8969,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Items';
         $formParams = [];
         $queryParams = [];
@@ -9294,7 +9266,6 @@ class AccountingApi
                 'Missing the required parameter $history_records when calling createItemHistory'
             );
         }
-
 
         $resourcePath = '/Items/{ItemID}/History';
         $formParams = [];
@@ -9611,7 +9582,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/LinkedTransactions';
         $formParams = [];
         $queryParams = [];
@@ -9918,7 +9888,6 @@ class AccountingApi
                 'Missing the required parameter $manual_journals when calling createManualJournal'
             );
         }
-
 
         $resourcePath = '/ManualJournals';
         $formParams = [];
@@ -10248,7 +10217,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling createManualJournalAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}';
         $formParams = [];
@@ -10584,7 +10552,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Overpayments/{OverpaymentID}/Allocations';
         $formParams = [];
         $queryParams = [];
@@ -10911,7 +10878,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Overpayments/{OverpaymentID}/History';
         $formParams = [];
         $queryParams = [];
@@ -11226,7 +11192,6 @@ class AccountingApi
                 'Missing the required parameter $payments when calling createPayment'
             );
         }
-
 
         $resourcePath = '/Payments';
         $formParams = [];
@@ -11546,7 +11511,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Payments/{PaymentID}/History';
         $formParams = [];
         $queryParams = [];
@@ -11861,7 +11825,6 @@ class AccountingApi
                 'Missing the required parameter $payment_services when calling createPaymentService'
             );
         }
-
 
         $resourcePath = '/PaymentServices';
         $formParams = [];
@@ -12180,7 +12143,6 @@ class AccountingApi
                 'Missing the required parameter $allocations when calling createPrepaymentAllocation'
             );
         }
-
 
         $resourcePath = '/Prepayments/{PrepaymentID}/Allocations';
         $formParams = [];
@@ -12508,7 +12470,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Prepayments/{PrepaymentID}/History';
         $formParams = [];
         $queryParams = [];
@@ -12828,7 +12789,6 @@ class AccountingApi
                 'Missing the required parameter $purchase_orders when calling createPurchaseOrder'
             );
         }
-
 
         $resourcePath = '/PurchaseOrders';
         $formParams = [];
@@ -13152,7 +13112,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/PurchaseOrders/{PurchaseOrderID}/History';
         $formParams = [];
         $queryParams = [];
@@ -13467,7 +13426,6 @@ class AccountingApi
                 'Missing the required parameter $receipts when calling createReceipt'
             );
         }
-
 
         $resourcePath = '/Receipts';
         $formParams = [];
@@ -13797,7 +13755,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling createReceiptAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}/Attachments/{FileName}';
         $formParams = [];
@@ -14132,7 +14089,6 @@ class AccountingApi
                 'Missing the required parameter $history_records when calling createReceiptHistory'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}/History';
         $formParams = [];
@@ -14471,7 +14427,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -14806,7 +14761,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/History';
         $formParams = [];
         $queryParams = [];
@@ -15122,7 +15076,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TaxRates';
         $formParams = [];
         $queryParams = [];
@@ -15429,7 +15382,6 @@ class AccountingApi
                 'Missing the required parameter $tracking_category when calling createTrackingCategory'
             );
         }
-
 
         $resourcePath = '/TrackingCategories';
         $formParams = [];
@@ -15749,7 +15701,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TrackingCategories/{TrackingCategoryID}/Options';
         $formParams = [];
         $queryParams = [];
@@ -16065,7 +16016,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts/{AccountID}';
         $formParams = [];
         $queryParams = [];
@@ -16329,7 +16279,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ContactGroups/{ContactGroupID}/Contacts/{ContactID}';
         $formParams = [];
         $queryParams = [];
@@ -16581,7 +16530,6 @@ class AccountingApi
                 'Missing the required parameter $contact_group_id when calling deleteContactGroupContacts'
             );
         }
-
 
         $resourcePath = '/ContactGroups/{ContactGroupID}/Contacts';
         $formParams = [];
@@ -16835,7 +16783,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Items/{ItemID}';
         $formParams = [];
         $queryParams = [];
@@ -17087,7 +17034,6 @@ class AccountingApi
                 'Missing the required parameter $linked_transaction_id when calling deleteLinkedTransaction'
             );
         }
-
 
         $resourcePath = '/LinkedTransactions/{LinkedTransactionID}';
         $formParams = [];
@@ -17412,7 +17358,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Payments/{PaymentID}';
         $formParams = [];
         $queryParams = [];
@@ -17727,7 +17672,6 @@ class AccountingApi
                 'Missing the required parameter $tracking_category_id when calling deleteTrackingCategory'
             );
         }
-
 
         $resourcePath = '/TrackingCategories/{TrackingCategoryID}';
         $formParams = [];
@@ -18052,7 +17996,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID}';
         $formParams = [];
         $queryParams = [];
@@ -18323,7 +18266,6 @@ class AccountingApi
                 'Missing the required parameter $request_empty when calling emailInvoice'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}/Email';
         $formParams = [];
@@ -18619,7 +18561,6 @@ class AccountingApi
                 'Missing the required parameter $account_id when calling getAccount'
             );
         }
-
 
         $resourcePath = '/Accounts/{AccountID}';
         $formParams = [];
@@ -18934,7 +18875,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getAccountAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Accounts/{AccountID}/Attachments/{FileName}';
         $formParams = [];
@@ -19262,7 +19202,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts/{AccountID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -19567,7 +19506,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts/{AccountID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -19864,7 +19802,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts';
         $formParams = [];
         $queryParams = [];
@@ -20160,7 +20097,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transaction_id when calling getBankTransaction'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}';
         $formParams = [];
@@ -20475,7 +20411,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getBankTransactionAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}';
         $formParams = [];
@@ -20803,7 +20738,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransactions/{BankTransactionID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -21107,7 +21041,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transaction_id when calling getBankTransactionAttachments'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}/Attachments';
         $formParams = [];
@@ -21415,7 +21348,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransactions';
         $formParams = [];
         $queryParams = [];
@@ -21720,7 +21652,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransactions/{BankTransactionID}/History';
         $formParams = [];
         $queryParams = [];
@@ -22012,7 +21943,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transfer_id when calling getBankTransfer'
             );
         }
-
 
         $resourcePath = '/BankTransfers/{BankTransferID}';
         $formParams = [];
@@ -22327,7 +22257,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getBankTransferAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/BankTransfers/{BankTransferID}/Attachments/{FileName}';
         $formParams = [];
@@ -22655,7 +22584,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransfers/{BankTransferID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -22960,7 +22888,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransfers/{BankTransferID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -23252,7 +23179,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transfer_id when calling getBankTransferHistory'
             );
         }
-
 
         $resourcePath = '/BankTransfers/{BankTransferID}/History';
         $formParams = [];
@@ -23550,7 +23476,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransfers';
         $formParams = [];
         $queryParams = [];
@@ -23846,7 +23771,6 @@ class AccountingApi
                 'Missing the required parameter $batch_payment_id when calling getBatchPaymentHistory'
             );
         }
-
 
         $resourcePath = '/BatchPayments/{BatchPaymentID}/History';
         $formParams = [];
@@ -24144,7 +24068,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BatchPayments';
         $formParams = [];
         $queryParams = [];
@@ -24441,7 +24364,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BrandingThemes/{BrandingThemeID}';
         $formParams = [];
         $queryParams = [];
@@ -24734,7 +24656,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BrandingThemes/{BrandingThemeID}/PaymentServices';
         $formParams = [];
         $queryParams = [];
@@ -25015,7 +24936,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getBrandingThemes'
             );
         }
-
 
         $resourcePath = '/BrandingThemes';
         $formParams = [];
@@ -25300,7 +25220,6 @@ class AccountingApi
                 'Missing the required parameter $contact_id when calling getContact'
             );
         }
-
 
         $resourcePath = '/Contacts/{ContactID}';
         $formParams = [];
@@ -25615,7 +25534,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getContactAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Contacts/{ContactID}/Attachments/{FileName}';
         $formParams = [];
@@ -25943,7 +25861,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts/{ContactID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -26248,7 +26165,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts/{ContactID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -26540,7 +26456,6 @@ class AccountingApi
                 'Missing the required parameter $contact_id when calling getContactCISSettings'
             );
         }
-
 
         $resourcePath = '/Contacts/{ContactID}/CISSettings';
         $formParams = [];
@@ -26834,7 +26749,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ContactGroups/{ContactGroupID}';
         $formParams = [];
         $queryParams = [];
@@ -27125,7 +27039,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getContactGroups'
             );
         }
-
 
         $resourcePath = '/ContactGroups';
         $formParams = [];
@@ -27418,7 +27331,6 @@ class AccountingApi
                 'Missing the required parameter $contact_id when calling getContactHistory'
             );
         }
-
 
         $resourcePath = '/Contacts/{ContactID}/History';
         $formParams = [];
@@ -27731,7 +27643,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts';
         $formParams = [];
         $queryParams = [];
@@ -28040,7 +27951,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}';
         $formParams = [];
         $queryParams = [];
@@ -28343,7 +28253,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getCreditNoteAsPdf'
             );
         }
-
 
         $resourcePath = '/CreditNotes/{CreditNoteID}/pdf';
         $formParams = [];
@@ -28662,7 +28571,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getCreditNoteAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}';
         $formParams = [];
@@ -28990,7 +28898,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -29295,7 +29202,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -29587,7 +29493,6 @@ class AccountingApi
                 'Missing the required parameter $credit_note_id when calling getCreditNoteHistory'
             );
         }
-
 
         $resourcePath = '/CreditNotes/{CreditNoteID}/History';
         $formParams = [];
@@ -29890,7 +29795,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes';
         $formParams = [];
         $queryParams = [];
@@ -30190,7 +30094,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Currencies';
         $formParams = [];
         $queryParams = [];
@@ -30482,7 +30385,6 @@ class AccountingApi
                 'Missing the required parameter $employee_id when calling getEmployee'
             );
         }
-
 
         $resourcePath = '/Employees/{EmployeeID}';
         $formParams = [];
@@ -30780,7 +30682,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Employees';
         $formParams = [];
         $queryParams = [];
@@ -31077,7 +30978,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ExpenseClaims/{ExpenseClaimID}';
         $formParams = [];
         $queryParams = [];
@@ -31369,7 +31269,6 @@ class AccountingApi
                 'Missing the required parameter $expense_claim_id when calling getExpenseClaimHistory'
             );
         }
-
 
         $resourcePath = '/ExpenseClaims/{ExpenseClaimID}/History';
         $formParams = [];
@@ -31667,7 +31566,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ExpenseClaims';
         $formParams = [];
         $queryParams = [];
@@ -31963,7 +31861,6 @@ class AccountingApi
                 'Missing the required parameter $invoice_id when calling getInvoice'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}';
         $formParams = [];
@@ -32267,7 +32164,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getInvoiceAsPdf'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}/pdf';
         $formParams = [];
@@ -32586,7 +32482,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getInvoiceAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}/Attachments/{FileName}';
         $formParams = [];
@@ -32914,7 +32809,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -33219,7 +33113,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -33512,7 +33405,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/History';
         $formParams = [];
         $queryParams = [];
@@ -33793,7 +33685,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getInvoiceReminders'
             );
         }
-
 
         $resourcePath = '/InvoiceReminders/Settings';
         $formParams = [];
@@ -34123,7 +34014,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices';
         $formParams = [];
         $queryParams = [];
@@ -34452,7 +34342,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Items/{ItemID}';
         $formParams = [];
         $queryParams = [];
@@ -34744,7 +34633,6 @@ class AccountingApi
                 'Missing the required parameter $item_id when calling getItemHistory'
             );
         }
-
 
         $resourcePath = '/Items/{ItemID}/History';
         $formParams = [];
@@ -35047,7 +34935,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Items';
         $formParams = [];
         $queryParams = [];
@@ -35348,7 +35235,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Journals/{JournalID}';
         $formParams = [];
         $queryParams = [];
@@ -35645,7 +35531,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Journals';
         $formParams = [];
         $queryParams = [];
@@ -35941,7 +35826,6 @@ class AccountingApi
                 'Missing the required parameter $linked_transaction_id when calling getLinkedTransaction'
             );
         }
-
 
         $resourcePath = '/LinkedTransactions/{LinkedTransactionID}';
         $formParams = [];
@@ -36254,7 +36138,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/LinkedTransactions';
         $formParams = [];
         $queryParams = [];
@@ -36562,7 +36445,6 @@ class AccountingApi
                 'Missing the required parameter $manual_journal_id when calling getManualJournal'
             );
         }
-
 
         $resourcePath = '/ManualJournals/{ManualJournalID}';
         $formParams = [];
@@ -36877,7 +36759,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getManualJournalAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}';
         $formParams = [];
@@ -37205,7 +37086,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ManualJournals/{ManualJournalID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -37510,7 +37390,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ManualJournals/{ManualJournalID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -37812,7 +37691,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ManualJournals';
         $formParams = [];
         $queryParams = [];
@@ -38113,7 +37991,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/OnlineInvoice';
         $formParams = [];
         $queryParams = [];
@@ -38406,7 +38283,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Organisation/{OrganisationID}/CISSettings';
         $formParams = [];
         $queryParams = [];
@@ -38687,7 +38563,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getOrganisations'
             );
         }
-
 
         $resourcePath = '/Organisation';
         $formParams = [];
@@ -38972,7 +38847,6 @@ class AccountingApi
                 'Missing the required parameter $overpayment_id when calling getOverpayment'
             );
         }
-
 
         $resourcePath = '/Overpayments/{OverpaymentID}';
         $formParams = [];
@@ -39265,7 +39139,6 @@ class AccountingApi
                 'Missing the required parameter $overpayment_id when calling getOverpaymentHistory'
             );
         }
-
 
         $resourcePath = '/Overpayments/{OverpaymentID}/History';
         $formParams = [];
@@ -39573,7 +39446,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Overpayments';
         $formParams = [];
         $queryParams = [];
@@ -39878,7 +39750,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Payments/{PaymentID}';
         $formParams = [];
         $queryParams = [];
@@ -40171,7 +40042,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Payments/{PaymentID}/History';
         $formParams = [];
         $queryParams = [];
@@ -40452,7 +40322,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getPaymentServices'
             );
         }
-
 
         $resourcePath = '/PaymentServices';
         $formParams = [];
@@ -40741,7 +40610,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getPayments'
             );
         }
-
 
         $resourcePath = '/Payments';
         $formParams = [];
@@ -41039,7 +40907,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Prepayments/{PrepaymentID}';
         $formParams = [];
         $queryParams = [];
@@ -41331,7 +41198,6 @@ class AccountingApi
                 'Missing the required parameter $prepayment_id when calling getPrepaymentHistory'
             );
         }
-
 
         $resourcePath = '/Prepayments/{PrepaymentID}/History';
         $formParams = [];
@@ -41639,7 +41505,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Prepayments';
         $formParams = [];
         $queryParams = [];
@@ -41944,7 +41809,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/PurchaseOrders/{PurchaseOrderID}';
         $formParams = [];
         $queryParams = [];
@@ -42236,7 +42100,6 @@ class AccountingApi
                 'Missing the required parameter $purchase_order_id when calling getPurchaseOrderHistory'
             );
         }
-
 
         $resourcePath = '/PurchaseOrders/{PurchaseOrderID}/History';
         $formParams = [];
@@ -42549,7 +42412,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/PurchaseOrders';
         $formParams = [];
         $queryParams = [];
@@ -42857,7 +42719,6 @@ class AccountingApi
                 'Missing the required parameter $receipt_id when calling getReceipt'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}';
         $formParams = [];
@@ -43172,7 +43033,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getReceiptAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}/Attachments/{FileName}';
         $formParams = [];
@@ -43500,7 +43360,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Receipts/{ReceiptID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -43805,7 +43664,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Receipts/{ReceiptID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -44097,7 +43955,6 @@ class AccountingApi
                 'Missing the required parameter $receipt_id when calling getReceiptHistory'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}/History';
         $formParams = [];
@@ -44400,7 +44257,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Receipts';
         $formParams = [];
         $queryParams = [];
@@ -44700,7 +44556,6 @@ class AccountingApi
                 'Missing the required parameter $repeating_invoice_id when calling getRepeatingInvoice'
             );
         }
-
 
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}';
         $formParams = [];
@@ -45015,7 +44870,6 @@ class AccountingApi
                 'Missing the required parameter $content_type when calling getRepeatingInvoiceAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}';
         $formParams = [];
@@ -45343,7 +45197,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{AttachmentID}';
         $formParams = [];
         $queryParams = [];
@@ -45648,7 +45501,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments';
         $formParams = [];
         $queryParams = [];
@@ -45941,7 +45793,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/History';
         $formParams = [];
         $queryParams = [];
@@ -46232,7 +46083,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getRepeatingInvoices'
             );
         }
-
 
         $resourcePath = '/RepeatingInvoices';
         $formParams = [];
@@ -46540,7 +46390,6 @@ class AccountingApi
                 'Missing the required parameter $contact_id when calling getReportAgedPayablesByContact'
             );
         }
-
 
         $resourcePath = '/Reports/AgedPayablesByContact';
         $formParams = [];
@@ -46857,7 +46706,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/AgedReceivablesByContact';
         $formParams = [];
         $queryParams = [];
@@ -47158,7 +47006,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/{ReportID}';
         $formParams = [];
         $queryParams = [];
@@ -47439,7 +47286,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getReportBASorGSTList'
             );
         }
-
 
         $resourcePath = '/Reports';
         $formParams = [];
@@ -47748,7 +47594,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getReportBalanceSheet'
             );
         }
-
 
         $resourcePath = '/Reports/BalanceSheet';
         $formParams = [];
@@ -48066,7 +47911,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/BankSummary';
         $formParams = [];
         $queryParams = [];
@@ -48367,7 +48211,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/BudgetSummary';
         $formParams = [];
         $queryParams = [];
@@ -48657,7 +48500,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getReportExecutiveSummary'
             );
         }
-
 
         $resourcePath = '/Reports/ExecutiveSummary';
         $formParams = [];
@@ -48986,7 +48828,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/ProfitAndLoss';
         $formParams = [];
         $queryParams = [];
@@ -49305,7 +49146,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Reports/TenNinetyNine';
         $formParams = [];
         $queryParams = [];
@@ -49592,7 +49432,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getReportTrialBalance'
             );
         }
-
 
         $resourcePath = '/Reports/TrialBalance';
         $formParams = [];
@@ -49889,7 +49728,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getTaxRates'
             );
         }
-
 
         $resourcePath = '/TaxRates';
         $formParams = [];
@@ -50191,7 +50029,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TrackingCategories';
         $formParams = [];
         $queryParams = [];
@@ -50488,7 +50325,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TrackingCategories/{TrackingCategoryID}';
         $formParams = [];
         $queryParams = [];
@@ -50780,7 +50616,6 @@ class AccountingApi
                 'Missing the required parameter $user_id when calling getUser'
             );
         }
-
 
         $resourcePath = '/Users/{UserID}';
         $formParams = [];
@@ -51077,7 +50912,6 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling getUsers'
             );
         }
-
 
         $resourcePath = '/Users';
         $formParams = [];
@@ -51405,7 +51239,6 @@ class AccountingApi
                 'Missing the required parameter $accounts when calling updateAccount'
             );
         }
-
 
         $resourcePath = '/Accounts/{AccountID}';
         $formParams = [];
@@ -51744,7 +51577,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Accounts/{AccountID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -52078,7 +51910,6 @@ class AccountingApi
                 'Missing the required parameter $bank_transactions when calling updateBankTransaction'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}';
         $formParams = [];
@@ -52416,7 +52247,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling updateBankTransactionAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/BankTransactions/{BankTransactionID}/Attachments/{FileName}';
         $formParams = [];
@@ -52759,7 +52589,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/BankTransfers/{BankTransferID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -53083,7 +52912,6 @@ class AccountingApi
                 'Missing the required parameter $contact_id when calling updateContact'
             );
         }
-
 
         $resourcePath = '/Contacts/{ContactID}';
         $formParams = [];
@@ -53418,7 +53246,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Contacts/{ContactID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -53747,7 +53574,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ContactGroups/{ContactGroupID}';
         $formParams = [];
         $queryParams = [];
@@ -54067,7 +53893,6 @@ class AccountingApi
                 'Missing the required parameter $credit_note_id when calling updateCreditNote'
             );
         }
-
 
         $resourcePath = '/CreditNotes/{CreditNoteID}';
         $formParams = [];
@@ -54406,7 +54231,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/CreditNotes/{CreditNoteID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -54741,7 +54565,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Employees/{EmployeeID}';
         $formParams = [];
         $queryParams = [];
@@ -55068,7 +54891,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ExpenseClaims/{ExpenseClaimID}';
         $formParams = [];
         $queryParams = [];
@@ -55394,7 +55216,6 @@ class AccountingApi
                 'Missing the required parameter $invoices when calling updateInvoice'
             );
         }
-
 
         $resourcePath = '/Invoices/{InvoiceID}';
         $formParams = [];
@@ -55733,7 +55554,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Invoices/{InvoiceID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -56068,7 +55888,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/Items/{ItemID}';
         $formParams = [];
         $queryParams = [];
@@ -56395,7 +56214,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/LinkedTransactions/{LinkedTransactionID}';
         $formParams = [];
         $queryParams = [];
@@ -56721,7 +56539,6 @@ class AccountingApi
                 'Missing the required parameter $manual_journals when calling updateManualJournal'
             );
         }
-
 
         $resourcePath = '/ManualJournals/{ManualJournalID}';
         $formParams = [];
@@ -57060,7 +56877,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/ManualJournals/{ManualJournalID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -57395,7 +57211,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/PurchaseOrders/{PurchaseOrderID}';
         $formParams = [];
         $queryParams = [];
@@ -57721,7 +57536,6 @@ class AccountingApi
                 'Missing the required parameter $receipts when calling updateReceipt'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}';
         $formParams = [];
@@ -58059,7 +57873,6 @@ class AccountingApi
                 'Missing the required parameter $body when calling updateReceiptAttachmentByFileName'
             );
         }
-
 
         $resourcePath = '/Receipts/{ReceiptID}/Attachments/{FileName}';
         $formParams = [];
@@ -58406,7 +58219,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName}';
         $formParams = [];
         $queryParams = [];
@@ -58730,7 +58542,6 @@ class AccountingApi
             );
         }
 
-
         $resourcePath = '/TaxRates';
         $formParams = [];
         $queryParams = [];
@@ -59048,7 +58859,6 @@ class AccountingApi
                 'Missing the required parameter $tracking_category when calling updateTrackingCategory'
             );
         }
-
 
         $resourcePath = '/TrackingCategories/{TrackingCategoryID}';
         $formParams = [];

@@ -268,7 +268,6 @@ class IdentityApi
     protected function getConnectionsRequest()
     {
 
-
         $resourcePath = '/connections';
         $formParams = [];
         $queryParams = [];
@@ -508,7 +507,6 @@ class IdentityApi
      */
     protected function refreshTokenRequest($grant_type = null, $content_type = null, $grant_type = null, $refresh_token = null, $client_id = null, $client_secret = null)
     {
-
 
         $resourcePath = '/connect/token';
         $formParams = [];
