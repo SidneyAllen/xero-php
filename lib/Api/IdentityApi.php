@@ -353,15 +353,14 @@ class IdentityApi
      *
      * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
-     * @param  string $content_type the content type to be returned (application/json) (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SidneyAllen\XeroPHP\Models\Identity\Connection[]
      */
-    public function refreshToken($token, $grant_type = null, $content_type = null)
+    public function refreshToken($token, $grant_type = null)
     {
-        list($response) = $this->refreshTokenWithHttpInfo($token, $grant_type, $content_type);
+        list($response) = $this->refreshTokenWithHttpInfo($token, $grant_type);
         return $response;
     }
 
@@ -372,15 +371,14 @@ class IdentityApi
      *
      * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
-     * @param  string $content_type the content type to be returned (application/json) (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SidneyAllen\XeroPHP\Models\Identity\Connection[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function refreshTokenWithHttpInfo($token, $grant_type = null, $content_type = null)
+    public function refreshTokenWithHttpInfo($token, $grant_type = null)
     {
-        $request = $this->refreshTokenRequest($token, $grant_type, $content_type);
+        $request = $this->refreshTokenRequest($token, $grant_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -462,14 +460,13 @@ class IdentityApi
      *
      * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
-     * @param  string $content_type the content type to be returned (application/json) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshTokenAsync($token, $grant_type = null, $content_type = null)
+    public function refreshTokenAsync($token, $grant_type = null)
     {
-        return $this->refreshTokenAsyncWithHttpInfo($token, $grant_type, $content_type)
+        return $this->refreshTokenAsyncWithHttpInfo($token, $grant_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -484,15 +481,14 @@ class IdentityApi
      *
      * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
-     * @param  string $content_type the content type to be returned (application/json) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshTokenAsyncWithHttpInfo($token, $grant_type = null, $content_type = null)
+    public function refreshTokenAsyncWithHttpInfo($token, $grant_type = null)
     {
         $returnType = '\SidneyAllen\XeroPHP\Models\Identity\Connection[]';
-        $request = $this->refreshTokenRequest($token, $grant_type, $content_type);
+        $request = $this->refreshTokenRequest($token, $grant_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -533,12 +529,11 @@ class IdentityApi
      *
      * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
-     * @param  string $content_type the content type to be returned (application/json) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function refreshTokenRequest($token, $grant_type = null, $content_type = null)
+    protected function refreshTokenRequest($token, $grant_type = null)
     {
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -557,10 +552,6 @@ class IdentityApi
         // header params
         if ($grant_type !== null) {
             $headerParams['grant_type'] = ObjectSerializer::toHeaderValue($grant_type);
-        }
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
         }
 
 
