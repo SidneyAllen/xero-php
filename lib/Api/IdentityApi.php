@@ -351,16 +351,16 @@ class IdentityApi
      *
      * Allows you to refresh your access token
      *
-     * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Identity\RefreshToken $refresh_token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SidneyAllen\XeroPHP\Models\Identity\Connection[]
+     * @return \SidneyAllen\XeroPHP\Models\Identity\AccessToken[]
      */
-    public function refreshToken($token, $grant_type = null)
+    public function refreshToken($refresh_token, $grant_type = null)
     {
-        list($response) = $this->refreshTokenWithHttpInfo($token, $grant_type);
+        list($response) = $this->refreshTokenWithHttpInfo($refresh_token, $grant_type);
         return $response;
     }
 
@@ -369,16 +369,16 @@ class IdentityApi
      *
      * Allows you to refresh your access token
      *
-     * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Identity\RefreshToken $refresh_token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
      *
      * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SidneyAllen\XeroPHP\Models\Identity\Connection[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Identity\AccessToken[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function refreshTokenWithHttpInfo($token, $grant_type = null)
+    public function refreshTokenWithHttpInfo($refresh_token, $grant_type = null)
     {
-        $request = $this->refreshTokenRequest($token, $grant_type);
+        $request = $this->refreshTokenRequest($refresh_token, $grant_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -411,20 +411,20 @@ class IdentityApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\SidneyAllen\XeroPHP\Models\Identity\Connection[]' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\Connection[]', []),
+                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SidneyAllen\XeroPHP\Models\Identity\Connection[]';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -443,7 +443,7 @@ class IdentityApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SidneyAllen\XeroPHP\Models\Identity\Connection[]',
+                        '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -458,15 +458,15 @@ class IdentityApi
      *
      * Allows you to refresh your access token
      *
-     * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Identity\RefreshToken $refresh_token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshTokenAsync($token, $grant_type = null)
+    public function refreshTokenAsync($refresh_token, $grant_type = null)
     {
-        return $this->refreshTokenAsyncWithHttpInfo($token, $grant_type)
+        return $this->refreshTokenAsyncWithHttpInfo($refresh_token, $grant_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -479,16 +479,16 @@ class IdentityApi
      *
      * Allows you to refresh your access token
      *
-     * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Identity\RefreshToken $refresh_token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshTokenAsyncWithHttpInfo($token, $grant_type = null)
+    public function refreshTokenAsyncWithHttpInfo($refresh_token, $grant_type = null)
     {
-        $returnType = '\SidneyAllen\XeroPHP\Models\Identity\Connection[]';
-        $request = $this->refreshTokenRequest($token, $grant_type);
+        $returnType = '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]';
+        $request = $this->refreshTokenRequest($refresh_token, $grant_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -527,18 +527,18 @@ class IdentityApi
     /**
      * Create request for operation 'refreshToken'
      *
-     * @param  \SidneyAllen\XeroPHP\Models\Identity\Token $token form data to post during a token refresh (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Identity\RefreshToken $refresh_token form data to post during a token refresh (required)
      * @param  string $grant_type the grant type for token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function refreshTokenRequest($token, $grant_type = null)
+    protected function refreshTokenRequest($refresh_token, $grant_type = null)
     {
-        // verify the required parameter 'token' is set
-        if ($token === null || (is_array($token) && count($token) === 0)) {
+        // verify the required parameter 'refresh_token' is set
+        if ($refresh_token === null || (is_array($refresh_token) && count($refresh_token) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $token when calling refreshToken'
+                'Missing the required parameter $refresh_token when calling refreshToken'
             );
         }
 
@@ -557,8 +557,8 @@ class IdentityApi
 
         // body params
         $_tempBody = null;
-        if (isset($token)) {
-            $_tempBody = $token;
+        if (isset($refresh_token)) {
+            $_tempBody = $refresh_token;
         }
 
         if ($multipart) {

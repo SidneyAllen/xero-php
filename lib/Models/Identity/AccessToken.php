@@ -1,6 +1,6 @@
 <?php
 /**
- * Token
+ * AccessToken
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \SidneyAllen\XeroPHP\ObjectSerializer;
 
 /**
- * Token Class Doc Comment
+ * AccessToken Class Doc Comment
  *
  * @category Class
  * @package  SidneyAllen\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Token implements ModelInterface, ArrayAccess
+class AccessToken implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Token implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Token';
+    protected static $openAPIModelName = 'AccessToken';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,11 @@ class Token implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'grant_type' => 'string',
-        'refresh_token' => 'string',
-        'client_id' => 'string',
-        'client_secret' => 'string'
+        'id_token' => 'string',
+        'access_token' => 'string',
+        'expires_in' => 'double',
+        'token_type' => 'string',
+        'refresh_token' => 'string'
     ];
 
     /**
@@ -69,10 +70,11 @@ class Token implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'grant_type' => null,
-        'refresh_token' => null,
-        'client_id' => null,
-        'client_secret' => null
+        'id_token' => null,
+        'access_token' => null,
+        'expires_in' => 'int',
+        'token_type' => null,
+        'refresh_token' => null
     ];
 
     /**
@@ -102,10 +104,11 @@ class Token implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'grant_type' => 'grant_type',
-        'refresh_token' => 'refresh_token',
-        'client_id' => 'client_id',
-        'client_secret' => 'client_secret'
+        'id_token' => 'id_token',
+        'access_token' => 'access_token',
+        'expires_in' => 'expires_in',
+        'token_type' => 'token_type',
+        'refresh_token' => 'refresh_token'
     ];
 
     /**
@@ -114,10 +117,11 @@ class Token implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'grant_type' => 'setGrantType',
-        'refresh_token' => 'setRefreshToken',
-        'client_id' => 'setClientId',
-        'client_secret' => 'setClientSecret'
+        'id_token' => 'setIdToken',
+        'access_token' => 'setAccessToken',
+        'expires_in' => 'setExpiresIn',
+        'token_type' => 'setTokenType',
+        'refresh_token' => 'setRefreshToken'
     ];
 
     /**
@@ -126,10 +130,11 @@ class Token implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'grant_type' => 'getGrantType',
-        'refresh_token' => 'getRefreshToken',
-        'client_id' => 'getClientId',
-        'client_secret' => 'getClientSecret'
+        'id_token' => 'getIdToken',
+        'access_token' => 'getAccessToken',
+        'expires_in' => 'getExpiresIn',
+        'token_type' => 'getTokenType',
+        'refresh_token' => 'getRefreshToken'
     ];
 
     /**
@@ -192,10 +197,11 @@ class Token implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['grant_type'] = isset($data['grant_type']) ? $data['grant_type'] : null;
+        $this->container['id_token'] = isset($data['id_token']) ? $data['id_token'] : null;
+        $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
+        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['token_type'] = isset($data['token_type']) ? $data['token_type'] : null;
         $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['client_secret'] = isset($data['client_secret']) ? $data['client_secret'] : null;
     }
 
     /**
@@ -223,25 +229,97 @@ class Token implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets grant_type
+     * Gets id_token
      *
      * @return string|null
      */
-    public function getGrantType()
+    public function getIdToken()
     {
-        return $this->container['grant_type'];
+        return $this->container['id_token'];
     }
 
     /**
-     * Sets grant_type
+     * Sets id_token
      *
-     * @param string|null $grant_type Xero grant type
+     * @param string|null $id_token Xero unique identifier
      *
      * @return $this
      */
-    public function setGrantType($grant_type)
+    public function setIdToken($id_token)
     {
-        $this->container['grant_type'] = $grant_type;
+        $this->container['id_token'] = $id_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets access_token
+     *
+     * @return string|null
+     */
+    public function getAccessToken()
+    {
+        return $this->container['access_token'];
+    }
+
+    /**
+     * Sets access_token
+     *
+     * @param string|null $access_token access token provided during authentication flow
+     *
+     * @return $this
+     */
+    public function setAccessToken($access_token)
+    {
+        $this->container['access_token'] = $access_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_in
+     *
+     * @return double|null
+     */
+    public function getExpiresIn()
+    {
+        return $this->container['expires_in'];
+    }
+
+    /**
+     * Sets expires_in
+     *
+     * @param double|null $expires_in time in milliseconds until access token expires.
+     *
+     * @return $this
+     */
+    public function setExpiresIn($expires_in)
+    {
+        $this->container['expires_in'] = $expires_in;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_type
+     *
+     * @return string|null
+     */
+    public function getTokenType()
+    {
+        return $this->container['token_type'];
+    }
+
+    /**
+     * Sets token_type
+     *
+     * @param string|null $token_type type of token i.e. Bearer
+     *
+     * @return $this
+     */
+    public function setTokenType($token_type)
+    {
+        $this->container['token_type'] = $token_type;
 
         return $this;
     }
@@ -259,61 +337,13 @@ class Token implements ModelInterface, ArrayAccess
     /**
      * Sets refresh_token
      *
-     * @param string|null $refresh_token refresh token provided during authentication flow
+     * @param string|null $refresh_token token used to refresh an expired access token
      *
      * @return $this
      */
     public function setRefreshToken($refresh_token)
     {
         $this->container['refresh_token'] = $refresh_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_id
-     *
-     * @return string|null
-     */
-    public function getClientId()
-    {
-        return $this->container['client_id'];
-    }
-
-    /**
-     * Sets client_id
-     *
-     * @param string|null $client_id client id for Xero app
-     *
-     * @return $this
-     */
-    public function setClientId($client_id)
-    {
-        $this->container['client_id'] = $client_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_secret
-     *
-     * @return string|null
-     */
-    public function getClientSecret()
-    {
-        return $this->container['client_secret'];
-    }
-
-    /**
-     * Sets client_secret
-     *
-     * @param string|null $client_secret client secret for Xero app 2
-     *
-     * @return $this
-     */
-    public function setClientSecret($client_secret)
-    {
-        $this->container['client_secret'] = $client_secret;
 
         return $this;
     }
