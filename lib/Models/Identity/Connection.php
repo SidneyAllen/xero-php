@@ -30,7 +30,7 @@
 namespace SidneyAllen\XeroPHP\Models\Identity;
 
 use \ArrayAccess;
-use \SidneyAllen\XeroPHP\ObjectSerializer;
+use \SidneyAllen\XeroPHP\IdentityObjectSerializer;
 
 /**
  * Connection Class Doc Comment
@@ -348,7 +348,7 @@ class Connection implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
+            IdentityObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

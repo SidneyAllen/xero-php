@@ -30,7 +30,7 @@
 namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \SidneyAllen\XeroPHP\ObjectSerializer;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
 
 /**
  * AccountsReceivable Class Doc Comment
@@ -318,7 +318,7 @@ class AccountsReceivable implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
+            AccountingObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

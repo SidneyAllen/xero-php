@@ -28,7 +28,7 @@
  */
 
 namespace SidneyAllen\XeroPHP\Models\Accounting;
-use \SidneyAllen\XeroPHP\ObjectSerializer;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
 
 /**
  * LineAmountTypes Class Doc Comment

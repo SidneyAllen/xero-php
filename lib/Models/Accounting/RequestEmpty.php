@@ -30,7 +30,7 @@
 namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \SidneyAllen\XeroPHP\ObjectSerializer;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
 
 /**
  * RequestEmpty Class Doc Comment
@@ -288,7 +288,7 @@ class RequestEmpty implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
+            AccountingObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

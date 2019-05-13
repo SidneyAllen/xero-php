@@ -30,7 +30,7 @@
 namespace SidneyAllen\XeroPHP\Models\Identity;
 
 use \ArrayAccess;
-use \SidneyAllen\XeroPHP\ObjectSerializer;
+use \SidneyAllen\XeroPHP\IdentityObjectSerializer;
 
 /**
  * AccessToken Class Doc Comment
@@ -408,7 +408,7 @@ class AccessToken implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            ObjectSerializer::sanitizeForSerialization($this),
+            IdentityObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

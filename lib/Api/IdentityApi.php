@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SidneyAllen\XeroPHP
+ * @package  SidneyAllen\XeroPHP Identity
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use SidneyAllen\XeroPHP\ApiException;
 use SidneyAllen\XeroPHP\Configuration;
 use SidneyAllen\XeroPHP\HeaderSelector;
-use SidneyAllen\XeroPHP\ObjectSerializer;
+use SidneyAllen\XeroPHP\IdentityObjectSerializer;
 
 /**
  * IdentityApi Class Doc Comment
@@ -156,7 +156,7 @@ class IdentityApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\Connection[]', []),
+                        IdentityObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\Connection[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -171,7 +171,7 @@ class IdentityApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                IdentityObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -179,7 +179,7 @@ class IdentityApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = IdentityObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Identity\Connection[]',
                         $e->getResponseHeaders()
@@ -236,7 +236,7 @@ class IdentityApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        IdentityObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -295,7 +295,7 @@ class IdentityApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(IdentityObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -418,7 +418,7 @@ class IdentityApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]', []),
+                        IdentityObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -433,7 +433,7 @@ class IdentityApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                IdentityObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -441,7 +441,7 @@ class IdentityApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = IdentityObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Identity\AccessToken[]',
                         $e->getResponseHeaders()
@@ -502,7 +502,7 @@ class IdentityApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        IdentityObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -551,7 +551,7 @@ class IdentityApi
 
         // header params
         if ($grant_type !== null) {
-            $headerParams['grant_type'] = ObjectSerializer::toHeaderValue($grant_type);
+            $headerParams['grant_type'] = IdentityObjectSerializer::toHeaderValue($grant_type);
         }
 
 
@@ -576,7 +576,7 @@ class IdentityApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(IdentityObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }

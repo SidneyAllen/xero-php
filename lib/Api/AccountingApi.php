@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  SidneyAllen\XeroPHP
+ * @package  SidneyAllen\XeroPHP Accounting
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use SidneyAllen\XeroPHP\ApiException;
 use SidneyAllen\XeroPHP\Configuration;
 use SidneyAllen\XeroPHP\HeaderSelector;
-use SidneyAllen\XeroPHP\ObjectSerializer;
+use SidneyAllen\XeroPHP\AccountingObjectSerializer;
 
 /**
  * AccountingApi Class Doc Comment
@@ -160,7 +160,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -172,7 +172,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -187,7 +187,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -195,7 +195,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Accounts',
                         $e->getResponseHeaders()
@@ -203,7 +203,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -264,7 +264,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -319,7 +319,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -344,7 +344,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -471,7 +471,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -483,7 +483,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -498,7 +498,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -506,7 +506,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -514,7 +514,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -579,7 +579,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -648,14 +648,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -663,7 +663,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -689,7 +689,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -814,7 +814,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -826,7 +826,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -841,7 +841,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -849,7 +849,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions',
                         $e->getResponseHeaders()
@@ -857,7 +857,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -920,7 +920,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -976,11 +976,11 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -1005,7 +1005,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -1132,7 +1132,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1144,7 +1144,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1159,7 +1159,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1167,7 +1167,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -1175,7 +1175,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -1240,7 +1240,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1309,14 +1309,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -1324,7 +1324,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -1350,7 +1350,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -1475,7 +1475,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1487,7 +1487,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1502,7 +1502,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1510,7 +1510,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -1518,7 +1518,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -1581,7 +1581,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1643,14 +1643,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -1676,7 +1676,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -1799,7 +1799,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1811,7 +1811,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1826,7 +1826,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -1834,7 +1834,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers',
                         $e->getResponseHeaders()
@@ -1842,7 +1842,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -1903,7 +1903,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1958,7 +1958,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -1983,7 +1983,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -2106,7 +2106,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2118,7 +2118,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2133,7 +2133,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2141,7 +2141,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -2149,7 +2149,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -2214,7 +2214,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2283,14 +2283,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -2298,7 +2298,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -2324,7 +2324,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -2445,7 +2445,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2457,7 +2457,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2472,7 +2472,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2480,7 +2480,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -2488,7 +2488,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -2551,7 +2551,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2613,14 +2613,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -2646,7 +2646,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -2769,7 +2769,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2781,7 +2781,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2796,7 +2796,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -2804,7 +2804,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments',
                         $e->getResponseHeaders()
@@ -2812,7 +2812,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -2873,7 +2873,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2928,7 +2928,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -2953,7 +2953,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -3078,7 +3078,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3090,7 +3090,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3105,7 +3105,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3113,7 +3113,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -3121,7 +3121,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -3184,7 +3184,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3246,14 +3246,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($batch_payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BatchPaymentID' . '}',
-                ObjectSerializer::toPathValue($batch_payment_id),
+                AccountingObjectSerializer::toPathValue($batch_payment_id),
                 $resourcePath
             );
         }
@@ -3279,7 +3279,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -3404,7 +3404,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3416,7 +3416,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3431,7 +3431,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3439,7 +3439,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices',
                         $e->getResponseHeaders()
@@ -3447,7 +3447,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -3510,7 +3510,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3572,14 +3572,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BrandingThemeID' . '}',
-                ObjectSerializer::toPathValue($branding_theme_id),
+                AccountingObjectSerializer::toPathValue($branding_theme_id),
                 $resourcePath
             );
         }
@@ -3605,7 +3605,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -3724,7 +3724,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3736,7 +3736,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3751,7 +3751,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -3759,7 +3759,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Contacts',
                         $e->getResponseHeaders()
@@ -3767,7 +3767,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -3828,7 +3828,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3883,7 +3883,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -3908,7 +3908,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -4031,7 +4031,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4043,7 +4043,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4058,7 +4058,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -4066,7 +4066,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -4074,7 +4074,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -4139,7 +4139,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4208,14 +4208,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -4223,7 +4223,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -4249,7 +4249,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -4372,7 +4372,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4384,7 +4384,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4399,7 +4399,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -4407,7 +4407,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups',
                         $e->getResponseHeaders()
@@ -4415,7 +4415,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -4476,7 +4476,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4525,7 +4525,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -4550,7 +4550,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -4675,7 +4675,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4687,7 +4687,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4702,7 +4702,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -4710,7 +4710,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Contacts',
                         $e->getResponseHeaders()
@@ -4718,7 +4718,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -4781,7 +4781,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4837,14 +4837,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactGroupID' . '}',
-                ObjectSerializer::toPathValue($contact_group_id),
+                AccountingObjectSerializer::toPathValue($contact_group_id),
                 $resourcePath
             );
         }
@@ -4870,7 +4870,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -4995,7 +4995,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5007,7 +5007,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5022,7 +5022,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -5030,7 +5030,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -5038,7 +5038,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -5101,7 +5101,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5163,14 +5163,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -5196,7 +5196,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -5321,7 +5321,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5333,7 +5333,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5348,7 +5348,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -5356,7 +5356,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes',
                         $e->getResponseHeaders()
@@ -5364,7 +5364,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -5427,7 +5427,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5477,11 +5477,11 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -5506,7 +5506,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -5631,7 +5631,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5643,7 +5643,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5658,7 +5658,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -5666,7 +5666,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Allocations',
                         $e->getResponseHeaders()
@@ -5674,7 +5674,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -5737,7 +5737,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5793,14 +5793,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -5826,7 +5826,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -5953,7 +5953,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5965,7 +5965,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5980,7 +5980,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -5988,7 +5988,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -5996,7 +5996,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -6061,7 +6061,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6130,14 +6130,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -6145,7 +6145,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -6171,7 +6171,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -6296,7 +6296,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6308,7 +6308,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6323,7 +6323,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -6331,7 +6331,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -6339,7 +6339,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -6402,7 +6402,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6464,14 +6464,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -6497,7 +6497,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -6616,7 +6616,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Currencies', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Currencies', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6631,7 +6631,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -6639,7 +6639,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Currencies',
                         $e->getResponseHeaders()
@@ -6700,7 +6700,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6755,7 +6755,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -6780,7 +6780,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -6903,7 +6903,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6915,7 +6915,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6930,7 +6930,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -6938,7 +6938,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Employees',
                         $e->getResponseHeaders()
@@ -6946,7 +6946,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -7007,7 +7007,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7062,7 +7062,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -7087,7 +7087,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -7212,7 +7212,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7224,7 +7224,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7239,7 +7239,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -7247,7 +7247,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims',
                         $e->getResponseHeaders()
@@ -7255,7 +7255,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -7318,7 +7318,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7374,11 +7374,11 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -7403,7 +7403,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -7528,7 +7528,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7543,7 +7543,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -7551,7 +7551,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -7614,7 +7614,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7676,14 +7676,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ExpenseClaimID' . '}',
-                ObjectSerializer::toPathValue($expense_claim_id),
+                AccountingObjectSerializer::toPathValue($expense_claim_id),
                 $resourcePath
             );
         }
@@ -7709,7 +7709,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -7834,7 +7834,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7846,7 +7846,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7861,7 +7861,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -7869,7 +7869,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Invoices',
                         $e->getResponseHeaders()
@@ -7877,7 +7877,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -7940,7 +7940,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7996,11 +7996,11 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -8025,7 +8025,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -8152,7 +8152,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8164,7 +8164,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8179,7 +8179,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -8187,7 +8187,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -8195,7 +8195,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -8260,7 +8260,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8329,14 +8329,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -8344,7 +8344,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -8370,7 +8370,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -8495,7 +8495,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8507,7 +8507,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8522,7 +8522,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -8530,7 +8530,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -8538,7 +8538,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -8601,7 +8601,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8663,14 +8663,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -8696,7 +8696,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -8819,7 +8819,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8831,7 +8831,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8846,7 +8846,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -8854,7 +8854,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Items',
                         $e->getResponseHeaders()
@@ -8862,7 +8862,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -8923,7 +8923,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8978,7 +8978,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -9003,7 +9003,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -9128,7 +9128,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9143,7 +9143,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -9151,7 +9151,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -9214,7 +9214,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9276,14 +9276,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ItemID' . '}',
-                ObjectSerializer::toPathValue($item_id),
+                AccountingObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
         }
@@ -9309,7 +9309,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -9432,7 +9432,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9444,7 +9444,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9459,7 +9459,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -9467,7 +9467,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions',
                         $e->getResponseHeaders()
@@ -9475,7 +9475,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -9536,7 +9536,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9591,7 +9591,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -9616,7 +9616,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -9739,7 +9739,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9751,7 +9751,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9766,7 +9766,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -9774,7 +9774,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals',
                         $e->getResponseHeaders()
@@ -9782,7 +9782,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -9843,7 +9843,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9898,7 +9898,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -9923,7 +9923,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -10050,7 +10050,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10062,7 +10062,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10077,7 +10077,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -10085,7 +10085,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -10093,7 +10093,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -10158,7 +10158,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10227,14 +10227,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -10242,7 +10242,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -10268,7 +10268,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -10393,7 +10393,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10405,7 +10405,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10420,7 +10420,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -10428,7 +10428,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Allocations',
                         $e->getResponseHeaders()
@@ -10436,7 +10436,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -10499,7 +10499,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10561,14 +10561,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'OverpaymentID' . '}',
-                ObjectSerializer::toPathValue($overpayment_id),
+                AccountingObjectSerializer::toPathValue($overpayment_id),
                 $resourcePath
             );
         }
@@ -10594,7 +10594,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -10719,7 +10719,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10731,7 +10731,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10746,7 +10746,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -10754,7 +10754,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -10762,7 +10762,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -10825,7 +10825,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -10887,14 +10887,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'OverpaymentID' . '}',
-                ObjectSerializer::toPathValue($overpayment_id),
+                AccountingObjectSerializer::toPathValue($overpayment_id),
                 $resourcePath
             );
         }
@@ -10920,7 +10920,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -11043,7 +11043,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11055,7 +11055,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11070,7 +11070,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -11078,7 +11078,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Payments',
                         $e->getResponseHeaders()
@@ -11086,7 +11086,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -11147,7 +11147,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11202,7 +11202,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -11227,7 +11227,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -11352,7 +11352,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11364,7 +11364,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11379,7 +11379,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -11387,7 +11387,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -11395,7 +11395,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -11458,7 +11458,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11520,14 +11520,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PaymentID' . '}',
-                ObjectSerializer::toPathValue($payment_id),
+                AccountingObjectSerializer::toPathValue($payment_id),
                 $resourcePath
             );
         }
@@ -11553,7 +11553,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -11676,7 +11676,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11688,7 +11688,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11703,7 +11703,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -11711,7 +11711,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices',
                         $e->getResponseHeaders()
@@ -11719,7 +11719,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -11780,7 +11780,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11835,7 +11835,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -11860,7 +11860,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -11985,7 +11985,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Allocations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -11997,7 +11997,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12012,7 +12012,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -12020,7 +12020,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Allocations',
                         $e->getResponseHeaders()
@@ -12028,7 +12028,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -12091,7 +12091,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12153,14 +12153,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PrepaymentID' . '}',
-                ObjectSerializer::toPathValue($prepayment_id),
+                AccountingObjectSerializer::toPathValue($prepayment_id),
                 $resourcePath
             );
         }
@@ -12186,7 +12186,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -12311,7 +12311,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12323,7 +12323,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12338,7 +12338,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -12346,7 +12346,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -12354,7 +12354,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -12417,7 +12417,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12479,14 +12479,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PrepaymentID' . '}',
-                ObjectSerializer::toPathValue($prepayment_id),
+                AccountingObjectSerializer::toPathValue($prepayment_id),
                 $resourcePath
             );
         }
@@ -12512,7 +12512,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -12637,7 +12637,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12649,7 +12649,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12664,7 +12664,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -12672,7 +12672,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders',
                         $e->getResponseHeaders()
@@ -12680,7 +12680,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -12743,7 +12743,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12799,11 +12799,11 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = ObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -12828,7 +12828,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -12953,7 +12953,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12965,7 +12965,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -12980,7 +12980,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -12988,7 +12988,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -12996,7 +12996,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -13059,7 +13059,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13121,14 +13121,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PurchaseOrderID' . '}',
-                ObjectSerializer::toPathValue($purchase_order_id),
+                AccountingObjectSerializer::toPathValue($purchase_order_id),
                 $resourcePath
             );
         }
@@ -13154,7 +13154,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -13277,7 +13277,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13289,7 +13289,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13304,7 +13304,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -13312,7 +13312,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Receipts',
                         $e->getResponseHeaders()
@@ -13320,7 +13320,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -13381,7 +13381,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13436,7 +13436,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -13461,7 +13461,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -13588,7 +13588,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13600,7 +13600,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13615,7 +13615,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -13623,7 +13623,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -13631,7 +13631,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -13696,7 +13696,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13765,14 +13765,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -13780,7 +13780,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -13806,7 +13806,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -13931,7 +13931,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13943,7 +13943,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -13958,7 +13958,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -13966,7 +13966,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -13974,7 +13974,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -14037,7 +14037,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14099,14 +14099,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -14132,7 +14132,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -14259,7 +14259,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14271,7 +14271,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14286,7 +14286,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -14294,7 +14294,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -14302,7 +14302,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -14367,7 +14367,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14436,14 +14436,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -14451,7 +14451,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -14477,7 +14477,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -14602,7 +14602,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14614,7 +14614,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14629,7 +14629,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -14637,7 +14637,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -14645,7 +14645,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -14708,7 +14708,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14770,14 +14770,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -14803,7 +14803,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -14926,7 +14926,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14938,7 +14938,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -14953,7 +14953,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -14961,7 +14961,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates',
                         $e->getResponseHeaders()
@@ -14969,7 +14969,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -15030,7 +15030,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15085,7 +15085,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -15110,7 +15110,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -15233,7 +15233,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15245,7 +15245,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15260,7 +15260,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -15268,7 +15268,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories',
                         $e->getResponseHeaders()
@@ -15276,7 +15276,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -15337,7 +15337,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15392,7 +15392,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -15417,7 +15417,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -15542,7 +15542,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15554,7 +15554,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15569,7 +15569,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -15577,7 +15577,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions',
                         $e->getResponseHeaders()
@@ -15585,7 +15585,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -15648,7 +15648,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15710,14 +15710,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingCategoryID' . '}',
-                ObjectSerializer::toPathValue($tracking_category_id),
+                AccountingObjectSerializer::toPathValue($tracking_category_id),
                 $resourcePath
             );
         }
@@ -15743,7 +15743,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -15866,7 +15866,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15878,7 +15878,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -15893,7 +15893,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -15901,7 +15901,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Accounts',
                         $e->getResponseHeaders()
@@ -15909,7 +15909,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -15970,7 +15970,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -16025,14 +16025,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -16055,7 +16055,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -16174,7 +16174,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -16288,14 +16288,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactGroupID' . '}',
-                ObjectSerializer::toPathValue($contact_group_id),
+                AccountingObjectSerializer::toPathValue($contact_group_id),
                 $resourcePath
             );
         }
@@ -16303,7 +16303,7 @@ class AccountingApi
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -16326,7 +16326,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -16540,14 +16540,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactGroupID' . '}',
-                ObjectSerializer::toPathValue($contact_group_id),
+                AccountingObjectSerializer::toPathValue($contact_group_id),
                 $resourcePath
             );
         }
@@ -16570,7 +16570,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -16687,7 +16687,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -16792,14 +16792,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ItemID' . '}',
-                ObjectSerializer::toPathValue($item_id),
+                AccountingObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
         }
@@ -16822,7 +16822,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -16939,7 +16939,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -17044,14 +17044,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'LinkedTransactionID' . '}',
-                ObjectSerializer::toPathValue($linked_transaction_id),
+                AccountingObjectSerializer::toPathValue($linked_transaction_id),
                 $resourcePath
             );
         }
@@ -17074,7 +17074,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -17199,7 +17199,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17211,7 +17211,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17226,7 +17226,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -17234,7 +17234,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Payments',
                         $e->getResponseHeaders()
@@ -17242,7 +17242,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -17305,7 +17305,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17367,14 +17367,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PaymentID' . '}',
-                ObjectSerializer::toPathValue($payment_id),
+                AccountingObjectSerializer::toPathValue($payment_id),
                 $resourcePath
             );
         }
@@ -17400,7 +17400,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -17523,7 +17523,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17535,7 +17535,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17550,7 +17550,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -17558,7 +17558,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories',
                         $e->getResponseHeaders()
@@ -17566,7 +17566,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -17627,7 +17627,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17682,14 +17682,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingCategoryID' . '}',
-                ObjectSerializer::toPathValue($tracking_category_id),
+                AccountingObjectSerializer::toPathValue($tracking_category_id),
                 $resourcePath
             );
         }
@@ -17712,7 +17712,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -17837,7 +17837,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17849,7 +17849,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -17864,7 +17864,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -17872,7 +17872,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions',
                         $e->getResponseHeaders()
@@ -17880,7 +17880,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -17943,7 +17943,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18005,14 +18005,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingCategoryID' . '}',
-                ObjectSerializer::toPathValue($tracking_category_id),
+                AccountingObjectSerializer::toPathValue($tracking_category_id),
                 $resourcePath
             );
         }
@@ -18020,7 +18020,7 @@ class AccountingApi
         if ($tracking_option_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingOptionID' . '}',
-                ObjectSerializer::toPathValue($tracking_option_id),
+                AccountingObjectSerializer::toPathValue($tracking_option_id),
                 $resourcePath
             );
         }
@@ -18043,7 +18043,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -18162,7 +18162,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -18276,14 +18276,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -18309,7 +18309,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -18432,7 +18432,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18447,7 +18447,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -18455,7 +18455,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Accounts',
                         $e->getResponseHeaders()
@@ -18516,7 +18516,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18571,14 +18571,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -18601,7 +18601,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -18728,7 +18728,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18743,7 +18743,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -18751,7 +18751,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -18816,7 +18816,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -18885,18 +18885,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -18904,7 +18904,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -18927,7 +18927,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -19054,7 +19054,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19069,7 +19069,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -19077,7 +19077,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -19142,7 +19142,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19211,18 +19211,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -19230,7 +19230,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -19253,7 +19253,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -19376,7 +19376,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19391,7 +19391,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -19399,7 +19399,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -19460,7 +19460,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19515,14 +19515,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -19545,7 +19545,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -19672,7 +19672,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19687,7 +19687,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -19695,7 +19695,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Accounts',
                         $e->getResponseHeaders()
@@ -19760,7 +19760,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19811,19 +19811,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -19845,7 +19845,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -19968,7 +19968,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -19983,7 +19983,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -19991,7 +19991,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions',
                         $e->getResponseHeaders()
@@ -20052,7 +20052,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20107,14 +20107,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -20137,7 +20137,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -20264,7 +20264,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20279,7 +20279,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -20287,7 +20287,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -20352,7 +20352,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20421,18 +20421,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -20440,7 +20440,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -20463,7 +20463,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -20590,7 +20590,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20605,7 +20605,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -20613,7 +20613,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -20678,7 +20678,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20747,18 +20747,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -20766,7 +20766,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -20789,7 +20789,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -20912,7 +20912,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -20927,7 +20927,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -20935,7 +20935,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -20996,7 +20996,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21051,14 +21051,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -21081,7 +21081,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -21212,7 +21212,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21227,7 +21227,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -21235,7 +21235,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions',
                         $e->getResponseHeaders()
@@ -21304,7 +21304,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21357,27 +21357,27 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -21399,7 +21399,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -21522,7 +21522,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21537,7 +21537,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -21545,7 +21545,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -21606,7 +21606,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21661,14 +21661,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -21691,7 +21691,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -21814,7 +21814,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21829,7 +21829,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -21837,7 +21837,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers',
                         $e->getResponseHeaders()
@@ -21898,7 +21898,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -21953,14 +21953,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -21983,7 +21983,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -22110,7 +22110,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22125,7 +22125,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -22133,7 +22133,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -22198,7 +22198,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22267,18 +22267,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -22286,7 +22286,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -22309,7 +22309,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -22436,7 +22436,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22451,7 +22451,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -22459,7 +22459,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -22524,7 +22524,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22593,18 +22593,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -22612,7 +22612,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -22635,7 +22635,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -22758,7 +22758,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22773,7 +22773,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -22781,7 +22781,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -22842,7 +22842,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -22897,14 +22897,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -22927,7 +22927,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -23050,7 +23050,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23065,7 +23065,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -23073,7 +23073,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -23134,7 +23134,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23189,14 +23189,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -23219,7 +23219,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -23346,7 +23346,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23361,7 +23361,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -23369,7 +23369,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers',
                         $e->getResponseHeaders()
@@ -23434,7 +23434,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23485,19 +23485,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -23519,7 +23519,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -23642,7 +23642,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23657,7 +23657,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -23665,7 +23665,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -23726,7 +23726,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23781,14 +23781,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($batch_payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BatchPaymentID' . '}',
-                ObjectSerializer::toPathValue($batch_payment_id),
+                AccountingObjectSerializer::toPathValue($batch_payment_id),
                 $resourcePath
             );
         }
@@ -23811,7 +23811,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -23938,7 +23938,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -23953,7 +23953,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -23961,7 +23961,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments',
                         $e->getResponseHeaders()
@@ -24026,7 +24026,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24077,19 +24077,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -24111,7 +24111,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -24234,7 +24234,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24249,7 +24249,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -24257,7 +24257,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes',
                         $e->getResponseHeaders()
@@ -24318,7 +24318,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24373,14 +24373,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BrandingThemeID' . '}',
-                ObjectSerializer::toPathValue($branding_theme_id),
+                AccountingObjectSerializer::toPathValue($branding_theme_id),
                 $resourcePath
             );
         }
@@ -24403,7 +24403,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -24526,7 +24526,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24541,7 +24541,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -24549,7 +24549,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices',
                         $e->getResponseHeaders()
@@ -24610,7 +24610,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24665,14 +24665,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BrandingThemeID' . '}',
-                ObjectSerializer::toPathValue($branding_theme_id),
+                AccountingObjectSerializer::toPathValue($branding_theme_id),
                 $resourcePath
             );
         }
@@ -24695,7 +24695,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -24816,7 +24816,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24831,7 +24831,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -24839,7 +24839,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes',
                         $e->getResponseHeaders()
@@ -24898,7 +24898,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -24946,7 +24946,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -24968,7 +24968,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -25091,7 +25091,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25106,7 +25106,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -25114,7 +25114,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Contacts',
                         $e->getResponseHeaders()
@@ -25175,7 +25175,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25230,14 +25230,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -25260,7 +25260,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -25387,7 +25387,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25402,7 +25402,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -25410,7 +25410,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -25475,7 +25475,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25544,18 +25544,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -25563,7 +25563,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -25586,7 +25586,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -25713,7 +25713,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25728,7 +25728,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -25736,7 +25736,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -25801,7 +25801,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -25870,18 +25870,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -25889,7 +25889,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -25912,7 +25912,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -26035,7 +26035,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26050,7 +26050,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -26058,7 +26058,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -26119,7 +26119,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26174,14 +26174,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -26204,7 +26204,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -26327,7 +26327,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CISSettings', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CISSettings', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26342,7 +26342,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -26350,7 +26350,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CISSettings',
                         $e->getResponseHeaders()
@@ -26411,7 +26411,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26466,14 +26466,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -26496,7 +26496,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -26619,7 +26619,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26634,7 +26634,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -26642,7 +26642,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups',
                         $e->getResponseHeaders()
@@ -26703,7 +26703,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26758,14 +26758,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactGroupID' . '}',
-                ObjectSerializer::toPathValue($contact_group_id),
+                AccountingObjectSerializer::toPathValue($contact_group_id),
                 $resourcePath
             );
         }
@@ -26788,7 +26788,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -26913,7 +26913,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -26928,7 +26928,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -26936,7 +26936,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups',
                         $e->getResponseHeaders()
@@ -26999,7 +26999,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27049,15 +27049,15 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -27079,7 +27079,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -27202,7 +27202,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27217,7 +27217,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -27225,7 +27225,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -27286,7 +27286,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27341,14 +27341,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -27371,7 +27371,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -27504,7 +27504,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27519,7 +27519,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -27527,7 +27527,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Contacts',
                         $e->getResponseHeaders()
@@ -27598,7 +27598,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27652,31 +27652,31 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($i_ds !== null) {
-            $queryParams['IDs'] = ObjectSerializer::toQueryValue($i_ds);
+            $queryParams['IDs'] = AccountingObjectSerializer::toQueryValue($i_ds);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = ObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -27698,7 +27698,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -27821,7 +27821,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27836,7 +27836,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -27844,7 +27844,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes',
                         $e->getResponseHeaders()
@@ -27905,7 +27905,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -27960,14 +27960,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -27990,7 +27990,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -28115,7 +28115,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28130,7 +28130,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -28138,7 +28138,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -28201,7 +28201,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28263,18 +28263,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -28297,7 +28297,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -28424,7 +28424,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28439,7 +28439,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -28447,7 +28447,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -28512,7 +28512,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28581,18 +28581,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -28600,7 +28600,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -28623,7 +28623,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -28750,7 +28750,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28765,7 +28765,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -28773,7 +28773,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -28838,7 +28838,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -28907,18 +28907,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -28926,7 +28926,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -28949,7 +28949,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -29072,7 +29072,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29087,7 +29087,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -29095,7 +29095,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -29156,7 +29156,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29211,14 +29211,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -29241,7 +29241,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -29364,7 +29364,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29379,7 +29379,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -29387,7 +29387,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -29448,7 +29448,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29503,14 +29503,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -29533,7 +29533,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -29662,7 +29662,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29677,7 +29677,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -29685,7 +29685,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes',
                         $e->getResponseHeaders()
@@ -29752,7 +29752,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29804,23 +29804,23 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -29842,7 +29842,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -29967,7 +29967,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Currencies', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Currencies', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -29982,7 +29982,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -29990,7 +29990,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Currencies',
                         $e->getResponseHeaders()
@@ -30053,7 +30053,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30103,15 +30103,15 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -30133,7 +30133,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -30256,7 +30256,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30271,7 +30271,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -30279,7 +30279,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Employees',
                         $e->getResponseHeaders()
@@ -30340,7 +30340,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30395,14 +30395,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'EmployeeID' . '}',
-                ObjectSerializer::toPathValue($employee_id),
+                AccountingObjectSerializer::toPathValue($employee_id),
                 $resourcePath
             );
         }
@@ -30425,7 +30425,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -30552,7 +30552,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30567,7 +30567,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -30575,7 +30575,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Employees',
                         $e->getResponseHeaders()
@@ -30640,7 +30640,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30691,19 +30691,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -30725,7 +30725,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -30848,7 +30848,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30863,7 +30863,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -30871,7 +30871,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims',
                         $e->getResponseHeaders()
@@ -30932,7 +30932,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -30987,14 +30987,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ExpenseClaimID' . '}',
-                ObjectSerializer::toPathValue($expense_claim_id),
+                AccountingObjectSerializer::toPathValue($expense_claim_id),
                 $resourcePath
             );
         }
@@ -31017,7 +31017,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -31140,7 +31140,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31155,7 +31155,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -31163,7 +31163,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -31224,7 +31224,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31279,14 +31279,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ExpenseClaimID' . '}',
-                ObjectSerializer::toPathValue($expense_claim_id),
+                AccountingObjectSerializer::toPathValue($expense_claim_id),
                 $resourcePath
             );
         }
@@ -31309,7 +31309,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -31436,7 +31436,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31451,7 +31451,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -31459,7 +31459,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims',
                         $e->getResponseHeaders()
@@ -31524,7 +31524,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31575,19 +31575,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -31609,7 +31609,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -31732,7 +31732,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31747,7 +31747,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -31755,7 +31755,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Invoices',
                         $e->getResponseHeaders()
@@ -31816,7 +31816,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -31871,14 +31871,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -31901,7 +31901,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -32026,7 +32026,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32041,7 +32041,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -32049,7 +32049,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -32112,7 +32112,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32174,18 +32174,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -32208,7 +32208,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -32335,7 +32335,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32350,7 +32350,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -32358,7 +32358,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -32423,7 +32423,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32492,18 +32492,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -32511,7 +32511,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -32534,7 +32534,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -32661,7 +32661,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32676,7 +32676,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -32684,7 +32684,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -32749,7 +32749,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32818,18 +32818,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -32837,7 +32837,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -32860,7 +32860,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -32983,7 +32983,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -32998,7 +32998,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -33006,7 +33006,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -33067,7 +33067,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33122,14 +33122,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -33152,7 +33152,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -33275,7 +33275,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33290,7 +33290,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -33298,7 +33298,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -33359,7 +33359,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33414,14 +33414,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -33444,7 +33444,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -33565,7 +33565,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminders', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33580,7 +33580,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -33588,7 +33588,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminders',
                         $e->getResponseHeaders()
@@ -33647,7 +33647,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33695,7 +33695,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -33717,7 +33717,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -33860,7 +33860,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -33875,7 +33875,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -33883,7 +33883,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Invoices',
                         $e->getResponseHeaders()
@@ -33964,7 +33964,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34023,51 +34023,51 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($i_ds !== null) {
-            $queryParams['IDs'] = ObjectSerializer::toQueryValue($i_ds);
+            $queryParams['IDs'] = AccountingObjectSerializer::toQueryValue($i_ds);
         }
         // query params
         if ($invoice_numbers !== null) {
-            $queryParams['InvoiceNumbers'] = ObjectSerializer::toQueryValue($invoice_numbers);
+            $queryParams['InvoiceNumbers'] = AccountingObjectSerializer::toQueryValue($invoice_numbers);
         }
         // query params
         if ($contact_i_ds !== null) {
-            $queryParams['ContactIDs'] = ObjectSerializer::toQueryValue($contact_i_ds);
+            $queryParams['ContactIDs'] = AccountingObjectSerializer::toQueryValue($contact_i_ds);
         }
         // query params
         if ($statuses !== null) {
-            $queryParams['Statuses'] = ObjectSerializer::toQueryValue($statuses);
+            $queryParams['Statuses'] = AccountingObjectSerializer::toQueryValue($statuses);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = ObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
         }
         // query params
         if ($created_by_my_app !== null) {
-            $queryParams['createdByMyApp'] = ObjectSerializer::toQueryValue($created_by_my_app);
+            $queryParams['createdByMyApp'] = AccountingObjectSerializer::toQueryValue($created_by_my_app);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -34089,7 +34089,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -34212,7 +34212,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34227,7 +34227,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -34235,7 +34235,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Items',
                         $e->getResponseHeaders()
@@ -34296,7 +34296,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34351,14 +34351,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ItemID' . '}',
-                ObjectSerializer::toPathValue($item_id),
+                AccountingObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
         }
@@ -34381,7 +34381,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -34504,7 +34504,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34519,7 +34519,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -34527,7 +34527,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -34588,7 +34588,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34643,14 +34643,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ItemID' . '}',
-                ObjectSerializer::toPathValue($item_id),
+                AccountingObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
         }
@@ -34673,7 +34673,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -34802,7 +34802,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34817,7 +34817,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -34825,7 +34825,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Items',
                         $e->getResponseHeaders()
@@ -34892,7 +34892,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -34944,23 +34944,23 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -34982,7 +34982,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -35105,7 +35105,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Journals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Journals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35120,7 +35120,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -35128,7 +35128,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Journals',
                         $e->getResponseHeaders()
@@ -35189,7 +35189,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35244,14 +35244,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'JournalID' . '}',
-                ObjectSerializer::toPathValue($journal_id),
+                AccountingObjectSerializer::toPathValue($journal_id),
                 $resourcePath
             );
         }
@@ -35274,7 +35274,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -35401,7 +35401,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Journals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Journals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35416,7 +35416,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -35424,7 +35424,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Journals',
                         $e->getResponseHeaders()
@@ -35489,7 +35489,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35540,19 +35540,19 @@ class AccountingApi
 
         // query params
         if ($offset !== null) {
-            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+            $queryParams['offset'] = AccountingObjectSerializer::toQueryValue($offset);
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -35574,7 +35574,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -35697,7 +35697,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35712,7 +35712,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -35720,7 +35720,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions',
                         $e->getResponseHeaders()
@@ -35781,7 +35781,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -35836,14 +35836,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'LinkedTransactionID' . '}',
-                ObjectSerializer::toPathValue($linked_transaction_id),
+                AccountingObjectSerializer::toPathValue($linked_transaction_id),
                 $resourcePath
             );
         }
@@ -35866,7 +35866,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -35999,7 +35999,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36014,7 +36014,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -36022,7 +36022,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions',
                         $e->getResponseHeaders()
@@ -36093,7 +36093,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36147,31 +36147,31 @@ class AccountingApi
 
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($linked_transaction_id !== null) {
-            $queryParams['LinkedTransactionID'] = ObjectSerializer::toQueryValue($linked_transaction_id);
+            $queryParams['LinkedTransactionID'] = AccountingObjectSerializer::toQueryValue($linked_transaction_id);
         }
         // query params
         if ($source_transaction_id !== null) {
-            $queryParams['SourceTransactionID'] = ObjectSerializer::toQueryValue($source_transaction_id);
+            $queryParams['SourceTransactionID'] = AccountingObjectSerializer::toQueryValue($source_transaction_id);
         }
         // query params
         if ($contact_id !== null) {
-            $queryParams['ContactID'] = ObjectSerializer::toQueryValue($contact_id);
+            $queryParams['ContactID'] = AccountingObjectSerializer::toQueryValue($contact_id);
         }
         // query params
         if ($status !== null) {
-            $queryParams['Status'] = ObjectSerializer::toQueryValue($status);
+            $queryParams['Status'] = AccountingObjectSerializer::toQueryValue($status);
         }
         // query params
         if ($target_transaction_id !== null) {
-            $queryParams['TargetTransactionID'] = ObjectSerializer::toQueryValue($target_transaction_id);
+            $queryParams['TargetTransactionID'] = AccountingObjectSerializer::toQueryValue($target_transaction_id);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -36193,7 +36193,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -36316,7 +36316,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36331,7 +36331,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -36339,7 +36339,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals',
                         $e->getResponseHeaders()
@@ -36400,7 +36400,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36455,14 +36455,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -36485,7 +36485,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -36612,7 +36612,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36627,7 +36627,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -36635,7 +36635,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -36700,7 +36700,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36769,18 +36769,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -36788,7 +36788,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -36811,7 +36811,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -36938,7 +36938,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -36953,7 +36953,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -36961,7 +36961,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -37026,7 +37026,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37095,18 +37095,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -37114,7 +37114,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -37137,7 +37137,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -37260,7 +37260,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37275,7 +37275,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -37283,7 +37283,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -37344,7 +37344,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37399,14 +37399,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -37429,7 +37429,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -37558,7 +37558,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37573,7 +37573,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -37581,7 +37581,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals',
                         $e->getResponseHeaders()
@@ -37648,7 +37648,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37700,23 +37700,23 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -37738,7 +37738,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -37861,7 +37861,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -37876,7 +37876,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -37884,7 +37884,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoices',
                         $e->getResponseHeaders()
@@ -37945,7 +37945,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38000,14 +38000,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -38030,7 +38030,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -38153,7 +38153,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CISOrgSetting', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CISOrgSetting', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38168,7 +38168,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -38176,7 +38176,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CISOrgSetting',
                         $e->getResponseHeaders()
@@ -38237,7 +38237,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38292,14 +38292,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($organisation_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'OrganisationID' . '}',
-                ObjectSerializer::toPathValue($organisation_id),
+                AccountingObjectSerializer::toPathValue($organisation_id),
                 $resourcePath
             );
         }
@@ -38322,7 +38322,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -38443,7 +38443,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Organisations', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Organisations', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38458,7 +38458,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -38466,7 +38466,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Organisations',
                         $e->getResponseHeaders()
@@ -38525,7 +38525,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38573,7 +38573,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -38595,7 +38595,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -38718,7 +38718,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38733,7 +38733,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -38741,7 +38741,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments',
                         $e->getResponseHeaders()
@@ -38802,7 +38802,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -38857,14 +38857,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'OverpaymentID' . '}',
-                ObjectSerializer::toPathValue($overpayment_id),
+                AccountingObjectSerializer::toPathValue($overpayment_id),
                 $resourcePath
             );
         }
@@ -38887,7 +38887,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -39010,7 +39010,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39025,7 +39025,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -39033,7 +39033,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -39094,7 +39094,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39149,14 +39149,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'OverpaymentID' . '}',
-                ObjectSerializer::toPathValue($overpayment_id),
+                AccountingObjectSerializer::toPathValue($overpayment_id),
                 $resourcePath
             );
         }
@@ -39179,7 +39179,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -39310,7 +39310,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39325,7 +39325,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -39333,7 +39333,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Overpayments',
                         $e->getResponseHeaders()
@@ -39402,7 +39402,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39455,27 +39455,27 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -39497,7 +39497,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -39620,7 +39620,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39635,7 +39635,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -39643,7 +39643,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Payments',
                         $e->getResponseHeaders()
@@ -39704,7 +39704,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39759,14 +39759,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PaymentID' . '}',
-                ObjectSerializer::toPathValue($payment_id),
+                AccountingObjectSerializer::toPathValue($payment_id),
                 $resourcePath
             );
         }
@@ -39789,7 +39789,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -39912,7 +39912,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -39927,7 +39927,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -39935,7 +39935,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -39996,7 +39996,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40051,14 +40051,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PaymentID' . '}',
-                ObjectSerializer::toPathValue($payment_id),
+                AccountingObjectSerializer::toPathValue($payment_id),
                 $resourcePath
             );
         }
@@ -40081,7 +40081,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -40202,7 +40202,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40217,7 +40217,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -40225,7 +40225,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices',
                         $e->getResponseHeaders()
@@ -40284,7 +40284,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40332,7 +40332,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -40354,7 +40354,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -40481,7 +40481,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Payments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40496,7 +40496,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -40504,7 +40504,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Payments',
                         $e->getResponseHeaders()
@@ -40569,7 +40569,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40620,19 +40620,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -40654,7 +40654,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -40777,7 +40777,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40792,7 +40792,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -40800,7 +40800,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments',
                         $e->getResponseHeaders()
@@ -40861,7 +40861,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -40916,14 +40916,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PrepaymentID' . '}',
-                ObjectSerializer::toPathValue($prepayment_id),
+                AccountingObjectSerializer::toPathValue($prepayment_id),
                 $resourcePath
             );
         }
@@ -40946,7 +40946,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -41069,7 +41069,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41084,7 +41084,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -41092,7 +41092,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -41153,7 +41153,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41208,14 +41208,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PrepaymentID' . '}',
-                ObjectSerializer::toPathValue($prepayment_id),
+                AccountingObjectSerializer::toPathValue($prepayment_id),
                 $resourcePath
             );
         }
@@ -41238,7 +41238,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -41369,7 +41369,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41384,7 +41384,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -41392,7 +41392,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Prepayments',
                         $e->getResponseHeaders()
@@ -41461,7 +41461,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41514,27 +41514,27 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -41556,7 +41556,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -41679,7 +41679,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41694,7 +41694,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -41702,7 +41702,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders',
                         $e->getResponseHeaders()
@@ -41763,7 +41763,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41818,14 +41818,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PurchaseOrderID' . '}',
-                ObjectSerializer::toPathValue($purchase_order_id),
+                AccountingObjectSerializer::toPathValue($purchase_order_id),
                 $resourcePath
             );
         }
@@ -41848,7 +41848,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -41971,7 +41971,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -41986,7 +41986,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -41994,7 +41994,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -42055,7 +42055,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42110,14 +42110,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PurchaseOrderID' . '}',
-                ObjectSerializer::toPathValue($purchase_order_id),
+                AccountingObjectSerializer::toPathValue($purchase_order_id),
                 $resourcePath
             );
         }
@@ -42140,7 +42140,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -42273,7 +42273,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42288,7 +42288,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -42296,7 +42296,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders',
                         $e->getResponseHeaders()
@@ -42367,7 +42367,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42421,31 +42421,31 @@ class AccountingApi
 
         // query params
         if ($status !== null) {
-            $queryParams['Status'] = ObjectSerializer::toQueryValue($status);
+            $queryParams['Status'] = AccountingObjectSerializer::toQueryValue($status);
         }
         // query params
         if ($date_from !== null) {
-            $queryParams['DateFrom'] = ObjectSerializer::toQueryValue($date_from);
+            $queryParams['DateFrom'] = AccountingObjectSerializer::toQueryValue($date_from);
         }
         // query params
         if ($date_to !== null) {
-            $queryParams['DateTo'] = ObjectSerializer::toQueryValue($date_to);
+            $queryParams['DateTo'] = AccountingObjectSerializer::toQueryValue($date_to);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+            $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -42467,7 +42467,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -42590,7 +42590,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42605,7 +42605,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -42613,7 +42613,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Receipts',
                         $e->getResponseHeaders()
@@ -42674,7 +42674,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42729,14 +42729,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -42759,7 +42759,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -42886,7 +42886,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -42901,7 +42901,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -42909,7 +42909,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -42974,7 +42974,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43043,18 +43043,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -43062,7 +43062,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -43085,7 +43085,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -43212,7 +43212,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43227,7 +43227,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -43235,7 +43235,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -43300,7 +43300,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43369,18 +43369,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -43388,7 +43388,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -43411,7 +43411,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -43534,7 +43534,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43549,7 +43549,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -43557,7 +43557,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -43618,7 +43618,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43673,14 +43673,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -43703,7 +43703,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -43826,7 +43826,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43841,7 +43841,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -43849,7 +43849,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -43910,7 +43910,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -43965,14 +43965,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -43995,7 +43995,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -44124,7 +44124,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44139,7 +44139,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -44147,7 +44147,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Receipts',
                         $e->getResponseHeaders()
@@ -44214,7 +44214,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44266,23 +44266,23 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($unitdp !== null) {
-            $queryParams['unitdp'] = ObjectSerializer::toQueryValue($unitdp);
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -44304,7 +44304,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -44427,7 +44427,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44442,7 +44442,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -44450,7 +44450,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices',
                         $e->getResponseHeaders()
@@ -44511,7 +44511,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44566,14 +44566,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -44596,7 +44596,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -44723,7 +44723,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44738,7 +44738,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -44746,7 +44746,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -44811,7 +44811,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -44880,18 +44880,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -44899,7 +44899,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -44922,7 +44922,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -45049,7 +45049,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        AccountingObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45064,7 +45064,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -45072,7 +45072,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
                         $e->getResponseHeaders()
@@ -45137,7 +45137,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45206,18 +45206,18 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($content_type !== null) {
-            $headerParams['contentType'] = ObjectSerializer::toHeaderValue($content_type);
+            $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -45225,7 +45225,7 @@ class AccountingApi
         if ($attachment_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AttachmentID' . '}',
-                ObjectSerializer::toPathValue($attachment_id),
+                AccountingObjectSerializer::toPathValue($attachment_id),
                 $resourcePath
             );
         }
@@ -45248,7 +45248,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -45371,7 +45371,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45386,7 +45386,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -45394,7 +45394,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -45455,7 +45455,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45510,14 +45510,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -45540,7 +45540,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -45663,7 +45663,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45678,7 +45678,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -45686,7 +45686,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords',
                         $e->getResponseHeaders()
@@ -45747,7 +45747,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45802,14 +45802,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -45832,7 +45832,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -45957,7 +45957,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -45972,7 +45972,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -45980,7 +45980,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices',
                         $e->getResponseHeaders()
@@ -46043,7 +46043,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46093,15 +46093,15 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46123,7 +46123,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -46252,7 +46252,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46267,7 +46267,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -46275,7 +46275,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -46342,7 +46342,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46400,23 +46400,23 @@ class AccountingApi
 
         // query params
         if ($contact_id !== null) {
-            $queryParams['contactId'] = ObjectSerializer::toQueryValue($contact_id);
+            $queryParams['contactId'] = AccountingObjectSerializer::toQueryValue($contact_id);
         }
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($from_date !== null) {
-            $queryParams['fromDate'] = ObjectSerializer::toQueryValue($from_date);
+            $queryParams['fromDate'] = AccountingObjectSerializer::toQueryValue($from_date);
         }
         // query params
         if ($to_date !== null) {
-            $queryParams['toDate'] = ObjectSerializer::toQueryValue($to_date);
+            $queryParams['toDate'] = AccountingObjectSerializer::toQueryValue($to_date);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46438,7 +46438,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -46567,7 +46567,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46582,7 +46582,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -46590,7 +46590,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -46657,7 +46657,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46715,23 +46715,23 @@ class AccountingApi
 
         // query params
         if ($contact_id !== null) {
-            $queryParams['contactId'] = ObjectSerializer::toQueryValue($contact_id);
+            $queryParams['contactId'] = AccountingObjectSerializer::toQueryValue($contact_id);
         }
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($from_date !== null) {
-            $queryParams['fromDate'] = ObjectSerializer::toQueryValue($from_date);
+            $queryParams['fromDate'] = AccountingObjectSerializer::toQueryValue($from_date);
         }
         // query params
         if ($to_date !== null) {
-            $queryParams['toDate'] = ObjectSerializer::toQueryValue($to_date);
+            $queryParams['toDate'] = AccountingObjectSerializer::toQueryValue($to_date);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -46753,7 +46753,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -46876,7 +46876,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -46891,7 +46891,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -46899,7 +46899,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -46960,7 +46960,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47015,14 +47015,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($report_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReportID' . '}',
-                ObjectSerializer::toPathValue($report_id),
+                AccountingObjectSerializer::toPathValue($report_id),
                 $resourcePath
             );
         }
@@ -47045,7 +47045,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -47166,7 +47166,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47181,7 +47181,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -47189,7 +47189,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -47248,7 +47248,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47296,7 +47296,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47318,7 +47318,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -47453,7 +47453,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47468,7 +47468,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -47476,7 +47476,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -47549,7 +47549,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47604,35 +47604,35 @@ class AccountingApi
 
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($periods !== null) {
-            $queryParams['periods'] = ObjectSerializer::toQueryValue($periods);
+            $queryParams['periods'] = AccountingObjectSerializer::toQueryValue($periods);
         }
         // query params
         if ($timeframe !== null) {
-            $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+            $queryParams['timeframe'] = AccountingObjectSerializer::toQueryValue($timeframe);
         }
         // query params
         if ($tracking_option_id1 !== null) {
-            $queryParams['trackingOptionID1'] = ObjectSerializer::toQueryValue($tracking_option_id1);
+            $queryParams['trackingOptionID1'] = AccountingObjectSerializer::toQueryValue($tracking_option_id1);
         }
         // query params
         if ($tracking_option_id2 !== null) {
-            $queryParams['trackingOptionID2'] = ObjectSerializer::toQueryValue($tracking_option_id2);
+            $queryParams['trackingOptionID2'] = AccountingObjectSerializer::toQueryValue($tracking_option_id2);
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = ObjectSerializer::toQueryValue($standard_layout);
+            $queryParams['standardLayout'] = AccountingObjectSerializer::toQueryValue($standard_layout);
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47654,7 +47654,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -47781,7 +47781,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47796,7 +47796,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -47804,7 +47804,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -47869,7 +47869,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -47920,19 +47920,19 @@ class AccountingApi
 
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($period !== null) {
-            $queryParams['period'] = ObjectSerializer::toQueryValue($period);
+            $queryParams['period'] = AccountingObjectSerializer::toQueryValue($period);
         }
         // query params
         if ($timeframe !== null) {
-            $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+            $queryParams['timeframe'] = AccountingObjectSerializer::toQueryValue($timeframe);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -47954,7 +47954,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -48081,7 +48081,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48096,7 +48096,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -48104,7 +48104,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -48169,7 +48169,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48220,19 +48220,19 @@ class AccountingApi
 
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($period !== null) {
-            $queryParams['period'] = ObjectSerializer::toQueryValue($period);
+            $queryParams['period'] = AccountingObjectSerializer::toQueryValue($period);
         }
         // query params
         if ($timeframe !== null) {
-            $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+            $queryParams['timeframe'] = AccountingObjectSerializer::toQueryValue($timeframe);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -48254,7 +48254,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -48377,7 +48377,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48392,7 +48392,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -48400,7 +48400,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -48461,7 +48461,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48510,11 +48510,11 @@ class AccountingApi
 
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -48536,7 +48536,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -48677,7 +48677,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48692,7 +48692,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -48700,7 +48700,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -48779,7 +48779,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -48837,47 +48837,47 @@ class AccountingApi
 
         // query params
         if ($from_date !== null) {
-            $queryParams['fromDate'] = ObjectSerializer::toQueryValue($from_date);
+            $queryParams['fromDate'] = AccountingObjectSerializer::toQueryValue($from_date);
         }
         // query params
         if ($to_date !== null) {
-            $queryParams['toDate'] = ObjectSerializer::toQueryValue($to_date);
+            $queryParams['toDate'] = AccountingObjectSerializer::toQueryValue($to_date);
         }
         // query params
         if ($periods !== null) {
-            $queryParams['periods'] = ObjectSerializer::toQueryValue($periods);
+            $queryParams['periods'] = AccountingObjectSerializer::toQueryValue($periods);
         }
         // query params
         if ($timeframe !== null) {
-            $queryParams['timeframe'] = ObjectSerializer::toQueryValue($timeframe);
+            $queryParams['timeframe'] = AccountingObjectSerializer::toQueryValue($timeframe);
         }
         // query params
         if ($tracking_category_id !== null) {
-            $queryParams['trackingCategoryID'] = ObjectSerializer::toQueryValue($tracking_category_id);
+            $queryParams['trackingCategoryID'] = AccountingObjectSerializer::toQueryValue($tracking_category_id);
         }
         // query params
         if ($tracking_category_id2 !== null) {
-            $queryParams['trackingCategoryID2'] = ObjectSerializer::toQueryValue($tracking_category_id2);
+            $queryParams['trackingCategoryID2'] = AccountingObjectSerializer::toQueryValue($tracking_category_id2);
         }
         // query params
         if ($tracking_option_id !== null) {
-            $queryParams['trackingOptionID'] = ObjectSerializer::toQueryValue($tracking_option_id);
+            $queryParams['trackingOptionID'] = AccountingObjectSerializer::toQueryValue($tracking_option_id);
         }
         // query params
         if ($tracking_option_id2 !== null) {
-            $queryParams['trackingOptionID2'] = ObjectSerializer::toQueryValue($tracking_option_id2);
+            $queryParams['trackingOptionID2'] = AccountingObjectSerializer::toQueryValue($tracking_option_id2);
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = ObjectSerializer::toQueryValue($standard_layout);
+            $queryParams['standardLayout'] = AccountingObjectSerializer::toQueryValue($standard_layout);
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -48899,7 +48899,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -49022,7 +49022,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Reports', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Reports', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49037,7 +49037,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -49045,7 +49045,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Reports',
                         $e->getResponseHeaders()
@@ -49106,7 +49106,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49155,11 +49155,11 @@ class AccountingApi
 
         // query params
         if ($report_year !== null) {
-            $queryParams['reportYear'] = ObjectSerializer::toQueryValue($report_year);
+            $queryParams['reportYear'] = AccountingObjectSerializer::toQueryValue($report_year);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -49181,7 +49181,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -49306,7 +49306,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49321,7 +49321,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -49329,7 +49329,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows',
                         $e->getResponseHeaders()
@@ -49392,7 +49392,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49442,15 +49442,15 @@ class AccountingApi
 
         // query params
         if ($date !== null) {
-            $queryParams['date'] = ObjectSerializer::toQueryValue($date);
+            $queryParams['date'] = AccountingObjectSerializer::toQueryValue($date);
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = ObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -49472,7 +49472,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -49599,7 +49599,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49614,7 +49614,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -49622,7 +49622,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates',
                         $e->getResponseHeaders()
@@ -49687,7 +49687,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49738,19 +49738,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($tax_type !== null) {
-            $queryParams['TaxType'] = ObjectSerializer::toQueryValue($tax_type);
+            $queryParams['TaxType'] = AccountingObjectSerializer::toQueryValue($tax_type);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -49772,7 +49772,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -49899,7 +49899,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -49914,7 +49914,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -49922,7 +49922,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories',
                         $e->getResponseHeaders()
@@ -49987,7 +49987,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50038,19 +50038,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = ObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -50072,7 +50072,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -50195,7 +50195,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50210,7 +50210,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -50218,7 +50218,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories',
                         $e->getResponseHeaders()
@@ -50279,7 +50279,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50334,14 +50334,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingCategoryID' . '}',
-                ObjectSerializer::toPathValue($tracking_category_id),
+                AccountingObjectSerializer::toPathValue($tracking_category_id),
                 $resourcePath
             );
         }
@@ -50364,7 +50364,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -50487,7 +50487,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Users', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Users', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50502,7 +50502,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -50510,7 +50510,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Users',
                         $e->getResponseHeaders()
@@ -50571,7 +50571,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50626,14 +50626,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'UserID' . '}',
-                ObjectSerializer::toPathValue($user_id),
+                AccountingObjectSerializer::toPathValue($user_id),
                 $resourcePath
             );
         }
@@ -50656,7 +50656,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -50783,7 +50783,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Users', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Users', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50798,7 +50798,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -50806,7 +50806,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Users',
                         $e->getResponseHeaders()
@@ -50871,7 +50871,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -50922,19 +50922,19 @@ class AccountingApi
 
         // query params
         if ($where !== null) {
-            $queryParams['where'] = ObjectSerializer::toQueryValue($where);
+            $queryParams['where'] = AccountingObjectSerializer::toQueryValue($where);
         }
         // query params
         if ($order !== null) {
-            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+            $queryParams['order'] = AccountingObjectSerializer::toQueryValue($order);
         }
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
         // header params
         if ($if_modified_since !== null) {
-            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+            $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
 
 
@@ -50956,7 +50956,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -51081,7 +51081,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Accounts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51093,7 +51093,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51108,7 +51108,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -51116,7 +51116,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Accounts',
                         $e->getResponseHeaders()
@@ -51124,7 +51124,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -51187,7 +51187,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51249,14 +51249,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -51282,7 +51282,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -51409,7 +51409,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51421,7 +51421,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51436,7 +51436,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -51444,7 +51444,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -51452,7 +51452,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -51517,7 +51517,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51586,14 +51586,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'AccountID' . '}',
-                ObjectSerializer::toPathValue($account_id),
+                AccountingObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -51601,7 +51601,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -51627,7 +51627,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -51752,7 +51752,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51764,7 +51764,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51779,7 +51779,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -51787,7 +51787,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions',
                         $e->getResponseHeaders()
@@ -51795,7 +51795,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -51858,7 +51858,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -51920,14 +51920,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -51953,7 +51953,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -52080,7 +52080,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52092,7 +52092,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52107,7 +52107,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -52115,7 +52115,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -52123,7 +52123,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -52188,7 +52188,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52257,14 +52257,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransactionID' . '}',
-                ObjectSerializer::toPathValue($bank_transaction_id),
+                AccountingObjectSerializer::toPathValue($bank_transaction_id),
                 $resourcePath
             );
         }
@@ -52272,7 +52272,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -52298,7 +52298,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -52421,7 +52421,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52433,7 +52433,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52448,7 +52448,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -52456,7 +52456,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -52464,7 +52464,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -52529,7 +52529,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52598,14 +52598,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'BankTransferID' . '}',
-                ObjectSerializer::toPathValue($bank_transfer_id),
+                AccountingObjectSerializer::toPathValue($bank_transfer_id),
                 $resourcePath
             );
         }
@@ -52613,7 +52613,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -52639,7 +52639,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -52760,7 +52760,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Contacts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52772,7 +52772,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52787,7 +52787,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -52795,7 +52795,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Contacts',
                         $e->getResponseHeaders()
@@ -52803,7 +52803,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -52866,7 +52866,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -52922,14 +52922,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -52955,7 +52955,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -53078,7 +53078,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53090,7 +53090,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53105,7 +53105,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -53113,7 +53113,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -53121,7 +53121,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -53186,7 +53186,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53255,14 +53255,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactID' . '}',
-                ObjectSerializer::toPathValue($contact_id),
+                AccountingObjectSerializer::toPathValue($contact_id),
                 $resourcePath
             );
         }
@@ -53270,7 +53270,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -53296,7 +53296,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -53421,7 +53421,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53433,7 +53433,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53448,7 +53448,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -53456,7 +53456,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups',
                         $e->getResponseHeaders()
@@ -53464,7 +53464,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -53527,7 +53527,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53583,14 +53583,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ContactGroupID' . '}',
-                ObjectSerializer::toPathValue($contact_group_id),
+                AccountingObjectSerializer::toPathValue($contact_group_id),
                 $resourcePath
             );
         }
@@ -53616,7 +53616,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -53741,7 +53741,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53753,7 +53753,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53768,7 +53768,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -53776,7 +53776,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes',
                         $e->getResponseHeaders()
@@ -53784,7 +53784,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -53847,7 +53847,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -53903,14 +53903,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -53936,7 +53936,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -54063,7 +54063,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54075,7 +54075,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54090,7 +54090,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -54098,7 +54098,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -54106,7 +54106,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -54171,7 +54171,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54240,14 +54240,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'CreditNoteID' . '}',
-                ObjectSerializer::toPathValue($credit_note_id),
+                AccountingObjectSerializer::toPathValue($credit_note_id),
                 $resourcePath
             );
         }
@@ -54255,7 +54255,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -54281,7 +54281,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -54406,7 +54406,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54418,7 +54418,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54433,7 +54433,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -54441,7 +54441,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Employees',
                         $e->getResponseHeaders()
@@ -54449,7 +54449,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -54512,7 +54512,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54574,14 +54574,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'EmployeeID' . '}',
-                ObjectSerializer::toPathValue($employee_id),
+                AccountingObjectSerializer::toPathValue($employee_id),
                 $resourcePath
             );
         }
@@ -54607,7 +54607,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -54732,7 +54732,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54744,7 +54744,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54759,7 +54759,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -54767,7 +54767,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims',
                         $e->getResponseHeaders()
@@ -54775,7 +54775,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -54838,7 +54838,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -54900,14 +54900,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ExpenseClaimID' . '}',
-                ObjectSerializer::toPathValue($expense_claim_id),
+                AccountingObjectSerializer::toPathValue($expense_claim_id),
                 $resourcePath
             );
         }
@@ -54933,7 +54933,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -55058,7 +55058,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Invoices', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55070,7 +55070,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55085,7 +55085,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -55093,7 +55093,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Invoices',
                         $e->getResponseHeaders()
@@ -55101,7 +55101,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -55164,7 +55164,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55226,14 +55226,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -55259,7 +55259,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -55386,7 +55386,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55398,7 +55398,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55413,7 +55413,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -55421,7 +55421,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -55429,7 +55429,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -55494,7 +55494,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55563,14 +55563,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'InvoiceID' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                AccountingObjectSerializer::toPathValue($invoice_id),
                 $resourcePath
             );
         }
@@ -55578,7 +55578,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -55604,7 +55604,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -55729,7 +55729,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Items', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55741,7 +55741,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55756,7 +55756,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -55764,7 +55764,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Items',
                         $e->getResponseHeaders()
@@ -55772,7 +55772,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -55835,7 +55835,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -55897,14 +55897,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ItemID' . '}',
-                ObjectSerializer::toPathValue($item_id),
+                AccountingObjectSerializer::toPathValue($item_id),
                 $resourcePath
             );
         }
@@ -55930,7 +55930,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -56055,7 +56055,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56067,7 +56067,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56082,7 +56082,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -56090,7 +56090,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions',
                         $e->getResponseHeaders()
@@ -56098,7 +56098,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -56161,7 +56161,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56223,14 +56223,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'LinkedTransactionID' . '}',
-                ObjectSerializer::toPathValue($linked_transaction_id),
+                AccountingObjectSerializer::toPathValue($linked_transaction_id),
                 $resourcePath
             );
         }
@@ -56256,7 +56256,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -56381,7 +56381,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56393,7 +56393,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56408,7 +56408,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -56416,7 +56416,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals',
                         $e->getResponseHeaders()
@@ -56424,7 +56424,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -56487,7 +56487,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56549,14 +56549,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -56582,7 +56582,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -56709,7 +56709,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56721,7 +56721,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56736,7 +56736,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -56744,7 +56744,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -56752,7 +56752,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -56817,7 +56817,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -56886,14 +56886,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ManualJournalID' . '}',
-                ObjectSerializer::toPathValue($manual_journal_id),
+                AccountingObjectSerializer::toPathValue($manual_journal_id),
                 $resourcePath
             );
         }
@@ -56901,7 +56901,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -56927,7 +56927,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -57052,7 +57052,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57064,7 +57064,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57079,7 +57079,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -57087,7 +57087,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders',
                         $e->getResponseHeaders()
@@ -57095,7 +57095,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -57158,7 +57158,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57220,14 +57220,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'PurchaseOrderID' . '}',
-                ObjectSerializer::toPathValue($purchase_order_id),
+                AccountingObjectSerializer::toPathValue($purchase_order_id),
                 $resourcePath
             );
         }
@@ -57253,7 +57253,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -57378,7 +57378,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Receipts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57390,7 +57390,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57405,7 +57405,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -57413,7 +57413,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Receipts',
                         $e->getResponseHeaders()
@@ -57421,7 +57421,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -57484,7 +57484,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57546,14 +57546,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -57579,7 +57579,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -57706,7 +57706,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57718,7 +57718,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57733,7 +57733,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -57741,7 +57741,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -57749,7 +57749,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -57814,7 +57814,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -57883,14 +57883,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'ReceiptID' . '}',
-                ObjectSerializer::toPathValue($receipt_id),
+                AccountingObjectSerializer::toPathValue($receipt_id),
                 $resourcePath
             );
         }
@@ -57898,7 +57898,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -57924,7 +57924,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -58051,7 +58051,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Attachments', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58063,7 +58063,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58078,7 +58078,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -58086,7 +58086,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Attachments',
                         $e->getResponseHeaders()
@@ -58094,7 +58094,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -58159,7 +58159,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58228,14 +58228,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'RepeatingInvoiceID' . '}',
-                ObjectSerializer::toPathValue($repeating_invoice_id),
+                AccountingObjectSerializer::toPathValue($repeating_invoice_id),
                 $resourcePath
             );
         }
@@ -58243,7 +58243,7 @@ class AccountingApi
         if ($file_name !== null) {
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
-                ObjectSerializer::toPathValue($file_name),
+                AccountingObjectSerializer::toPathValue($file_name),
                 $resourcePath
             );
         }
@@ -58269,7 +58269,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -58392,7 +58392,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58404,7 +58404,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58419,7 +58419,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -58427,7 +58427,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TaxRates',
                         $e->getResponseHeaders()
@@ -58435,7 +58435,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -58496,7 +58496,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58551,7 +58551,7 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
 
@@ -58576,7 +58576,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
@@ -58701,7 +58701,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58713,7 +58713,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
+                        AccountingObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Accounting\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58728,7 +58728,7 @@ class AccountingApi
             }
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -58736,7 +58736,7 @@ class AccountingApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories',
                         $e->getResponseHeaders()
@@ -58744,7 +58744,7 @@ class AccountingApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = ObjectSerializer::deserialize(
+                    $data = AccountingObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SidneyAllen\XeroPHP\Models\Accounting\Error',
                         $e->getResponseHeaders()
@@ -58807,7 +58807,7 @@ class AccountingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -58869,14 +58869,14 @@ class AccountingApi
 
         // header params
         if ($xero_tenant_id !== null) {
-            $headerParams['Xero-Tenant-Id'] = ObjectSerializer::toHeaderValue($xero_tenant_id);
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
 
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'TrackingCategoryID' . '}',
-                ObjectSerializer::toPathValue($tracking_category_id),
+                AccountingObjectSerializer::toPathValue($tracking_category_id),
                 $resourcePath
             );
         }
@@ -58902,7 +58902,7 @@ class AccountingApi
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
             } else {
                 $httpBody = $_tempBody;
             }
