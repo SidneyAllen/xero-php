@@ -1,4 +1,4 @@
-# XeroAPI\XeroPHP\AccountingApi
+# SidneyAllen\XeroPHP\AccountingApi
 
 All URIs are relative to *https://api.xero.com/api.xro/2.0*
 
@@ -221,7 +221,7 @@ Method | HTTP request | Description
 
 
 # **createAccount**
-> \XeroAPI\XeroPHP\Models\Accounting\Accounts createAccount($xero_tenant_id, $account)
+> \SidneyAllen\XeroPHP\Models\Accounting\Accounts createAccount($xero_tenant_id, $account)
 
 Allows you to create a new chart of accounts
 
@@ -231,16 +231,16 @@ Allows you to create a new chart of accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" }; // \XeroAPI\XeroPHP\Models\Accounting\Account | Account object in body of request
+$account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" }; // \SidneyAllen\XeroPHP\Models\Accounting\Account | Account object in body of request
 
 try {
     $result = $apiInstance->createAccount($xero_tenant_id, $account);
@@ -256,11 +256,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **account** | [**\XeroAPI\XeroPHP\Models\Accounting\Account**](../Model/Account.md)| Account object in body of request |
+ **account** | [**\SidneyAllen\XeroPHP\Models\Accounting\Account**](../Model/Account.md)| Account object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAccountAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
 
 Allows you to create Attachment on Account
 
@@ -284,9 +284,9 @@ Allows you to create Attachment on Account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactionAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
 
 Allows you to createa an Attachment on BankTransaction by Filename
 
@@ -341,9 +341,9 @@ Allows you to createa an Attachment on BankTransaction by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactionHistoryRecord**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records)
 
 Allows you to create history record for a bank transactions
 
@@ -398,9 +398,9 @@ Allows you to create history record for a bank transactions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -408,7 +408,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records);
@@ -425,11 +425,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
 Allows you to create one or more spend or receive money transaction
 
@@ -453,16 +453,16 @@ Allows you to create one or more spend or receive money transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -480,13 +480,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request |
+ **bank_transactions** | [**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
 
 ### Authorization
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransfer**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransfers createBankTransfer($xero_tenant_id, $bank_transfers)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransfers createBankTransfer($xero_tenant_id, $bank_transfers)
 
 Allows you to create a bank transfers
 
@@ -510,16 +510,16 @@ Allows you to create a bank transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
+$bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -535,11 +535,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transfers** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)| BankTransfers with array of BankTransfer objects in request body |
+ **bank_transfers** | [**\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)| BankTransfers with array of BankTransfer objects in request body |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
 
 ### Authorization
 
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransferAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
 
 
 
@@ -563,9 +563,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransferHistoryRecord**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records)
 
 
 
@@ -620,9 +620,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -630,7 +630,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records);
@@ -647,11 +647,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBatchPayment**
-> \XeroAPI\XeroPHP\Models\Accounting\BatchPayments createBatchPayment($xero_tenant_id, $batch_payments, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\BatchPayments createBatchPayment($xero_tenant_id, $batch_payments, $summarize_errors)
 
 Create one or many BatchPayments for invoices
 
@@ -675,16 +675,16 @@ Create one or many BatchPayments for invoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
+$batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -701,12 +701,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **batch_payments** | [**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)| BatchPayments with an array of Payments in body of request |
+ **batch_payments** | [**\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)| BatchPayments with an array of Payments in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)
 
 ### Authorization
 
@@ -720,7 +720,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBatchPaymentHistoryRecord**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records)
 
 Allows you to create a history record for a Batch Payment
 
@@ -730,9 +730,9 @@ Allows you to create a history record for a Batch Payment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -740,7 +740,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records);
@@ -757,11 +757,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **batch_payment_id** | [**string**](../Model/.md)| Unique identifier for BatchPayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -775,7 +775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBrandingThemePaymentServices**
-> \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service)
+> \SidneyAllen\XeroPHP\Models\Accounting\PaymentServices createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service)
 
 Allow for the creation of new custom payment service for specified Branding Theme
 
@@ -785,9 +785,9 @@ Allow for the creation of new custom payment service for specified Branding Them
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -795,7 +795,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
-$payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
+$payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" }; // \SidneyAllen\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
 
 try {
     $result = $apiInstance->createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service);
@@ -812,11 +812,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **branding_theme_id** | [**string**](../Model/.md)| Unique identifier for a Branding Theme |
- **payment_service** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentService**](../Model/PaymentService.md)| PaymentService object in body of request |
+ **payment_service** | [**\SidneyAllen\XeroPHP\Models\Accounting\PaymentService**](../Model/PaymentService.md)| PaymentService object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
 
 ### Authorization
 
@@ -830,7 +830,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
 
 
 
@@ -840,9 +840,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -887,7 +887,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactGroup**
-> \XeroAPI\XeroPHP\Models\Accounting\ContactGroups createContactGroup($xero_tenant_id, $contact_groups)
+> \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups createContactGroup($xero_tenant_id, $contact_groups)
 
 Allows you to create a contact group
 
@@ -897,16 +897,16 @@ Allows you to create a contact group
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_groups = { contactGroups:[ { name:"VIPs" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
+$contact_groups = { contactGroups:[ { name:"VIPs" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
 
 try {
     $result = $apiInstance->createContactGroup($xero_tenant_id, $contact_groups);
@@ -922,11 +922,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **contact_groups** | [**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| ContactGroups with an array of names in request body |
+ **contact_groups** | [**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| ContactGroups with an array of names in request body |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
 
 ### Authorization
 
@@ -940,7 +940,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactGroupContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts)
 
 Allows you to add Contacts to a Contact Group
 
@@ -950,9 +950,9 @@ Allows you to add Contacts to a Contact Group
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -960,7 +960,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
+$contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
 
 try {
     $result = $apiInstance->createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts);
@@ -977,11 +977,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_group_id** | [**string**](../Model/.md)| Unique identifier for a Contact Group |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request |
+ **contacts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -995,7 +995,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createContactHistory($xero_tenant_id, $contact_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createContactHistory($xero_tenant_id, $contact_id, $history_records)
 
 Allows you to retrieve a history records of an Contact
 
@@ -1005,9 +1005,9 @@ Allows you to retrieve a history records of an Contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1015,7 +1015,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createContactHistory($xero_tenant_id, $contact_id, $history_records);
@@ -1032,11 +1032,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -1050,7 +1050,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts, $summarize_errors)
 
 Allows you to create a multiple contacts (bulk) in a Xero organisation
 
@@ -1060,16 +1060,16 @@ Allows you to create a multiple contacts (bulk) in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with an array of Contact objects to create in body of request
+$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Contacts | Contacts with an array of Contact objects to create in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -1086,12 +1086,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with an array of Contact objects to create in body of request |
+ **contacts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with an array of Contact objects to create in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAllocation**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations)
+> \SidneyAllen\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations)
 
 Allows you to create Allocation on CreditNote
 
@@ -1115,9 +1115,9 @@ Allows you to create Allocation on CreditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1125,7 +1125,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
+$allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
 
 try {
     $result = $apiInstance->createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations);
@@ -1142,11 +1142,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with array of Allocation object in body of request. |
+ **allocations** | [**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with array of Allocation object in body of request. |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
 
 ### Authorization
 
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body, $include_online)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body, $include_online)
 
 Allows you to create Attachments on CreditNote by file name
 
@@ -1170,9 +1170,9 @@ Allows you to create Attachments on CreditNote by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1205,7 +1205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -1219,7 +1219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records)
 
 Allows you to retrieve a history records of an CreditNote
 
@@ -1229,9 +1229,9 @@ Allows you to retrieve a history records of an CreditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1239,7 +1239,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records);
@@ -1256,11 +1256,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -1274,7 +1274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
 Allows you to create a credit note
 
@@ -1284,16 +1284,16 @@ Allows you to create a credit note
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
+$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -1311,13 +1311,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| Credit Notes with array of CreditNote object in body of request |
+ **credit_notes** | [**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| Credit Notes with array of CreditNote object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -1331,7 +1331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCurrency**
-> \XeroAPI\XeroPHP\Models\Accounting\Currencies createCurrency($xero_tenant_id, $currency)
+> \SidneyAllen\XeroPHP\Models\Accounting\Currencies createCurrency($xero_tenant_id, $currency)
 
 
 
@@ -1341,16 +1341,16 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$currency = { code: CurrencyCode.USD, description:"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
+$currency = { code: CurrencyCode.USD, description:"United States Dollar" }; // \SidneyAllen\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
 
 try {
     $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
@@ -1366,11 +1366,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)| Currency obejct in the body of request |
+ **currency** | [**\SidneyAllen\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)| Currency obejct in the body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Currencies**](../Model/Currencies.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Currencies**](../Model/Currencies.md)
 
 ### Authorization
 
@@ -1384,7 +1384,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createEmployees**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees, $summarize_errors)
 
 Allows you to create new employees used in Xero payrun
 
@@ -1394,16 +1394,16 @@ Allows you to create new employees used in Xero payrun
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -1420,12 +1420,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
+ **employees** | [**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
 
 ### Authorization
 
@@ -1439,7 +1439,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createExpenseClaimHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records)
 
 Allows you to create a history records of an ExpenseClaim
 
@@ -1449,9 +1449,9 @@ Allows you to create a history records of an ExpenseClaim
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1459,7 +1459,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records);
@@ -1476,11 +1476,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **expense_claim_id** | [**string**](../Model/.md)| Unique identifier for a ExpenseClaim |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -1494,7 +1494,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createExpenseClaims**
-> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims createExpenseClaims($xero_tenant_id, $expense_claims)
+> \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims createExpenseClaims($xero_tenant_id, $expense_claims)
 
 Allows you to retrieve expense claims
 
@@ -1504,16 +1504,16 @@ Allows you to retrieve expense claims
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
+$expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 
 try {
     $result = $apiInstance->createExpenseClaims($xero_tenant_id, $expense_claims);
@@ -1529,11 +1529,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)| ExpenseClaims with array of ExpenseClaim object in body of request |
+ **expense_claims** | [**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)| ExpenseClaims with array of ExpenseClaim object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
 
 ### Authorization
 
@@ -1547,7 +1547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body, $include_online)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body, $include_online)
 
 Allows you to create an Attachment on invoices or purchase bills by it's filename
 
@@ -1557,9 +1557,9 @@ Allows you to create an Attachment on invoices or purchase bills by it's filenam
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1592,7 +1592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -1606,7 +1606,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records)
 
 Allows you to retrieve a history records of an invoice
 
@@ -1616,9 +1616,9 @@ Allows you to retrieve a history records of an invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1626,7 +1626,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records);
@@ -1643,11 +1643,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -1661,7 +1661,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
 Allows you to create one or more sales invoices or purchase bills
 
@@ -1671,16 +1671,16 @@ Allows you to create one or more sales invoices or purchase bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
+$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -1698,13 +1698,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)| Invoices with an array of invoice objects in body of request |
+ **invoices** | [**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)| Invoices with an array of invoice objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
 
 ### Authorization
 
@@ -1718,7 +1718,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItemHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createItemHistory($xero_tenant_id, $item_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createItemHistory($xero_tenant_id, $item_id, $history_records)
 
 Allows you to create a history record for items
 
@@ -1728,9 +1728,9 @@ Allows you to create a history record for items
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1738,7 +1738,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createItemHistory($xero_tenant_id, $item_id, $history_records);
@@ -1755,11 +1755,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **item_id** | [**string**](../Model/.md)| Unique identifier for an Item |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -1773,7 +1773,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
 Allows you to create one or more items
 
@@ -1783,16 +1783,16 @@ Allows you to create one or more items
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
+$items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -1810,13 +1810,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)| Items with an array of Item objects in body of request |
+ **items** | [**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)| Items with an array of Item objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
 
 ### Authorization
 
@@ -1830,7 +1830,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createLinkedTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransaction($xero_tenant_id, $linked_transaction)
+> \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransaction($xero_tenant_id, $linked_transaction)
 
 Allows you to create linked transactions (billable expenses)
 
@@ -1840,16 +1840,16 @@ Allows you to create linked transactions (billable expenses)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"}; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | LinkedTransaction object in body of request
+$linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"}; // \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransaction | LinkedTransaction object in body of request
 
 try {
     $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transaction);
@@ -1865,11 +1865,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **linked_transaction** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction**](../Model/LinkedTransaction.md)| LinkedTransaction object in body of request |
+ **linked_transaction** | [**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransaction**](../Model/LinkedTransaction.md)| LinkedTransaction object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
 
 ### Authorization
 
@@ -1883,7 +1883,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createManualJournalAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
 
 Allows you to create a specified Attachment on ManualJournal by file name
 
@@ -1893,9 +1893,9 @@ Allows you to create a specified Attachment on ManualJournal by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1926,7 +1926,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -1940,7 +1940,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createManualJournals**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
 Allows you to create one or more manual journals
 
@@ -1950,16 +1950,16 @@ Allows you to create one or more manual journals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -1976,12 +1976,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
+ **manual_journals** | [**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
@@ -1995,7 +1995,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOverpaymentAllocations**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors)
 
 Allows you to create a single allocation for an overpayment
 
@@ -2005,9 +2005,9 @@ Allows you to create a single allocation for an overpayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2015,7 +2015,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
+$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -2033,12 +2033,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations array with Allocation object in body of request |
+ **allocations** | [**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations array with Allocation object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
 
 ### Authorization
 
@@ -2052,7 +2052,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOverpaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records)
 
 Allows you to create history records of an Overpayment
 
@@ -2062,9 +2062,9 @@ Allows you to create history records of an Overpayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2072,7 +2072,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records);
@@ -2089,11 +2089,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2107,7 +2107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payment)
+> \SidneyAllen\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payment)
 
 Allows you to create a single payment for invoices or credit notes
 
@@ -2117,16 +2117,16 @@ Allows you to create a single payment for invoices or credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
+$payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 }; // \SidneyAllen\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
 
 try {
     $result = $apiInstance->createPayment($xero_tenant_id, $payment);
@@ -2142,11 +2142,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payment** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment**](../Model/Payment.md)| Request body with a single Payment object |
+ **payment** | [**\SidneyAllen\XeroPHP\Models\Accounting\Payment**](../Model/Payment.md)| Request body with a single Payment object |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
 
 ### Authorization
 
@@ -2160,7 +2160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPaymentHistory($xero_tenant_id, $payment_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createPaymentHistory($xero_tenant_id, $payment_id, $history_records)
 
 Allows you to create a history record for a payment
 
@@ -2170,9 +2170,9 @@ Allows you to create a history record for a payment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2180,7 +2180,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPaymentHistory($xero_tenant_id, $payment_id, $history_records);
@@ -2197,11 +2197,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payment_id** | [**string**](../Model/.md)| Unique identifier for a Payment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2215,7 +2215,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPaymentService**
-> \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createPaymentService($xero_tenant_id, $payment_services)
+> \SidneyAllen\XeroPHP\Models\Accounting\PaymentServices createPaymentService($xero_tenant_id, $payment_services)
 
 Allows you to create payment services
 
@@ -2225,16 +2225,16 @@ Allows you to create payment services
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | PaymentServices array with PaymentService object in body of request
+$payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\PaymentServices | PaymentServices array with PaymentService object in body of request
 
 try {
     $result = $apiInstance->createPaymentService($xero_tenant_id, $payment_services);
@@ -2250,11 +2250,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payment_services** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)| PaymentServices array with PaymentService object in body of request |
+ **payment_services** | [**\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)| PaymentServices array with PaymentService object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
 
 ### Authorization
 
@@ -2268,7 +2268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments)
+> \SidneyAllen\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments)
 
 Allows you to create multiple payments for invoices or credit notes
 
@@ -2278,16 +2278,16 @@ Allows you to create multiple payments for invoices or credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
+$payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
 
 try {
     $result = $apiInstance->createPayments($xero_tenant_id, $payments);
@@ -2303,11 +2303,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)| Payments array with Payment object in body of request |
+ **payments** | [**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)| Payments array with Payment object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
 
 ### Authorization
 
@@ -2321,7 +2321,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPrepaymentAllocations**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createPrepaymentAllocations($xero_tenant_id, $prepayment_id, $allocations, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Allocations createPrepaymentAllocations($xero_tenant_id, $prepayment_id, $allocations, $summarize_errors)
 
 Allows you to create an Allocation for prepayments
 
@@ -2331,9 +2331,9 @@ Allows you to create an Allocation for prepayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2341,7 +2341,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Prepayment
-$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
+$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -2359,12 +2359,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **prepayment_id** | [**string**](../Model/.md)| Unique identifier for Prepayment |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
+ **allocations** | [**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
 
 ### Authorization
 
@@ -2378,7 +2378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPrepaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records)
 
 Allows you to create a history record for an Prepayment
 
@@ -2388,9 +2388,9 @@ Allows you to create a history record for an Prepayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2398,7 +2398,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records);
@@ -2415,11 +2415,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **prepayment_id** | [**string**](../Model/.md)| Unique identifier for a PrePayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2433,7 +2433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPurchaseOrderHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
 
 Allows you to create HistoryRecord for purchase orders
 
@@ -2443,9 +2443,9 @@ Allows you to create HistoryRecord for purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2453,7 +2453,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records);
@@ -2470,11 +2470,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2488,7 +2488,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPurchaseOrders**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
 
 Allows you to create one or more purchase orders
 
@@ -2498,16 +2498,16 @@ Allows you to create one or more purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
+$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -2524,12 +2524,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)| PurchaseOrders with an array of PurchaseOrder object in body of request |
+ **purchase_orders** | [**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)| PurchaseOrders with an array of PurchaseOrder object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -2543,7 +2543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createQuoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
 
 Allows you to create Attachment on Quote
 
@@ -2553,9 +2553,9 @@ Allows you to create Attachment on Quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2586,7 +2586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -2600,7 +2600,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createQuoteHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
 
 Allows you to retrieve a history records of an quote
 
@@ -2610,9 +2610,9 @@ Allows you to retrieve a history records of an quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2620,7 +2620,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createQuoteHistory($xero_tenant_id, $quote_id, $history_records);
@@ -2637,11 +2637,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2655,7 +2655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createQuotes**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes createQuotes($xero_tenant_id, $quotes, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Quotes createQuotes($xero_tenant_id, $quotes, $summarize_errors)
 
 Allows you to create one or more quotes
 
@@ -2665,16 +2665,16 @@ Allows you to create one or more quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
+$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -2691,12 +2691,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)| Quotes with an array of Quote object in body of request |
+ **quotes** | [**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)| Quotes with an array of Quote object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -2710,7 +2710,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts, $unitdp)
 
 Allows you to create draft expense claim receipts for any user
 
@@ -2720,16 +2720,16 @@ Allows you to create draft expense claim receipts for any user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
+$receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -2746,12 +2746,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)| Receipts with an array of Receipt object in body of request |
+ **receipts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)| Receipts with an array of Receipt object in body of request |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
 
 ### Authorization
 
@@ -2765,7 +2765,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceiptAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
 
 Allows you to create Attachment on expense claim receipts by file name
 
@@ -2775,9 +2775,9 @@ Allows you to create Attachment on expense claim receipts by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2808,7 +2808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -2822,7 +2822,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceiptHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createReceiptHistory($xero_tenant_id, $receipt_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createReceiptHistory($xero_tenant_id, $receipt_id, $history_records)
 
 Allows you to retrieve a history records of an Receipt
 
@@ -2832,9 +2832,9 @@ Allows you to retrieve a history records of an Receipt
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2842,7 +2842,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createReceiptHistory($xero_tenant_id, $receipt_id, $history_records);
@@ -2859,11 +2859,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2877,7 +2877,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createRepeatingInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments createRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
 
 Allows you to create attachment on repeating invoices by file name
 
@@ -2887,9 +2887,9 @@ Allows you to create attachment on repeating invoices by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2920,7 +2920,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -2934,7 +2934,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createRepeatingInvoiceHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records)
 
 Allows you to create history for a repeating invoice
 
@@ -2944,9 +2944,9 @@ Allows you to create history for a repeating invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -2954,7 +2954,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records);
@@ -2971,11 +2971,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+ **history_records** | [**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -2989,7 +2989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTaxRates**
-> \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRates($xero_tenant_id, $tax_rates)
+> \SidneyAllen\XeroPHP\Models\Accounting\TaxRates createTaxRates($xero_tenant_id, $tax_rates)
 
 Allows you to create one or more Tax Rates
 
@@ -2999,16 +2999,16 @@ Allows you to create one or more Tax Rates
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
+$tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
 
 try {
     $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
@@ -3024,11 +3024,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tax_rates** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)| TaxRates array with TaxRate object in body of request |
+ **tax_rates** | [**\SidneyAllen\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)| TaxRates array with TaxRate object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
 
 ### Authorization
 
@@ -3042,7 +3042,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTrackingCategory**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories createTrackingCategory($xero_tenant_id, $tracking_category)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories createTrackingCategory($xero_tenant_id, $tracking_category)
 
 Allows you to create tracking categories
 
@@ -3052,16 +3052,16 @@ Allows you to create tracking categories
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category = { name:"FooBar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | TrackingCategory object in body of request
+$tracking_category = { name:"FooBar" }; // \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory | TrackingCategory object in body of request
 
 try {
     $result = $apiInstance->createTrackingCategory($xero_tenant_id, $tracking_category);
@@ -3077,11 +3077,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tracking_category** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)| TrackingCategory object in body of request |
+ **tracking_category** | [**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)| TrackingCategory object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
 
 ### Authorization
 
@@ -3095,7 +3095,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTrackingOptions**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option)
 
 Allows you to create options for a specified tracking category
 
@@ -3105,9 +3105,9 @@ Allows you to create options for a specified tracking category
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3115,7 +3115,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
-$tracking_option = { name:"Bar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | TrackingOption object in body of request
+$tracking_option = { name:"Bar" }; // \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption | TrackingOption object in body of request
 
 try {
     $result = $apiInstance->createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option);
@@ -3132,11 +3132,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **tracking_category_id** | [**string**](../Model/.md)| Unique identifier for a TrackingCategory |
- **tracking_option** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)| TrackingOption object in body of request |
+ **tracking_option** | [**\SidneyAllen\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)| TrackingOption object in body of request |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
 
 ### Authorization
 
@@ -3150,7 +3150,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAccount**
-> \XeroAPI\XeroPHP\Models\Accounting\Accounts deleteAccount($xero_tenant_id, $account_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Accounts deleteAccount($xero_tenant_id, $account_id)
 
 Allows you to delete a chart of accounts
 
@@ -3160,9 +3160,9 @@ Allows you to delete a chart of accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3189,7 +3189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
 
 ### Authorization
 
@@ -3213,9 +3213,9 @@ Allows you to delete a specific Contact from a Contact Group
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3267,9 +3267,9 @@ Allows you to delete  all Contacts from a Contact Group
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3319,9 +3319,9 @@ Allows you to delete a specified item
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3371,9 +3371,9 @@ Allows you to delete a specified linked transactions (billable expenses)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3413,7 +3413,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deletePayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payment_delete)
+> \SidneyAllen\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payment_delete)
 
 Allows you to update a specified payment for invoices and credit notes
 
@@ -3423,9 +3423,9 @@ Allows you to update a specified payment for invoices and credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3433,7 +3433,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
-$payment_delete = { status:"DELETED" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentDelete | 
+$payment_delete = { status:"DELETED" }; // \SidneyAllen\XeroPHP\Models\Accounting\PaymentDelete | 
 
 try {
     $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payment_delete);
@@ -3450,11 +3450,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payment_id** | [**string**](../Model/.md)| Unique identifier for a Payment |
- **payment_delete** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentDelete**](../Model/PaymentDelete.md)|  |
+ **payment_delete** | [**\SidneyAllen\XeroPHP\Models\Accounting\PaymentDelete**](../Model/PaymentDelete.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
 
 ### Authorization
 
@@ -3468,7 +3468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTrackingCategory**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories deleteTrackingCategory($xero_tenant_id, $tracking_category_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories deleteTrackingCategory($xero_tenant_id, $tracking_category_id)
 
 Allows you to delete tracking categories
 
@@ -3478,9 +3478,9 @@ Allows you to delete tracking categories
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3507,7 +3507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
 
 ### Authorization
 
@@ -3521,7 +3521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTrackingOptions**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id)
 
 Allows you to delete a specified option for a specified tracking category
 
@@ -3531,9 +3531,9 @@ Allows you to delete a specified option for a specified tracking category
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3562,7 +3562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
 
 ### Authorization
 
@@ -3586,9 +3586,9 @@ Allows you to email a copy of invoice to related Contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3596,7 +3596,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$request_empty = {}; // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty | 
+$request_empty = {}; // \SidneyAllen\XeroPHP\Models\Accounting\RequestEmpty | 
 
 try {
     $apiInstance->emailInvoice($xero_tenant_id, $invoice_id, $request_empty);
@@ -3612,7 +3612,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **request_empty** | [**\XeroAPI\XeroPHP\Models\Accounting\RequestEmpty**](../Model/RequestEmpty.md)|  |
+ **request_empty** | [**\SidneyAllen\XeroPHP\Models\Accounting\RequestEmpty**](../Model/RequestEmpty.md)|  |
 
 ### Return type
 
@@ -3630,7 +3630,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccount**
-> \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccount($xero_tenant_id, $account_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Accounts getAccount($xero_tenant_id, $account_id)
 
 Allows you to retrieve a single chart of accounts
 
@@ -3640,9 +3640,9 @@ Allows you to retrieve a single chart of accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3669,7 +3669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
 
 ### Authorization
 
@@ -3693,9 +3693,9 @@ Allows you to retrieve Attachment on Account by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3750,9 +3750,9 @@ Allows you to retrieve specific Attachment on Account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3797,7 +3797,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getAccountAttachments($xero_tenant_id, $account_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getAccountAttachments($xero_tenant_id, $account_id)
 
 Allows you to retrieve Attachments for accounts
 
@@ -3807,9 +3807,9 @@ Allows you to retrieve Attachments for accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3836,7 +3836,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -3850,7 +3850,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccounts**
-> \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccounts($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Accounts getAccounts($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve the full chart of accounts
 
@@ -3860,9 +3860,9 @@ Allows you to retrieve the full chart of accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3893,7 +3893,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
 
 ### Authorization
 
@@ -3907,7 +3907,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp)
 
 Allows you to retrieve a single spend or receive money transaction
 
@@ -3917,9 +3917,9 @@ Allows you to retrieve a single spend or receive money transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -3948,7 +3948,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
 
 ### Authorization
 
@@ -3972,9 +3972,9 @@ Allows you to retrieve Attachments on BankTransaction by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4029,9 +4029,9 @@ Allows you to retrieve Attachments on a specific BankTransaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4076,7 +4076,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id)
 
 Allows you to retrieve any attachments to bank transactions
 
@@ -4086,9 +4086,9 @@ Allows you to retrieve any attachments to bank transactions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4115,7 +4115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -4129,7 +4129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransactions($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions getBankTransactions($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
 Allows you to retrieve any spend or receive money transactions
 
@@ -4139,9 +4139,9 @@ Allows you to retrieve any spend or receive money transactions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4176,7 +4176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
 
 ### Authorization
 
@@ -4190,7 +4190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionsHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id)
 
 Allows you to retrieve history from a bank transactions
 
@@ -4200,9 +4200,9 @@ Allows you to retrieve history from a bank transactions
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4229,7 +4229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -4243,7 +4243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransfer**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfer($xero_tenant_id, $bank_transfer_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransfers getBankTransfer($xero_tenant_id, $bank_transfer_id)
 
 Allows you to retrieve any bank transfers
 
@@ -4253,9 +4253,9 @@ Allows you to retrieve any bank transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4282,7 +4282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
 
 ### Authorization
 
@@ -4306,9 +4306,9 @@ Allows you to retrieve Attachments on BankTransfer by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4363,9 +4363,9 @@ Allows you to retrieve Attachments on BankTransfer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4410,7 +4410,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransferAttachments($xero_tenant_id, $bank_transfer_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getBankTransferAttachments($xero_tenant_id, $bank_transfer_id)
 
 Allows you to retrieve Attachments from  bank transfers
 
@@ -4420,9 +4420,9 @@ Allows you to retrieve Attachments from  bank transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4449,7 +4449,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -4463,7 +4463,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransferHistory($xero_tenant_id, $bank_transfer_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getBankTransferHistory($xero_tenant_id, $bank_transfer_id)
 
 Allows you to retrieve history from a bank transfers
 
@@ -4473,9 +4473,9 @@ Allows you to retrieve history from a bank transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4502,7 +4502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -4516,7 +4516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransfers**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransfers getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve all bank transfers
 
@@ -4526,9 +4526,9 @@ Allows you to retrieve all bank transfers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4559,7 +4559,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)
 
 ### Authorization
 
@@ -4573,7 +4573,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBatchPaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBatchPaymentHistory($xero_tenant_id, $batch_payment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getBatchPaymentHistory($xero_tenant_id, $batch_payment_id)
 
 Allows you to retrieve history from a Batch Payment
 
@@ -4583,9 +4583,9 @@ Allows you to retrieve history from a Batch Payment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4612,7 +4612,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -4626,7 +4626,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBatchPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\BatchPayments getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\BatchPayments getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order)
 
 Retrieve either one or many BatchPayments for invoices
 
@@ -4636,9 +4636,9 @@ Retrieve either one or many BatchPayments for invoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4669,7 +4669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)
 
 ### Authorization
 
@@ -4683,7 +4683,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingTheme**
-> \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingTheme($xero_tenant_id, $branding_theme_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes getBrandingTheme($xero_tenant_id, $branding_theme_id)
 
 Allows you to retrieve a specific BrandingThemes
 
@@ -4693,9 +4693,9 @@ Allows you to retrieve a specific BrandingThemes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4722,7 +4722,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BrandingThemes**](../Model/BrandingThemes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes**](../Model/BrandingThemes.md)
 
 ### Authorization
 
@@ -4736,7 +4736,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingThemePaymentServices**
-> \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\PaymentServices getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id)
 
 Allows you to retrieve the Payment services for a Branding Theme
 
@@ -4746,9 +4746,9 @@ Allows you to retrieve the Payment services for a Branding Theme
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4775,7 +4775,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
 
 ### Authorization
 
@@ -4789,7 +4789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingThemes**
-> \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingThemes($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes getBrandingThemes($xero_tenant_id)
 
 Allows you to retrieve all the BrandingThemes
 
@@ -4799,9 +4799,9 @@ Allows you to retrieve all the BrandingThemes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4826,7 +4826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BrandingThemes**](../Model/BrandingThemes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BrandingThemes**](../Model/BrandingThemes.md)
 
 ### Authorization
 
@@ -4840,7 +4840,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContact**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts getContact($xero_tenant_id, $contact_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts getContact($xero_tenant_id, $contact_id)
 
 Allows you to retrieve, add and update contacts in a Xero organisation
 
@@ -4850,9 +4850,9 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4879,7 +4879,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -4903,9 +4903,9 @@ Allows you to retrieve Attachments on Contacts by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -4960,9 +4960,9 @@ Allows you to retrieve Attachments on Contacts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5007,7 +5007,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getContactAttachments($xero_tenant_id, $contact_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getContactAttachments($xero_tenant_id, $contact_id)
 
 Allows you to retrieve, add and update contacts in a Xero organisation
 
@@ -5017,9 +5017,9 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5046,7 +5046,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -5060,7 +5060,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactCISSettings**
-> \XeroAPI\XeroPHP\Models\Accounting\CISSettings getContactCISSettings($xero_tenant_id, $contact_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\CISSettings getContactCISSettings($xero_tenant_id, $contact_id)
 
 Allows you to retrieve CISSettings for a contact in a Xero organisation
 
@@ -5070,9 +5070,9 @@ Allows you to retrieve CISSettings for a contact in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5099,7 +5099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CISSettings**](../Model/CISSettings.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CISSettings**](../Model/CISSettings.md)
 
 ### Authorization
 
@@ -5113,7 +5113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactGroup**
-> \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroup($xero_tenant_id, $contact_group_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups getContactGroup($xero_tenant_id, $contact_group_id)
 
 Allows you to retrieve a unique Contact Group by ID
 
@@ -5123,9 +5123,9 @@ Allows you to retrieve a unique Contact Group by ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5152,7 +5152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
 
 ### Authorization
 
@@ -5166,7 +5166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactGroups**
-> \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroups($xero_tenant_id, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups getContactGroups($xero_tenant_id, $where, $order)
 
 Allows you to retrieve the ContactID and Name of all the contacts in a contact group
 
@@ -5176,9 +5176,9 @@ Allows you to retrieve the ContactID and Name of all the contacts in a contact g
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5207,7 +5207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
 
 ### Authorization
 
@@ -5221,7 +5221,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getContactHistory($xero_tenant_id, $contact_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getContactHistory($xero_tenant_id, $contact_id)
 
 Allows you to retrieve a history records of an Contact
 
@@ -5231,9 +5231,9 @@ Allows you to retrieve a history records of an Contact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5260,7 +5260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -5274,7 +5274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
 
 Allows you to retrieve, add and update contacts in a Xero organisation
 
@@ -5284,9 +5284,9 @@ Allows you to retrieve, add and update contacts in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5323,7 +5323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -5337,7 +5337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNote**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id, $unitdp)
 
 Allows you to retrieve a specific credit note
 
@@ -5347,9 +5347,9 @@ Allows you to retrieve a specific credit note
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5378,7 +5378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -5402,9 +5402,9 @@ Allows you to retrieve Credit Note as PDF files
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5455,9 +5455,9 @@ Allows you to retrieve Attachments on CreditNote by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5512,9 +5512,9 @@ Allows you to retrieve Attachments on CreditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5559,7 +5559,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getCreditNoteAttachments($xero_tenant_id, $credit_note_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getCreditNoteAttachments($xero_tenant_id, $credit_note_id)
 
 Allows you to retrieve Attachments for credit notes
 
@@ -5569,9 +5569,9 @@ Allows you to retrieve Attachments for credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5598,7 +5598,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -5612,7 +5612,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getCreditNoteHistory($xero_tenant_id, $credit_note_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getCreditNoteHistory($xero_tenant_id, $credit_note_id)
 
 Allows you to retrieve a history records of an CreditNote
 
@@ -5622,9 +5622,9 @@ Allows you to retrieve a history records of an CreditNote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5651,7 +5651,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -5665,7 +5665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
 Allows you to retrieve any credit notes
 
@@ -5675,9 +5675,9 @@ Allows you to retrieve any credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5712,7 +5712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -5726,7 +5726,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCurrencies**
-> \XeroAPI\XeroPHP\Models\Accounting\Currencies getCurrencies($xero_tenant_id, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Currencies getCurrencies($xero_tenant_id, $where, $order)
 
 Allows you to retrieve currencies for your organisation
 
@@ -5736,9 +5736,9 @@ Allows you to retrieve currencies for your organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5767,7 +5767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Currencies**](../Model/Currencies.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Currencies**](../Model/Currencies.md)
 
 ### Authorization
 
@@ -5781,7 +5781,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmployee**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployee($xero_tenant_id, $employee_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Employees getEmployee($xero_tenant_id, $employee_id)
 
 Allows you to retrieve a specific employee used in Xero payrun
 
@@ -5791,9 +5791,9 @@ Allows you to retrieve a specific employee used in Xero payrun
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5820,7 +5820,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
 
 ### Authorization
 
@@ -5834,7 +5834,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmployees**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployees($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Employees getEmployees($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve employees used in Xero payrun
 
@@ -5844,9 +5844,9 @@ Allows you to retrieve employees used in Xero payrun
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5877,7 +5877,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
 
 ### Authorization
 
@@ -5891,7 +5891,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaim**
-> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaim($xero_tenant_id, $expense_claim_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaim($xero_tenant_id, $expense_claim_id)
 
 Allows you to retrieve a specified expense claim
 
@@ -5901,9 +5901,9 @@ Allows you to retrieve a specified expense claim
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5930,7 +5930,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
 
 ### Authorization
 
@@ -5944,7 +5944,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaimHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getExpenseClaimHistory($xero_tenant_id, $expense_claim_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getExpenseClaimHistory($xero_tenant_id, $expense_claim_id)
 
 Allows you to retrieve a history records of an ExpenseClaim
 
@@ -5954,9 +5954,9 @@ Allows you to retrieve a history records of an ExpenseClaim
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -5983,7 +5983,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -5997,7 +5997,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaims**
-> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve expense claims
 
@@ -6007,9 +6007,9 @@ Allows you to retrieve expense claims
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6040,7 +6040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
 
 ### Authorization
 
@@ -6054,7 +6054,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id, $unitdp)
 
 Allows you to retrieve a specified sales invoice or purchase bill
 
@@ -6064,9 +6064,9 @@ Allows you to retrieve a specified sales invoice or purchase bill
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6095,7 +6095,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
 
 ### Authorization
 
@@ -6119,9 +6119,9 @@ Allows you to retrieve invoices or purchase bills as PDF files
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6172,9 +6172,9 @@ Allows you to retrieve Attachment on invoices or purchase bills by it's filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6229,9 +6229,9 @@ Allows you to retrieve a specified Attachment on invoices or purchase bills by i
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6276,7 +6276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getInvoiceAttachments($xero_tenant_id, $invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getInvoiceAttachments($xero_tenant_id, $invoice_id)
 
 Allows you to retrieve Attachments on invoices or purchase bills
 
@@ -6286,9 +6286,9 @@ Allows you to retrieve Attachments on invoices or purchase bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6315,7 +6315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -6329,7 +6329,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getInvoiceHistory($xero_tenant_id, $invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getInvoiceHistory($xero_tenant_id, $invoice_id)
 
 Allows you to retrieve a history records of an invoice
 
@@ -6339,9 +6339,9 @@ Allows you to retrieve a history records of an invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6368,7 +6368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -6382,7 +6382,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceReminders**
-> \XeroAPI\XeroPHP\Models\Accounting\InvoiceReminders getInvoiceReminders($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminders getInvoiceReminders($xero_tenant_id)
 
 Allows you to retrieve invoice reminder settings
 
@@ -6392,9 +6392,9 @@ Allows you to retrieve invoice reminder settings
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6419,7 +6419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\InvoiceReminders**](../Model/InvoiceReminders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminders**](../Model/InvoiceReminders.md)
 
 ### Authorization
 
@@ -6433,7 +6433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoices($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Invoices getInvoices($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp)
 
 Allows you to retrieve any sales invoices or purchase bills
 
@@ -6443,9 +6443,9 @@ Allows you to retrieve any sales invoices or purchase bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6492,7 +6492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
 
 ### Authorization
 
@@ -6506,7 +6506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItem**
-> \XeroAPI\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id, $unitdp)
 
 Allows you to retrieve a specified item
 
@@ -6516,9 +6516,9 @@ Allows you to retrieve a specified item
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6547,7 +6547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
 
 ### Authorization
 
@@ -6561,7 +6561,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItemHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getItemHistory($xero_tenant_id, $item_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getItemHistory($xero_tenant_id, $item_id)
 
 Allows you to retrieve history for items
 
@@ -6571,9 +6571,9 @@ Allows you to retrieve history for items
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6600,7 +6600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -6614,7 +6614,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items getItems($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Items getItems($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
 
 Allows you to retrieve any items
 
@@ -6624,9 +6624,9 @@ Allows you to retrieve any items
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6659,7 +6659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
 
 ### Authorization
 
@@ -6673,7 +6673,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getJournal**
-> \XeroAPI\XeroPHP\Models\Accounting\Journals getJournal($xero_tenant_id, $journal_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Journals getJournal($xero_tenant_id, $journal_id)
 
 Allows you to retrieve a specified journals.
 
@@ -6683,9 +6683,9 @@ Allows you to retrieve a specified journals.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6712,7 +6712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Journals**](../Model/Journals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Journals**](../Model/Journals.md)
 
 ### Authorization
 
@@ -6726,7 +6726,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getJournals**
-> \XeroAPI\XeroPHP\Models\Accounting\Journals getJournals($xero_tenant_id, $if_modified_since, $offset, $payments_only)
+> \SidneyAllen\XeroPHP\Models\Accounting\Journals getJournals($xero_tenant_id, $if_modified_since, $offset, $payments_only)
 
 Allows you to retrieve any journals.
 
@@ -6736,9 +6736,9 @@ Allows you to retrieve any journals.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6769,7 +6769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Journals**](../Model/Journals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Journals**](../Model/Journals.md)
 
 ### Authorization
 
@@ -6783,7 +6783,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransaction($xero_tenant_id, $linked_transaction_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransaction($xero_tenant_id, $linked_transaction_id)
 
 Allows you to retrieve a specified linked transactions (billable expenses)
 
@@ -6793,9 +6793,9 @@ Allows you to retrieve a specified linked transactions (billable expenses)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6822,7 +6822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
 
 ### Authorization
 
@@ -6836,7 +6836,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
 
 Retrieve linked transactions (billable expenses)
 
@@ -6846,9 +6846,9 @@ Retrieve linked transactions (billable expenses)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6885,7 +6885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
 
 ### Authorization
 
@@ -6899,7 +6899,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournal**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournal($xero_tenant_id, $manual_journal_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals getManualJournal($xero_tenant_id, $manual_journal_id)
 
 Allows you to retrieve a specified manual journals
 
@@ -6909,9 +6909,9 @@ Allows you to retrieve a specified manual journals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -6938,7 +6938,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
@@ -6962,9 +6962,9 @@ Allows you to retrieve specified Attachment on ManualJournal by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7019,9 +7019,9 @@ Allows you to retrieve specified Attachment on ManualJournals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7066,7 +7066,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournalAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getManualJournalAttachments($xero_tenant_id, $manual_journal_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getManualJournalAttachments($xero_tenant_id, $manual_journal_id)
 
 Allows you to retrieve Attachment for manual journals
 
@@ -7076,9 +7076,9 @@ Allows you to retrieve Attachment for manual journals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7105,7 +7105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -7119,7 +7119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournals**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournals($xero_tenant_id, $if_modified_since, $where, $order, $page)
+> \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals getManualJournals($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
 Allows you to retrieve any manual journals
 
@@ -7129,9 +7129,9 @@ Allows you to retrieve any manual journals
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7164,7 +7164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
@@ -7178,7 +7178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOnlineInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices getOnlineInvoice($xero_tenant_id, $invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoices getOnlineInvoice($xero_tenant_id, $invoice_id)
 
 Allows you to retrieve a URL to an online invoice
 
@@ -7188,9 +7188,9 @@ Allows you to retrieve a URL to an online invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7217,7 +7217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices**](../Model/OnlineInvoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoices**](../Model/OnlineInvoices.md)
 
 ### Authorization
 
@@ -7231,7 +7231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrganisationCISSettings**
-> \XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting getOrganisationCISSettings($xero_tenant_id, $organisation_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\CISOrgSetting getOrganisationCISSettings($xero_tenant_id, $organisation_id)
 
 Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
 
@@ -7241,9 +7241,9 @@ Allows you To verify if an organisation is using contruction industry scheme, yo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7270,7 +7270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting**](../Model/CISOrgSetting.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CISOrgSetting**](../Model/CISOrgSetting.md)
 
 ### Authorization
 
@@ -7284,7 +7284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrganisations**
-> \XeroAPI\XeroPHP\Models\Accounting\Organisations getOrganisations($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Organisations getOrganisations($xero_tenant_id)
 
 Allows you to retrieve Organisation details
 
@@ -7294,9 +7294,9 @@ Allows you to retrieve Organisation details
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7321,7 +7321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Organisations**](../Model/Organisations.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Organisations**](../Model/Organisations.md)
 
 ### Authorization
 
@@ -7335,7 +7335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayment($xero_tenant_id, $overpayment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Overpayments getOverpayment($xero_tenant_id, $overpayment_id)
 
 Allows you to retrieve a specified overpayments
 
@@ -7345,9 +7345,9 @@ Allows you to retrieve a specified overpayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7374,7 +7374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Overpayments**](../Model/Overpayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Overpayments**](../Model/Overpayments.md)
 
 ### Authorization
 
@@ -7388,7 +7388,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getOverpaymentHistory($xero_tenant_id, $overpayment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getOverpaymentHistory($xero_tenant_id, $overpayment_id)
 
 Allows you to retrieve a history records of an Overpayment
 
@@ -7398,9 +7398,9 @@ Allows you to retrieve a history records of an Overpayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7427,7 +7427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -7441,7 +7441,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Overpayments getOverpayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
 Allows you to retrieve overpayments
 
@@ -7451,9 +7451,9 @@ Allows you to retrieve overpayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7488,7 +7488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Overpayments**](../Model/Overpayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Overpayments**](../Model/Overpayments.md)
 
 ### Authorization
 
@@ -7502,7 +7502,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayment($xero_tenant_id, $payment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Payments getPayment($xero_tenant_id, $payment_id)
 
 Allows you to retrieve a specified payment for invoices and credit notes
 
@@ -7512,9 +7512,9 @@ Allows you to retrieve a specified payment for invoices and credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7541,7 +7541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
 
 ### Authorization
 
@@ -7555,7 +7555,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPaymentHistory($xero_tenant_id, $payment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getPaymentHistory($xero_tenant_id, $payment_id)
 
 Allows you to retrieve history records of a payment
 
@@ -7565,9 +7565,9 @@ Allows you to retrieve history records of a payment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7594,7 +7594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -7608,7 +7608,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentServices**
-> \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getPaymentServices($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\PaymentServices getPaymentServices($xero_tenant_id)
 
 Allows you to retrieve payment services
 
@@ -7618,9 +7618,9 @@ Allows you to retrieve payment services
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7645,7 +7645,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)
 
 ### Authorization
 
@@ -7659,7 +7659,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve payments for invoices and credit notes
 
@@ -7669,9 +7669,9 @@ Allows you to retrieve payments for invoices and credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7702,7 +7702,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
 
 ### Authorization
 
@@ -7716,7 +7716,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Prepayments getPrepayment($xero_tenant_id, $prepayment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Prepayments getPrepayment($xero_tenant_id, $prepayment_id)
 
 Allows you to retrieve a specified prepayments
 
@@ -7726,9 +7726,9 @@ Allows you to retrieve a specified prepayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7755,7 +7755,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Prepayments**](../Model/Prepayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Prepayments**](../Model/Prepayments.md)
 
 ### Authorization
 
@@ -7769,7 +7769,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepaymentHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPrepaymentHistory($xero_tenant_id, $prepayment_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getPrepaymentHistory($xero_tenant_id, $prepayment_id)
 
 Allows you to retrieve a history records of an Prepayment
 
@@ -7779,9 +7779,9 @@ Allows you to retrieve a history records of an Prepayment
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7808,7 +7808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -7822,7 +7822,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Prepayments getPrepayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Prepayments getPrepayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
 Allows you to retrieve prepayments
 
@@ -7832,9 +7832,9 @@ Allows you to retrieve prepayments
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7869,7 +7869,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Prepayments**](../Model/Prepayments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Prepayments**](../Model/Prepayments.md)
 
 ### Authorization
 
@@ -7883,7 +7883,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrder**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrder($xero_tenant_id, $purchase_order_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrder($xero_tenant_id, $purchase_order_id)
 
 Allows you to retrieve a specified purchase orders
 
@@ -7893,9 +7893,9 @@ Allows you to retrieve a specified purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7922,7 +7922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -7946,9 +7946,9 @@ Allows you to retrieve purchase orders as PDF files
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -7989,7 +7989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrderByNumber**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrderByNumber($xero_tenant_id, $purchase_order_number)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrderByNumber($xero_tenant_id, $purchase_order_number)
 
 Allows you to retrieve a specified purchase orders
 
@@ -7999,9 +7999,9 @@ Allows you to retrieve a specified purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8028,7 +8028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -8042,7 +8042,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrderHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id)
 
 Allows you to retrieve history for PurchaseOrder
 
@@ -8052,9 +8052,9 @@ Allows you to retrieve history for PurchaseOrder
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8081,7 +8081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -8095,7 +8095,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrders**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrders($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrders($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page)
 
 Allows you to retrieve purchase orders
 
@@ -8105,9 +8105,9 @@ Allows you to retrieve purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8144,7 +8144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -8158,7 +8158,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getQuote**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuote($xero_tenant_id, $quote_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Quotes getQuote($xero_tenant_id, $quote_id)
 
 Allows you to retrieve a specified quote
 
@@ -8168,9 +8168,9 @@ Allows you to retrieve a specified quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8197,7 +8197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -8221,9 +8221,9 @@ Allows you to retrieve quotes as PDF files
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8274,9 +8274,9 @@ Allows you to retrieve Attachment on Quote by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8331,9 +8331,9 @@ Allows you to retrieve specific Attachment on Quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8378,7 +8378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getQuoteAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getQuoteAttachments($xero_tenant_id, $quote_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getQuoteAttachments($xero_tenant_id, $quote_id)
 
 Allows you to retrieve Attachments for Quotes
 
@@ -8388,9 +8388,9 @@ Allows you to retrieve Attachments for Quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8417,7 +8417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -8431,7 +8431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getQuoteHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getQuoteHistory($xero_tenant_id, $quote_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getQuoteHistory($xero_tenant_id, $quote_id)
 
 Allows you to retrieve a history records of an quote
 
@@ -8441,9 +8441,9 @@ Allows you to retrieve a history records of an quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8470,7 +8470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -8484,7 +8484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getQuotes**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order)
 
 Allows you to retrieve any sales quotes
 
@@ -8494,9 +8494,9 @@ Allows you to retrieve any sales quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8539,7 +8539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -8553,7 +8553,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id, $unitdp)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -8563,9 +8563,9 @@ Allows you to retrieve a specified draft expense claim receipts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8594,7 +8594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
 
 ### Authorization
 
@@ -8618,9 +8618,9 @@ Allows you to retrieve Attachments on expense claim receipts by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8675,9 +8675,9 @@ Allows you to retrieve Attachments on expense claim receipts by ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8722,7 +8722,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getReceiptAttachments($xero_tenant_id, $receipt_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getReceiptAttachments($xero_tenant_id, $receipt_id)
 
 Allows you to retrieve Attachments for expense claim receipts
 
@@ -8732,9 +8732,9 @@ Allows you to retrieve Attachments for expense claim receipts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8761,7 +8761,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -8775,7 +8775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getReceiptHistory($xero_tenant_id, $receipt_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getReceiptHistory($xero_tenant_id, $receipt_id)
 
 Allows you to retrieve a history records of an Receipt
 
@@ -8785,9 +8785,9 @@ Allows you to retrieve a history records of an Receipt
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8814,7 +8814,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -8828,7 +8828,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceipts**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipts($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Receipts getReceipts($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
 
 Allows you to retrieve draft expense claim receipts for any user
 
@@ -8838,9 +8838,9 @@ Allows you to retrieve draft expense claim receipts for any user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8873,7 +8873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
 
 ### Authorization
 
@@ -8887,7 +8887,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id)
 
 Allows you to retrieve a specified repeating invoice
 
@@ -8897,9 +8897,9 @@ Allows you to retrieve a specified repeating invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -8926,7 +8926,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices**](../Model/RepeatingInvoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices**](../Model/RepeatingInvoices.md)
 
 ### Authorization
 
@@ -8950,9 +8950,9 @@ Allows you to retrieve specified attachment on repeating invoices by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9007,9 +9007,9 @@ Allows you to retrieve a specified Attachments on repeating invoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9054,7 +9054,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceAttachments**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id)
 
 Allows you to retrieve Attachments on repeating invoice
 
@@ -9064,9 +9064,9 @@ Allows you to retrieve Attachments on repeating invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9093,7 +9093,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -9107,7 +9107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceHistory**
-> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id)
 
 Allows you to retrieve history for a repeating invoice
 
@@ -9117,9 +9117,9 @@ Allows you to retrieve history for a repeating invoice
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9146,7 +9146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
 
 ### Authorization
 
@@ -9160,7 +9160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoices($xero_tenant_id, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoices($xero_tenant_id, $where, $order)
 
 Allows you to retrieve any repeating invoices
 
@@ -9170,9 +9170,9 @@ Allows you to retrieve any repeating invoices
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9201,7 +9201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices**](../Model/RepeatingInvoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\RepeatingInvoices**](../Model/RepeatingInvoices.md)
 
 ### Authorization
 
@@ -9215,7 +9215,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportAgedPayablesByContact**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
 
 Allows you to retrieve report for AgedPayablesByContact
 
@@ -9225,9 +9225,9 @@ Allows you to retrieve report for AgedPayablesByContact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9260,7 +9260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9274,7 +9274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportAgedReceivablesByContact**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
 
 Allows you to retrieve report for AgedReceivablesByContact
 
@@ -9284,9 +9284,9 @@ Allows you to retrieve report for AgedReceivablesByContact
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9319,7 +9319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9333,7 +9333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBASorGST**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGST($xero_tenant_id, $report_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGST($xero_tenant_id, $report_id)
 
 Allows you to retrieve report for BAS only valid for AU orgs
 
@@ -9343,9 +9343,9 @@ Allows you to retrieve report for BAS only valid for AU orgs
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9372,7 +9372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9386,7 +9386,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBASorGSTList**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGSTList($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGSTList($xero_tenant_id)
 
 Allows you to retrieve report for BAS only valid for AU orgs
 
@@ -9396,9 +9396,9 @@ Allows you to retrieve report for BAS only valid for AU orgs
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9423,7 +9423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9437,7 +9437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBalanceSheet**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBalanceSheet($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportBalanceSheet($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
 
 Allows you to retrieve report for BalanceSheet
 
@@ -9447,9 +9447,9 @@ Allows you to retrieve report for BalanceSheet
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9488,7 +9488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9502,7 +9502,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBankSummary**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBankSummary($xero_tenant_id, $from_date, $to_date)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportBankSummary($xero_tenant_id, $from_date, $to_date)
 
 Allows you to retrieve report for BankSummary
 
@@ -9512,9 +9512,9 @@ Allows you to retrieve report for BankSummary
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9543,7 +9543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9557,7 +9557,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBudgetSummary**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBudgetSummary($xero_tenant_id, $date, $period, $timeframe)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportBudgetSummary($xero_tenant_id, $date, $period, $timeframe)
 
 Allows you to retrieve report for Budget Summary
 
@@ -9567,9 +9567,9 @@ Allows you to retrieve report for Budget Summary
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9600,7 +9600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9614,7 +9614,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportExecutiveSummary**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportExecutiveSummary($xero_tenant_id, $date)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportExecutiveSummary($xero_tenant_id, $date)
 
 Allows you to retrieve report for ExecutiveSummary
 
@@ -9624,9 +9624,9 @@ Allows you to retrieve report for ExecutiveSummary
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9653,7 +9653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9667,7 +9667,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportProfitAndLoss**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportProfitAndLoss($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportProfitAndLoss($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
 
 Allows you to retrieve report for ProfitAndLoss
 
@@ -9677,9 +9677,9 @@ Allows you to retrieve report for ProfitAndLoss
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9724,7 +9724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9738,7 +9738,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportTenNinetyNine**
-> \XeroAPI\XeroPHP\Models\Accounting\Reports getReportTenNinetyNine($xero_tenant_id, $report_year)
+> \SidneyAllen\XeroPHP\Models\Accounting\Reports getReportTenNinetyNine($xero_tenant_id, $report_year)
 
 Allows you to retrieve report for TenNinetyNine
 
@@ -9748,9 +9748,9 @@ Allows you to retrieve report for TenNinetyNine
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9777,7 +9777,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Reports**](../Model/Reports.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Reports**](../Model/Reports.md)
 
 ### Authorization
 
@@ -9791,7 +9791,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportTrialBalance**
-> \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportTrialBalance($xero_tenant_id, $date, $payments_only)
+> \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows getReportTrialBalance($xero_tenant_id, $date, $payments_only)
 
 Allows you to retrieve report for TrialBalance
 
@@ -9801,9 +9801,9 @@ Allows you to retrieve report for TrialBalance
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9832,7 +9832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRows**](../Model/ReportWithRows.md)
 
 ### Authorization
 
@@ -9846,7 +9846,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxRates**
-> \XeroAPI\XeroPHP\Models\Accounting\TaxRates getTaxRates($xero_tenant_id, $where, $order, $tax_type)
+> \SidneyAllen\XeroPHP\Models\Accounting\TaxRates getTaxRates($xero_tenant_id, $where, $order, $tax_type)
 
 Allows you to retrieve Tax Rates
 
@@ -9856,9 +9856,9 @@ Allows you to retrieve Tax Rates
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9889,7 +9889,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
 
 ### Authorization
 
@@ -9903,7 +9903,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingCategories**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategories($xero_tenant_id, $where, $order, $include_archived)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategories($xero_tenant_id, $where, $order, $include_archived)
 
 Allows you to retrieve tracking categories and options
 
@@ -9913,9 +9913,9 @@ Allows you to retrieve tracking categories and options
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9946,7 +9946,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
 
 ### Authorization
 
@@ -9960,7 +9960,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingCategory**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategory($xero_tenant_id, $tracking_category_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategory($xero_tenant_id, $tracking_category_id)
 
 Allows you to retrieve tracking categories and options for specified category
 
@@ -9970,9 +9970,9 @@ Allows you to retrieve tracking categories and options for specified category
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -9999,7 +9999,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
 
 ### Authorization
 
@@ -10013,7 +10013,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \XeroAPI\XeroPHP\Models\Accounting\Users getUser($xero_tenant_id, $user_id)
+> \SidneyAllen\XeroPHP\Models\Accounting\Users getUser($xero_tenant_id, $user_id)
 
 Allows you to retrieve a specified user
 
@@ -10023,9 +10023,9 @@ Allows you to retrieve a specified user
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10052,7 +10052,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Users**](../Model/Users.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Users**](../Model/Users.md)
 
 ### Authorization
 
@@ -10066,7 +10066,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
-> \XeroAPI\XeroPHP\Models\Accounting\Users getUsers($xero_tenant_id, $if_modified_since, $where, $order)
+> \SidneyAllen\XeroPHP\Models\Accounting\Users getUsers($xero_tenant_id, $if_modified_since, $where, $order)
 
 Allows you to retrieve users
 
@@ -10076,9 +10076,9 @@ Allows you to retrieve users
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10109,7 +10109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Users**](../Model/Users.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Users**](../Model/Users.md)
 
 ### Authorization
 
@@ -10123,7 +10123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccount**
-> \XeroAPI\XeroPHP\Models\Accounting\Accounts updateAccount($xero_tenant_id, $account_id, $accounts)
+> \SidneyAllen\XeroPHP\Models\Accounting\Accounts updateAccount($xero_tenant_id, $account_id, $accounts)
 
 Allows you to update a chart of accounts
 
@@ -10133,9 +10133,9 @@ Allows you to update a chart of accounts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10143,7 +10143,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
-$accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
+$accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
 
 try {
     $result = $apiInstance->updateAccount($xero_tenant_id, $account_id, $accounts);
@@ -10160,11 +10160,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **account_id** | [**string**](../Model/.md)| Unique identifier for retrieving single object |
- **accounts** | [**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)| Request of type Accounts array with one Account |
+ **accounts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)| Request of type Accounts array with one Account |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)
 
 ### Authorization
 
@@ -10178,7 +10178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccountAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
 
 Allows you to update Attachment on Account by Filename
 
@@ -10188,9 +10188,9 @@ Allows you to update Attachment on Account by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10221,7 +10221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10235,7 +10235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp)
 
 Allows you to update a single spend or receive money transaction
 
@@ -10245,9 +10245,9 @@ Allows you to update a single spend or receive money transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10255,7 +10255,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10273,12 +10273,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
+ **bank_transactions** | [**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
 
 ### Authorization
 
@@ -10292,7 +10292,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransactionAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
 
 Allows you to update an Attachment on BankTransaction by Filename
 
@@ -10302,9 +10302,9 @@ Allows you to update an Attachment on BankTransaction by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10335,7 +10335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10349,7 +10349,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransferAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
 
 
 
@@ -10359,9 +10359,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10392,7 +10392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10406,7 +10406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts updateContact($xero_tenant_id, $contact_id, $contacts)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts updateContact($xero_tenant_id, $contact_id, $contacts)
 
 
 
@@ -10416,9 +10416,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10426,7 +10426,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
+$contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
 
 try {
     $result = $apiInstance->updateContact($xero_tenant_id, $contact_id, $contacts);
@@ -10443,11 +10443,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| an array of Contacts containing single Contact object with properties to update |
+ **contacts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| an array of Contacts containing single Contact object with properties to update |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -10461,7 +10461,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
 
 
 
@@ -10471,9 +10471,9 @@ Name | Type | Description  | Notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10504,7 +10504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10518,7 +10518,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactGroup**
-> \XeroAPI\XeroPHP\Models\Accounting\ContactGroups updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups)
+> \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups)
 
 Allows you to update a Contact Group
 
@@ -10528,9 +10528,9 @@ Allows you to update a Contact Group
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10538,7 +10538,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contact_groups = { contactGroups:[ { name:"Vendor" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
+$contact_groups = { contactGroups:[ { name:"Vendor" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
 
 try {
     $result = $apiInstance->updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups);
@@ -10555,11 +10555,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_group_id** | [**string**](../Model/.md)| Unique identifier for a Contact Group |
- **contact_groups** | [**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| an array of Contact groups with Name of specific group to update |
+ **contact_groups** | [**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| an array of Contact groups with Name of specific group to update |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)
 
 ### Authorization
 
@@ -10573,7 +10573,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCreditNote**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp)
 
 Allows you to update a specific credit note
 
@@ -10583,9 +10583,9 @@ Allows you to update a specific credit note
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10593,7 +10593,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
+$credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10611,12 +10611,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes containing credit note details to update |
+ **credit_notes** | [**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes containing credit note details to update |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -10630,7 +10630,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCreditNoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
 
 Allows you to update Attachments on CreditNote by file name
 
@@ -10640,9 +10640,9 @@ Allows you to update Attachments on CreditNote by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10673,7 +10673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10687,7 +10687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateExpenseClaim**
-> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims)
+> \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims)
 
 Allows you to update specified expense claims
 
@@ -10697,9 +10697,9 @@ Allows you to update specified expense claims
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10707,7 +10707,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
-$expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+$expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims | 
 
 try {
     $result = $apiInstance->updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims);
@@ -10724,11 +10724,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **expense_claim_id** | [**string**](../Model/.md)| Unique identifier for a ExpenseClaim |
- **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)|  |
+ **expense_claims** | [**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
 
 ### Authorization
 
@@ -10742,7 +10742,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp)
 
 Allows you to update a specified sales invoices or purchase bills
 
@@ -10752,9 +10752,9 @@ Allows you to update a specified sales invoices or purchase bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10762,7 +10762,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Invoices | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10780,12 +10780,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
+ **invoices** | [**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
 
 ### Authorization
 
@@ -10799,7 +10799,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
 
 Allows you to update Attachment on invoices or purchase bills by it's filename
 
@@ -10809,9 +10809,9 @@ Allows you to update Attachment on invoices or purchase bills by it's filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10842,7 +10842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -10856,7 +10856,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateItem**
-> \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items, $unitdp)
 
 Allows you to update a specified item
 
@@ -10866,9 +10866,9 @@ Allows you to update a specified item
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10876,7 +10876,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
-$items = { items:[ { code:"abc123", description:"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { items:[ { code:"abc123", description:"Hello Xero" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Items | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10894,12 +10894,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **item_id** | [**string**](../Model/.md)| Unique identifier for an Item |
- **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+ **items** | [**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
 
 ### Authorization
 
@@ -10913,7 +10913,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLinkedTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions)
+> \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions)
 
 Allows you to update a specified linked transactions (billable expenses)
 
@@ -10923,9 +10923,9 @@ Allows you to update a specified linked transactions (billable expenses)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10933,7 +10933,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
-$linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions | 
 
 try {
     $result = $apiInstance->updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions);
@@ -10950,11 +10950,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **linked_transaction_id** | [**string**](../Model/.md)| Unique identifier for a LinkedTransaction |
- **linked_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)|  |
+ **linked_transactions** | [**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
 
 ### Authorization
 
@@ -10968,7 +10968,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateManualJournal**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals)
+> \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals)
 
 Allows you to update a specified manual journal
 
@@ -10978,9 +10978,9 @@ Allows you to update a specified manual journal
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -10988,7 +10988,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
-$manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals | 
 
 try {
     $result = $apiInstance->updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals);
@@ -11005,11 +11005,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
- **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)|  |
+ **manual_journals** | [**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
@@ -11023,7 +11023,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateManualJournalAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
 
 Allows you to update a specified Attachment on ManualJournal by file name
 
@@ -11033,9 +11033,9 @@ Allows you to update a specified Attachment on ManualJournal by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11066,7 +11066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -11080,7 +11080,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateBankTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
 Allows you to update or create one or more spend or receive money transaction
 
@@ -11090,16 +11090,16 @@ Allows you to update or create one or more spend or receive money transaction
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\BankTransactions | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11117,13 +11117,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
+ **bank_transactions** | [**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
 
 ### Authorization
 
@@ -11137,7 +11137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts updateOrCreateContacts($xero_tenant_id, $contacts, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Contacts updateOrCreateContacts($xero_tenant_id, $contacts, $summarize_errors)
 
 Allows you to update OR create one or more contacts in a Xero organisation
 
@@ -11147,16 +11147,16 @@ Allows you to update OR create one or more contacts in a Xero organisation
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Contacts | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11173,12 +11173,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
+ **contacts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
 
 ### Authorization
 
@@ -11192,7 +11192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
 Allows you to update OR create one or more credit notes
 
@@ -11202,16 +11202,16 @@ Allows you to update OR create one or more credit notes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
+$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11229,13 +11229,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
+ **credit_notes** | [**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
 
 ### Authorization
 
@@ -11249,7 +11249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateEmployees**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Employees updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors)
 
 Allows you to create a single new employees used in Xero payrun
 
@@ -11259,16 +11259,16 @@ Allows you to create a single new employees used in Xero payrun
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11285,12 +11285,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
+ **employees** | [**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
 
 ### Authorization
 
@@ -11304,7 +11304,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
 Allows you to update OR create one or more sales invoices or purchase bills
 
@@ -11314,16 +11314,16 @@ Allows you to update OR create one or more sales invoices or purchase bills
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Invoices | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11341,13 +11341,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
+ **invoices** | [**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
 
 ### Authorization
 
@@ -11361,7 +11361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items updateOrCreateItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Items updateOrCreateItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
 Allows you to update or create one or more items
 
@@ -11371,16 +11371,16 @@ Allows you to update or create one or more items
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Items | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11398,13 +11398,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+ **items** | [**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
 
 ### Authorization
 
@@ -11418,7 +11418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateManualJournals**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
 Allows you to create a single manual journal
 
@@ -11428,16 +11428,16 @@ Allows you to create a single manual journal
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11454,12 +11454,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
+ **manual_journals** | [**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
@@ -11473,7 +11473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreatePurchaseOrders**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders updateOrCreatePurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders updateOrCreatePurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
 
 Allows you to update or create one or more purchase orders
 
@@ -11483,16 +11483,16 @@ Allows you to update or create one or more purchase orders
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11509,12 +11509,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
+ **purchase_orders** | [**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -11528,7 +11528,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateQuotes**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors)
+> \SidneyAllen\XeroPHP\Models\Accounting\Quotes updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors)
 
 Allows you to update OR create one or more quotes
 
@@ -11538,16 +11538,16 @@ Allows you to update OR create one or more quotes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Quotes | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11564,12 +11564,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
+ **quotes** | [**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -11583,7 +11583,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePurchaseOrder**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders)
+> \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders)
 
 Allows you to update a specified purchase order
 
@@ -11593,9 +11593,9 @@ Allows you to update a specified purchase order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11603,7 +11603,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
-$purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders | 
 
 try {
     $result = $apiInstance->updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders);
@@ -11620,11 +11620,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
- **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
+ **purchase_orders** | [**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
 
 ### Authorization
 
@@ -11638,7 +11638,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateQuote**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes updateQuote($xero_tenant_id, $quote_id, $quotes)
+> \SidneyAllen\XeroPHP\Models\Accounting\Quotes updateQuote($xero_tenant_id, $quote_id, $quotes)
 
 Allows you to update a specified quote
 
@@ -11648,9 +11648,9 @@ Allows you to update a specified quote
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11658,7 +11658,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
-$quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]}; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]}; // \SidneyAllen\XeroPHP\Models\Accounting\Quotes | 
 
 try {
     $result = $apiInstance->updateQuote($xero_tenant_id, $quote_id, $quotes);
@@ -11675,11 +11675,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
- **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
+ **quotes** | [**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -11693,7 +11693,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateQuoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
 
 Allows you to update Attachment on Quote by Filename
 
@@ -11703,9 +11703,9 @@ Allows you to update Attachment on Quote by Filename
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11736,7 +11736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -11750,7 +11750,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp)
+> \SidneyAllen\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -11760,9 +11760,9 @@ Allows you to retrieve a specified draft expense claim receipts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11770,7 +11770,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] }; // \SidneyAllen\XeroPHP\Models\Accounting\Receipts | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11788,12 +11788,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)|  |
+ **receipts** | [**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)|  |
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)
 
 ### Authorization
 
@@ -11807,7 +11807,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReceiptAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
 
 Allows you to update Attachment on expense claim receipts by file name
 
@@ -11817,9 +11817,9 @@ Allows you to update Attachment on expense claim receipts by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11850,7 +11850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -11864,7 +11864,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateRepeatingInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
+> \SidneyAllen\XeroPHP\Models\Accounting\Attachments updateRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
 
 Allows you to update specified attachment on repeating invoices by file name
 
@@ -11874,9 +11874,9 @@ Allows you to update specified attachment on repeating invoices by file name
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11907,7 +11907,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -11921,7 +11921,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxRate**
-> \XeroAPI\XeroPHP\Models\Accounting\TaxRates updateTaxRate($xero_tenant_id, $tax_rates)
+> \SidneyAllen\XeroPHP\Models\Accounting\TaxRates updateTaxRate($xero_tenant_id, $tax_rates)
 
 Allows you to update Tax Rates
 
@@ -11931,16 +11931,16 @@ Allows you to update Tax Rates
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] }; // \SidneyAllen\XeroPHP\Models\Accounting\TaxRates | 
 
 try {
     $result = $apiInstance->updateTaxRate($xero_tenant_id, $tax_rates);
@@ -11956,11 +11956,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tax_rates** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)|  |
+ **tax_rates** | [**\SidneyAllen\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
 
 ### Authorization
 
@@ -11974,7 +11974,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTrackingCategory**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category)
 
 Allows you to update tracking categories
 
@@ -11984,9 +11984,9 @@ Allows you to update tracking categories
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -11994,7 +11994,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
-$tracking_category = { name:"Avengers" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$tracking_category = { name:"Avengers" }; // \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory | 
 
 try {
     $result = $apiInstance->updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category);
@@ -12011,11 +12011,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **tracking_category_id** | [**string**](../Model/.md)| Unique identifier for a TrackingCategory |
- **tracking_category** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)|  |
+ **tracking_category** | [**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategories**](../Model/TrackingCategories.md)
 
 ### Authorization
 
@@ -12029,7 +12029,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTrackingOptions**
-> \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option)
+> \SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option)
 
 Allows you to update options for a specified tracking category
 
@@ -12039,9 +12039,9 @@ Allows you to update options for a specified tracking category
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -12050,7 +12050,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
 $tracking_option_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Tracking Option
-$tracking_option = { name:"Vision" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+$tracking_option = { name:"Vision" }; // \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption | 
 
 try {
     $result = $apiInstance->updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option);
@@ -12068,11 +12068,11 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **tracking_category_id** | [**string**](../Model/.md)| Unique identifier for a TrackingCategory |
  **tracking_option_id** | [**string**](../Model/.md)| Unique identifier for a Tracking Option |
- **tracking_option** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)|  |
+ **tracking_option** | [**\SidneyAllen\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)|  |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
+[**\SidneyAllen\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
 
 ### Authorization
 

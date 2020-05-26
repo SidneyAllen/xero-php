@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Payslips Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Payslips implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payslips' => '\XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]'
+        'payslips' => '\SidneyAllen\XeroPHP\Models\PayrollAu\Payslip[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Payslips implements ModelInterface, ArrayAccess
     /**
      * Gets payslips
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Payslip[]|null
      */
     public function getPayslips()
     {
@@ -217,7 +217,7 @@ class Payslips implements ModelInterface, ArrayAccess
     /**
      * Sets payslips
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]|null $payslips payslips
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\Payslip[]|null $payslips payslips
      *
      * @return $this
      */

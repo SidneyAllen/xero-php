@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Assets Class Doc Comment
  *
@@ -57,8 +57,8 @@ class Assets implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pagination' => '\XeroAPI\XeroPHP\Models\Asset\Pagination',
-        'items' => '\XeroAPI\XeroPHP\Models\Asset\Asset[]'
+        'pagination' => '\SidneyAllen\XeroPHP\Models\Asset\Pagination',
+        'items' => '\SidneyAllen\XeroPHP\Models\Asset\Asset[]'
     ];
 
     /**
@@ -213,7 +213,7 @@ class Assets implements ModelInterface, ArrayAccess
     /**
      * Gets pagination
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\Pagination|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\Pagination|null
      */
     public function getPagination()
     {
@@ -223,7 +223,7 @@ class Assets implements ModelInterface, ArrayAccess
     /**
      * Sets pagination
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\Pagination|null $pagination pagination
+     * @param \SidneyAllen\XeroPHP\Models\Asset\Pagination|null $pagination pagination
      *
      * @return $this
      */
@@ -240,7 +240,7 @@ class Assets implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\Asset[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\Asset[]|null
      */
     public function getItems()
     {
@@ -250,7 +250,7 @@ class Assets implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\Asset[]|null $items items
+     * @param \SidneyAllen\XeroPHP\Models\Asset\Asset[]|null $items items
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PaymentServices Class Doc Comment
  *
@@ -57,7 +57,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_services' => '\XeroAPI\XeroPHP\Models\Accounting\PaymentService[]'
+        'payment_services' => '\SidneyAllen\XeroPHP\Models\Accounting\PaymentService[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
     /**
      * Gets payment_services
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PaymentService[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PaymentService[]|null
      */
     public function getPaymentServices()
     {
@@ -217,7 +217,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
     /**
      * Sets payment_services
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PaymentService[]|null $payment_services payment_services
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PaymentService[]|null $payment_services payment_services
      *
      * @return $this
      */

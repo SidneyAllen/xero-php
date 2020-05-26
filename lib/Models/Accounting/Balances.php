@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Balances Class Doc Comment
  *
@@ -58,8 +58,8 @@ class Balances implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts_receivable' => '\XeroAPI\XeroPHP\Models\Accounting\AccountsReceivable',
-        'accounts_payable' => '\XeroAPI\XeroPHP\Models\Accounting\AccountsPayable'
+        'accounts_receivable' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable',
+        'accounts_payable' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable'
     ];
 
     /**
@@ -214,7 +214,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_receivable
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\AccountsReceivable|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable|null
      */
     public function getAccountsReceivable()
     {
@@ -224,7 +224,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_receivable
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\AccountsReceivable|null $accounts_receivable accounts_receivable
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\AccountsReceivable|null $accounts_receivable accounts_receivable
      *
      * @return $this
      */
@@ -241,7 +241,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Gets accounts_payable
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\AccountsPayable|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable|null
      */
     public function getAccountsPayable()
     {
@@ -251,7 +251,7 @@ class Balances implements ModelInterface, ArrayAccess
     /**
      * Sets accounts_payable
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\AccountsPayable|null $accounts_payable accounts_payable
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\AccountsPayable|null $accounts_payable accounts_payable
      *
      * @return $this
      */

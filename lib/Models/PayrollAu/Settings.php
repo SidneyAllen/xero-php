@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Settings Class Doc Comment
  *
@@ -57,8 +57,8 @@ class Settings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts' => '\XeroAPI\XeroPHP\Models\PayrollAu\Account[]',
-        'tracking_categories' => '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategories',
+        'accounts' => '\SidneyAllen\XeroPHP\Models\PayrollAu\Account[]',
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategories',
         'days_in_payroll_year' => 'int'
     ];
 
@@ -219,7 +219,7 @@ class Settings implements ModelInterface, ArrayAccess
     /**
      * Gets accounts
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Account[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Account[]|null
      */
     public function getAccounts()
     {
@@ -229,7 +229,7 @@ class Settings implements ModelInterface, ArrayAccess
     /**
      * Sets accounts
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Account[]|null $accounts Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable.
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\Account[]|null $accounts Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability & WagesPayable.
      *
      * @return $this
      */
@@ -246,7 +246,7 @@ class Settings implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategories|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategories|null
      */
     public function getTrackingCategories()
     {
@@ -256,7 +256,7 @@ class Settings implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategories|null $tracking_categories tracking_categories
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategories|null $tracking_categories tracking_categories
      *
      * @return $this
      */

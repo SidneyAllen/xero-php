@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * AssetType Class Doc Comment
  *
@@ -62,7 +62,7 @@ class AssetType implements ModelInterface, ArrayAccess
         'fixed_asset_account_id' => 'string',
         'depreciation_expense_account_id' => 'string',
         'accumulated_depreciation_account_id' => 'string',
-        'book_depreciation_setting' => '\XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting',
+        'book_depreciation_setting' => '\SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting',
         'locks' => 'int'
     ];
 
@@ -387,7 +387,7 @@ class AssetType implements ModelInterface, ArrayAccess
     /**
      * Gets book_depreciation_setting
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting
+     * @return \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting
      */
     public function getBookDepreciationSetting()
     {
@@ -397,7 +397,7 @@ class AssetType implements ModelInterface, ArrayAccess
     /**
      * Sets book_depreciation_setting
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting $book_depreciation_setting book_depreciation_setting
+     * @param \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting $book_depreciation_setting book_depreciation_setting
      *
      * @return $this
      */

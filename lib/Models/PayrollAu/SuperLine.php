@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SuperLine Class Doc Comment
  *
@@ -58,8 +58,8 @@ class SuperLine implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'super_membership_id' => 'string',
-        'contribution_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationContributionType',
-        'calculation_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationCalculationType',
+        'contribution_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationContributionType',
+        'calculation_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationCalculationType',
         'minimum_monthly_earnings' => 'double',
         'expense_account_code' => 'string',
         'liability_account_code' => 'string',
@@ -276,7 +276,7 @@ class SuperLine implements ModelInterface, ArrayAccess
     /**
      * Gets contribution_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationContributionType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationContributionType|null
      */
     public function getContributionType()
     {
@@ -286,7 +286,7 @@ class SuperLine implements ModelInterface, ArrayAccess
     /**
      * Sets contribution_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationContributionType|null $contribution_type contribution_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationContributionType|null $contribution_type contribution_type
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class SuperLine implements ModelInterface, ArrayAccess
     /**
      * Gets calculation_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationCalculationType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationCalculationType|null
      */
     public function getCalculationType()
     {
@@ -313,7 +313,7 @@ class SuperLine implements ModelInterface, ArrayAccess
     /**
      * Sets calculation_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationCalculationType|null $calculation_type calculation_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationCalculationType|null $calculation_type calculation_type
      *
      * @return $this
      */

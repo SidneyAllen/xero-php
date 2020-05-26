@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **leave_type_id** | **string** | Xero leave type identifier | [optional] 
-**calculation_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLineCalculationType**](LeaveLineCalculationType.md) |  | [optional] 
-**entitlement_final_pay_payout_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType**](EntitlementFinalPayPayoutType.md) |  | [optional] 
-**employment_termination_payment_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType**](EmploymentTerminationPaymentType.md) |  | [optional] 
+**calculation_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLineCalculationType**](LeaveLineCalculationType.md) |  | [optional] 
+**entitlement_final_pay_payout_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType**](EntitlementFinalPayPayoutType.md) |  | [optional] 
+**employment_termination_payment_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType**](EmploymentTerminationPaymentType.md) |  | [optional] 
 **include_superannuation_guarantee_contribution** | **bool** | amount of leave line | [optional] 
 **number_of_units** | **float** | Leave number of units | [optional] 
 

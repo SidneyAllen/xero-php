@@ -1,4 +1,4 @@
-# XeroAPI\XeroPHP\AssetApi
+# SidneyAllen\XeroPHP\AssetApi
 
 All URIs are relative to *https://api.xero.com/assets.xro/1.0*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **createAsset**
-> \XeroAPI\XeroPHP\Models\Asset\Asset createAsset($xero_tenant_id, $asset)
+> \SidneyAllen\XeroPHP\Models\Asset\Asset createAsset($xero_tenant_id, $asset)
 
 adds a fixed asset
 
@@ -25,16 +25,16 @@ Adds an asset to the system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
+$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \SidneyAllen\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
 
 try {
     $result = $apiInstance->createAsset($xero_tenant_id, $asset);
@@ -50,11 +50,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **asset** | [**\XeroAPI\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)| Fixed asset you are creating |
+ **asset** | [**\SidneyAllen\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)| Fixed asset you are creating |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAssetType**
-> \XeroAPI\XeroPHP\Models\Asset\AssetType createAssetType($xero_tenant_id, $asset_type)
+> \SidneyAllen\XeroPHP\Models\Asset\AssetType createAssetType($xero_tenant_id, $asset_type)
 
 adds a fixed asset type
 
@@ -80,16 +80,16 @@ Adds an fixed asset type to the system
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$asset_type = { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } }; // \XeroAPI\XeroPHP\Models\Asset\AssetType | Asset type to add
+$asset_type = { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } }; // \SidneyAllen\XeroPHP\Models\Asset\AssetType | Asset type to add
 
 try {
     $result = $apiInstance->createAssetType($xero_tenant_id, $asset_type);
@@ -105,11 +105,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **asset_type** | [**\XeroAPI\XeroPHP\Models\Asset\AssetType**](../Model/AssetType.md)| Asset type to add | [optional]
+ **asset_type** | [**\SidneyAllen\XeroPHP\Models\Asset\AssetType**](../Model/AssetType.md)| Asset type to add | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\AssetType**](../Model/AssetType.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\AssetType**](../Model/AssetType.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAssetById**
-> \XeroAPI\XeroPHP\Models\Asset\Asset getAssetById($xero_tenant_id, $id)
+> \SidneyAllen\XeroPHP\Models\Asset\Asset getAssetById($xero_tenant_id, $id)
 
 retrieves fixed asset by id
 
@@ -135,9 +135,9 @@ By passing in the appropriate asset id, you can search for a specific fixed asse
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\Asset**](../Model/Asset.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAssetSettings**
-> \XeroAPI\XeroPHP\Models\Asset\Setting getAssetSettings($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Asset\Setting getAssetSettings($xero_tenant_id)
 
 searches fixed asset settings
 
@@ -190,9 +190,9 @@ By passing in the appropriate options, you can search for available fixed asset 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\Setting**](../Model/Setting.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\Setting**](../Model/Setting.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAssetTypes**
-> \XeroAPI\XeroPHP\Models\Asset\AssetType[] getAssetTypes($xero_tenant_id)
+> \SidneyAllen\XeroPHP\Models\Asset\AssetType[] getAssetTypes($xero_tenant_id)
 
 searches fixed asset types
 
@@ -243,9 +243,9 @@ By passing in the appropriate options, you can search for available fixed asset 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\AssetType[]**](../Model/AssetType.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\AssetType[]**](../Model/AssetType.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAssets**
-> \XeroAPI\XeroPHP\Models\Asset\Assets getAssets($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by)
+> \SidneyAllen\XeroPHP\Models\Asset\Assets getAssets($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by)
 
 searches fixed asset
 
@@ -296,16 +296,16 @@ By passing in the appropriate options, you can search for available fixed asset 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$status = new \XeroAPI\XeroPHP\Models\Asset\\XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam(); // \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
+$status = new \SidneyAllen\XeroPHP\Models\Asset\\SidneyAllen\XeroPHP\Models\Asset\AssetStatusQueryParam(); // \SidneyAllen\XeroPHP\Models\Asset\AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 $page = 1; // int | Results are paged. This specifies which page of the results to return. The default page is 1.
 $page_size = 5; // int | The number of records returned per page. By default the number of records returned is 10.
 $order_by = AssetName; // string | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
@@ -326,7 +326,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **status** | [**\XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam**](../Model/.md)| Required when retrieving a collection of assets. See Asset Status Codes |
+ **status** | [**\SidneyAllen\XeroPHP\Models\Asset\AssetStatusQueryParam**](../Model/.md)| Required when retrieving a collection of assets. See Asset Status Codes |
  **page** | **int**| Results are paged. This specifies which page of the results to return. The default page is 1. | [optional]
  **page_size** | **int**| The number of records returned per page. By default the number of records returned is 10. | [optional]
  **order_by** | **string**| Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. | [optional]
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Asset\Assets**](../Model/Assets.md)
+[**\SidneyAllen\XeroPHP\Models\Asset\Assets**](../Model/Assets.md)
 
 ### Authorization
 

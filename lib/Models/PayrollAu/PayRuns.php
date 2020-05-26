@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayRuns Class Doc Comment
  *
@@ -57,7 +57,7 @@ class PayRuns implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_runs' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]'
+        'pay_runs' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PayRuns implements ModelInterface, ArrayAccess
     /**
      * Gets pay_runs
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[]|null
      */
     public function getPayRuns()
     {
@@ -217,7 +217,7 @@ class PayRuns implements ModelInterface, ArrayAccess
     /**
      * Sets pay_runs
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]|null $pay_runs pay_runs
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[]|null $pay_runs pay_runs
      *
      * @return $this
      */

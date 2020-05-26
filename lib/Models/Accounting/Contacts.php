@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Contacts Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\Contact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets contacts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null
      */
     public function getContacts()
     {
@@ -217,7 +217,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets contacts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact[]|null $contacts contacts
      *
      * @return $this
      */

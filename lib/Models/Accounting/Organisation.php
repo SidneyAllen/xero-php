@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Organisation Class Doc Comment
  *
@@ -64,8 +64,8 @@ class Organisation implements ModelInterface, ArrayAccess
         'pays_tax' => 'bool',
         'version' => 'string',
         'organisation_type' => 'string',
-        'base_currency' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
-        'country_code' => '\XeroAPI\XeroPHP\Models\Accounting\CountryCode',
+        'base_currency' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
+        'country_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CountryCode',
         'is_demo_company' => 'bool',
         'organisation_status' => 'string',
         'registration_number' => 'string',
@@ -79,16 +79,16 @@ class Organisation implements ModelInterface, ArrayAccess
         'period_lock_date' => 'string',
         'end_of_year_lock_date' => 'string',
         'created_date_utc' => 'string',
-        'timezone' => '\XeroAPI\XeroPHP\Models\Accounting\TimeZone',
+        'timezone' => '\SidneyAllen\XeroPHP\Models\Accounting\TimeZone',
         'organisation_entity_type' => 'string',
         'short_code' => 'string',
         'class' => 'string',
         'edition' => 'string',
         'line_of_business' => 'string',
-        'addresses' => '\XeroAPI\XeroPHP\Models\Accounting\Address[]',
-        'phones' => '\XeroAPI\XeroPHP\Models\Accounting\Phone[]',
-        'external_links' => '\XeroAPI\XeroPHP\Models\Accounting\ExternalLink[]',
-        'payment_terms' => '\XeroAPI\XeroPHP\Models\Accounting\PaymentTerm'
+        'addresses' => '\SidneyAllen\XeroPHP\Models\Accounting\Address[]',
+        'phones' => '\SidneyAllen\XeroPHP\Models\Accounting\Phone[]',
+        'external_links' => '\SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]',
+        'payment_terms' => '\SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm'
     ];
 
     /**
@@ -1544,7 +1544,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets addresses
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Address[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null
      */
     public function getAddresses()
     {
@@ -1554,7 +1554,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets addresses
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Address[]|null $addresses Address details for organisation – see Addresses
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null $addresses Address details for organisation – see Addresses
      *
      * @return $this
      */
@@ -1571,7 +1571,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets phones
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Phone[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null
      */
     public function getPhones()
     {
@@ -1581,7 +1581,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets phones
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Phone[]|null $phones Phones details for organisation – see Phones
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null $phones Phones details for organisation – see Phones
      *
      * @return $this
      */
@@ -1598,7 +1598,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets external_links
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ExternalLink[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]|null
      */
     public function getExternalLinks()
     {
@@ -1608,7 +1608,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets external_links
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ExternalLink[]|null $external_links Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink[]|null $external_links Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and LinkedIn. You can also add link to your website here. Shown if Organisation settings  is updated in Xero. See ExternalLinks below
      *
      * @return $this
      */
@@ -1625,7 +1625,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Gets payment_terms
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PaymentTerm|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null
      */
     public function getPaymentTerms()
     {
@@ -1635,7 +1635,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets payment_terms
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PaymentTerm|null $payment_terms payment_terms
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null $payment_terms payment_terms
      *
      * @return $this
      */

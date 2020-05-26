@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * InvoiceReminders Class Doc Comment
  *
@@ -57,7 +57,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice_reminders' => '\XeroAPI\XeroPHP\Models\Accounting\InvoiceReminder[]'
+        'invoice_reminders' => '\SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminder[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
     /**
      * Gets invoice_reminders
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\InvoiceReminder[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminder[]|null
      */
     public function getInvoiceReminders()
     {
@@ -217,7 +217,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
     /**
      * Sets invoice_reminders
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\InvoiceReminder[]|null $invoice_reminders invoice_reminders
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\InvoiceReminder[]|null $invoice_reminders invoice_reminders
      *
      * @return $this
      */

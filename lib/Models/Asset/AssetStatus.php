@@ -27,9 +27,9 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+namespace SidneyAllen\XeroPHP\Models\Asset;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * AssetStatus Class Doc Comment
  *

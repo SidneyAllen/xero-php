@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Bill Class Doc Comment
  *
@@ -58,7 +58,7 @@ class Bill implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'day' => 'int',
-        'type' => '\XeroAPI\XeroPHP\Models\Accounting\PaymentTermType'
+        'type' => '\SidneyAllen\XeroPHP\Models\Accounting\PaymentTermType'
     ];
 
     /**
@@ -240,7 +240,7 @@ class Bill implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PaymentTermType|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PaymentTermType|null
      */
     public function getType()
     {
@@ -250,7 +250,7 @@ class Bill implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PaymentTermType|null $type type
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PaymentTermType|null $type type
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TrackingOptions Class Doc Comment
  *
@@ -57,7 +57,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
       * @var string[]
       */
     protected static $openAPITypes = [
-        'options' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingOption[]'
+        'options' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
     /**
      * Gets options
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingOption[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null
      */
     public function getOptions()
     {
@@ -217,7 +217,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
     /**
      * Sets options
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingOption[]|null $options options
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingOption[]|null $options options
      *
      * @return $this
      */

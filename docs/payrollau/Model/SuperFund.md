@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **super_fund_id** | **string** | Xero identifier for a super fund | [optional] 
-**type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType**](SuperFundType.md) |  | 
+**type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundType**](SuperFundType.md) |  | 
 **name** | **string** | Name of the super fund | [optional] 
 **abn** | **string** | ABN of the self managed super fund | [optional] 
 **bsb** | **string** | BSB of the self managed super fund | [optional] 

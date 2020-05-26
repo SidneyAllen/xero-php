@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Currencies Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currencies' => '\XeroAPI\XeroPHP\Models\Accounting\Currency[]'
+        'currencies' => '\SidneyAllen\XeroPHP\Models\Accounting\Currency[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
     /**
      * Gets currencies
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Currency[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Currency[]|null
      */
     public function getCurrencies()
     {
@@ -217,7 +217,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
     /**
      * Sets currencies
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Currency[]|null $currencies currencies
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Currency[]|null $currencies currencies
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Error Class Doc Comment
  *
@@ -60,7 +60,7 @@ class Error implements ModelInterface, ArrayAccess
         'error_number' => 'int',
         'type' => 'string',
         'message' => 'string',
-        'elements' => '\XeroAPI\XeroPHP\Models\Accounting\Element[]'
+        'elements' => '\SidneyAllen\XeroPHP\Models\Accounting\Element[]'
     ];
 
     /**
@@ -306,7 +306,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Gets elements
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Element[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Element[]|null
      */
     public function getElements()
     {
@@ -316,7 +316,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets elements
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Element[]|null $elements Array of Elements of validation Errors
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Element[]|null $elements Array of Elements of validation Errors
      *
      * @return $this
      */

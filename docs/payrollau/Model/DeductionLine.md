@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deduction_type_id** | **string** | Xero deduction type identifier | 
-**calculation_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType**](DeductionTypeCalculationType.md) |  | 
+**calculation_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType**](DeductionTypeCalculationType.md) |  | 
 **amount** | **float** | Deduction type amount | [optional] 
 **percentage** | **float** | The Percentage of the Deduction | [optional] 
 **number_of_units** | **float** | Deduction number of units | [optional] 

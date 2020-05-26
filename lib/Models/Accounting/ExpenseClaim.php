@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ExpenseClaim Class Doc Comment
  *
@@ -59,9 +59,9 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'expense_claim_id' => 'string',
         'status' => 'string',
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
-        'user' => '\XeroAPI\XeroPHP\Models\Accounting\User',
-        'receipts' => '\XeroAPI\XeroPHP\Models\Accounting\Receipt[]',
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]',
+        'user' => '\SidneyAllen\XeroPHP\Models\Accounting\User',
+        'receipts' => '\SidneyAllen\XeroPHP\Models\Accounting\Receipt[]',
         'updated_date_utc' => 'string',
         'total' => 'double',
         'amount_due' => 'double',
@@ -365,7 +365,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -375,7 +375,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -392,7 +392,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\User|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\User|null
      */
     public function getUser()
     {
@@ -402,7 +402,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\User|null $user user
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\User|null $user user
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Gets receipts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -429,7 +429,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     /**
      * Sets receipts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

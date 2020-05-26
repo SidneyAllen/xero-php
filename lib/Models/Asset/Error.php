@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Error Class Doc Comment
  *
@@ -57,8 +57,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resource_validation_errors' => '\XeroAPI\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]',
-        'field_validation_errors' => '\XeroAPI\XeroPHP\Models\Asset\FieldValidationErrorsElement[]',
+        'resource_validation_errors' => '\SidneyAllen\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]',
+        'field_validation_errors' => '\SidneyAllen\XeroPHP\Models\Asset\FieldValidationErrorsElement[]',
         'type' => 'string',
         'title' => 'string',
         'detail' => 'string'
@@ -231,7 +231,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Gets resource_validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]|null
      */
     public function getResourceValidationErrors()
     {
@@ -241,7 +241,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets resource_validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]|null $resource_validation_errors Array of elements of resource validation errors
+     * @param \SidneyAllen\XeroPHP\Models\Asset\ResourceValidationErrorsElement[]|null $resource_validation_errors Array of elements of resource validation errors
      *
      * @return $this
      */
@@ -258,7 +258,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Gets field_validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\FieldValidationErrorsElement[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\FieldValidationErrorsElement[]|null
      */
     public function getFieldValidationErrors()
     {
@@ -268,7 +268,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets field_validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\FieldValidationErrorsElement[]|null $field_validation_errors Array of elements of field validation errors
+     * @param \SidneyAllen\XeroPHP\Models\Asset\FieldValidationErrorsElement[]|null $field_validation_errors Array of elements of field validation errors
      *
      * @return $this
      */

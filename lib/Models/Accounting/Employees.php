@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Employees Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employees' => '\XeroAPI\XeroPHP\Models\Accounting\Employee[]'
+        'employees' => '\SidneyAllen\XeroPHP\Models\Accounting\Employee[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
     /**
      * Gets employees
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Employee[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Employee[]|null
      */
     public function getEmployees()
     {
@@ -217,7 +217,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
     /**
      * Sets employees
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Employee[]|null $employees employees
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Employee[]|null $employees employees
      *
      * @return $this
      */

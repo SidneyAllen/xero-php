@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * DeductionLine Class Doc Comment
  *
@@ -58,7 +58,7 @@ class DeductionLine implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'deduction_type_id' => 'string',
-        'calculation_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType',
+        'calculation_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType',
         'amount' => 'double',
         'percentage' => 'double',
         'number_of_units' => 'double'
@@ -264,7 +264,7 @@ class DeductionLine implements ModelInterface, ArrayAccess
     /**
      * Gets calculation_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType
      */
     public function getCalculationType()
     {
@@ -274,7 +274,7 @@ class DeductionLine implements ModelInterface, ArrayAccess
     /**
      * Sets calculation_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType $calculation_type calculation_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType $calculation_type calculation_type
      *
      * @return $this
      */

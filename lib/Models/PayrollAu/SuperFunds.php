@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SuperFunds Class Doc Comment
  *
@@ -57,7 +57,7 @@ class SuperFunds implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'super_funds' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]'
+        'super_funds' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class SuperFunds implements ModelInterface, ArrayAccess
     /**
      * Gets super_funds
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[]|null
      */
     public function getSuperFunds()
     {
@@ -217,7 +217,7 @@ class SuperFunds implements ModelInterface, ArrayAccess
     /**
      * Sets super_funds
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]|null $super_funds super_funds
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[]|null $super_funds super_funds
      *
      * @return $this
      */

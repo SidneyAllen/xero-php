@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of tax rate | [optional] 
 **tax_type** | **string** | The tax type | [optional] 
-**tax_components** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxComponent[]**](TaxComponent.md) | See TaxComponents | [optional] 
+**tax_components** | [**\SidneyAllen\XeroPHP\Models\Accounting\TaxComponent[]**](TaxComponent.md) | See TaxComponents | [optional] 
 **status** | **string** | See Status Codes | [optional] 
 **report_tax_type** | **string** | See ReportTaxTypes | [optional] 
 **can_apply_to_assets** | **bool** | Boolean to describe if tax rate can be used for asset accounts i.e.  true,false | [optional] 

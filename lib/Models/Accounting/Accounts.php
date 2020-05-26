@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Accounts Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accounts' => '\XeroAPI\XeroPHP\Models\Accounting\Account[]'
+        'accounts' => '\SidneyAllen\XeroPHP\Models\Accounting\Account[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets accounts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Account[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account[]|null
      */
     public function getAccounts()
     {
@@ -217,7 +217,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets accounts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Account[]|null $accounts accounts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account[]|null $accounts accounts
      *
      * @return $this
      */

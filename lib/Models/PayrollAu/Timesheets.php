@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Timesheets Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Timesheets implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'timesheets' => '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]'
+        'timesheets' => '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Timesheets implements ModelInterface, ArrayAccess
     /**
      * Gets timesheets
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[]|null
      */
     public function getTimesheets()
     {
@@ -217,7 +217,7 @@ class Timesheets implements ModelInterface, ArrayAccess
     /**
      * Sets timesheets
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]|null $timesheets timesheets
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[]|null $timesheets timesheets
      *
      * @return $this
      */

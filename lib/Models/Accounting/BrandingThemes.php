@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * BrandingThemes Class Doc Comment
  *
@@ -57,7 +57,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branding_themes' => '\XeroAPI\XeroPHP\Models\Accounting\BrandingTheme[]'
+        'branding_themes' => '\SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Gets branding_themes
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BrandingTheme[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]|null
      */
     public function getBrandingThemes()
     {
@@ -217,7 +217,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Sets branding_themes
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BrandingTheme[]|null $branding_themes branding_themes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme[]|null $branding_themes branding_themes
      *
      * @return $this
      */

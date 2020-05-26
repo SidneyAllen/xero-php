@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * JournalLine Class Doc Comment
  *
@@ -60,7 +60,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'journal_line_id' => 'string',
         'account_id' => 'string',
         'account_code' => 'string',
-        'account_type' => '\XeroAPI\XeroPHP\Models\Accounting\AccountType',
+        'account_type' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountType',
         'account_name' => 'string',
         'description' => 'string',
         'net_amount' => 'double',
@@ -68,7 +68,7 @@ class JournalLine implements ModelInterface, ArrayAccess
         'tax_amount' => 'double',
         'tax_type' => 'string',
         'tax_name' => 'string',
-        'tracking_categories' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]'
+        'tracking_categories' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]'
     ];
 
     /**
@@ -569,7 +569,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets tracking_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null
      */
     public function getTrackingCategories()
     {
@@ -579,7 +579,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking_categories Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

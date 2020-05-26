@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TaskCreateOrUpdate Class Doc Comment
  *
@@ -58,8 +58,8 @@ class TaskCreateOrUpdate implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'rate' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'charge_type' => '\XeroAPI\XeroPHP\Models\Project\ChargeType',
+        'rate' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'charge_type' => '\SidneyAllen\XeroPHP\Models\Project\ChargeType',
         'estimate_minutes' => 'int'
     ];
 
@@ -261,7 +261,7 @@ class TaskCreateOrUpdate implements ModelInterface, ArrayAccess
     /**
      * Gets rate
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount
      */
     public function getRate()
     {
@@ -271,7 +271,7 @@ class TaskCreateOrUpdate implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount $rate rate
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount $rate rate
      *
      * @return $this
      */

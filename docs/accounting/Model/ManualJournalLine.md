@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **account_code** | **string** | See Accounts | [optional] 
 **description** | **string** | Description for journal line | [optional] 
 **tax_type** | **string** | The tax type from TaxRates | [optional] 
-**tracking** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]**](TrackingCategory.md) | Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 
+**tracking** | [**\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]**](TrackingCategory.md) | Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 
 **tax_amount** | **double** | The calculated tax amount based on the TaxType and LineAmount | [optional] 
 **is_blank** | **bool** | is the line blank | [optional] 
 

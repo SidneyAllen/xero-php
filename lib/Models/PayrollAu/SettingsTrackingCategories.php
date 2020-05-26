@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SettingsTrackingCategories Class Doc Comment
  *
@@ -58,8 +58,8 @@ class SettingsTrackingCategories implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employee_groups' => '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups',
-        'timesheet_categories' => '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories'
+        'employee_groups' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups',
+        'timesheet_categories' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories'
     ];
 
     /**
@@ -214,7 +214,7 @@ class SettingsTrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Gets employee_groups
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups|null
      */
     public function getEmployeeGroups()
     {
@@ -224,7 +224,7 @@ class SettingsTrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Sets employee_groups
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups|null $employee_groups employee_groups
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesEmployeeGroups|null $employee_groups employee_groups
      *
      * @return $this
      */
@@ -241,7 +241,7 @@ class SettingsTrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Gets timesheet_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories|null
      */
     public function getTimesheetCategories()
     {
@@ -251,7 +251,7 @@ class SettingsTrackingCategories implements ModelInterface, ArrayAccess
     /**
      * Sets timesheet_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories|null $timesheet_categories timesheet_categories
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsTrackingCategoriesTimesheetCategories|null $timesheet_categories timesheet_categories
      *
      * @return $this
      */

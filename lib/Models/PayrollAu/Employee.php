@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Employee Class Doc Comment
  *
@@ -60,7 +60,7 @@ class Employee implements ModelInterface, ArrayAccess
         'first_name' => 'string',
         'last_name' => 'string',
         'date_of_birth' => 'string',
-        'home_address' => '\XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress',
+        'home_address' => '\SidneyAllen\XeroPHP\Models\PayrollAu\HomeAddress',
         'start_date' => 'string',
         'title' => 'string',
         'middle_names' => 'string',
@@ -78,16 +78,16 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => 'string',
         'employee_id' => 'string',
         'termination_date' => 'string',
-        'bank_accounts' => '\XeroAPI\XeroPHP\Models\PayrollAu\BankAccount[]',
-        'pay_template' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayTemplate',
-        'opening_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalances',
-        'tax_declaration' => '\XeroAPI\XeroPHP\Models\PayrollAu\TaxDeclaration',
-        'leave_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveBalance[]',
-        'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]',
-        'super_memberships' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperMembership[]',
-        'status' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmployeeStatus',
+        'bank_accounts' => '\SidneyAllen\XeroPHP\Models\PayrollAu\BankAccount[]',
+        'pay_template' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayTemplate',
+        'opening_balances' => '\SidneyAllen\XeroPHP\Models\PayrollAu\OpeningBalances',
+        'tax_declaration' => '\SidneyAllen\XeroPHP\Models\PayrollAu\TaxDeclaration',
+        'leave_balances' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveBalance[]',
+        'leave_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]',
+        'super_memberships' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperMembership[]',
+        'status' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EmployeeStatus',
         'updated_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -533,7 +533,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets home_address
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\HomeAddress
      */
     public function getHomeAddress()
     {
@@ -543,7 +543,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets home_address
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress $home_address home_address
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\HomeAddress $home_address home_address
      *
      * @return $this
      */
@@ -1080,7 +1080,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets bank_accounts
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\BankAccount[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\BankAccount[]|null
      */
     public function getBankAccounts()
     {
@@ -1090,7 +1090,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets bank_accounts
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\BankAccount[]|null $bank_accounts bank_accounts
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\BankAccount[]|null $bank_accounts bank_accounts
      *
      * @return $this
      */
@@ -1107,7 +1107,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets pay_template
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayTemplate|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayTemplate|null
      */
     public function getPayTemplate()
     {
@@ -1117,7 +1117,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets pay_template
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayTemplate|null $pay_template pay_template
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayTemplate|null $pay_template pay_template
      *
      * @return $this
      */
@@ -1134,7 +1134,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets opening_balances
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalances|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\OpeningBalances|null
      */
     public function getOpeningBalances()
     {
@@ -1144,7 +1144,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets opening_balances
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalances|null $opening_balances opening_balances
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\OpeningBalances|null $opening_balances opening_balances
      *
      * @return $this
      */
@@ -1161,7 +1161,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets tax_declaration
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TaxDeclaration|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TaxDeclaration|null
      */
     public function getTaxDeclaration()
     {
@@ -1171,7 +1171,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets tax_declaration
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TaxDeclaration|null $tax_declaration tax_declaration
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\TaxDeclaration|null $tax_declaration tax_declaration
      *
      * @return $this
      */
@@ -1188,7 +1188,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets leave_balances
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveBalance[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveBalance[]|null
      */
     public function getLeaveBalances()
     {
@@ -1198,7 +1198,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets leave_balances
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveBalance[]|null $leave_balances leave_balances
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveBalance[]|null $leave_balances leave_balances
      *
      * @return $this
      */
@@ -1215,7 +1215,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets leave_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null
      */
     public function getLeaveLines()
     {
@@ -1225,7 +1225,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets leave_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
      *
      * @return $this
      */
@@ -1242,7 +1242,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets super_memberships
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperMembership[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperMembership[]|null
      */
     public function getSuperMemberships()
     {
@@ -1252,7 +1252,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets super_memberships
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperMembership[]|null $super_memberships super_memberships
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperMembership[]|null $super_memberships super_memberships
      *
      * @return $this
      */
@@ -1269,7 +1269,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EmployeeStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EmployeeStatus|null
      */
     public function getStatus()
     {
@@ -1279,7 +1279,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EmployeeStatus|null $status status
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EmployeeStatus|null $status status
      *
      * @return $this
      */
@@ -1330,7 +1330,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1340,7 +1340,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

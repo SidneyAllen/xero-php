@@ -19,9 +19,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
+  $config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $projectApi = new XeroAPI\XeroPHP\Api\ProjectApi(
+  $projectApi = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -30,8 +30,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  // XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
-  $projectCreateOrUpdate = new XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate;
+  // SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
+  $projectCreateOrUpdate = new SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate;
   $projectCreateOrUpdate->setContactId($contactId)
 	->setName("New Fence")
 	->setDeadlineUtc(new DateTime('2019-12-10T12:59:59Z'))

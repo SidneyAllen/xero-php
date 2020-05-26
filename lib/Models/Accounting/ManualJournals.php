@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ManualJournals Class Doc Comment
  *
@@ -57,7 +57,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
-        'manual_journals' => '\XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]'
+        'manual_journals' => '\SidneyAllen\XeroPHP\Models\Accounting\ManualJournal[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Gets manual_journals
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ManualJournal[]|null
      */
     public function getManualJournals()
     {
@@ -217,7 +217,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Sets manual_journals
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]|null $manual_journals manual_journals
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ManualJournal[]|null $manual_journals manual_journals
      *
      * @return $this
      */

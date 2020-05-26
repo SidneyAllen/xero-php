@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Contact Class Doc Comment
  *
@@ -66,34 +66,34 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'email_address' => 'string',
         'skype_user_name' => 'string',
-        'contact_persons' => '\XeroAPI\XeroPHP\Models\Accounting\ContactPerson[]',
+        'contact_persons' => '\SidneyAllen\XeroPHP\Models\Accounting\ContactPerson[]',
         'bank_account_details' => 'string',
         'tax_number' => 'string',
         'accounts_receivable_tax_type' => 'string',
         'accounts_payable_tax_type' => 'string',
-        'addresses' => '\XeroAPI\XeroPHP\Models\Accounting\Address[]',
-        'phones' => '\XeroAPI\XeroPHP\Models\Accounting\Phone[]',
+        'addresses' => '\SidneyAllen\XeroPHP\Models\Accounting\Address[]',
+        'phones' => '\SidneyAllen\XeroPHP\Models\Accounting\Phone[]',
         'is_supplier' => 'bool',
         'is_customer' => 'bool',
-        'default_currency' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'default_currency' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'xero_network_key' => 'string',
         'sales_default_account_code' => 'string',
         'purchases_default_account_code' => 'string',
-        'sales_tracking_categories' => '\XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]',
-        'purchases_tracking_categories' => '\XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]',
+        'sales_tracking_categories' => '\SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]',
+        'purchases_tracking_categories' => '\SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]',
         'tracking_category_name' => 'string',
         'tracking_category_option' => 'string',
-        'payment_terms' => '\XeroAPI\XeroPHP\Models\Accounting\PaymentTerm',
+        'payment_terms' => '\SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm',
         'updated_date_utc' => 'string',
-        'contact_groups' => '\XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]',
+        'contact_groups' => '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]',
         'website' => 'string',
-        'branding_theme' => '\XeroAPI\XeroPHP\Models\Accounting\BrandingTheme',
-        'batch_payments' => '\XeroAPI\XeroPHP\Models\Accounting\BatchPaymentDetails',
+        'branding_theme' => '\SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme',
+        'batch_payments' => '\SidneyAllen\XeroPHP\Models\Accounting\BatchPaymentDetails',
         'discount' => 'double',
-        'balances' => '\XeroAPI\XeroPHP\Models\Accounting\Balances',
-        'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]',
+        'balances' => '\SidneyAllen\XeroPHP\Models\Accounting\Balances',
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]',
         'has_attachments' => 'bool',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
         'has_validation_errors' => 'bool',
         'status_attribute_string' => 'string'
     ];
@@ -764,7 +764,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets contact_persons
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ContactPerson[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ContactPerson[]|null
      */
     public function getContactPersons()
     {
@@ -774,7 +774,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets contact_persons
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ContactPerson[]|null $contact_persons See contact persons
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ContactPerson[]|null $contact_persons See contact persons
      *
      * @return $this
      */
@@ -903,7 +903,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets addresses
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Address[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null
      */
     public function getAddresses()
     {
@@ -913,7 +913,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets addresses
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Address[]|null $addresses Store certain address types for a contact – see address types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Address[]|null $addresses Store certain address types for a contact – see address types
      *
      * @return $this
      */
@@ -930,7 +930,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets phones
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Phone[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null
      */
     public function getPhones()
     {
@@ -940,7 +940,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets phones
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Phone[]|null $phones Store certain phone types for a contact – see phone types
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Phone[]|null $phones Store certain phone types for a contact – see phone types
      *
      * @return $this
      */
@@ -1119,7 +1119,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets sales_tracking_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null
      */
     public function getSalesTrackingCategories()
     {
@@ -1129,7 +1129,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets sales_tracking_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null $sales_tracking_categories The default sales tracking categories for contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null $sales_tracking_categories The default sales tracking categories for contacts
      *
      * @return $this
      */
@@ -1146,7 +1146,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets purchases_tracking_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null
      */
     public function getPurchasesTrackingCategories()
     {
@@ -1156,7 +1156,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets purchases_tracking_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null $purchases_tracking_categories The default purchases tracking categories for contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\SalesTrackingCategory[]|null $purchases_tracking_categories The default purchases tracking categories for contacts
      *
      * @return $this
      */
@@ -1227,7 +1227,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets payment_terms
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PaymentTerm|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null
      */
     public function getPaymentTerms()
     {
@@ -1237,7 +1237,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets payment_terms
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PaymentTerm|null $payment_terms payment_terms
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PaymentTerm|null $payment_terms payment_terms
      *
      * @return $this
      */
@@ -1288,7 +1288,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets contact_groups
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]|null
      */
     public function getContactGroups()
     {
@@ -1298,7 +1298,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets contact_groups
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]|null $contact_groups Displays which contact groups a contact is included in
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]|null $contact_groups Displays which contact groups a contact is included in
      *
      * @return $this
      */
@@ -1341,7 +1341,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets branding_theme
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BrandingTheme|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme|null
      */
     public function getBrandingTheme()
     {
@@ -1351,7 +1351,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets branding_theme
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BrandingTheme|null $branding_theme branding_theme
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BrandingTheme|null $branding_theme branding_theme
      *
      * @return $this
      */
@@ -1368,7 +1368,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets batch_payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BatchPaymentDetails|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BatchPaymentDetails|null
      */
     public function getBatchPayments()
     {
@@ -1378,7 +1378,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets batch_payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BatchPaymentDetails|null $batch_payments batch_payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BatchPaymentDetails|null $batch_payments batch_payments
      *
      * @return $this
      */
@@ -1421,7 +1421,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets balances
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Balances|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Balances|null
      */
     public function getBalances()
     {
@@ -1431,7 +1431,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets balances
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Balances|null $balances balances
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Balances|null $balances balances
      *
      * @return $this
      */
@@ -1448,7 +1448,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -1458,7 +1458,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */
@@ -1502,7 +1502,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1512,7 +1512,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays validation errors returned from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays validation errors returned from the API
      *
      * @return $this
      */

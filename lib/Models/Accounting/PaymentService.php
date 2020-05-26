@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PaymentService Class Doc Comment
  *
@@ -62,7 +62,7 @@ class PaymentService implements ModelInterface, ArrayAccess
         'payment_service_url' => 'string',
         'pay_now_text' => 'string',
         'payment_service_type' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -372,7 +372,7 @@ class PaymentService implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -382,7 +382,7 @@ class PaymentService implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

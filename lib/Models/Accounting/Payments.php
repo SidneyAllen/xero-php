@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Payments Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]'
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -217,7 +217,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments payments
      *
      * @return $this
      */

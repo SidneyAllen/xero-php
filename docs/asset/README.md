@@ -19,9 +19,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
+  $config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
+  $assetApi = new SidneyAllen\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -30,8 +30,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  // XeroAPI\XeroPHP\Models\Asset\Asset | Request of type Asset
-  $asset = new XeroAPI\XeroPHP\Models\Asset\Asset;
+  // SidneyAllen\XeroPHP\Models\Asset\Asset | Request of type Asset
+  $asset = new SidneyAllen\XeroPHP\Models\Asset\Asset;
   $asset->setAssetName('Computer -' . $this->getRandNum())
     ->setAssetNumber($this->getRandNum())
     ->setPurchaseDate((new DateTime('2019-01-02')))

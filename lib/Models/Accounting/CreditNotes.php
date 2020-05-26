@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * CreditNotes Class Doc Comment
  *
@@ -57,7 +57,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'credit_notes' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote[]'
+        'credit_notes' => '\SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Gets credit_notes
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNote[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]|null
      */
     public function getCreditNotes()
     {
@@ -217,7 +217,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Sets credit_notes
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CreditNote[]|null $credit_notes credit_notes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CreditNote[]|null $credit_notes credit_notes
      *
      * @return $this
      */

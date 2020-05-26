@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Overpayments Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
       * @var string[]
       */
     protected static $openAPITypes = [
-        'overpayments' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment[]'
+        'overpayments' => '\SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     /**
      * Gets overpayments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]|null
      */
     public function getOverpayments()
     {
@@ -217,7 +217,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     /**
      * Sets overpayments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null $overpayments overpayments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Overpayment[]|null $overpayments overpayments
      *
      * @return $this
      */

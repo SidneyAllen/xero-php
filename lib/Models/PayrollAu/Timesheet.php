@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Timesheet Class Doc Comment
  *
@@ -60,12 +60,12 @@ class Timesheet implements ModelInterface, ArrayAccess
         'employee_id' => 'string',
         'start_date' => 'string',
         'end_date' => 'string',
-        'status' => '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetStatus',
+        'status' => '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetStatus',
         'hours' => 'double',
         'timesheet_id' => 'string',
-        'timesheet_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetLine[]',
+        'timesheet_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetLine[]',
         'updated_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -397,7 +397,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetStatus|null
      */
     public function getStatus()
     {
@@ -407,7 +407,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetStatus|null $status status
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetStatus|null $status status
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Gets timesheet_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetLine[]|null
      */
     public function getTimesheetLines()
     {
@@ -488,7 +488,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Sets timesheet_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetLine[]|null $timesheet_lines timesheet_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetLine[]|null $timesheet_lines timesheet_lines
      *
      * @return $this
      */
@@ -539,7 +539,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -549,7 +549,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

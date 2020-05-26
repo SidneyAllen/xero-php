@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TimeEntryCreateOrUpdate Class Doc Comment
  *

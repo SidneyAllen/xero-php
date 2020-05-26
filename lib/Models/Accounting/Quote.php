@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Quote Class Doc Comment
  *
@@ -61,14 +61,14 @@ class Quote implements ModelInterface, ArrayAccess
         'quote_number' => 'string',
         'reference' => 'string',
         'terms' => 'string',
-        'contact' => '\XeroAPI\XeroPHP\Models\Accounting\Contact',
-        'line_items' => '\XeroAPI\XeroPHP\Models\Accounting\LineItem[]',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
+        'line_items' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
         'date' => 'string',
         'date_string' => 'string',
         'expiry_date' => 'string',
         'expiry_date_string' => 'string',
-        'status' => '\XeroAPI\XeroPHP\Models\Accounting\QuoteStatusCodes',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'status' => '\SidneyAllen\XeroPHP\Models\Accounting\QuoteStatusCodes',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'currency_rate' => 'double',
         'sub_total' => 'double',
         'total_tax' => 'double',
@@ -78,7 +78,7 @@ class Quote implements ModelInterface, ArrayAccess
         'summary' => 'string',
         'branding_theme_id' => 'string',
         'updated_date_utc' => 'string',
-        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes'
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\QuoteLineAmountTypes'
     ];
 
     /**
@@ -500,7 +500,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -510,7 +510,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */

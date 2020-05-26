@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LeaveApplication Class Doc Comment
  *
@@ -64,9 +64,9 @@ class LeaveApplication implements ModelInterface, ArrayAccess
         'start_date' => 'string',
         'end_date' => 'string',
         'description' => 'string',
-        'leave_periods' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriod[]',
+        'leave_periods' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriod[]',
         'updated_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -502,7 +502,7 @@ class LeaveApplication implements ModelInterface, ArrayAccess
     /**
      * Gets leave_periods
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriod[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriod[]|null
      */
     public function getLeavePeriods()
     {
@@ -512,7 +512,7 @@ class LeaveApplication implements ModelInterface, ArrayAccess
     /**
      * Sets leave_periods
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriod[]|null $leave_periods leave_periods
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriod[]|null $leave_periods leave_periods
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class LeaveApplication implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -573,7 +573,7 @@ class LeaveApplication implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

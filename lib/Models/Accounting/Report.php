@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Report Class Doc Comment
  *
@@ -63,7 +63,7 @@ class Report implements ModelInterface, ArrayAccess
         'report_title' => 'string',
         'report_date' => 'string',
         'updated_date_utc' => 'string',
-        'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\TenNinteyNineContact[]'
+        'contacts' => '\SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]'
     ];
 
     /**
@@ -442,7 +442,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null
      */
     public function getContacts()
     {
@@ -452,7 +452,7 @@ class Report implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null $contacts contacts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TenNinteyNineContact[]|null $contacts contacts
      *
      * @return $this
      */

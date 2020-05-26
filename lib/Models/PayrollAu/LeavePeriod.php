@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LeavePeriod Class Doc Comment
  *
@@ -60,7 +60,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'number_of_units' => 'double',
         'pay_period_end_date' => 'string',
         'pay_period_start_date' => 'string',
-        'leave_period_status' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriodStatus'
+        'leave_period_status' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriodStatus'
     ];
 
     /**
@@ -358,7 +358,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
     /**
      * Gets leave_period_status
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriodStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriodStatus|null
      */
     public function getLeavePeriodStatus()
     {
@@ -368,7 +368,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
     /**
      * Sets leave_period_status
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriodStatus|null $leave_period_status leave_period_status
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriodStatus|null $leave_period_status leave_period_status
      *
      * @return $this
      */

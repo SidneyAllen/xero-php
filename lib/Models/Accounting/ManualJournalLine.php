@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ManualJournalLine Class Doc Comment
  *
@@ -61,7 +61,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
         'account_code' => 'string',
         'description' => 'string',
         'tax_type' => 'string',
-        'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]',
+        'tracking' => '\SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]',
         'tax_amount' => 'double',
         'is_blank' => 'bool'
     ];
@@ -351,7 +351,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets tracking
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null
      */
     public function getTracking()
     {
@@ -361,7 +361,7 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets tracking
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

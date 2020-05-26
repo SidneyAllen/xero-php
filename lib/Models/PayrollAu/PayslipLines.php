@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayslipLines Class Doc Comment
  *
@@ -57,14 +57,14 @@ class PayslipLines implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'earnings_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]',
-        'leave_earnings_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]',
-        'timesheet_earnings_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]',
-        'deduction_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]',
-        'leave_accrual_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]',
-        'reimbursement_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]',
-        'superannuation_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationLine[]',
-        'tax_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\TaxLine[]'
+        'earnings_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]',
+        'leave_earnings_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]',
+        'timesheet_earnings_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]',
+        'deduction_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]',
+        'leave_accrual_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]',
+        'reimbursement_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]',
+        'superannuation_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationLine[]',
+        'tax_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\TaxLine[]'
     ];
 
     /**
@@ -249,7 +249,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets earnings_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null
      */
     public function getEarningsLines()
     {
@@ -259,7 +259,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets earnings_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null $earnings_lines earnings_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null $earnings_lines earnings_lines
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets leave_earnings_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]|null
      */
     public function getLeaveEarningsLines()
     {
@@ -286,7 +286,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets leave_earnings_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]|null $leave_earnings_lines leave_earnings_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveEarningsLine[]|null $leave_earnings_lines leave_earnings_lines
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets timesheet_earnings_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null
      */
     public function getTimesheetEarningsLines()
     {
@@ -313,7 +313,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets timesheet_earnings_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null $timesheet_earnings_lines timesheet_earnings_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null $timesheet_earnings_lines timesheet_earnings_lines
      *
      * @return $this
      */
@@ -330,7 +330,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets deduction_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]|null
      */
     public function getDeductionLines()
     {
@@ -340,7 +340,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets deduction_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]|null $deduction_lines deduction_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]|null $deduction_lines deduction_lines
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets leave_accrual_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]|null
      */
     public function getLeaveAccrualLines()
     {
@@ -367,7 +367,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets leave_accrual_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]|null $leave_accrual_lines leave_accrual_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveAccrualLine[]|null $leave_accrual_lines leave_accrual_lines
      *
      * @return $this
      */
@@ -384,7 +384,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets reimbursement_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
      */
     public function getReimbursementLines()
     {
@@ -394,7 +394,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets reimbursement_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
      *
      * @return $this
      */
@@ -411,7 +411,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets superannuation_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationLine[]|null
      */
     public function getSuperannuationLines()
     {
@@ -421,7 +421,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets superannuation_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationLine[]|null $superannuation_lines superannuation_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationLine[]|null $superannuation_lines superannuation_lines
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Gets tax_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TaxLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TaxLine[]|null
      */
     public function getTaxLines()
     {
@@ -448,7 +448,7 @@ class PayslipLines implements ModelInterface, ArrayAccess
     /**
      * Sets tax_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TaxLine[]|null $tax_lines tax_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\TaxLine[]|null $tax_lines tax_lines
      *
      * @return $this
      */

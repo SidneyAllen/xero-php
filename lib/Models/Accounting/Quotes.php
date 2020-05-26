@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Quotes Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
       * @var string[]
       */
     protected static $openAPITypes = [
-        'quotes' => '\XeroAPI\XeroPHP\Models\Accounting\Quote[]'
+        'quotes' => '\SidneyAllen\XeroPHP\Models\Accounting\Quote[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
     /**
      * Gets quotes
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Quote[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Quote[]|null
      */
     public function getQuotes()
     {
@@ -217,7 +217,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
     /**
      * Sets quotes
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Quote[]|null $quotes quotes
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Quote[]|null $quotes quotes
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SuperFundProducts Class Doc Comment
  *
@@ -57,7 +57,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'super_fund_products' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProduct[]'
+        'super_fund_products' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProduct[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess
     /**
      * Gets super_fund_products
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProduct[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProduct[]|null
      */
     public function getSuperFundProducts()
     {
@@ -217,7 +217,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess
     /**
      * Sets super_fund_products
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProduct[]|null $super_fund_products super_fund_products
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProduct[]|null $super_fund_products super_fund_products
      *
      * @return $this
      */

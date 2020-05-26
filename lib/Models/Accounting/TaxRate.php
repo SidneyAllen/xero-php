@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TaxRate Class Doc Comment
  *
@@ -59,7 +59,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'tax_type' => 'string',
-        'tax_components' => '\XeroAPI\XeroPHP\Models\Accounting\TaxComponent[]',
+        'tax_components' => '\SidneyAllen\XeroPHP\Models\Accounting\TaxComponent[]',
         'status' => 'string',
         'report_tax_type' => 'string',
         'can_apply_to_assets' => 'bool',
@@ -481,7 +481,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Gets tax_components
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TaxComponent[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TaxComponent[]|null
      */
     public function getTaxComponents()
     {
@@ -491,7 +491,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Sets tax_components
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TaxComponent[]|null $tax_components See TaxComponents
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TaxComponent[]|null $tax_components See TaxComponents
      *
      * @return $this
      */

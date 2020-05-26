@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Prepayments Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'prepayments' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayment[]'
+        'prepayments' => '\SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Gets prepayments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Prepayment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]|null
      */
     public function getPrepayments()
     {
@@ -217,7 +217,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Sets prepayments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Prepayment[]|null $prepayments prepayments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Prepayment[]|null $prepayments prepayments
      *
      * @return $this
      */

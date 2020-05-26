@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LeaveApplications Class Doc Comment
  *
@@ -57,7 +57,7 @@ class LeaveApplications implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'leave_applications' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]'
+        'leave_applications' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class LeaveApplications implements ModelInterface, ArrayAccess
     /**
      * Gets leave_applications
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[]|null
      */
     public function getLeaveApplications()
     {
@@ -217,7 +217,7 @@ class LeaveApplications implements ModelInterface, ArrayAccess
     /**
      * Sets leave_applications
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]|null $leave_applications leave_applications
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[]|null $leave_applications leave_applications
      *
      * @return $this
      */

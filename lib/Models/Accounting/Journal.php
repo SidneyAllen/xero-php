@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Journal Class Doc Comment
  *
@@ -64,7 +64,7 @@ class Journal implements ModelInterface, ArrayAccess
         'reference' => 'string',
         'source_id' => 'string',
         'source_type' => 'string',
-        'journal_lines' => '\XeroAPI\XeroPHP\Models\Accounting\JournalLine[]'
+        'journal_lines' => '\SidneyAllen\XeroPHP\Models\Accounting\JournalLine[]'
     ];
 
     /**
@@ -549,7 +549,7 @@ class Journal implements ModelInterface, ArrayAccess
     /**
      * Gets journal_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\JournalLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\JournalLine[]|null
      */
     public function getJournalLines()
     {
@@ -559,7 +559,7 @@ class Journal implements ModelInterface, ArrayAccess
     /**
      * Sets journal_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\JournalLine[]|null $journal_lines See JournalLines
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\JournalLine[]|null $journal_lines See JournalLines
      *
      * @return $this
      */

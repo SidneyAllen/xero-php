@@ -19,9 +19,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
+  $config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
+  $accountingApi = new SidneyAllen\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -30,8 +30,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  // \XeroAPI\XeroPHP\Models\Accounting\Account | Request of type Account
-  $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
+  // \SidneyAllen\XeroPHP\Models\Accounting\Account | Request of type Account
+  $account = new SidneyAllen\XeroPHP\Models\Accounting\Account;
   $account->setCode($this->getRandNum());
   $account->setName("Foo" . $this->getRandNum());
   $account->setType("EXPENSE");

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ReportWithRows Class Doc Comment
  *
@@ -57,7 +57,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reports' => '\XeroAPI\XeroPHP\Models\Accounting\ReportWithRow[]'
+        'reports' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportWithRow[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
     /**
      * Gets reports
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportWithRow[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRow[]|null
      */
     public function getReports()
     {
@@ -217,7 +217,7 @@ class ReportWithRows implements ModelInterface, ArrayAccess
     /**
      * Sets reports
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportWithRow[]|null $reports reports
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportWithRow[]|null $reports reports
      *
      * @return $this
      */

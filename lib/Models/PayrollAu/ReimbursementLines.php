@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ReimbursementLines Class Doc Comment
  *
@@ -58,7 +58,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reimbursement_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]'
+        'reimbursement_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess
     /**
      * Gets reimbursement_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
      */
     public function getReimbursementLines()
     {
@@ -218,7 +218,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess
     /**
      * Sets reimbursement_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
      *
      * @return $this
      */

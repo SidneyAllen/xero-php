@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Task Class Doc Comment
  *
@@ -59,18 +59,18 @@ class Task implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'task_id' => 'string',
         'name' => 'string',
-        'rate' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'charge_type' => '\XeroAPI\XeroPHP\Models\Project\ChargeType',
+        'rate' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'charge_type' => '\SidneyAllen\XeroPHP\Models\Project\ChargeType',
         'estimate_minutes' => 'double',
         'project_id' => 'string',
         'total_minutes' => 'double',
-        'total_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
+        'total_amount' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
         'minutes_invoiced' => 'double',
         'minutes_to_be_invoiced' => 'double',
         'fixed_minutes' => 'double',
         'non_chargeable_minutes' => 'double',
-        'amount_to_be_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'amount_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
+        'amount_to_be_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'amount_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
         'status' => 'string'
     ];
 
@@ -370,7 +370,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets rate
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getRate()
     {
@@ -380,7 +380,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $rate rate
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $rate rate
      *
      * @return $this
      */
@@ -505,7 +505,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets total_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTotalAmount()
     {
@@ -515,7 +515,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets total_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $total_amount total_amount
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $total_amount total_amount
      *
      * @return $this
      */
@@ -640,7 +640,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets amount_to_be_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getAmountToBeInvoiced()
     {
@@ -650,7 +650,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets amount_to_be_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $amount_to_be_invoiced amount_to_be_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $amount_to_be_invoiced amount_to_be_invoiced
      *
      * @return $this
      */
@@ -667,7 +667,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets amount_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getAmountInvoiced()
     {
@@ -677,7 +677,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets amount_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $amount_invoiced amount_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $amount_invoiced amount_invoiced
      *
      * @return $this
      */

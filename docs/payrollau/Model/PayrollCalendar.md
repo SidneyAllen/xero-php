@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the Payroll Calendar | [optional] 
-**calendar_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\CalendarType**](CalendarType.md) |  | [optional] 
+**calendar_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\CalendarType**](CalendarType.md) |  | [optional] 
 **start_date** | **string** | The start date of the upcoming pay period. The end date will be calculated based upon this date, and the calendar type selected (YYYY-MM-DD) | [optional] 
 **payment_date** | **string** | The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD) | [optional] 
 **payroll_calendar_id** | **string** | Xero identifier | [optional] 

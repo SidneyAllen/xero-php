@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Amount Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Amount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => '\XeroAPI\XeroPHP\Models\Project\CurrencyCode',
+        'currency' => '\SidneyAllen\XeroPHP\Models\Project\CurrencyCode',
         'value' => 'double'
     ];
 

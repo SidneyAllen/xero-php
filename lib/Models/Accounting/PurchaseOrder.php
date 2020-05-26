@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PurchaseOrder Class Doc Comment
  *
@@ -57,15 +57,15 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact' => '\XeroAPI\XeroPHP\Models\Accounting\Contact',
-        'line_items' => '\XeroAPI\XeroPHP\Models\Accounting\LineItem[]',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
+        'line_items' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
         'date' => 'string',
         'delivery_date' => 'string',
-        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
         'purchase_order_number' => 'string',
         'reference' => 'string',
         'branding_theme_id' => 'string',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'status' => 'string',
         'sent_to_contact' => 'bool',
         'delivery_address' => 'string',
@@ -82,9 +82,9 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
         'has_attachments' => 'bool',
         'updated_date_utc' => 'string',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
-        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
-        'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
+        'warnings' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]',
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -398,7 +398,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -408,7 +408,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -435,7 +435,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */
@@ -1162,7 +1162,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1172,7 +1172,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */
@@ -1189,7 +1189,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets warnings
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getWarnings()
     {
@@ -1199,7 +1199,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
      *
      * @return $this
      */
@@ -1216,7 +1216,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -1226,7 +1226,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

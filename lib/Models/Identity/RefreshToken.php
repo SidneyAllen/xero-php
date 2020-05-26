@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Identity;
+namespace SidneyAllen\XeroPHP\Models\Identity;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\IdentityObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\IdentityObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * RefreshToken Class Doc Comment
  *

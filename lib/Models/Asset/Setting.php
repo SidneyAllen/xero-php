@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Setting Class Doc Comment
  *

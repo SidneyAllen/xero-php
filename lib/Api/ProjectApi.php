@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Api;
+namespace SidneyAllen\XeroPHP\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,10 +34,10 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
-use XeroAPI\XeroPHP\HeaderSelector;
-use XeroAPI\XeroPHP\ProjectObjectSerializer;
+use SidneyAllen\XeroPHP\ApiException;
+use SidneyAllen\XeroPHP\Configuration;
+use SidneyAllen\XeroPHP\HeaderSelector;
+use SidneyAllen\XeroPHP\ProjectObjectSerializer;
 
 /**
  * ProjectApi Class Doc Comment
@@ -94,11 +94,11 @@ class ProjectApi
      * create one or more new projects
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error
+     * @return \SidneyAllen\XeroPHP\Models\Project\Project|\SidneyAllen\XeroPHP\Models\Project\Error
      */
     public function createProject($xero_tenant_id, $project_create_or_update)
     {
@@ -112,11 +112,11 @@ class ProjectApi
      * create one or more new projects
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\Project|\SidneyAllen\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function createProjectWithHttpInfo($xero_tenant_id, $project_create_or_update)
     {
@@ -153,32 +153,32 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Project' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Project' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Project', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Project', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\Project';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -197,7 +197,7 @@ class ProjectApi
                 case 201:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Project',
+                        '\SidneyAllen\XeroPHP\Models\Project\Project',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -205,7 +205,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -221,7 +221,7 @@ class ProjectApi
      * create one or more new projects
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -242,14 +242,14 @@ class ProjectApi
      * create one or more new projects
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createProjectAsyncWithHttpInfo($xero_tenant_id, $project_create_or_update)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\Project';
         $request = $this->createProjectRequest($xero_tenant_id, $project_create_or_update);
 
         return $this->client
@@ -290,7 +290,7 @@ class ProjectApi
      * Create request for operation 'createProject'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -402,11 +402,11 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\TimeEntry
+     * @return \SidneyAllen\XeroPHP\Models\Project\TimeEntry
      */
     public function createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
@@ -421,11 +421,11 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
@@ -462,20 +462,20 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\TimeEntry' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\TimeEntry' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntry', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\TimeEntry', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntry';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -494,7 +494,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\TimeEntry',
+                        '\SidneyAllen\XeroPHP\Models\Project\TimeEntry',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -511,7 +511,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -533,14 +533,14 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntry';
         $request = $this->createTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_create_or_update);
 
         return $this->client
@@ -582,7 +582,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -710,7 +710,7 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -728,7 +728,7 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -972,9 +972,9 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error
+     * @return \SidneyAllen\XeroPHP\Models\Project\Project|\SidneyAllen\XeroPHP\Models\Project\Error
      */
     public function getProject($xero_tenant_id, $project_id)
     {
@@ -990,9 +990,9 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\Project|\SidneyAllen\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectWithHttpInfo($xero_tenant_id, $project_id)
     {
@@ -1029,32 +1029,32 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Project' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Project' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Project', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Project', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\Project';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1073,7 +1073,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Project',
+                        '\SidneyAllen\XeroPHP\Models\Project\Project',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1081,7 +1081,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1125,7 +1125,7 @@ class ProjectApi
      */
     public function getProjectAsyncWithHttpInfo($xero_tenant_id, $project_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\Project';
         $request = $this->getProjectRequest($xero_tenant_id, $project_id);
 
         return $this->client
@@ -1285,9 +1285,9 @@ class ProjectApi
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\ProjectUsers|\XeroAPI\XeroPHP\Models\Project\Error
+     * @return \SidneyAllen\XeroPHP\Models\Project\ProjectUsers|\SidneyAllen\XeroPHP\Models\Project\Error
      */
     public function getProjectUsers($xero_tenant_id, $page = 1, $page_size = 50)
     {
@@ -1304,9 +1304,9 @@ class ProjectApi
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\ProjectUsers|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\ProjectUsers|\SidneyAllen\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectUsersWithHttpInfo($xero_tenant_id, $page = 1, $page_size = 50)
     {
@@ -1343,32 +1343,32 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\ProjectUsers' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\ProjectUsers' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\ProjectUsers', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\ProjectUsers', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\ProjectUsers';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\ProjectUsers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1387,7 +1387,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\ProjectUsers',
+                        '\SidneyAllen\XeroPHP\Models\Project\ProjectUsers',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1395,7 +1395,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1441,7 +1441,7 @@ class ProjectApi
      */
     public function getProjectUsersAsyncWithHttpInfo($xero_tenant_id, $page = 1, $page_size = 50)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\ProjectUsers';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\ProjectUsers';
         $request = $this->getProjectUsersRequest($xero_tenant_id, $page, $page_size);
 
         return $this->client
@@ -1606,9 +1606,9 @@ class ProjectApi
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\Projects|\XeroAPI\XeroPHP\Models\Project\Error
+     * @return \SidneyAllen\XeroPHP\Models\Project\Projects|\SidneyAllen\XeroPHP\Models\Project\Error
      */
     public function getProjects($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
@@ -1628,9 +1628,9 @@ class ProjectApi
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\Projects|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\Projects|\SidneyAllen\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProjectsWithHttpInfo($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
@@ -1667,32 +1667,32 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Projects' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Projects' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Projects', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Projects', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Error' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Error' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\Projects';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\Projects';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1711,7 +1711,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Projects',
+                        '\SidneyAllen\XeroPHP\Models\Project\Projects',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1719,7 +1719,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1771,7 +1771,7 @@ class ProjectApi
      */
     public function getProjectsAsyncWithHttpInfo($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\Projects';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\Projects';
         $request = $this->getProjectsRequest($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size);
 
         return $this->client
@@ -1951,9 +1951,9 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\Task
+     * @return \SidneyAllen\XeroPHP\Models\Project\Task
      */
     public function getTask($xero_tenant_id, $project_id, $task_id)
     {
@@ -1970,9 +1970,9 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\Task, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\Task, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaskWithHttpInfo($xero_tenant_id, $project_id, $task_id)
     {
@@ -2009,20 +2009,20 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Task' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Task' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Task', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Task', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\Task';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\Task';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2041,7 +2041,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Task',
+                        '\SidneyAllen\XeroPHP\Models\Project\Task',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2087,7 +2087,7 @@ class ProjectApi
      */
     public function getTaskAsyncWithHttpInfo($xero_tenant_id, $project_id, $task_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\Task';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\Task';
         $request = $this->getTaskRequest($xero_tenant_id, $project_id, $task_id);
 
         return $this->client
@@ -2264,9 +2264,9 @@ class ProjectApi
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\Tasks
+     * @return \SidneyAllen\XeroPHP\Models\Project\Tasks
      */
     public function getTasks($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
@@ -2285,9 +2285,9 @@ class ProjectApi
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\Tasks, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\Tasks, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTasksWithHttpInfo($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
@@ -2324,20 +2324,20 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\Tasks' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\Tasks' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Tasks', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\Tasks', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\Tasks';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\Tasks';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2356,7 +2356,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Tasks',
+                        '\SidneyAllen\XeroPHP\Models\Project\Tasks',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2406,7 +2406,7 @@ class ProjectApi
      */
     public function getTasksAsyncWithHttpInfo($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\Tasks';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\Tasks';
         $request = $this->getTasksRequest($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
 
         return $this->client
@@ -2590,9 +2590,9 @@ class ProjectApi
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\TimeEntries
+     * @return \SidneyAllen\XeroPHP\Models\Project\TimeEntries
      */
     public function getTimeEntries($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
@@ -2618,9 +2618,9 @@ class ProjectApi
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntries, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\TimeEntries, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimeEntriesWithHttpInfo($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
@@ -2657,20 +2657,20 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\TimeEntries' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\TimeEntries' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntries', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\TimeEntries', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntries';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntries';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2689,7 +2689,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\TimeEntries',
+                        '\SidneyAllen\XeroPHP\Models\Project\TimeEntries',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2753,7 +2753,7 @@ class ProjectApi
      */
     public function getTimeEntriesAsyncWithHttpInfo($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntries';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntries';
         $request = $this->getTimeEntriesRequest($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc);
 
         return $this->client
@@ -2966,9 +2966,9 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Project\TimeEntry
+     * @return \SidneyAllen\XeroPHP\Models\Project\TimeEntry
      */
     public function getTimeEntry($xero_tenant_id, $project_id, $time_entry_id)
     {
@@ -2985,9 +2985,9 @@ class ProjectApi
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
@@ -3024,20 +3024,20 @@ class ProjectApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Project\TimeEntry' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Project\TimeEntry' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntry', []),
+                        ProjectObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Project\TimeEntry', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntry';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3056,7 +3056,7 @@ class ProjectApi
                 case 200:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\TimeEntry',
+                        '\SidneyAllen\XeroPHP\Models\Project\TimeEntry',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3102,7 +3102,7 @@ class ProjectApi
      */
     public function getTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Project\TimeEntry';
         $request = $this->getTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id);
 
         return $this->client
@@ -3275,9 +3275,9 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3293,9 +3293,9 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3338,7 +3338,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3355,7 +3355,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3377,7 +3377,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3415,7 +3415,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3541,9 +3541,9 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3559,9 +3559,9 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3604,7 +3604,7 @@ class ProjectApi
                 case 400:
                     $data = ProjectObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Project\Error',
+                        '\SidneyAllen\XeroPHP\Models\Project\Error',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3621,7 +3621,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3643,7 +3643,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3681,7 +3681,7 @@ class ProjectApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3808,9 +3808,9 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3827,9 +3827,9 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3882,7 +3882,7 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3905,7 +3905,7 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3944,7 +3944,7 @@ class ProjectApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
+     * @param  \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayrollCalendar Class Doc Comment
  *
@@ -58,12 +58,12 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'calendar_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\CalendarType',
+        'calendar_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\CalendarType',
         'start_date' => 'string',
         'payment_date' => 'string',
         'payroll_calendar_id' => 'string',
         'updated_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -270,7 +270,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
     /**
      * Gets calendar_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\CalendarType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\CalendarType|null
      */
     public function getCalendarType()
     {
@@ -280,7 +280,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
     /**
      * Sets calendar_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\CalendarType|null $calendar_type calendar_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\CalendarType|null $calendar_type calendar_type
      *
      * @return $this
      */
@@ -464,7 +464,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -474,7 +474,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

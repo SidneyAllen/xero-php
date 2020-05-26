@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TaxDeclaration Class Doc Comment
  *
@@ -58,11 +58,11 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'employee_id' => 'string',
-        'employment_basis' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis',
-        'tfn_exemption_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType',
+        'employment_basis' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentBasis',
+        'tfn_exemption_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\TFNExemptionType',
         'tax_file_number' => 'string',
         'australian_resident_for_tax_purposes' => 'bool',
-        'residency_status' => '\XeroAPI\XeroPHP\Models\PayrollAu\ResidencyStatus',
+        'residency_status' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ResidencyStatus',
         'tax_free_threshold_claimed' => 'bool',
         'tax_offset_estimated_amount' => 'float',
         'has_help_debt' => 'bool',
@@ -330,7 +330,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Gets employment_basis
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentBasis
      */
     public function getEmploymentBasis()
     {
@@ -340,7 +340,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Sets employment_basis
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis $employment_basis employment_basis
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentBasis $employment_basis employment_basis
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Gets tfn_exemption_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TFNExemptionType|null
      */
     public function getTfnExemptionType()
     {
@@ -367,7 +367,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Sets tfn_exemption_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType|null $tfn_exemption_type tfn_exemption_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\TFNExemptionType|null $tfn_exemption_type tfn_exemption_type
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Gets residency_status
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ResidencyStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ResidencyStatus|null
      */
     public function getResidencyStatus()
     {
@@ -448,7 +448,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     /**
      * Sets residency_status
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ResidencyStatus|null $residency_status residency_status
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ResidencyStatus|null $residency_status residency_status
      *
      * @return $this
      */

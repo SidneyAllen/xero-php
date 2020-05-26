@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SettingsObject Class Doc Comment
  *
@@ -57,7 +57,7 @@ class SettingsObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'settings' => '\XeroAPI\XeroPHP\Models\PayrollAu\Settings'
+        'settings' => '\SidneyAllen\XeroPHP\Models\PayrollAu\Settings'
     ];
 
     /**
@@ -207,7 +207,7 @@ class SettingsObject implements ModelInterface, ArrayAccess
     /**
      * Gets settings
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Settings|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Settings|null
      */
     public function getSettings()
     {
@@ -217,7 +217,7 @@ class SettingsObject implements ModelInterface, ArrayAccess
     /**
      * Sets settings
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Settings|null $settings settings
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\Settings|null $settings settings
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Employees Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Employees implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employees' => '\XeroAPI\XeroPHP\Models\PayrollAu\Employee[]'
+        'employees' => '\SidneyAllen\XeroPHP\Models\PayrollAu\Employee[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Gets employees
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Employee[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[]|null
      */
     public function getEmployees()
     {
@@ -217,7 +217,7 @@ class Employees implements ModelInterface, ArrayAccess
     /**
      * Sets employees
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Employee[]|null $employees employees
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[]|null $employees employees
      *
      * @return $this
      */

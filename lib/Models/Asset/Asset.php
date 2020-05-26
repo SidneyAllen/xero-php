@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AssetObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Asset Class Doc Comment
  *
@@ -64,11 +64,11 @@ class Asset implements ModelInterface, ArrayAccess
         'purchase_date' => '\DateTime',
         'purchase_price' => 'double',
         'disposal_price' => 'double',
-        'asset_status' => '\XeroAPI\XeroPHP\Models\Asset\AssetStatus',
+        'asset_status' => '\SidneyAllen\XeroPHP\Models\Asset\AssetStatus',
         'warranty_expiry_date' => 'string',
         'serial_number' => 'string',
-        'book_depreciation_setting' => '\XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting',
-        'book_depreciation_detail' => '\XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail',
+        'book_depreciation_setting' => '\SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting',
+        'book_depreciation_detail' => '\SidneyAllen\XeroPHP\Models\Asset\BookDepreciationDetail',
         'can_rollback' => 'bool',
         'accounting_book_value' => 'double',
         'is_delete_enabled_for_date' => 'bool'
@@ -483,7 +483,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Gets asset_status
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\AssetStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\AssetStatus|null
      */
     public function getAssetStatus()
     {
@@ -493,7 +493,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Sets asset_status
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\AssetStatus|null $asset_status asset_status
+     * @param \SidneyAllen\XeroPHP\Models\Asset\AssetStatus|null $asset_status asset_status
      *
      * @return $this
      */
@@ -564,7 +564,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Gets book_depreciation_setting
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting|null
      */
     public function getBookDepreciationSetting()
     {
@@ -574,7 +574,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Sets book_depreciation_setting
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting|null $book_depreciation_setting book_depreciation_setting
+     * @param \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationSetting|null $book_depreciation_setting book_depreciation_setting
      *
      * @return $this
      */
@@ -591,7 +591,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Gets book_depreciation_detail
      *
-     * @return \XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail|null
+     * @return \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationDetail|null
      */
     public function getBookDepreciationDetail()
     {
@@ -601,7 +601,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Sets book_depreciation_detail
      *
-     * @param \XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail|null $book_depreciation_detail book_depreciation_detail
+     * @param \SidneyAllen\XeroPHP\Models\Asset\BookDepreciationDetail|null $book_depreciation_detail book_depreciation_detail
      *
      * @return $this
      */

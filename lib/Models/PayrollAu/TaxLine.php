@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TaxLine Class Doc Comment
  *
@@ -61,7 +61,7 @@ class TaxLine implements ModelInterface, ArrayAccess
         'amount' => 'double',
         'tax_type_name' => 'string',
         'description' => 'string',
-        'manual_tax_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\ManualTaxType',
+        'manual_tax_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ManualTaxType',
         'liability_account' => 'string'
     ];
 
@@ -345,7 +345,7 @@ class TaxLine implements ModelInterface, ArrayAccess
     /**
      * Gets manual_tax_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ManualTaxType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ManualTaxType|null
      */
     public function getManualTaxType()
     {
@@ -355,7 +355,7 @@ class TaxLine implements ModelInterface, ArrayAccess
     /**
      * Sets manual_tax_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ManualTaxType|null $manual_tax_type manual_tax_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ManualTaxType|null $manual_tax_type manual_tax_type
      *
      * @return $this
      */

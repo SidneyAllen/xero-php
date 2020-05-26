@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayrollCalendars Class Doc Comment
  *
@@ -57,7 +57,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payroll_calendars' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[]'
+        'payroll_calendars' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess
     /**
      * Gets payroll_calendars
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[]|null
      */
     public function getPayrollCalendars()
     {
@@ -217,7 +217,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess
     /**
      * Sets payroll_calendars
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[]|null $payroll_calendars payroll_calendars
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[]|null $payroll_calendars payroll_calendars
      *
      * @return $this
      */

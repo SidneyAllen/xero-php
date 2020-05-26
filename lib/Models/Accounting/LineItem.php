@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LineItem Class Doc Comment
  *
@@ -66,7 +66,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'tax_type' => 'string',
         'tax_amount' => 'double',
         'line_amount' => 'double',
-        'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]',
+        'tracking' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItemTracking[]',
         'discount_rate' => 'double',
         'discount_amount' => 'double',
         'repeating_invoice_id' => 'string'
@@ -522,7 +522,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Gets tracking
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItemTracking[]|null
      */
     public function getTracking()
     {
@@ -532,7 +532,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets tracking
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]|null $tracking Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2 <TrackingCategory> elements.
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItemTracking[]|null $tracking Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2 <TrackingCategory> elements.
      *
      * @return $this
      */

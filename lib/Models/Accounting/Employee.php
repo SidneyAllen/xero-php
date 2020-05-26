@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Employee Class Doc Comment
  *
@@ -61,10 +61,10 @@ class Employee implements ModelInterface, ArrayAccess
         'status' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
-        'external_link' => '\XeroAPI\XeroPHP\Models\Accounting\ExternalLink',
+        'external_link' => '\SidneyAllen\XeroPHP\Models\Accounting\ExternalLink',
         'updated_date_utc' => 'string',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -407,7 +407,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets external_link
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ExternalLink|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink|null
      */
     public function getExternalLink()
     {
@@ -417,7 +417,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets external_link
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ExternalLink|null $external_link external_link
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ExternalLink|null $external_link external_link
      *
      * @return $this
      */
@@ -495,7 +495,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -505,7 +505,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

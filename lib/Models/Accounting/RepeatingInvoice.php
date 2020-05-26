@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * RepeatingInvoice Class Doc Comment
  *
@@ -58,13 +58,13 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\XeroAPI\XeroPHP\Models\Accounting\Contact',
-        'schedule' => '\XeroAPI\XeroPHP\Models\Accounting\Schedule',
-        'line_items' => '\XeroAPI\XeroPHP\Models\Accounting\LineItem[]',
-        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
+        'schedule' => '\SidneyAllen\XeroPHP\Models\Accounting\Schedule',
+        'line_items' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
         'reference' => 'string',
         'branding_theme_id' => 'string',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'status' => 'string',
         'sub_total' => 'double',
         'total_tax' => 'double',
@@ -72,7 +72,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'string',
         'id' => 'string',
         'has_attachments' => 'bool',
-        'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]'
+        'attachments' => '\SidneyAllen\XeroPHP\Models\Accounting\Attachment[]'
     ];
 
     /**
@@ -381,7 +381,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -391,7 +391,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -408,7 +408,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets schedule
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Schedule|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Schedule|null
      */
     public function getSchedule()
     {
@@ -418,7 +418,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets schedule
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Schedule|null $schedule schedule
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Schedule|null $schedule schedule
      *
      * @return $this
      */
@@ -435,7 +435,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -445,7 +445,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */
@@ -767,7 +767,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null
      */
     public function getAttachments()
     {
@@ -777,7 +777,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Attachment[]|null $attachments Displays array of attachments from the API
      *
      * @return $this
      */

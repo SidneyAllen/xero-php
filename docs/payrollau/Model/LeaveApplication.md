@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **start_date** | **string** | Start date of the leave (YYYY-MM-DD) | [optional] 
 **end_date** | **string** | End date of the leave (YYYY-MM-DD) | [optional] 
 **description** | **string** | The Description of the Leave | [optional] 
-**leave_periods** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriod[]**](LeavePeriod.md) |  | [optional] 
+**leave_periods** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\LeavePeriod[]**](LeavePeriod.md) |  | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * HomeAddress Class Doc Comment
  *
@@ -60,7 +60,7 @@ class HomeAddress implements ModelInterface, ArrayAccess
         'address_line1' => 'string',
         'address_line2' => 'string',
         'city' => 'string',
-        'region' => '\XeroAPI\XeroPHP\Models\PayrollAu\State',
+        'region' => '\SidneyAllen\XeroPHP\Models\PayrollAu\State',
         'postal_code' => 'string',
         'country' => 'string'
     ];
@@ -321,7 +321,7 @@ class HomeAddress implements ModelInterface, ArrayAccess
     /**
      * Gets region
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\State|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\State|null
      */
     public function getRegion()
     {
@@ -331,7 +331,7 @@ class HomeAddress implements ModelInterface, ArrayAccess
     /**
      * Sets region
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\State|null $region region
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\State|null $region region
      *
      * @return $this
      */

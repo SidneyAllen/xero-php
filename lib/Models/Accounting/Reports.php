@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Reports Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reports' => '\XeroAPI\XeroPHP\Models\Accounting\Report[]'
+        'reports' => '\SidneyAllen\XeroPHP\Models\Accounting\Report[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
     /**
      * Gets reports
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Report[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Report[]|null
      */
     public function getReports()
     {
@@ -217,7 +217,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
     /**
      * Sets reports
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Report[]|null $reports reports
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Report[]|null $reports reports
      *
      * @return $this
      */

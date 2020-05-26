@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * OpeningBalances Class Doc Comment
  *
@@ -59,11 +59,11 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'opening_balance_date' => 'string',
         'tax' => 'string',
-        'earnings_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]',
-        'deduction_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]',
-        'super_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperLine[]',
-        'reimbursement_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]',
-        'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]'
+        'earnings_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]',
+        'deduction_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]',
+        'super_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperLine[]',
+        'reimbursement_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]',
+        'leave_lines' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]'
     ];
 
     /**
@@ -323,7 +323,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets earnings_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null
      */
     public function getEarningsLines()
     {
@@ -333,7 +333,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets earnings_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine[]|null $earnings_lines earnings_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsLine[]|null $earnings_lines earnings_lines
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets deduction_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]|null
      */
     public function getDeductionLines()
     {
@@ -360,7 +360,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets deduction_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]|null $deduction_lines deduction_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionLine[]|null $deduction_lines deduction_lines
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets super_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperLine[]|null
      */
     public function getSuperLines()
     {
@@ -387,7 +387,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets super_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperLine[]|null $super_lines super_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperLine[]|null $super_lines super_lines
      *
      * @return $this
      */
@@ -404,7 +404,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets reimbursement_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null
      */
     public function getReimbursementLines()
     {
@@ -414,7 +414,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets reimbursement_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementLine[]|null $reimbursement_lines reimbursement_lines
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets leave_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null
      */
     public function getLeaveLines()
     {
@@ -441,7 +441,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets leave_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
      *
      * @return $this
      */

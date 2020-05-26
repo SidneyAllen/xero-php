@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **super_membership_id** | **string** | Xero identifier for payroll super fund membership ID. | [optional] 
-**contribution_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationContributionType**](SuperannuationContributionType.md) |  | [optional] 
-**calculation_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperannuationCalculationType**](SuperannuationCalculationType.md) |  | [optional] 
+**contribution_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationContributionType**](SuperannuationContributionType.md) |  | [optional] 
+**calculation_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\SuperannuationCalculationType**](SuperannuationCalculationType.md) |  | [optional] 
 **minimum_monthly_earnings** | **float** | Superannuation minimum monthly earnings. | [optional] 
 **expense_account_code** | **string** | Superannuation expense account code. | [optional] 
 **liability_account_code** | **string** | Superannuation liability account code | [optional] 

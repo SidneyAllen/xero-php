@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Api;
+namespace SidneyAllen\XeroPHP\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,10 +34,10 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
-use XeroAPI\XeroPHP\HeaderSelector;
-use XeroAPI\XeroPHP\IdentityObjectSerializer;
+use SidneyAllen\XeroPHP\ApiException;
+use SidneyAllen\XeroPHP\Configuration;
+use SidneyAllen\XeroPHP\HeaderSelector;
+use SidneyAllen\XeroPHP\IdentityObjectSerializer;
 
 /**
  * IdentityApi Class Doc Comment
@@ -95,7 +95,7 @@ class IdentityApi
      *
      * @param  string $id Unique identifier for retrieving single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -111,7 +111,7 @@ class IdentityApi
      *
      * @param  string $id Unique identifier for retrieving single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -324,9 +324,9 @@ class IdentityApi
      *
      * @param  string $auth_event_id Filter by authEventId (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\Identity\Connection[]
+     * @return \SidneyAllen\XeroPHP\Models\Identity\Connection[]
      */
     public function getConnections($auth_event_id = null)
     {
@@ -341,9 +341,9 @@ class IdentityApi
      *
      * @param  string $auth_event_id Filter by authEventId (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\Identity\Connection[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\Identity\Connection[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getConnectionsWithHttpInfo($auth_event_id = null)
     {
@@ -380,20 +380,20 @@ class IdentityApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\Identity\Connection[]' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\Identity\Connection[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        IdentityObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Identity\Connection[]', []),
+                        IdentityObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\Identity\Connection[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\Identity\Connection[]';
+            $returnType = '\SidneyAllen\XeroPHP\Models\Identity\Connection[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -412,7 +412,7 @@ class IdentityApi
                 case 200:
                     $data = IdentityObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\Identity\Connection[]',
+                        '\SidneyAllen\XeroPHP\Models\Identity\Connection[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -454,7 +454,7 @@ class IdentityApi
      */
     public function getConnectionsAsyncWithHttpInfo($auth_event_id = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\Identity\Connection[]';
+        $returnType = '\SidneyAllen\XeroPHP\Models\Identity\Connection[]';
         $request = $this->getConnectionsRequest($auth_event_id);
 
         return $this->client

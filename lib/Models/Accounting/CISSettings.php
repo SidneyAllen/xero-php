@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * CISSettings Class Doc Comment
  *
@@ -57,7 +57,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cis_settings' => '\XeroAPI\XeroPHP\Models\Accounting\CISSetting[]'
+        'cis_settings' => '\SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Gets cis_settings
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CISSetting[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]|null
      */
     public function getCisSettings()
     {
@@ -217,7 +217,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Sets cis_settings
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CISSetting[]|null $cis_settings cis_settings
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CISSetting[]|null $cis_settings cis_settings
      *
      * @return $this
      */

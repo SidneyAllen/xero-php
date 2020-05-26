@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PurchaseOrders Class Doc Comment
  *
@@ -57,7 +57,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
-        'purchase_orders' => '\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]'
+        'purchase_orders' => '\SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Gets purchase_orders
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]|null
      */
     public function getPurchaseOrders()
     {
@@ -217,7 +217,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Sets purchase_orders
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null $purchase_orders purchase_orders
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\PurchaseOrder[]|null $purchase_orders purchase_orders
      *
      * @return $this
      */

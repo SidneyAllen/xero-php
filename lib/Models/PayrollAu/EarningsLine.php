@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * EarningsLine Class Doc Comment
  *
@@ -58,7 +58,7 @@ class EarningsLine implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'earnings_rate_id' => 'string',
-        'calculation_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsRateCalculationType',
+        'calculation_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRateCalculationType',
         'annual_salary' => 'double',
         'number_of_units_per_week' => 'double',
         'rate_per_unit' => 'double',
@@ -288,7 +288,7 @@ class EarningsLine implements ModelInterface, ArrayAccess
     /**
      * Gets calculation_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsRateCalculationType
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRateCalculationType
      */
     public function getCalculationType()
     {
@@ -298,7 +298,7 @@ class EarningsLine implements ModelInterface, ArrayAccess
     /**
      * Sets calculation_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsRateCalculationType $calculation_type calculation_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRateCalculationType $calculation_type calculation_type
      *
      * @return $this
      */

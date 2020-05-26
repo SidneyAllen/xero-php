@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **employee_id** | **string** | Address line 1 for employee home address | 
-**employment_basis** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis**](EmploymentBasis.md) |  | 
-**tfn_exemption_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType**](TFNExemptionType.md) |  | [optional] 
+**employment_basis** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentBasis**](EmploymentBasis.md) |  | 
+**tfn_exemption_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\TFNExemptionType**](TFNExemptionType.md) |  | [optional] 
 **tax_file_number** | **string** | The tax file number e.g 123123123. | [optional] 
 **australian_resident_for_tax_purposes** | **bool** | If the employee is Australian resident for tax purposes. e.g true or false | [optional] 
-**residency_status** | [**\XeroAPI\XeroPHP\Models\PayrollAu\ResidencyStatus**](ResidencyStatus.md) |  | [optional] 
+**residency_status** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\ResidencyStatus**](ResidencyStatus.md) |  | [optional] 
 **tax_free_threshold_claimed** | **bool** | If tax free threshold claimed. e.g true or false | [optional] 
 **tax_offset_estimated_amount** | **float** | If has tax offset estimated then the tax offset estimated amount. e.g 100 | [optional] 
 **has_help_debt** | **bool** | If employee has HECS or HELP debt. e.g true or false | [optional] 

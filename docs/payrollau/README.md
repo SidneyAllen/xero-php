@@ -19,9 +19,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
+  $config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $payrollAuApi = new XeroAPI\XeroPHP\Api\PayrollAuApi(
+  $payrollAuApi = new SidneyAllen\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -30,18 +30,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  // \XeroAPI\XeroPHP\Models\Accounting\Employee | Request of type Employee
-  $employee = new XeroAPI\XeroPHP\Models\PayrollAu\Employee;
+  // \SidneyAllen\XeroPHP\Models\Accounting\Employee | Request of type Employee
+  $employee = new SidneyAllen\XeroPHP\Models\PayrollAu\Employee;
   $employee->setFirstName("Fred");
   $employee->setLastName("Potter");
   $employee->setEmail("albus@hogwarts.edu");
   $dateOfBirth = DateTime::createFromFormat('m/d/Y', '05/29/2000');
   $employee->setDateOfBirthAsDate($dateOfBirth);
 
-  $address = new XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress;
+  $address = new SidneyAllen\XeroPHP\Models\PayrollAu\HomeAddress;
   $address->setAddressLine1("101 Green St");
   $address->setCity("Island Bay");
-  $address->setRegion(\XeroAPI\XeroPHP\Models\PayrollAu\State::NSW);
+  $address->setRegion(\SidneyAllen\XeroPHP\Models\PayrollAu\State::NSW);
   $address->setCountry("AUSTRALIA");
   $address->setPostalCode("6023");
   $employee->setHomeAddress($address);

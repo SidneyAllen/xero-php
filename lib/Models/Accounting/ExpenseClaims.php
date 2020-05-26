@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ExpenseClaims Class Doc Comment
  *
@@ -57,7 +57,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
       * @var string[]
       */
     protected static $openAPITypes = [
-        'expense_claims' => '\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaim[]'
+        'expense_claims' => '\SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaim[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Gets expense_claims
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaim[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaim[]|null
      */
     public function getExpenseClaims()
     {
@@ -217,7 +217,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Sets expense_claims
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaim[]|null $expense_claims expense_claims
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ExpenseClaim[]|null $expense_claims expense_claims
      *
      * @return $this
      */

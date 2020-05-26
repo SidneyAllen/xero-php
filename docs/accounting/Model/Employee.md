@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **status** | **string** | Current status of an employee – see contact status types | [optional] 
 **first_name** | **string** | First name of an employee (max length &#x3D; 255) | [optional] 
 **last_name** | **string** | Last name of an employee (max length &#x3D; 255) | [optional] 
-**external_link** | [**\XeroAPI\XeroPHP\Models\Accounting\ExternalLink**](ExternalLink.md) |  | [optional] 
+**external_link** | [**\SidneyAllen\XeroPHP\Models\Accounting\ExternalLink**](ExternalLink.md) |  | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
-**validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

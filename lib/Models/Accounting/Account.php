@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Account Class Doc Comment
  *
@@ -60,12 +60,12 @@ class Account implements ModelInterface, ArrayAccess
         'code' => 'string',
         'name' => 'string',
         'account_id' => 'string',
-        'type' => '\XeroAPI\XeroPHP\Models\Accounting\AccountType',
+        'type' => '\SidneyAllen\XeroPHP\Models\Accounting\AccountType',
         'bank_account_number' => 'string',
         'status' => 'string',
         'description' => 'string',
         'bank_account_type' => 'string',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'tax_type' => 'string',
         'enable_payments_to_account' => 'bool',
         'show_in_expense_claims' => 'bool',
@@ -76,7 +76,7 @@ class Account implements ModelInterface, ArrayAccess
         'has_attachments' => 'bool',
         'updated_date_utc' => 'string',
         'add_to_watchlist' => 'bool',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -1032,7 +1032,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1042,7 +1042,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

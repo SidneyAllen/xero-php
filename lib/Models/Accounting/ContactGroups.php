@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ContactGroups Class Doc Comment
  *
@@ -57,7 +57,7 @@ class ContactGroups implements ModelInterface, ArrayAccess, \Countable, \Iterato
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact_groups' => '\XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]'
+        'contact_groups' => '\SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ContactGroups implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Gets contact_groups
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]|null
      */
     public function getContactGroups()
     {
@@ -217,7 +217,7 @@ class ContactGroups implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Sets contact_groups
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]|null $contact_groups contact_groups
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ContactGroup[]|null $contact_groups contact_groups
      *
      * @return $this
      */

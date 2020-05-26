@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **type** | **string** | This will always be BILLABLEEXPENSE. More types may be added in future. | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | The last modified date in UTC format | [optional] 
 **source_transaction_type_code** | **string** | The Type of the source tranasction. This will be ACCPAY if the linked transaction was created from an invoice and SPEND if it was created from a bank transaction. | [optional] 
-**validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

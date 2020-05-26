@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Items Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => '\XeroAPI\XeroPHP\Models\Accounting\Item[]'
+        'items' => '\SidneyAllen\XeroPHP\Models\Accounting\Item[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
     /**
      * Gets items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Item[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Item[]|null
      */
     public function getItems()
     {
@@ -217,7 +217,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
     /**
      * Sets items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Item[]|null $items items
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Item[]|null $items items
      *
      * @return $this
      */

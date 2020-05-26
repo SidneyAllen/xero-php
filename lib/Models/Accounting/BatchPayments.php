@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * BatchPayments Class Doc Comment
  *
@@ -57,7 +57,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
       * @var string[]
       */
     protected static $openAPITypes = [
-        'batch_payments' => '\XeroAPI\XeroPHP\Models\Accounting\BatchPayment[]'
+        'batch_payments' => '\SidneyAllen\XeroPHP\Models\Accounting\BatchPayment[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Gets batch_payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BatchPayment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BatchPayment[]|null
      */
     public function getBatchPayments()
     {
@@ -217,7 +217,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Sets batch_payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BatchPayment[]|null $batch_payments batch_payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BatchPayment[]|null $batch_payments batch_payments
      *
      * @return $this
      */

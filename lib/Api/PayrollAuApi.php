@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Api;
+namespace SidneyAllen\XeroPHP\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,10 +34,10 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
-use XeroAPI\XeroPHP\HeaderSelector;
-use XeroAPI\XeroPHP\PayrollAuObjectSerializer;
+use SidneyAllen\XeroPHP\ApiException;
+use SidneyAllen\XeroPHP\Configuration;
+use SidneyAllen\XeroPHP\HeaderSelector;
+use SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
 
 /**
  * PayrollAuApi Class Doc Comment
@@ -94,11 +94,11 @@ class PayrollAuApi
      * Use this method to create a payroll employee
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee employee (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee employee (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Employees
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Employees
      */
     public function createEmployee($xero_tenant_id, $employee)
     {
@@ -112,11 +112,11 @@ class PayrollAuApi
      * Use this method to create a payroll employee
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
      */
     public function createEmployeeWithHttpInfo($xero_tenant_id, $employee)
     {
@@ -153,20 +153,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Employees', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -185,7 +185,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Employees',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class PayrollAuApi
      * Use this method to create a payroll employee
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -222,14 +222,14 @@ class PayrollAuApi
      * Use this method to create a payroll employee
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
         $request = $this->createEmployeeRequest($xero_tenant_id, $employee);
 
         return $this->client
@@ -270,7 +270,7 @@ class PayrollAuApi
      * Create request for operation 'createEmployee'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -381,11 +381,11 @@ class PayrollAuApi
      * Use this method to create a Leave Application
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application leave_application (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications
      */
     public function createLeaveApplication($xero_tenant_id, $leave_application)
     {
@@ -399,11 +399,11 @@ class PayrollAuApi
      * Use this method to create a Leave Application
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
      */
     public function createLeaveApplicationWithHttpInfo($xero_tenant_id, $leave_application)
     {
@@ -440,20 +440,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -472,7 +472,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,7 +488,7 @@ class PayrollAuApi
      * Use this method to create a Leave Application
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -509,14 +509,14 @@ class PayrollAuApi
      * Use this method to create a Leave Application
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createLeaveApplicationAsyncWithHttpInfo($xero_tenant_id, $leave_application)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
         $request = $this->createLeaveApplicationRequest($xero_tenant_id, $leave_application);
 
         return $this->client
@@ -557,7 +557,7 @@ class PayrollAuApi
      * Create request for operation 'createLeaveApplication'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -668,11 +668,11 @@ class PayrollAuApi
      * Use this method to create a Pay Item
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayItem $pay_item pay_item (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem $pay_item pay_item (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayItems
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayItems
      */
     public function createPayItem($xero_tenant_id, $pay_item)
     {
@@ -686,11 +686,11 @@ class PayrollAuApi
      * Use this method to create a Pay Item
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayItems, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayItems, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPayItemWithHttpInfo($xero_tenant_id, $pay_item)
     {
@@ -727,20 +727,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayItems' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -759,7 +759,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -775,7 +775,7 @@ class PayrollAuApi
      * Use this method to create a Pay Item
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -796,14 +796,14 @@ class PayrollAuApi
      * Use this method to create a Pay Item
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPayItemAsyncWithHttpInfo($xero_tenant_id, $pay_item)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems';
         $request = $this->createPayItemRequest($xero_tenant_id, $pay_item);
 
         return $this->client
@@ -844,7 +844,7 @@ class PayrollAuApi
      * Create request for operation 'createPayItem'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem $pay_item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -955,11 +955,11 @@ class PayrollAuApi
      * Use this method to create a PayRun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run pay_run (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run pay_run (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns
      */
     public function createPayRun($xero_tenant_id, $pay_run)
     {
@@ -973,11 +973,11 @@ class PayrollAuApi
      * Use this method to create a PayRun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPayRunWithHttpInfo($xero_tenant_id, $pay_run)
     {
@@ -1014,20 +1014,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1046,7 +1046,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1062,7 +1062,7 @@ class PayrollAuApi
      * Use this method to create a PayRun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1083,14 +1083,14 @@ class PayrollAuApi
      * Use this method to create a PayRun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPayRunAsyncWithHttpInfo($xero_tenant_id, $pay_run)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
         $request = $this->createPayRunRequest($xero_tenant_id, $pay_run);
 
         return $this->client
@@ -1131,7 +1131,7 @@ class PayrollAuApi
      * Create request for operation 'createPayRun'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1242,11 +1242,11 @@ class PayrollAuApi
      * Use this method to create a Payroll Calendars
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar payroll_calendar (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar payroll_calendar (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars
      */
     public function createPayrollCalendar($xero_tenant_id, $payroll_calendar)
     {
@@ -1260,11 +1260,11 @@ class PayrollAuApi
      * Use this method to create a Payroll Calendars
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPayrollCalendarWithHttpInfo($xero_tenant_id, $payroll_calendar)
     {
@@ -1301,20 +1301,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1333,7 +1333,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1349,7 +1349,7 @@ class PayrollAuApi
      * Use this method to create a Payroll Calendars
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1370,14 +1370,14 @@ class PayrollAuApi
      * Use this method to create a Payroll Calendars
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createPayrollCalendarAsyncWithHttpInfo($xero_tenant_id, $payroll_calendar)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
         $request = $this->createPayrollCalendarRequest($xero_tenant_id, $payroll_calendar);
 
         return $this->client
@@ -1418,7 +1418,7 @@ class PayrollAuApi
      * Create request for operation 'createPayrollCalendar'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendar[] $payroll_calendar (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1529,11 +1529,11 @@ class PayrollAuApi
      * Use this method to create a super fund
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund super_fund (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund super_fund (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds
      */
     public function createSuperfund($xero_tenant_id, $super_fund)
     {
@@ -1547,11 +1547,11 @@ class PayrollAuApi
      * Use this method to create a super fund
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSuperfundWithHttpInfo($xero_tenant_id, $super_fund)
     {
@@ -1588,20 +1588,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1620,7 +1620,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1636,7 +1636,7 @@ class PayrollAuApi
      * Use this method to create a super fund
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1657,14 +1657,14 @@ class PayrollAuApi
      * Use this method to create a super fund
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createSuperfundAsyncWithHttpInfo($xero_tenant_id, $super_fund)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
         $request = $this->createSuperfundRequest($xero_tenant_id, $super_fund);
 
         return $this->client
@@ -1705,7 +1705,7 @@ class PayrollAuApi
      * Create request for operation 'createSuperfund'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1816,11 +1816,11 @@ class PayrollAuApi
      * Use this method to create a timesheet
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet timesheet (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet timesheet (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets
      */
     public function createTimesheet($xero_tenant_id, $timesheet)
     {
@@ -1834,11 +1834,11 @@ class PayrollAuApi
      * Use this method to create a timesheet
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTimesheetWithHttpInfo($xero_tenant_id, $timesheet)
     {
@@ -1875,20 +1875,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1907,7 +1907,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1923,7 +1923,7 @@ class PayrollAuApi
      * Use this method to create a timesheet
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1944,14 +1944,14 @@ class PayrollAuApi
      * Use this method to create a timesheet
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createTimesheetAsyncWithHttpInfo($xero_tenant_id, $timesheet)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
         $request = $this->createTimesheetRequest($xero_tenant_id, $timesheet);
 
         return $this->client
@@ -1992,7 +1992,7 @@ class PayrollAuApi
      * Create request for operation 'createTimesheet'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2105,9 +2105,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Employees
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Employees
      */
     public function getEmployee($xero_tenant_id, $employee_id)
     {
@@ -2123,9 +2123,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmployeeWithHttpInfo($xero_tenant_id, $employee_id)
     {
@@ -2162,20 +2162,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Employees', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2194,7 +2194,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Employees',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2238,7 +2238,7 @@ class PayrollAuApi
      */
     public function getEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
         $request = $this->getEmployeeRequest($xero_tenant_id, $employee_id);
 
         return $this->client
@@ -2400,9 +2400,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 employees will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Employees|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Employees|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getEmployees($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -2421,9 +2421,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 employees will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Employees|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Employees|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmployeesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -2460,32 +2460,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Employees', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2504,7 +2504,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Employees',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2512,7 +2512,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2562,7 +2562,7 @@ class PayrollAuApi
      */
     public function getEmployeesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
         $request = $this->getEmployeesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -2726,9 +2726,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications
      */
     public function getLeaveApplication($xero_tenant_id, $leave_application_id)
     {
@@ -2744,9 +2744,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLeaveApplicationWithHttpInfo($xero_tenant_id, $leave_application_id)
     {
@@ -2783,20 +2783,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2815,7 +2815,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2859,7 +2859,7 @@ class PayrollAuApi
      */
     public function getLeaveApplicationAsyncWithHttpInfo($xero_tenant_id, $leave_application_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
         $request = $this->getLeaveApplicationRequest($xero_tenant_id, $leave_application_id);
 
         return $this->client
@@ -3021,9 +3021,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getLeaveApplications($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -3042,9 +3042,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLeaveApplicationsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -3081,32 +3081,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3125,7 +3125,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3133,7 +3133,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3183,7 +3183,7 @@ class PayrollAuApi
      */
     public function getLeaveApplicationsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
         $request = $this->getLeaveApplicationsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -3350,9 +3350,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayItems|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayItems|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getPayItems($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -3371,9 +3371,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayItems|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayItems|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayItemsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -3410,32 +3410,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayItems' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3454,7 +3454,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3462,7 +3462,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3512,7 +3512,7 @@ class PayrollAuApi
      */
     public function getPayItemsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayItems';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItems';
         $request = $this->getPayItemsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -3676,9 +3676,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns
      */
     public function getPayRun($xero_tenant_id, $pay_run_id)
     {
@@ -3694,9 +3694,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayRunWithHttpInfo($xero_tenant_id, $pay_run_id)
     {
@@ -3733,20 +3733,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3765,7 +3765,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3809,7 +3809,7 @@ class PayrollAuApi
      */
     public function getPayRunAsyncWithHttpInfo($xero_tenant_id, $pay_run_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
         $request = $this->getPayRunRequest($xero_tenant_id, $pay_run_id);
 
         return $this->client
@@ -3971,9 +3971,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 PayRuns will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getPayRuns($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -3992,9 +3992,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 PayRuns will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayRunsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -4031,32 +4031,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4075,7 +4075,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4083,7 +4083,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4133,7 +4133,7 @@ class PayrollAuApi
      */
     public function getPayRunsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
         $request = $this->getPayRunsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -4297,9 +4297,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payroll_calendar_id Payroll Calendar id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getPayrollCalendar($xero_tenant_id, $payroll_calendar_id)
     {
@@ -4315,9 +4315,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payroll_calendar_id Payroll Calendar id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayrollCalendarWithHttpInfo($xero_tenant_id, $payroll_calendar_id)
     {
@@ -4354,32 +4354,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4398,7 +4398,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4406,7 +4406,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4450,7 +4450,7 @@ class PayrollAuApi
      */
     public function getPayrollCalendarAsyncWithHttpInfo($xero_tenant_id, $payroll_calendar_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
         $request = $this->getPayrollCalendarRequest($xero_tenant_id, $payroll_calendar_id);
 
         return $this->client
@@ -4612,9 +4612,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getPayrollCalendars($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -4633,9 +4633,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 objects will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayrollCalendarsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -4672,32 +4672,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -4716,7 +4716,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4724,7 +4724,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4774,7 +4774,7 @@ class PayrollAuApi
      */
     public function getPayrollCalendarsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayrollCalendars';
         $request = $this->getPayrollCalendarsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -4938,9 +4938,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject
      */
     public function getPayslip($xero_tenant_id, $payslip_id)
     {
@@ -4956,9 +4956,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPayslipWithHttpInfo($xero_tenant_id, $payslip_id)
     {
@@ -4995,20 +4995,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5027,7 +5027,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5071,7 +5071,7 @@ class PayrollAuApi
      */
     public function getPayslipAsyncWithHttpInfo($xero_tenant_id, $payslip_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipObject';
         $request = $this->getPayslipRequest($xero_tenant_id, $payslip_id);
 
         return $this->client
@@ -5229,9 +5229,9 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject
      */
     public function getSettings($xero_tenant_id)
     {
@@ -5246,9 +5246,9 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSettingsWithHttpInfo($xero_tenant_id)
     {
@@ -5285,20 +5285,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5317,7 +5317,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5359,7 +5359,7 @@ class PayrollAuApi
      */
     public function getSettingsAsyncWithHttpInfo($xero_tenant_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SettingsObject';
         $request = $this->getSettingsRequest($xero_tenant_id);
 
         return $this->client
@@ -5503,9 +5503,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds
      */
     public function getSuperfund($xero_tenant_id, $super_fund_id)
     {
@@ -5521,9 +5521,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSuperfundWithHttpInfo($xero_tenant_id, $super_fund_id)
     {
@@ -5560,20 +5560,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5592,7 +5592,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5636,7 +5636,7 @@ class PayrollAuApi
      */
     public function getSuperfundAsyncWithHttpInfo($xero_tenant_id, $super_fund_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
         $request = $this->getSuperfundRequest($xero_tenant_id, $super_fund_id);
 
         return $this->client
@@ -5796,9 +5796,9 @@ class PayrollAuApi
      * @param  string $abn The ABN of the Regulated SuperFund (optional)
      * @param  string $usi The USI of the Regulated SuperFund (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getSuperfundProducts($xero_tenant_id, $abn = null, $usi = null)
     {
@@ -5815,9 +5815,9 @@ class PayrollAuApi
      * @param  string $abn The ABN of the Regulated SuperFund (optional)
      * @param  string $usi The USI of the Regulated SuperFund (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSuperfundProductsWithHttpInfo($xero_tenant_id, $abn = null, $usi = null)
     {
@@ -5854,32 +5854,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -5898,7 +5898,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5906,7 +5906,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5952,7 +5952,7 @@ class PayrollAuApi
      */
     public function getSuperfundProductsAsyncWithHttpInfo($xero_tenant_id, $abn = null, $usi = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundProducts';
         $request = $this->getSuperfundProductsRequest($xero_tenant_id, $abn, $usi);
 
         return $this->client
@@ -6109,9 +6109,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 SuperFunds will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getSuperfunds($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -6130,9 +6130,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 SuperFunds will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSuperfundsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -6169,32 +6169,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6213,7 +6213,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6221,7 +6221,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6271,7 +6271,7 @@ class PayrollAuApi
      */
     public function getSuperfundsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
         $request = $this->getSuperfundsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -6435,9 +6435,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject
      */
     public function getTimesheet($xero_tenant_id, $timesheet_id)
     {
@@ -6453,9 +6453,9 @@ class PayrollAuApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimesheetWithHttpInfo($xero_tenant_id, $timesheet_id)
     {
@@ -6492,20 +6492,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6524,7 +6524,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6568,7 +6568,7 @@ class PayrollAuApi
      */
     public function getTimesheetAsyncWithHttpInfo($xero_tenant_id, $timesheet_id)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\TimesheetObject';
         $request = $this->getTimesheetRequest($xero_tenant_id, $timesheet_id);
 
         return $this->client
@@ -6730,9 +6730,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 timesheets will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets|\XeroAPI\XeroPHP\Models\PayrollAu\APIException
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException
      */
     public function getTimesheets($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -6751,9 +6751,9 @@ class PayrollAuApi
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 timesheets will be returned in a single API call (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets|\XeroAPI\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets|\SidneyAllen\XeroPHP\Models\PayrollAu\APIException, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTimesheetsWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
@@ -6790,32 +6790,32 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\APIException' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\APIException', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -6834,7 +6834,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6842,7 +6842,7 @@ class PayrollAuApi
                 case 400:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\APIException',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\APIException',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6892,7 +6892,7 @@ class PayrollAuApi
      */
     public function getTimesheetsAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
         $request = $this->getTimesheetsRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
 
         return $this->client
@@ -7055,11 +7055,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee employee (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee employee (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Employees
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Employees
      */
     public function updateEmployee($xero_tenant_id, $employee_id, $employee = null)
     {
@@ -7074,11 +7074,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Employees, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmployeeWithHttpInfo($xero_tenant_id, $employee_id, $employee = null)
     {
@@ -7115,20 +7115,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Employees' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Employees', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7147,7 +7147,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Employees',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7164,7 +7164,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7186,14 +7186,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmployeeAsyncWithHttpInfo($xero_tenant_id, $employee_id, $employee = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Employees';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Employees';
         $request = $this->updateEmployeeRequest($xero_tenant_id, $employee_id, $employee);
 
         return $this->client
@@ -7235,7 +7235,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $employee_id Employee id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Employee[] $employee (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7355,11 +7355,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application leave_application (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications
      */
     public function updateLeaveApplication($xero_tenant_id, $leave_application_id, $leave_application)
     {
@@ -7374,11 +7374,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLeaveApplicationWithHttpInfo($xero_tenant_id, $leave_application_id, $leave_application)
     {
@@ -7415,20 +7415,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7447,7 +7447,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7464,7 +7464,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7486,14 +7486,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateLeaveApplicationAsyncWithHttpInfo($xero_tenant_id, $leave_application_id, $leave_application)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplications';
         $request = $this->updateLeaveApplicationRequest($xero_tenant_id, $leave_application_id, $leave_application);
 
         return $this->client
@@ -7535,7 +7535,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $leave_application_id Leave Application id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveApplication[] $leave_application (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7661,11 +7661,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run pay_run (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run pay_run (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns
      */
     public function updatePayRun($xero_tenant_id, $pay_run_id, $pay_run = null)
     {
@@ -7680,11 +7680,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePayRunWithHttpInfo($xero_tenant_id, $pay_run_id, $pay_run = null)
     {
@@ -7721,20 +7721,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -7753,7 +7753,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7770,7 +7770,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7792,14 +7792,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updatePayRunAsyncWithHttpInfo($xero_tenant_id, $pay_run_id, $pay_run = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\PayRuns';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRuns';
         $request = $this->updatePayRunRequest($xero_tenant_id, $pay_run_id, $pay_run);
 
         return $this->client
@@ -7841,7 +7841,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $pay_run_id PayRun id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayRun[] $pay_run (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7961,11 +7961,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines payslip_lines (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines payslip_lines (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Payslips
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Payslips
      */
     public function updatePayslip($xero_tenant_id, $payslip_id, $payslip_lines = null)
     {
@@ -7980,11 +7980,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Payslips, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Payslips, HTTP status code, HTTP response headers (array of strings)
      */
     public function updatePayslipWithHttpInfo($xero_tenant_id, $payslip_id, $payslip_lines = null)
     {
@@ -8021,20 +8021,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Payslips' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Payslips' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Payslips', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Payslips', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Payslips';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Payslips';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8053,7 +8053,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Payslips',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Payslips',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8070,7 +8070,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8092,14 +8092,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updatePayslipAsyncWithHttpInfo($xero_tenant_id, $payslip_id, $payslip_lines = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Payslips';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Payslips';
         $request = $this->updatePayslipRequest($xero_tenant_id, $payslip_id, $payslip_lines);
 
         return $this->client
@@ -8141,7 +8141,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payslip_id Payslip id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipLines[] $payslip_lines (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8261,11 +8261,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund super_fund (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund super_fund (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds
      */
     public function updateSuperfund($xero_tenant_id, $super_fund_id, $super_fund = null)
     {
@@ -8280,11 +8280,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSuperfundWithHttpInfo($xero_tenant_id, $super_fund_id, $super_fund = null)
     {
@@ -8321,20 +8321,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8353,7 +8353,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8370,7 +8370,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8392,14 +8392,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateSuperfundAsyncWithHttpInfo($xero_tenant_id, $super_fund_id, $super_fund = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFunds';
         $request = $this->updateSuperfundRequest($xero_tenant_id, $super_fund_id, $super_fund);
 
         return $this->client
@@ -8441,7 +8441,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $super_fund_id Superfund id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFund[] $super_fund (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8561,11 +8561,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet timesheet (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet timesheet (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets
      */
     public function updateTimesheet($xero_tenant_id, $timesheet_id, $timesheet = null)
     {
@@ -8580,11 +8580,11 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
      *
-     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \SidneyAllen\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTimesheetWithHttpInfo($xero_tenant_id, $timesheet_id, $timesheet = null)
     {
@@ -8621,20 +8621,20 @@ class PayrollAuApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
+                    if ('\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        PayrollAuObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets', []),
+                        PayrollAuObjectSerializer::deserialize($content, '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+            $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -8653,7 +8653,7 @@ class PayrollAuApi
                 case 200:
                     $data = PayrollAuObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets',
+                        '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8670,7 +8670,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8692,14 +8692,14 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTimesheetAsyncWithHttpInfo($xero_tenant_id, $timesheet_id, $timesheet = null)
     {
-        $returnType = '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheets';
+        $returnType = '\SidneyAllen\XeroPHP\Models\PayrollAu\Timesheets';
         $request = $this->updateTimesheetRequest($xero_tenant_id, $timesheet_id, $timesheet);
 
         return $this->client
@@ -8741,7 +8741,7 @@ class PayrollAuApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $timesheet_id Timesheet id for single object (required)
-     * @param  \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
+     * @param  \SidneyAllen\XeroPHP\Models\PayrollAu\Timesheet[] $timesheet (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

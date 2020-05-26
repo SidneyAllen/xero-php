@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ReportRow Class Doc Comment
  *
@@ -57,9 +57,9 @@ class ReportRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'row_type' => '\XeroAPI\XeroPHP\Models\Accounting\RowType',
+        'row_type' => '\SidneyAllen\XeroPHP\Models\Accounting\RowType',
         'title' => 'string',
-        'cells' => '\XeroAPI\XeroPHP\Models\Accounting\ReportCell[]'
+        'cells' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]'
     ];
 
     /**
@@ -219,7 +219,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets row_type
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\RowType|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\RowType|null
      */
     public function getRowType()
     {
@@ -229,7 +229,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets row_type
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\RowType|null $row_type row_type
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\RowType|null $row_type row_type
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Gets cells
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportCell[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]|null
      */
     public function getCells()
     {
@@ -283,7 +283,7 @@ class ReportRow implements ModelInterface, ArrayAccess
     /**
      * Sets cells
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportCell[]|null $cells cells
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportCell[]|null $cells cells
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayRun Class Doc Comment
  *
@@ -61,18 +61,18 @@ class PayRun implements ModelInterface, ArrayAccess
         'pay_run_id' => 'string',
         'pay_run_period_start_date' => 'string',
         'pay_run_period_end_date' => 'string',
-        'pay_run_status' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayRunStatus',
+        'pay_run_status' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayRunStatus',
         'payment_date' => 'string',
         'payslip_message' => 'string',
         'updated_date_utc' => 'string',
-        'payslips' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayslipSummary[]',
+        'payslips' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayslipSummary[]',
         'wages' => 'double',
         'deductions' => 'double',
         'tax' => 'double',
         'super' => 'double',
         'reimbursement' => 'double',
         'net_pay' => 'double',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -460,7 +460,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Gets pay_run_status
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayRunStatus|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayRunStatus|null
      */
     public function getPayRunStatus()
     {
@@ -470,7 +470,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Sets pay_run_status
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayRunStatus|null $pay_run_status pay_run_status
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayRunStatus|null $pay_run_status pay_run_status
      *
      * @return $this
      */
@@ -601,7 +601,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Gets payslips
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayslipSummary[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipSummary[]|null
      */
     public function getPayslips()
     {
@@ -611,7 +611,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Sets payslips
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayslipSummary[]|null $payslips The payslips in the payrun
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayslipSummary[]|null $payslips The payslips in the payrun
      *
      * @return $this
      */
@@ -790,7 +790,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -800,7 +800,7 @@ class PayRun implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

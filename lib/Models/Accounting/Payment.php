@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Payment Class Doc Comment
  *
@@ -57,13 +57,13 @@ class Payment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoice' => '\XeroAPI\XeroPHP\Models\Accounting\Invoice',
-        'credit_note' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote',
-        'prepayment' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayment',
-        'overpayment' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment',
+        'invoice' => '\SidneyAllen\XeroPHP\Models\Accounting\Invoice',
+        'credit_note' => '\SidneyAllen\XeroPHP\Models\Accounting\CreditNote',
+        'prepayment' => '\SidneyAllen\XeroPHP\Models\Accounting\Prepayment',
+        'overpayment' => '\SidneyAllen\XeroPHP\Models\Accounting\Overpayment',
         'invoice_number' => 'string',
         'credit_note_number' => 'string',
-        'account' => '\XeroAPI\XeroPHP\Models\Accounting\Account',
+        'account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
         'code' => 'string',
         'date' => 'string',
         'currency_rate' => 'double',
@@ -80,7 +80,7 @@ class Payment implements ModelInterface, ArrayAccess
         'has_account' => 'bool',
         'has_validation_errors' => 'bool',
         'status_attribute_string' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -403,7 +403,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets invoice
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Invoice|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Invoice|null
      */
     public function getInvoice()
     {
@@ -413,7 +413,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets invoice
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Invoice|null $invoice invoice
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Invoice|null $invoice invoice
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets credit_note
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNote|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\CreditNote|null
      */
     public function getCreditNote()
     {
@@ -440,7 +440,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets credit_note
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CreditNote|null $credit_note credit_note
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\CreditNote|null $credit_note credit_note
      *
      * @return $this
      */
@@ -457,7 +457,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets prepayment
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Prepayment|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Prepayment|null
      */
     public function getPrepayment()
     {
@@ -467,7 +467,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets prepayment
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Prepayment|null $prepayment prepayment
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Prepayment|null $prepayment prepayment
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets overpayment
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Overpayment|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Overpayment|null
      */
     public function getOverpayment()
     {
@@ -494,7 +494,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets overpayment
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Overpayment|null $overpayment overpayment
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Overpayment|null $overpayment overpayment
      *
      * @return $this
      */
@@ -565,7 +565,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets account
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Account|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account|null
      */
     public function getAccount()
     {
@@ -575,7 +575,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Account|null $account account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account|null $account account
      *
      * @return $this
      */
@@ -1074,7 +1074,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1084,7 +1084,7 @@ class Payment implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

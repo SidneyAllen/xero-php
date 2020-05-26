@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * OnlineInvoices Class Doc Comment
  *
@@ -57,7 +57,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
-        'online_invoices' => '\XeroAPI\XeroPHP\Models\Accounting\OnlineInvoice[]'
+        'online_invoices' => '\SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Gets online_invoices
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoice[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]|null
      */
     public function getOnlineInvoices()
     {
@@ -217,7 +217,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Sets online_invoices
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoice[]|null $online_invoices online_invoices
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\OnlineInvoice[]|null $online_invoices online_invoices
      *
      * @return $this
      */

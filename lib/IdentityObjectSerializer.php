@@ -29,7 +29,7 @@
 
 namespace XeroAPI\XeroPHP;
 
-use XeroAPI\XeroPHP\Models\Identity\ModelInterface;
+use SidneyAllen\XeroPHP\Models\Identity\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
@@ -341,7 +341,7 @@ class IdentityObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\XeroAPI\XeroPHP\Model\\' . $data->{$discriminator};
+                $subclass = '\SidneyAllen\XeroPHP\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }

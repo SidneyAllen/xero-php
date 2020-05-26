@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Receipts Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'receipts' => '\XeroAPI\XeroPHP\Models\Accounting\Receipt[]'
+        'receipts' => '\SidneyAllen\XeroPHP\Models\Accounting\Receipt[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets receipts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Receipt[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null
      */
     public function getReceipts()
     {
@@ -217,7 +217,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets receipts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Receipt[]|null $receipts receipts
      *
      * @return $this
      */

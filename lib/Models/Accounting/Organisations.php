@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Organisations Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organisations' => '\XeroAPI\XeroPHP\Models\Accounting\Organisation[]'
+        'organisations' => '\SidneyAllen\XeroPHP\Models\Accounting\Organisation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Gets organisations
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Organisation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Organisation[]|null
      */
     public function getOrganisations()
     {
@@ -217,7 +217,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
     /**
      * Sets organisations
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Organisation[]|null $organisations organisations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Organisation[]|null $organisations organisations
      *
      * @return $this
      */

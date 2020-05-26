@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **earnings_rate_id** | **string** | Xero unique id for earnings rate | 
-**calculation_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EarningsRateCalculationType**](EarningsRateCalculationType.md) |  | 
+**calculation_type** | [**\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRateCalculationType**](EarningsRateCalculationType.md) |  | 
 **annual_salary** | **float** | Annual salary for earnings line | [optional] 
 **number_of_units_per_week** | **float** | number of units for earning line | [optional] 
 **rate_per_unit** | **float** | Rate per unit of the EarningsLine. | [optional] 

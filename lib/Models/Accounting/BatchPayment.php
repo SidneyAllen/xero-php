@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * BatchPayment Class Doc Comment
  *
@@ -57,7 +57,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account' => '\XeroAPI\XeroPHP\Models\Accounting\Account',
+        'account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
         'reference' => 'string',
         'particulars' => 'string',
         'code' => 'string',
@@ -67,7 +67,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'date_string' => 'string',
         'date' => 'string',
         'amount' => 'double',
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]',
         'type' => 'string',
         'status' => 'string',
         'total_amount' => 'string',
@@ -363,7 +363,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets account
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Account|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account|null
      */
     public function getAccount()
     {
@@ -373,7 +373,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Account|null $account account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account|null $account account
      *
      * @return $this
      */
@@ -678,7 +678,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -688,7 +688,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments payments
      *
      * @return $this
      */

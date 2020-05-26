@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * SuperFund Class Doc Comment
  *
@@ -58,7 +58,7 @@ class SuperFund implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'super_fund_id' => 'string',
-        'type' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType',
+        'type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundType',
         'name' => 'string',
         'abn' => 'string',
         'bsb' => 'string',
@@ -69,7 +69,7 @@ class SuperFund implements ModelInterface, ArrayAccess
         'spin' => 'string',
         'usi' => 'string',
         'updated_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
     /**
@@ -309,7 +309,7 @@ class SuperFund implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundType
      */
     public function getType()
     {
@@ -319,7 +319,7 @@ class SuperFund implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType $type type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\SuperFundType $type type
      *
      * @return $this
      */
@@ -613,7 +613,7 @@ class SuperFund implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -623,7 +623,7 @@ class SuperFund implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

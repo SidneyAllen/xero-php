@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * EarningsRate Class Doc Comment
  *
@@ -63,17 +63,17 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => 'bool',
         'is_exempt_from_super' => 'bool',
         'is_reportable_as_w1' => 'bool',
-        'earnings_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsType',
+        'earnings_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsType',
         'earnings_rate_id' => 'string',
-        'rate_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\RateType',
+        'rate_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\RateType',
         'rate_per_unit' => 'string',
         'multiplier' => 'double',
         'accrue_leave' => 'double',
         'amount' => 'double',
-        'employment_termination_payment_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType',
+        'employment_termination_payment_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType',
         'updated_date_utc' => 'string',
         'current_record' => 'bool',
-        'allowance_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType'
+        'allowance_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\AllowanceType'
     ];
 
     /**
@@ -481,7 +481,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Gets earnings_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsType|null
      */
     public function getEarningsType()
     {
@@ -491,7 +491,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Sets earnings_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsType|null $earnings_type earnings_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsType|null $earnings_type earnings_type
      *
      * @return $this
      */
@@ -535,7 +535,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Gets rate_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\RateType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\RateType|null
      */
     public function getRateType()
     {
@@ -545,7 +545,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Sets rate_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\RateType|null $rate_type rate_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\RateType|null $rate_type rate_type
      *
      * @return $this
      */
@@ -670,7 +670,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Gets employment_termination_payment_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null
      */
     public function getEmploymentTerminationPaymentType()
     {
@@ -680,7 +680,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Sets employment_termination_payment_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null $employment_termination_payment_type employment_termination_payment_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null $employment_termination_payment_type employment_termination_payment_type
      *
      * @return $this
      */
@@ -758,7 +758,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Gets allowance_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\AllowanceType|null
      */
     public function getAllowanceType()
     {
@@ -768,7 +768,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Sets allowance_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType|null $allowance_type allowance_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\AllowanceType|null $allowance_type allowance_type
      *
      * @return $this
      */

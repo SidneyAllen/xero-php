@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  XeroAPI\XeroPHP\Models\Accounting
+ * @package  SidneyAllen\XeroPHP\Models\Accounting
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 /**
  * Interface abstracting model access.
  *
- * @package XeroAPI\XeroPHP\Models\Accounting
+ * @package SidneyAllen\XeroPHP\Models\Accounting
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

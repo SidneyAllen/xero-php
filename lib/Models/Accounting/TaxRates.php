@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TaxRates Class Doc Comment
  *
@@ -57,7 +57,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_rates' => '\XeroAPI\XeroPHP\Models\Accounting\TaxRate[]'
+        'tax_rates' => '\SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets tax_rates
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TaxRate[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]|null
      */
     public function getTaxRates()
     {
@@ -217,7 +217,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets tax_rates
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TaxRate[]|null $tax_rates tax_rates
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\TaxRate[]|null $tax_rates tax_rates
      *
      * @return $this
      */

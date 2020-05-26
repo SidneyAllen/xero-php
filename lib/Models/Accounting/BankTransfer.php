@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * BankTransfer Class Doc Comment
  *
@@ -57,8 +57,8 @@ class BankTransfer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'from_bank_account' => '\XeroAPI\XeroPHP\Models\Accounting\Account',
-        'to_bank_account' => '\XeroAPI\XeroPHP\Models\Accounting\Account',
+        'from_bank_account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
+        'to_bank_account' => '\SidneyAllen\XeroPHP\Models\Accounting\Account',
         'amount' => 'double',
         'date' => 'string',
         'bank_transfer_id' => 'string',
@@ -67,7 +67,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'to_bank_transaction_id' => 'string',
         'has_attachments' => 'bool',
         'created_date_utc' => 'string',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -276,7 +276,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets from_bank_account
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Account
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account
      */
     public function getFromBankAccount()
     {
@@ -286,7 +286,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets from_bank_account
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Account $from_bank_account from_bank_account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account $from_bank_account from_bank_account
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets to_bank_account
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Account
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Account
      */
     public function getToBankAccount()
     {
@@ -313,7 +313,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets to_bank_account
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Account $to_bank_account to_bank_account
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Account $to_bank_account to_bank_account
      *
      * @return $this
      */
@@ -574,7 +574,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -584,7 +584,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * BankTransactions Class Doc Comment
  *
@@ -57,7 +57,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]'
+        'bank_transactions' => '\SidneyAllen\XeroPHP\Models\Accounting\BankTransaction[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     /**
      * Gets bank_transactions
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\BankTransaction[]|null
      */
     public function getBankTransactions()
     {
@@ -217,7 +217,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     /**
      * Sets bank_transactions
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null $bank_transactions bank_transactions
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\BankTransaction[]|null $bank_transactions bank_transactions
      *
      * @return $this
      */

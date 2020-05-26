@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LeaveLines Class Doc Comment
  *
@@ -58,7 +58,7 @@ class LeaveLines implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'employee' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]'
+        'employee' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class LeaveLines implements ModelInterface, ArrayAccess
     /**
      * Gets employee
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null
      */
     public function getEmployee()
     {
@@ -218,7 +218,7 @@ class LeaveLines implements ModelInterface, ArrayAccess
     /**
      * Sets employee
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null $employee employee
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLine[]|null $employee employee
      *
      * @return $this
      */

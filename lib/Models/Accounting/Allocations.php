@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Allocations Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'allocations' => '\XeroAPI\XeroPHP\Models\Accounting\Allocation[]'
+        'allocations' => '\SidneyAllen\XeroPHP\Models\Accounting\Allocation[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Gets allocations
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -217,7 +217,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     /**
      * Sets allocations
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Allocation[]|null $allocations allocations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null $allocations allocations
      *
      * @return $this
      */

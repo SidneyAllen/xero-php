@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Invoices Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'invoices' => '\XeroAPI\XeroPHP\Models\Accounting\Invoice[]'
+        'invoices' => '\SidneyAllen\XeroPHP\Models\Accounting\Invoice[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets invoices
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Invoice[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Invoice[]|null
      */
     public function getInvoices()
     {
@@ -217,7 +217,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets invoices
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Invoice[]|null $invoices invoices
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Invoice[]|null $invoices invoices
      *
      * @return $this
      */

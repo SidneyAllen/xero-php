@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Users Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
       * @var string[]
       */
     protected static $openAPITypes = [
-        'users' => '\XeroAPI\XeroPHP\Models\Accounting\User[]'
+        'users' => '\SidneyAllen\XeroPHP\Models\Accounting\User[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
     /**
      * Gets users
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\User[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\User[]|null
      */
     public function getUsers()
     {
@@ -217,7 +217,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
     /**
      * Sets users
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\User[]|null $users users
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\User[]|null $users users
      *
      * @return $this
      */

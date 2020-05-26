@@ -1,4 +1,4 @@
-# XeroAPI\XeroPHP\ProjectApi
+# SidneyAllen\XeroPHP\ProjectApi
 
 All URIs are relative to *https://api.xero.com/projects.xro/2.0*
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createProject**
-> \XeroAPI\XeroPHP\Models\Project\Project createProject($xero_tenant_id, $project_create_or_update)
+> \SidneyAllen\XeroPHP\Models\Project\Project createProject($xero_tenant_id, $project_create_or_update)
 
 create one or more new projects
 
@@ -30,16 +30,16 @@ create one or more new projects
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" }; // \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
+$project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" }; // \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
 
 try {
     $result = $apiInstance->createProject($xero_tenant_id, $project_create_or_update);
@@ -55,11 +55,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **project_create_or_update** | [**\XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate**](../Model/ProjectCreateOrUpdate.md)| Create a new project with ProjectCreateOrUpdate object |
+ **project_create_or_update** | [**\SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate**](../Model/ProjectCreateOrUpdate.md)| Create a new project with ProjectCreateOrUpdate object |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\Project**](../Model/Project.md)
+[**\SidneyAllen\XeroPHP\Models\Project\Project**](../Model/Project.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTimeEntry**
-> \XeroAPI\XeroPHP\Models\Project\TimeEntry createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update)
+> \SidneyAllen\XeroPHP\Models\Project\TimeEntry createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update)
 
 Allows you to create a task
 
@@ -85,9 +85,9 @@ Allows you to create a specific task
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -95,7 +95,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
-$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are creating
+$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" }; // \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are creating
 
 try {
     $result = $apiInstance->createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update);
@@ -112,11 +112,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
- **time_entry_create_or_update** | [**\XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate**](../Model/TimeEntryCreateOrUpdate.md)| The time entry object you are creating |
+ **time_entry_create_or_update** | [**\SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate**](../Model/TimeEntryCreateOrUpdate.md)| The time entry object you are creating |
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\TimeEntry**](../Model/TimeEntry.md)
+[**\SidneyAllen\XeroPHP\Models\Project\TimeEntry**](../Model/TimeEntry.md)
 
 ### Authorization
 
@@ -142,9 +142,9 @@ Allows you to delete a specific time entry
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -186,7 +186,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProject**
-> \XeroAPI\XeroPHP\Models\Project\Project getProject($xero_tenant_id, $project_id)
+> \SidneyAllen\XeroPHP\Models\Project\Project getProject($xero_tenant_id, $project_id)
 
 Allows you to retrieve a single project
 
@@ -198,9 +198,9 @@ Allows you to retrieve a specific project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\Project**](../Model/Project.md)
+[**\SidneyAllen\XeroPHP\Models\Project\Project**](../Model/Project.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProjectUsers**
-> \XeroAPI\XeroPHP\Models\Project\ProjectUsers getProjectUsers($xero_tenant_id, $page, $page_size)
+> \SidneyAllen\XeroPHP\Models\Project\ProjectUsers getProjectUsers($xero_tenant_id, $page, $page_size)
 
 list all project users
 
@@ -253,9 +253,9 @@ Allows you to retrieve the users on a projects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\ProjectUsers**](../Model/ProjectUsers.md)
+[**\SidneyAllen\XeroPHP\Models\Project\ProjectUsers**](../Model/ProjectUsers.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProjects**
-> \XeroAPI\XeroPHP\Models\Project\Projects getProjects($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size)
+> \SidneyAllen\XeroPHP\Models\Project\Projects getProjects($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size)
 
 list all projects
 
@@ -310,9 +310,9 @@ Allows you to retrieve, create and update projects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\Projects**](../Model/Projects.md)
+[**\SidneyAllen\XeroPHP\Models\Project\Projects**](../Model/Projects.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTask**
-> \XeroAPI\XeroPHP\Models\Project\Task getTask($xero_tenant_id, $project_id, $task_id)
+> \SidneyAllen\XeroPHP\Models\Project\Task getTask($xero_tenant_id, $project_id, $task_id)
 
 Allows you to retrieve a single project
 
@@ -373,9 +373,9 @@ Allows you to retrieve a specific project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\Task**](../Model/Task.md)
+[**\SidneyAllen\XeroPHP\Models\Project\Task**](../Model/Task.md)
 
 ### Authorization
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTasks**
-> \XeroAPI\XeroPHP\Models\Project\Tasks getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids)
+> \SidneyAllen\XeroPHP\Models\Project\Tasks getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids)
 
 Allows you to retrieve a single project
 
@@ -430,9 +430,9 @@ Allows you to retrieve a specific project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\Tasks**](../Model/Tasks.md)
+[**\SidneyAllen\XeroPHP\Models\Project\Tasks**](../Model/Tasks.md)
 
 ### Authorization
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTimeEntries**
-> \XeroAPI\XeroPHP\Models\Project\TimeEntries getTimeEntries($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc)
+> \SidneyAllen\XeroPHP\Models\Project\TimeEntries getTimeEntries($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc)
 
 Allows you to retrieve the time entries associated with a specific project
 
@@ -491,9 +491,9 @@ Allows you to retrieve the time entries associated with a specific project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\TimeEntries**](../Model/TimeEntries.md)
+[**\SidneyAllen\XeroPHP\Models\Project\TimeEntries**](../Model/TimeEntries.md)
 
 ### Authorization
 
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTimeEntry**
-> \XeroAPI\XeroPHP\Models\Project\TimeEntry getTimeEntry($xero_tenant_id, $project_id, $time_entry_id)
+> \SidneyAllen\XeroPHP\Models\Project\TimeEntry getTimeEntry($xero_tenant_id, $project_id, $time_entry_id)
 
 Allows you to get a single time entry in a project
 
@@ -566,9 +566,9 @@ Allows you to upget a single time entry in a project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Project\TimeEntry**](../Model/TimeEntry.md)
+[**\SidneyAllen\XeroPHP\Models\Project\TimeEntry**](../Model/TimeEntry.md)
 
 ### Authorization
 
@@ -623,9 +623,9 @@ Allows you to update a specific projects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -633,7 +633,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
-$project_patch = { "status": "INPROGRESS" }; // \XeroAPI\XeroPHP\Models\Project\ProjectPatch | Update the status of an existing Project
+$project_patch = { "status": "INPROGRESS" }; // \SidneyAllen\XeroPHP\Models\Project\ProjectPatch | Update the status of an existing Project
 
 try {
     $apiInstance->patchProject($xero_tenant_id, $project_id, $project_patch);
@@ -649,7 +649,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
- **project_patch** | [**\XeroAPI\XeroPHP\Models\Project\ProjectPatch**](../Model/ProjectPatch.md)| Update the status of an existing Project |
+ **project_patch** | [**\SidneyAllen\XeroPHP\Models\Project\ProjectPatch**](../Model/ProjectPatch.md)| Update the status of an existing Project |
 
 ### Return type
 
@@ -679,9 +679,9 @@ Allows you to update a specific projects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -689,7 +689,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
-$project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 }; // \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
+$project_create_or_update = { "name": "New Kitchen", "deadlineUtc": "2017-04-23T18:25:43.511Z", "estimateAmount": 99.99 }; // \SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate | Request of type ProjectCreateOrUpdate
 
 try {
     $apiInstance->updateProject($xero_tenant_id, $project_id, $project_create_or_update);
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
- **project_create_or_update** | [**\XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate**](../Model/ProjectCreateOrUpdate.md)| Request of type ProjectCreateOrUpdate |
+ **project_create_or_update** | [**\SidneyAllen\XeroPHP\Models\Project\ProjectCreateOrUpdate**](../Model/ProjectCreateOrUpdate.md)| Request of type ProjectCreateOrUpdate |
 
 ### Return type
 
@@ -735,9 +735,9 @@ Allows you to update time entry in a project
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\ProjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -746,7 +746,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
 $time_entry_id = 'time_entry_id_example'; // string | You can specify an individual time entry by appending the id to the endpoint
-$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are updating
+$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" }; // \SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are updating
 
 try {
     $apiInstance->updateTimeEntry($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update);
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
  **time_entry_id** | [**string**](../Model/.md)| You can specify an individual time entry by appending the id to the endpoint |
- **time_entry_create_or_update** | [**\XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate**](../Model/TimeEntryCreateOrUpdate.md)| The time entry object you are updating |
+ **time_entry_create_or_update** | [**\SidneyAllen\XeroPHP\Models\Project\TimeEntryCreateOrUpdate**](../Model/TimeEntryCreateOrUpdate.md)| The time entry object you are updating |
 
 ### Return type
 

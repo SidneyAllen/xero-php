@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayItems Class Doc Comment
  *
@@ -57,7 +57,7 @@ class PayItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_items' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayItem'
+        'pay_items' => '\SidneyAllen\XeroPHP\Models\PayrollAu\PayItem'
     ];
 
     /**
@@ -207,7 +207,7 @@ class PayItems implements ModelInterface, ArrayAccess
     /**
      * Gets pay_items
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayItem|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem|null
      */
     public function getPayItems()
     {
@@ -217,7 +217,7 @@ class PayItems implements ModelInterface, ArrayAccess
     /**
      * Sets pay_items
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayItem|null $pay_items pay_items
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\PayItem|null $pay_items pay_items
      *
      * @return $this
      */

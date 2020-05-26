@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * PayItem Class Doc Comment
  *
@@ -57,10 +57,10 @@ class PayItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'earnings_rates' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsRate[]',
-        'deduction_types' => '\XeroAPI\XeroPHP\Models\PayrollAu\DeductionType[]',
-        'leave_types' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveType[]',
-        'reimbursement_types' => '\XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementType[]'
+        'earnings_rates' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRate[]',
+        'deduction_types' => '\SidneyAllen\XeroPHP\Models\PayrollAu\DeductionType[]',
+        'leave_types' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveType[]',
+        'reimbursement_types' => '\SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementType[]'
     ];
 
     /**
@@ -225,7 +225,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Gets earnings_rates
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EarningsRate[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRate[]|null
      */
     public function getEarningsRates()
     {
@@ -235,7 +235,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Sets earnings_rates
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EarningsRate[]|null $earnings_rates earnings_rates
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EarningsRate[]|null $earnings_rates earnings_rates
      *
      * @return $this
      */
@@ -252,7 +252,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Gets deduction_types
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionType[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionType[]|null
      */
     public function getDeductionTypes()
     {
@@ -262,7 +262,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Sets deduction_types
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionType[]|null $deduction_types deduction_types
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\DeductionType[]|null $deduction_types deduction_types
      *
      * @return $this
      */
@@ -279,7 +279,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Gets leave_types
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveType[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveType[]|null
      */
     public function getLeaveTypes()
     {
@@ -289,7 +289,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Sets leave_types
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveType[]|null $leave_types leave_types
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveType[]|null $leave_types leave_types
      *
      * @return $this
      */
@@ -306,7 +306,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Gets reimbursement_types
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementType[]|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementType[]|null
      */
     public function getReimbursementTypes()
     {
@@ -316,7 +316,7 @@ class PayItem implements ModelInterface, ArrayAccess
     /**
      * Sets reimbursement_types
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementType[]|null $reimbursement_types reimbursement_types
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\ReimbursementType[]|null $reimbursement_types reimbursement_types
      *
      * @return $this
      */

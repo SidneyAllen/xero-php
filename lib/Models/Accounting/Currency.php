@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Currency Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Currency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'description' => 'string'
     ];
 

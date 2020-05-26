@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoice**](Invoice.md) |  | 
+**invoice** | [**\SidneyAllen\XeroPHP\Models\Accounting\Invoice**](Invoice.md) |  | 
 **amount** | **double** | the amount being applied to the invoice | 
 **date** | [**\DateTime**](\DateTime.md) | the date the allocation is applied YYYY-MM-DD. | 
 

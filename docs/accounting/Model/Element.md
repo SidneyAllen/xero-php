@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Array of Validation Error message | [optional] 
+**validation_errors** | [**\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Array of Validation Error message | [optional] 
 **batch_payment_id** | **string** | Unique ID for batch payment object with validation error | [optional] 
 **bank_transaction_id** | **string** |  | [optional] 
 **credit_note_id** | **string** |  | [optional] 

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Account Class Doc Comment
  *
@@ -58,7 +58,7 @@ class Account implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'account_id' => 'string',
-        'type' => '\XeroAPI\XeroPHP\Models\PayrollAu\AccountType',
+        'type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\AccountType',
         'code' => 'string',
         'name' => 'string'
     ];
@@ -252,7 +252,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\AccountType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\AccountType|null
      */
     public function getType()
     {
@@ -262,7 +262,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\AccountType|null $type type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\AccountType|null $type type
      *
      * @return $this
      */

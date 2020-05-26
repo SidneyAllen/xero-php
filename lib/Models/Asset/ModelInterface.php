@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  XeroAPI\XeroPHP\Models\Asset
+ * @package  SidneyAllen\XeroPHP\Models\Asset
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Asset;
+namespace SidneyAllen\XeroPHP\Models\Asset;
 
 /**
  * Interface abstracting model access.
  *
- * @package XeroAPI\XeroPHP\Models\Asset
+ * @package SidneyAllen\XeroPHP\Models\Asset
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

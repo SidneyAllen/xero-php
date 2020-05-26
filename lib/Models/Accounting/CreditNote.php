@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * CreditNote Class Doc Comment
  *
@@ -58,16 +58,16 @@ class CreditNote implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'contact' => '\XeroAPI\XeroPHP\Models\Accounting\Contact',
+        'contact' => '\SidneyAllen\XeroPHP\Models\Accounting\Contact',
         'date' => 'string',
         'status' => 'string',
-        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes',
-        'line_items' => '\XeroAPI\XeroPHP\Models\Accounting\LineItem[]',
+        'line_amount_types' => '\SidneyAllen\XeroPHP\Models\Accounting\LineAmountTypes',
+        'line_items' => '\SidneyAllen\XeroPHP\Models\Accounting\LineItem[]',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
         'updated_date_utc' => 'string',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Accounting\CurrencyCode',
         'fully_paid_on_date' => 'string',
         'credit_note_id' => 'string',
         'credit_note_number' => 'string',
@@ -75,14 +75,14 @@ class CreditNote implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'bool',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
-        'allocations' => '\XeroAPI\XeroPHP\Models\Accounting\Allocation[]',
+        'allocations' => '\SidneyAllen\XeroPHP\Models\Accounting\Allocation[]',
         'applied_amount' => 'double',
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
+        'payments' => '\SidneyAllen\XeroPHP\Models\Accounting\Payment[]',
         'branding_theme_id' => 'string',
         'status_attribute_string' => 'string',
         'has_attachments' => 'bool',
         'has_errors' => 'bool',
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -447,7 +447,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -457,7 +457,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -590,7 +590,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -600,7 +600,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See Invoice Line Items
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\LineItem[]|null $line_items See Invoice Line Items
      *
      * @return $this
      */
@@ -973,7 +973,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets allocations
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Allocation[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null
      */
     public function getAllocations()
     {
@@ -983,7 +983,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets allocations
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Allocation[]|null $allocations See Allocations
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Allocation[]|null $allocations See Allocations
      *
      * @return $this
      */
@@ -1027,7 +1027,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -1037,7 +1037,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
      *
      * @return $this
      */
@@ -1162,7 +1162,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Gets validation_errors
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null
      */
     public function getValidationErrors()
     {
@@ -1172,7 +1172,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     /**
      * Sets validation_errors
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
      *
      * @return $this
      */

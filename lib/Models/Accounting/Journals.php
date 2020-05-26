@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Journals Class Doc Comment
  *
@@ -57,7 +57,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'journals' => '\XeroAPI\XeroPHP\Models\Accounting\Journal[]'
+        'journals' => '\SidneyAllen\XeroPHP\Models\Accounting\Journal[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Gets journals
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Journal[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\Journal[]|null
      */
     public function getJournals()
     {
@@ -217,7 +217,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     /**
      * Sets journals
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Journal[]|null $journals journals
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\Journal[]|null $journals journals
      *
      * @return $this
      */

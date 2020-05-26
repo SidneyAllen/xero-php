@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * Project Class Doc Comment
  *
@@ -60,25 +60,25 @@ class Project implements ModelInterface, ArrayAccess
         'project_id' => 'string',
         'contact_id' => 'string',
         'name' => 'string',
-        'currency_code' => '\XeroAPI\XeroPHP\Models\Project\CurrencyCode',
+        'currency_code' => '\SidneyAllen\XeroPHP\Models\Project\CurrencyCode',
         'minutes_logged' => 'int',
-        'total_task_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'total_expense_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'estimate_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
+        'total_task_amount' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'total_expense_amount' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'estimate_amount' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
         'minutes_to_be_invoiced' => 'int',
-        'task_amount_to_be_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'task_amount_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'expense_amount_to_be_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'expense_amount_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'project_amount_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'deposit' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'deposit_applied' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'credit_note_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
+        'task_amount_to_be_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'task_amount_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'expense_amount_to_be_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'expense_amount_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'project_amount_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'deposit' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'deposit_applied' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'credit_note_amount' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
         'deadline_utc' => '\DateTime',
-        'total_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'total_to_be_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'estimate' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'status' => '\XeroAPI\XeroPHP\Models\Project\ProjectStatus'
+        'total_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'total_to_be_invoiced' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'estimate' => '\SidneyAllen\XeroPHP\Models\Project\Amount',
+        'status' => '\SidneyAllen\XeroPHP\Models\Project\ProjectStatus'
     ];
 
     /**
@@ -471,7 +471,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets total_task_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTotalTaskAmount()
     {
@@ -481,7 +481,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets total_task_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $total_task_amount total_task_amount
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $total_task_amount total_task_amount
      *
      * @return $this
      */
@@ -498,7 +498,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets total_expense_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTotalExpenseAmount()
     {
@@ -508,7 +508,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets total_expense_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $total_expense_amount total_expense_amount
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $total_expense_amount total_expense_amount
      *
      * @return $this
      */
@@ -525,7 +525,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets estimate_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getEstimateAmount()
     {
@@ -535,7 +535,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets estimate_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $estimate_amount estimate_amount
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $estimate_amount estimate_amount
      *
      * @return $this
      */
@@ -579,7 +579,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets task_amount_to_be_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTaskAmountToBeInvoiced()
     {
@@ -589,7 +589,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets task_amount_to_be_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $task_amount_to_be_invoiced task_amount_to_be_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $task_amount_to_be_invoiced task_amount_to_be_invoiced
      *
      * @return $this
      */
@@ -606,7 +606,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets task_amount_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTaskAmountInvoiced()
     {
@@ -616,7 +616,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets task_amount_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $task_amount_invoiced task_amount_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $task_amount_invoiced task_amount_invoiced
      *
      * @return $this
      */
@@ -633,7 +633,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets expense_amount_to_be_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getExpenseAmountToBeInvoiced()
     {
@@ -643,7 +643,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets expense_amount_to_be_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $expense_amount_to_be_invoiced expense_amount_to_be_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $expense_amount_to_be_invoiced expense_amount_to_be_invoiced
      *
      * @return $this
      */
@@ -660,7 +660,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets expense_amount_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getExpenseAmountInvoiced()
     {
@@ -670,7 +670,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets expense_amount_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $expense_amount_invoiced expense_amount_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $expense_amount_invoiced expense_amount_invoiced
      *
      * @return $this
      */
@@ -687,7 +687,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets project_amount_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getProjectAmountInvoiced()
     {
@@ -697,7 +697,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets project_amount_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $project_amount_invoiced project_amount_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $project_amount_invoiced project_amount_invoiced
      *
      * @return $this
      */
@@ -714,7 +714,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets deposit
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getDeposit()
     {
@@ -724,7 +724,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets deposit
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $deposit deposit
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $deposit deposit
      *
      * @return $this
      */
@@ -741,7 +741,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets deposit_applied
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getDepositApplied()
     {
@@ -751,7 +751,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets deposit_applied
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $deposit_applied deposit_applied
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $deposit_applied deposit_applied
      *
      * @return $this
      */
@@ -768,7 +768,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets credit_note_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getCreditNoteAmount()
     {
@@ -778,7 +778,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets credit_note_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $credit_note_amount credit_note_amount
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $credit_note_amount credit_note_amount
      *
      * @return $this
      */
@@ -822,7 +822,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets total_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTotalInvoiced()
     {
@@ -832,7 +832,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets total_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $total_invoiced total_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $total_invoiced total_invoiced
      *
      * @return $this
      */
@@ -849,7 +849,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets total_to_be_invoiced
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getTotalToBeInvoiced()
     {
@@ -859,7 +859,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets total_to_be_invoiced
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $total_to_be_invoiced total_to_be_invoiced
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $total_to_be_invoiced total_to_be_invoiced
      *
      * @return $this
      */
@@ -876,7 +876,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Gets estimate
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Amount|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Amount|null
      */
     public function getEstimate()
     {
@@ -886,7 +886,7 @@ class Project implements ModelInterface, ArrayAccess
     /**
      * Sets estimate
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Amount|null $estimate estimate
+     * @param \SidneyAllen\XeroPHP\Models\Project\Amount|null $estimate estimate
      *
      * @return $this
      */

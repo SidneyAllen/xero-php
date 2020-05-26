@@ -1,4 +1,4 @@
-# XeroAPI\XeroPHP\IdentityApi
+# SidneyAllen\XeroPHP\IdentityApi
 
 All URIs are relative to *https://api.xero.com*
 
@@ -21,9 +21,9 @@ Override the base server url that include version
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\IdentityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -61,7 +61,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConnections**
-> \XeroAPI\XeroPHP\Models\Identity\Connection[] getConnections()
+> \SidneyAllen\XeroPHP\Models\Identity\Connection[] getConnections()
 
 Allows you to retrieve the connections for this user
 
@@ -73,9 +73,9 @@ Override the base server url that include version
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = SidneyAllen\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
+$apiInstance = new SidneyAllen\XeroPHP\Api\IdentityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Identity\Connection[]**](../Model/Connection.md)
+[**\SidneyAllen\XeroPHP\Models\Identity\Connection[]**](../Model/Connection.md)
 
 ### Authorization
 

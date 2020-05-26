@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\PayrollAu;
+namespace SidneyAllen\XeroPHP\Models\PayrollAu;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\PayrollAuObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * LeaveLine Class Doc Comment
  *
@@ -58,9 +58,9 @@ class LeaveLine implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'leave_type_id' => 'string',
-        'calculation_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLineCalculationType',
-        'entitlement_final_pay_payout_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType',
-        'employment_termination_payment_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType',
+        'calculation_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLineCalculationType',
+        'entitlement_final_pay_payout_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType',
+        'employment_termination_payment_type' => '\SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType',
         'include_superannuation_guarantee_contribution' => 'bool',
         'number_of_units' => 'double'
     ];
@@ -264,7 +264,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Gets calculation_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLineCalculationType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLineCalculationType|null
      */
     public function getCalculationType()
     {
@@ -274,7 +274,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Sets calculation_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLineCalculationType|null $calculation_type calculation_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\LeaveLineCalculationType|null $calculation_type calculation_type
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Gets entitlement_final_pay_payout_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType|null
      */
     public function getEntitlementFinalPayPayoutType()
     {
@@ -301,7 +301,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Sets entitlement_final_pay_payout_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType|null $entitlement_final_pay_payout_type entitlement_final_pay_payout_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType|null $entitlement_final_pay_payout_type entitlement_final_pay_payout_type
      *
      * @return $this
      */
@@ -318,7 +318,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Gets employment_termination_payment_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null
+     * @return \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null
      */
     public function getEmploymentTerminationPaymentType()
     {
@@ -328,7 +328,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Sets employment_termination_payment_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null $employment_termination_payment_type employment_termination_payment_type
+     * @param \SidneyAllen\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType|null $employment_termination_payment_type employment_termination_payment_type
      *
      * @return $this
      */

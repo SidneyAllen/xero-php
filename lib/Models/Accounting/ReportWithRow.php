@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Accounting;
+namespace SidneyAllen\XeroPHP\Models\Accounting;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AccountingObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\AccountingObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * ReportWithRow Class Doc Comment
  *
@@ -63,9 +63,9 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => 'string',
         'report_titles' => 'string[]',
         'report_date' => 'string',
-        'rows' => '\XeroAPI\XeroPHP\Models\Accounting\ReportRows[]',
+        'rows' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]',
         'updated_date_utc' => 'string',
-        'fields' => '\XeroAPI\XeroPHP\Models\Accounting\ReportFields[]'
+        'fields' => '\SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]'
     ];
 
     /**
@@ -417,7 +417,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets rows
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportRows[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]|null
      */
     public function getRows()
     {
@@ -427,7 +427,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets rows
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportRows[]|null $rows rows
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportRows[]|null $rows rows
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportFields[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]|null
      */
     public function getFields()
     {
@@ -488,7 +488,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportFields[]|null $fields fields
+     * @param \SidneyAllen\XeroPHP\Models\Accounting\ReportFields[]|null $fields fields
      *
      * @return $this
      */

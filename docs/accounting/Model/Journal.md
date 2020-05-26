@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **reference** | **string** | reference field for additional indetifying information | [optional] 
 **source_id** | **string** | The identifier for the source transaction (e.g. InvoiceID) | [optional] 
 **source_type** | **string** | The journal source type. The type of transaction that created the journal | [optional] 
-**journal_lines** | [**\XeroAPI\XeroPHP\Models\Accounting\JournalLine[]**](JournalLine.md) | See JournalLines | [optional] 
+**journal_lines** | [**\SidneyAllen\XeroPHP\Models\Accounting\JournalLine[]**](JournalLine.md) | See JournalLines | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -27,11 +27,11 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Project;
+namespace SidneyAllen\XeroPHP\Models\Project;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\ProjectObjectSerializer;
-use \XeroAPI\XeroPHP\StringUtil;
+use \SidneyAllen\XeroPHP\ProjectObjectSerializer;
+use \SidneyAllen\XeroPHP\StringUtil;
 /**
  * TimeEntries Class Doc Comment
  *
@@ -57,8 +57,8 @@ class TimeEntries implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pagination' => '\XeroAPI\XeroPHP\Models\Project\Pagination',
-        'items' => '\XeroAPI\XeroPHP\Models\Project\TimeEntry[]'
+        'pagination' => '\SidneyAllen\XeroPHP\Models\Project\Pagination',
+        'items' => '\SidneyAllen\XeroPHP\Models\Project\TimeEntry[]'
     ];
 
     /**
@@ -213,7 +213,7 @@ class TimeEntries implements ModelInterface, ArrayAccess
     /**
      * Gets pagination
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\Pagination|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\Pagination|null
      */
     public function getPagination()
     {
@@ -223,7 +223,7 @@ class TimeEntries implements ModelInterface, ArrayAccess
     /**
      * Sets pagination
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\Pagination|null $pagination pagination
+     * @param \SidneyAllen\XeroPHP\Models\Project\Pagination|null $pagination pagination
      *
      * @return $this
      */
@@ -240,7 +240,7 @@ class TimeEntries implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \XeroAPI\XeroPHP\Models\Project\TimeEntry[]|null
+     * @return \SidneyAllen\XeroPHP\Models\Project\TimeEntry[]|null
      */
     public function getItems()
     {
@@ -250,7 +250,7 @@ class TimeEntries implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \XeroAPI\XeroPHP\Models\Project\TimeEntry[]|null $items items
+     * @param \SidneyAllen\XeroPHP\Models\Project\TimeEntry[]|null $items items
      *
      * @return $this
      */
