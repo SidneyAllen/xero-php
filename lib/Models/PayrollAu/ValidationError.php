@@ -1,6 +1,6 @@
 <?php
 /**
- * TimesheetObject
+ * ValidationError
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * TimesheetObject Class Doc Comment
+ * ValidationError Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TimesheetObject implements ModelInterface, ArrayAccess
+class ValidationError implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TimesheetObject';
+    protected static $openAPIModelName = 'ValidationError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'timesheet' => '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet'
+        'message' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'timesheet' => null
+        'message' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timesheet' => 'Timesheet'
+        'message' => 'Message'
     ];
 
     /**
@@ -105,7 +105,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timesheet' => 'setTimesheet'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -114,7 +114,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timesheet' => 'getTimesheet'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -177,7 +177,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['timesheet'] = isset($data['timesheet']) ? $data['timesheet'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -205,26 +205,26 @@ class TimesheetObject implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timesheet
+     * Gets message
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet|null
+     * @return string|null
      */
-    public function getTimesheet()
+    public function getMessage()
     {
-        return $this->container['timesheet'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets timesheet
+     * Sets message
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet|null $timesheet timesheet
+     * @param string|null $message Validation error message
      *
      * @return $this
      */
-    public function setTimesheet($timesheet)
+    public function setMessage($message)
     {
 
-        $this->container['timesheet'] = $timesheet;
+        $this->container['message'] = $message;
 
         return $this;
     }

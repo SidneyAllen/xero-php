@@ -1,6 +1,6 @@
 <?php
 /**
- * TimesheetObject
+ * Payslips
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * TimesheetObject Class Doc Comment
+ * Payslips Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TimesheetObject implements ModelInterface, ArrayAccess
+class Payslips implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TimesheetObject';
+    protected static $openAPIModelName = 'Payslips';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'timesheet' => '\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet'
+        'payslips' => '\XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'timesheet' => null
+        'payslips' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'timesheet' => 'Timesheet'
+        'payslips' => 'Payslips'
     ];
 
     /**
@@ -105,7 +105,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'timesheet' => 'setTimesheet'
+        'payslips' => 'setPayslips'
     ];
 
     /**
@@ -114,7 +114,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'timesheet' => 'getTimesheet'
+        'payslips' => 'getPayslips'
     ];
 
     /**
@@ -177,7 +177,7 @@ class TimesheetObject implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['timesheet'] = isset($data['timesheet']) ? $data['timesheet'] : null;
+        $this->container['payslips'] = isset($data['payslips']) ? $data['payslips'] : null;
     }
 
     /**
@@ -205,26 +205,26 @@ class TimesheetObject implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets timesheet
+     * Gets payslips
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]|null
      */
-    public function getTimesheet()
+    public function getPayslips()
     {
-        return $this->container['timesheet'];
+        return $this->container['payslips'];
     }
 
     /**
-     * Sets timesheet
+     * Sets payslips
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Timesheet|null $timesheet timesheet
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\Payslip[]|null $payslips payslips
      *
      * @return $this
      */
-    public function setTimesheet($timesheet)
+    public function setPayslips($payslips)
     {
 
-        $this->container['timesheet'] = $timesheet;
+        $this->container['payslips'] = $payslips;
 
         return $this;
     }
